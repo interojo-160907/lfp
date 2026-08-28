@@ -1,0 +1,21 @@
+[build-system]
+requires = ["setuptools>=75"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "lidding-foil-planner"
+version = "0.1.0"
+description = "Automated lead-foil supply planning dashboard and ERP API collectors"
+readme = "README.md"
+requires-python = ">=3.11"
+dependencies = [
+  "openpyxl>=3.1,<4",
+  "psycopg[binary]>=3.2,<4",
+]
+
+[project.scripts]
+lfp-collect-production = "lidding_foil_planner.collect_production:main"
+lfp-collect-channels = "lidding_foil_planner.collect_channels:main"
+
+[tool.setuptools.packages.find]
+where = ["src"]

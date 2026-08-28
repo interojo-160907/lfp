@@ -1,0 +1,104 @@
+<!doctype html>
+<html lang="ko">
+<head>
+  <script>
+    document.documentElement.classList.add("ct-booting");
+    window.setTimeout(function () {
+      document.documentElement.classList.remove("ct-booting");
+      document.documentElement.classList.add("ct-ready");
+    }, 1800);
+  </script>
+  <style>
+    html.ct-booting body { visibility: hidden; }
+    html.ct-ready body { visibility: visible; }
+  </style>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>리드지 수급관리</title>
+  <link rel="stylesheet" href="./styles.css">
+  <link rel="stylesheet" href="control-tower-theme.css?v=20260827-21">
+  <link rel="stylesheet" href="workspace-shell.css?v=20260828-2">
+</head>
+<body>
+  <header class="topbar">
+    <div class="brand"><span class="mark">LF</span><div><h1>리드지 수급관리</h1><p>생산기획팀 대시보드</p></div></div>
+    <div class="source"><span>생산실적 채널</span><strong>[55] 접착 / 멸균 · 연결 준비</strong></div>
+  </header>
+
+  <nav class="tabs" aria-label="화면 선택">
+    <button class="active" data-tab="overview">대시보드 현황</button>
+    <button data-tab="detail">리드지별 상세내역</button>
+    <button data-tab="bom">BOM 구성 현황</button>
+  </nav>
+
+  <main>
+    <section class="page placeholder active" id="overview">
+      <h2>대시보드 현황</h2><p>리드지 데이터 연결 후 구성할 예정입니다.</p>
+    </section>
+
+    <section class="page" id="detail" hidden>
+      <header class="page-title">
+        <div><h2>리드지별 상세내역</h2><p>리드지 재고, 대기수량, 사용량 환산과 납기 정보를 행 단위로 조회합니다.</p></div>
+        <span class="status">데이터 연결 준비</span>
+      </header>
+
+      <form class="filters" id="filters">
+        <label>통합 검색<input type="search" placeholder="품목코드, 품목명 또는 규격"></label>
+        <label>창고<select><option>전체 창고</option></select></label>
+        <label>납기 상태<select><option>전체</option><option>납기 미확정</option><option>납기 확정</option></select></label>
+        <label>재고 상태<select><option>전체</option><option>재고 있음</option><option>재고 부족</option></select></label>
+        <button type="reset" class="secondary">초기화</button>
+        <button type="submit" class="primary">조회</button>
+      </form>
+
+      <section class="ledger-panel">
+        <header class="table-meta">
+          <div><h3>리드지 수급 상세 데이터</h3><span>총 <strong>0</strong>건</span></div>
+        </header>
+        <div class="scroll ledger-scroll">
+          <table class="ledger-table">
+            <thead>
+              <tr>
+                <th class="select"><input type="checkbox" data-lfp-select-all aria-label="현재 표시 품목 전체 선택"></th>
+                <th>품목코드</th>
+                <th>품목명</th>
+                <th>규격</th>
+                <th class="number">재고</th>
+                <th class="number">검사대기</th>
+                <th class="number">입고대기</th>
+                <th class="number usage">사용량 환산</th>
+                <th>가용일수</th>
+                <th>납기요청일</th>
+                <th>납기확정일</th>
+                <th>리스크 수주</th>
+                <th class="note">비고</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr class="data-empty"><td colspan="11"><b>리드지 데이터 연결 대기</b><span>재고·BOM·구매의뢰 채널이 적재되면 행 데이터가 표시됩니다.</span></td></tr>
+            </tbody>
+          </table>
+        </div>
+      </section>
+    </section>
+
+    <section class="page" id="bom" hidden>
+      <header class="page-title lfp-bom-page-heading">
+        <div><h2>BOM 구성 현황</h2><p>P코드와 리드지 연결 데이터를 수집한 뒤 구성합니다.</p></div>
+      </header>
+    </section>
+  </main>
+
+  <div class="toast" id="toast" role="status"></div>
+  <script src="./app.js" defer></script>
+  <script src="global-shell.js?v=20260827-3" defer></script>
+  <script src="inventory-detail.js?v=20260828-1" defer></script>
+  <script src="bom-status.js?v=20260828-2" defer></script>
+    <script src="https://cdn.sheetjs.com/xlsx-0.20.3/package/dist/xlsx.full.min.js" defer></script>
+  <script src="detail-controls.js?v=20260827-21" defer></script>
+  <script src="schedule-management.js?v=20260828-1" defer></script>
+    <script src="purchase-inbound.js?v=20260827-4" defer></script>
+    <script src="dashboard-overview.js?v=20260828-1" defer></script>
+    <script src="control-tower-theme.js?v=20260828-1" defer></script>
+</body>
+</html>

@@ -1,0 +1,24 @@
+# Local secrets
+.env
+.env.*
+!.env.example
+
+# Runtime state and generated caches
+runtime/
+.tmp_xlsx_analysis/
+.venv/
+__pycache__/
+*.egg-info/
+*.py[cod]
+.pytest_cache/
+
+# Local editor and OS files
+.vscode/
+.idea/
+.DS_Store
+Thumbs.db
+
+# Logs and temporary files
+*.log
+*.tmp
+~$*

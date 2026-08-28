@@ -1,0 +1,309 @@
+html,
+body {
+  width: 100%;
+  height: 100%;
+  overflow: hidden !important;
+}
+
+body.ct-control-tower {
+  height: 100vh;
+  height: 100dvh;
+  overflow: hidden !important;
+}
+
+.ct-main-workspace {
+  width: auto !important;
+  height: 100vh !important;
+  height: 100dvh !important;
+  min-width: 0 !important;
+  min-height: 0 !important;
+  padding: 10px 12px 12px !important;
+  display: grid !important;
+  grid-template-rows: 38px minmax(0, 1fr);
+  gap: 10px;
+  overflow: hidden !important;
+}
+
+.lfp-global-statusbar {
+  min-width: 0;
+  min-height: 38px;
+  padding: 0 13px;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 10px;
+  color: #5a718d;
+  background: rgba(255, 255, 255, .97);
+  border: 1px solid #c9d8e8;
+  border-left: 4px solid #1684dc;
+  box-shadow: 0 4px 14px rgba(22, 57, 96, .05);
+  font-size: 11px;
+  font-weight: 700;
+  white-space: nowrap;
+}
+
+.lfp-global-statusbar span {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+}
+
+.lfp-global-statusbar strong {
+  color: #075fc2;
+  font: 800 12.5px/1 "IBM Plex Mono", Consolas, monospace;
+  letter-spacing: .02em;
+  font-variant-numeric: tabular-nums;
+}
+
+.lfp-global-statusbar i {
+  color: #a6b6c8;
+  font-style: normal;
+}
+
+.lfp-legacy-time-hidden {
+  display: none !important;
+}
+
+.ct-main-workspace > .page {
+  box-sizing: border-box;
+  position: relative;
+  z-index: 1;
+  width: 100% !important;
+  max-width: none !important;
+  min-width: 0 !important;
+  min-height: 0 !important;
+  margin: 0 !important;
+  overflow: auto !important;
+  scrollbar-gutter: stable;
+  scrollbar-width: thin;
+  scrollbar-color: #8fa7c1 #edf2f7;
+}
+
+.ct-main-workspace > .page[hidden] {
+  display: none !important;
+}
+
+#overview.lfp-dashboard-page,
+#detail.page {
+  padding: 0 2px 12px !important;
+}
+
+.lfp-dashboard-shell,
+#detail > *,
+#bom.lfp-bom-page > * {
+  width: 100%;
+  max-width: none;
+}
+
+#bom.lfp-bom-page {
+  height: auto;
+  max-height: 100%;
+  box-sizing: border-box;
+  padding: 14px 20px !important;
+  display: grid !important;
+  grid-template-rows: auto minmax(0, 1fr);
+  align-content: stretch;
+  overflow: hidden !important;
+  background: #fff;
+  border: 1px solid #c9d8e8;
+}
+
+#bom.lfp-bom-page > h2 {
+  grid-row: 1;
+  grid-column: 1;
+  align-self: start;
+  position: relative;
+  margin: 0;
+  padding-left: 12px;
+  color: #0a2146;
+  font: 700 19px/1.25 var(--ct-font, "Pretendard Variable", Pretendard, "Noto Sans KR", sans-serif);
+  letter-spacing: -0.045em;
+}
+
+#bom.lfp-bom-page > h2::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  bottom: -25px;
+  left: 0;
+  width: 4px;
+  background: #147be0;
+}
+
+#bom.lfp-bom-page > p {
+  grid-row: 1;
+  grid-column: 1;
+  align-self: start;
+  margin: 31px 0 0;
+  padding-left: 16px;
+  color: #6b7f98;
+  font-size: 11px;
+  line-height: 1.25;
+}
+
+#bom.lfp-bom-page > :not(h2):not(p) {
+  grid-row: 2;
+  min-height: 0;
+}
+
+#overview .lfp-dashboard-titlebar > div:first-child {
+  padding-left: 12px;
+  border-left: 4px solid #147be0;
+}
+
+#overview .lfp-dashboard-titlebar h2,
+.ct-page-title strong {
+  color: #0a2146 !important;
+  font: 700 19px/1.25 var(--ct-font, "Pretendard Variable", Pretendard, "Noto Sans KR", sans-serif) !important;
+  letter-spacing: -0.045em !important;
+}
+
+#overview .lfp-dashboard-titlebar p,
+.ct-page-title span {
+  margin-top: 5px !important;
+  color: #6b7f98 !important;
+  font-size: 11px !important;
+  line-height: 1.25 !important;
+}
+
+#bom.lfp-bom-page > p {
+  margin: 31px 0 0 !important;
+  padding-left: 16px;
+  color: #6b7f98;
+  font-size: 11px;
+  line-height: 1.25;
+}
+
+#bom.lfp-bom-page #lfp-bom-live {
+  grid-row: 2;
+  grid-column: 1;
+  min-height: 0;
+  margin: 0 !important;
+  display: flex;
+  flex-direction: column;
+}
+
+#bom.lfp-bom-page > .lfp-bom-page-heading {
+  grid-row: 1;
+  grid-column: 1;
+  box-sizing: border-box;
+  min-width: 0;
+  min-height: 72px;
+  padding: 10px 16px !important;
+  border-left: 4px solid #147be0;
+}
+
+#bom.lfp-bom-page > .lfp-bom-page-heading h2 {
+  color: #0a2146;
+  font: 700 19px/1.25 var(--ct-font, "Pretendard Variable", Pretendard, "Noto Sans KR", sans-serif);
+  letter-spacing: -0.045em;
+}
+
+#bom.lfp-bom-page > .lfp-bom-page-heading p {
+  margin: 5px 0 0 !important;
+  color: #6b7f98;
+  font-size: 11px;
+  line-height: 1.25;
+}
+
+#bom.lfp-bom-page .lfp-bom-command {
+  flex: 0 0 auto;
+}
+
+#bom.lfp-bom-page .lfp-bom-scroll {
+  flex: 1 1 auto;
+  min-height: 0;
+  max-height: none !important;
+  overflow: auto !important;
+}
+
+@media (max-width: 900px) {
+  body.ct-control-tower {
+    height: 100vh;
+    height: 100dvh;
+  }
+
+  .ct-main-workspace {
+    height: calc(100vh - 136px) !important;
+    height: calc(100dvh - 136px) !important;
+    padding: 8px !important;
+    grid-template-rows: 36px minmax(0, 1fr);
+    gap: 8px;
+  }
+
+  .lfp-global-statusbar {
+    min-height: 36px;
+    justify-content: flex-start;
+    overflow-x: auto;
+  }
+
+  #bom.lfp-bom-page {
+    padding: 10px !important;
+  }
+}
+
+/* Preserve the original compact sidebar menu inside the fixed-height shell. */
+.ct-side-nav {
+  grid-template-rows: repeat(3, 42px);
+  grid-auto-rows: 42px;
+  align-content: start;
+}
+
+.ct-side-nav .ct-nav-item {
+  height: 42px;
+  min-height: 42px;
+}
+
+.ct-main-workspace > #bom.lfp-bom-page[hidden] {
+  display: none !important;
+}
+
+/* Dashboard overview stays viewport-fixed; only each alert list scrolls. */
+.ct-main-workspace > #overview.lfp-dashboard-page {
+  height: 100% !important;
+  min-height: 0 !important;
+  padding-bottom: 0 !important;
+  overflow: hidden !important;
+}
+
+#overview .lfp-dashboard-shell {
+  height: 100% !important;
+  min-height: 0 !important;
+  display: grid !important;
+  grid-template-rows: 86px auto minmax(0, 1fr);
+  align-content: stretch;
+  overflow: hidden !important;
+}
+
+#overview .lfp-dashboard-titlebar {
+  min-height: 0 !important;
+  height: 86px !important;
+  box-sizing: border-box;
+}
+
+#overview .lfp-risk-kpi-strip {
+  min-height: 0;
+}
+
+#overview .lfp-dashboard-grid {
+  min-height: 0 !important;
+  height: 100% !important;
+  overflow: hidden !important;
+}
+
+#overview .lfp-command-panel {
+  height: 100% !important;
+  min-height: 0 !important;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden !important;
+}
+
+#overview .lfp-panel-list {
+  flex: 1 1 auto;
+  min-height: 0 !important;
+  max-height: none !important;
+  overflow-x: hidden !important;
+  overflow-y: auto !important;
+  overscroll-behavior: contain;
+}
