@@ -766,7 +766,8 @@
     QUANTITY_COLUMNS.forEach(({ key }) => {
       const total = rows.reduce((sum, row) => sum + numberValue(row.cells[descriptor.columns[key]]?.textContent), 0);
       const target = table.tHead?.querySelector(`[data-lfp-total="${key}"]`);
-      if (target) target.textContent = `합계 ${formatQty(total)}`;
+      const value = `합계 ${formatQty(total)}`;
+      if (target && text(target.textContent) !== value) target.textContent = value;
     });
   }
 
@@ -919,9 +920,9 @@
         const availableCell = row.cells[columns.availableDays];
         const riskOrderCell = row.cells[columns.riskOrder];
         if (availableCell) {
-          const value = requiredQty > 0 && planning ? planning.availableLabel : "-";
+          const value = Number(planning?.averageDailyUsage || 0) > 0 ? planning.availableLabel : "-";
           setText(availableCell, value, "lfpAvailability", `${requiredQty}|${value}`);
-          availableCell.title = requiredQty > 0 && planning ? planning.availableTitle : "";
+          availableCell.title = planning?.availableTitle || "";
         }
         if (riskOrderCell) {
           const value = requiredQty > 0 && planning ? planning.riskLabel : "-";
@@ -1124,6 +1125,85 @@
     return { rows, missing };
   }
 
+  function cloneWorkbookCell(cell) {
+    if (!cell) return null;
+    if (typeof structuredClone === "function") return structuredClone(cell);
+    return JSON.parse(JSON.stringify(cell));
+  }
+
+  function setWorkbookCell(sheet, address, value, type = "s", numberFormat = "") {
+    const cell = cloneWorkbookCell(sheet[address]) || {};
+    cell.t = type;
+    cell.v = value;
+    if (numberFormat) cell.z = numberFormat;
+    delete cell.w;
+    sheet[address] = cell;
+  }
+
+  function cloneWorkbookRow(sheet, sourceRow, targetRow, lastColumn) {
+    for (let column = 0; column <= lastColumn; column += 1) {
+      const sourceAddress = window.XLSX.utils.encode_cell({ r: sourceRow, c: column });
+      const targetAddress = window.XLSX.utils.encode_cell({ r: targetRow, c: column });
+      const sourceCell = cloneWorkbookCell(sheet[sourceAddress]);
+      if (sourceCell) sheet[targetAddress] = sourceCell;
+    }
+    if (Array.isArray(sheet["!rows"]) && sheet["!rows"][sourceRow]) {
+      sheet["!rows"][targetRow] = cloneWorkbookCell(sheet["!rows"][sourceRow]);
+    }
+  }
+
+  function purchaseDueDate() {
+    const result = new Date();
+    result.setHours(12, 0, 0, 0);
+    result.setDate(result.getDate() + 14);
+    return result;
+  }
+
+  function localIsoDate(value) {
+    return `${value.getFullYear()}-${String(value.getMonth() + 1).padStart(2, "0")}-${String(value.getDate()).padStart(2, "0")}`;
+  }
+
+  async function downloadPurchaseWorkbook(rows) {
+    if (!window.XLSX) throw new Error("Excel 모듈을 불러오지 못했습니다. 잠시 후 다시 시도해주세요.");
+    const templateResponse = await fetch("templates/purchase-request-template.xlsx", { cache: "no-store" });
+    if (!templateResponse.ok) throw new Error("발주 Excel 양식을 불러오지 못했습니다.");
+
+    const workbook = window.XLSX.read(await templateResponse.arrayBuffer(), {
+      type: "array",
+      cellDates: true,
+      cellStyles: true,
+    });
+    const sheet = workbook.Sheets[workbook.SheetNames[0]];
+    if (!sheet) throw new Error("발주 Excel 양식의 시트를 찾지 못했습니다.");
+
+    const range = window.XLSX.utils.decode_range(sheet["!ref"] || "A1:Z2");
+    const templateRow = 1;
+    const dueDate = purchaseDueDate();
+    rows.forEach((row, index) => {
+      const targetRow = templateRow + index;
+      if (targetRow !== templateRow) cloneWorkbookRow(sheet, templateRow, targetRow, Math.max(range.e.c, 25));
+      setWorkbookCell(sheet, window.XLSX.utils.encode_cell({ r: targetRow, c: 4 }), index + 1, "n");
+      setWorkbookCell(sheet, window.XLSX.utils.encode_cell({ r: targetRow, c: 5 }), row.itemCode, "s");
+      setWorkbookCell(sheet, window.XLSX.utils.encode_cell({ r: targetRow, c: 8 }), row.spec, "s");
+      setWorkbookCell(sheet, window.XLSX.utils.encode_cell({ r: targetRow, c: 11 }), "국내(원)", "s");
+      setWorkbookCell(sheet, window.XLSX.utils.encode_cell({ r: targetRow, c: 12 }), row.quantity, "n", "#,##0");
+      setWorkbookCell(sheet, window.XLSX.utils.encode_cell({ r: targetRow, c: 13 }), 0, "n");
+      setWorkbookCell(sheet, window.XLSX.utils.encode_cell({ r: targetRow, c: 14 }), 0, "n");
+      setWorkbookCell(sheet, window.XLSX.utils.encode_cell({ r: targetRow, c: 16 }), "KRW", "s");
+      setWorkbookCell(sheet, window.XLSX.utils.encode_cell({ r: targetRow, c: 18 }), dueDate, "d", "yyyy-mm-dd");
+    });
+    range.e.r = Math.max(range.e.r, templateRow + rows.length - 1);
+    range.e.c = Math.max(range.e.c, 25);
+    sheet["!ref"] = window.XLSX.utils.encode_range(range);
+
+    const today = localIsoDate(new Date());
+    window.XLSX.writeFile(workbook, `${today}_구매의뢰 리스트.xlsx`, {
+      compression: true,
+      cellStyles: true,
+    });
+    return { count: rows.length, dueDate: localIsoDate(dueDate) };
+  }
+
   async function exportPurchaseRequest(button) {
     const selected = document.querySelectorAll(".lfp-detail-table .lfp-row-select:checked").length;
     if (!selected) {
@@ -1140,15 +1220,10 @@
     button.disabled = true;
     button.textContent = "Excel 생성 중";
     try {
-      const response = await fetch("api/export-purchase-request", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ rows }),
-      });
-      const result = await response.json().catch(() => ({}));
-      if (!response.ok || !result.ok) throw new Error(result.detail || "발주 Excel 저장 실패");
-      window.alert(`${result.count.toLocaleString("ko-KR")}건 저장 완료\n납기요청일 ${result.dueDate}\n${result.path}`);
+      const result = await downloadPurchaseWorkbook(rows);
+      window.alert(`${result.count.toLocaleString("ko-KR")}건 다운로드 완료\n납기요청일 ${result.dueDate}\n브라우저의 다운로드 폴더를 확인해주세요.`);
     } catch (error) {
+      console.error("purchase workbook export failed", error);
       window.alert(error?.message || "발주 Excel 저장에 실패했습니다.");
     } finally {
       button.disabled = false;

@@ -220,6 +220,144 @@ def collect_bom() -> dict:
     }
 
 
+def collect_production_usage(bom: dict, date_to: date | None = None) -> dict:
+    period_to = date_to or (datetime.now(KST).date() - timedelta(days=1))
+    period_from = period_to - timedelta(days=6)
+    day_count = (period_to - period_from).days + 1
+
+    bom_by_product: dict[str, list[dict]] = defaultdict(list)
+    for row in bom.get("rows") or []:
+        product_code = normalized(row.get("productCode"))
+        lidding_code = normalized(row.get("liddingCode"))
+        specification = str(row.get("liddingSpecification") or "").strip()
+        if not PCODE.fullmatch(product_code) or not lidding_code.startswith("BS") or not specification:
+            continue
+        bom_by_product[product_code].append({
+            "liddingCode": lidding_code,
+            "liddingName": str(row.get("liddingName") or "").strip(),
+            "liddingSpecification": specification,
+            "requirementQty": number(row.get("requirementQty") or 1),
+        })
+
+    source_row_count = 0
+    filtered_row_count = 0
+    source_total_instruction = Decimal("0")
+    mapped_source_instruction = Decimal("0")
+    expected_lidding_usage = Decimal("0")
+    extracted_values: list[str] = []
+    unmatched: dict[str, Decimal] = defaultdict(lambda: Decimal("0"))
+    daily_usage: dict[tuple[str, str], dict[str, Decimal]] = defaultdict(
+        lambda: defaultdict(lambda: Decimal("0"))
+    )
+    row_meta: dict[tuple[str, str], dict] = {}
+    product_codes_by_lidding: dict[tuple[str, str], set[str]] = defaultdict(set)
+
+    current = period_from
+    while current <= period_to:
+        payload = fetch_json(
+            "/api/production-performance",
+            {
+                "date_from": current.isoformat(),
+                "date_to": current.isoformat(),
+                "gong_cd": "55",
+                "limit": 100000,
+            },
+            300,
+        )
+        if payload.get("key") not in (None, "production_performance"):
+            raise RuntimeError(f"생산실적 API 채널이 올바르지 않습니다: {payload.get('key')}")
+        rows = validated_rows(f"생산실적 {current.isoformat()}", payload)
+        source_row_count += len(rows)
+        for source in rows:
+            production_date = str(source.get("pr_dt") or "").strip()
+            if production_date != current.isoformat():
+                raise RuntimeError(
+                    f"생산실적 조회일 불일치: 요청={current.isoformat()}, 응답={production_date}"
+                )
+            if normalized(source.get("gong_cd")) != "55":
+                continue
+            product_code = normalized(source.get("sale_cd"))
+            if not PCODE.fullmatch(product_code):
+                continue
+            instruction_qty = number(source.get("job_qty"))
+            filtered_row_count += 1
+            source_total_instruction += instruction_qty
+            extracted_at = str(source.get("extracted_at") or "").strip()
+            if extracted_at:
+                extracted_values.append(extracted_at)
+            mappings = bom_by_product.get(product_code) or []
+            if not mappings:
+                unmatched[product_code] += instruction_qty
+                continue
+            mapped_source_instruction += instruction_qty
+            for mapping in mappings:
+                usage_qty = instruction_qty * mapping["requirementQty"]
+                lidding_key = (mapping["liddingCode"], mapping["liddingSpecification"])
+                daily_usage[lidding_key][production_date] += usage_qty
+                expected_lidding_usage += usage_qty
+                row_meta[lidding_key] = mapping
+                product_codes_by_lidding[lidding_key].add(product_code)
+        current += timedelta(days=1)
+
+    output_rows = []
+    date_values = [period_from + timedelta(days=offset) for offset in range(day_count)]
+    for lidding_key, values in daily_usage.items():
+        total_usage = sum((values.get(day.isoformat(), Decimal("0")) for day in date_values), Decimal("0"))
+        meta = row_meta[lidding_key]
+        output_rows.append({
+            "itemCode": meta["liddingCode"],
+            "itemName": meta["liddingName"],
+            "specification": meta["liddingSpecification"],
+            "totalUsageQty": decimal_json(total_usage),
+            "averageDailyUsage": decimal_json(total_usage / Decimal(day_count)),
+            "dayCount": day_count,
+            "productCount": len(product_codes_by_lidding[lidding_key]),
+            "dailyUsage": [
+                {"date": day.isoformat(), "usageQty": decimal_json(values.get(day.isoformat(), Decimal("0")))}
+                for day in date_values
+            ],
+        })
+    output_rows.sort(key=lambda row: (row["itemCode"], row["specification"]))
+    output_total = sum((number(row["totalUsageQty"]) for row in output_rows), Decimal("0"))
+    if output_total != expected_lidding_usage:
+        raise RuntimeError(
+            f"생산실적 리드지 환산 합계 불일치: 예상={expected_lidding_usage}, 집계={output_total}"
+        )
+
+    return {
+        "generatedAt": now_text(),
+        "dateFrom": period_from.isoformat(),
+        "dateTo": period_to.isoformat(),
+        "dayCount": day_count,
+        "processCode": "55",
+        "quantityField": "job_qty",
+        "quantityLabel": "지시수량",
+        "sourceRefreshedAt": max(extracted_values) if extracted_values else "",
+        "sourceRowCount": source_row_count,
+        "filteredSourceRowCount": filtered_row_count,
+        "sourceInstructionQty": decimal_json(source_total_instruction),
+        "mappedSourceInstructionQty": decimal_json(mapped_source_instruction),
+        "liddingUsageTotal": decimal_json(output_total),
+        "liddingUsageCount": len(output_rows),
+        "unmatchedPCodes": [
+            {"productCode": code, "instructionQty": decimal_json(qty)}
+            for code, qty in sorted(unmatched.items())
+            if qty != 0
+        ],
+        "formula": {
+            "usage": "sum(process 55 job_qty * BOM requirementQty) by lidding and production date",
+            "averageDailyUsage": "seven-calendar-day lidding usage total / 7",
+            "availability": "(stock + inspection wait) / averageDailyUsage",
+        },
+        "qualityChecks": {
+            "dailySourceCountsValidated": True,
+            "requestedDayCount": day_count,
+            "liddingUsageTotalReconciled": True,
+        },
+        "rows": output_rows,
+    }
+
+
 def collect_inventory() -> dict:
     collected: list[dict] = []
     channel_status: list[dict] = []
@@ -684,6 +822,7 @@ def publish_snapshot(scope: str, reason: str) -> None:
     for name, filename in {
         "aps": "aps-lidding-requirement.json", "inventory": "lidding-inventory.json",
         "purchase": "lidding-purchase-inbound.json", "bom": "bom-product-lidding.json",
+        "production": "lidding-production-usage.json",
     }.items():
         payload = read_json(DATA_DIR / filename, None)
         if not isinstance(payload, dict) or not payload:
@@ -749,6 +888,12 @@ def collect_scope(scope: str, mode: str, reason: str) -> list[str]:
         aps = collect_aps(bom)
         atomic_write(DATA_DIR / "aps-lidding-requirement.json", aps)
         written.append("aps-lidding-requirement.json")
+    if scope == "production" or (scope == "all" and mode == "manual"):
+        if not isinstance(bom, dict) or not bom:
+            raise RuntimeError("생산실적 환산에 필요한 기존 BOM 데이터가 없습니다.")
+        production = collect_production_usage(bom)
+        atomic_write(DATA_DIR / "lidding-production-usage.json", production)
+        written.append("lidding-production-usage.json")
     publish_snapshot(scope, reason)
     written.append("dashboard-snapshot.json")
     files = sorted(set(written))
@@ -861,7 +1006,7 @@ def main() -> int:
     parser = argparse.ArgumentParser(description="Collect the latest API data for the Git dashboard")
     parser.add_argument(
         "--scope",
-        choices=("auto", "aps", "inventory", "purchase", "bom", "all"),
+        choices=("auto", "aps", "inventory", "purchase", "bom", "production", "all"),
         default="all",
     )
     args = parser.parse_args()

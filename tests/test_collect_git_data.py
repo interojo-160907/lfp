@@ -3,7 +3,7 @@ from __future__ import annotations
 import importlib.util
 import unittest
 from decimal import Decimal
-from datetime import datetime, timedelta
+from datetime import date, datetime, timedelta
 from pathlib import Path
 from unittest.mock import patch
 
@@ -108,7 +108,8 @@ class ManualScopeTests(unittest.TestCase):
             "inventory": {"inventory"},
             "purchase": {"purchase"},
             "bom": {"bom"},
-            "all": {"aps", "inventory", "purchase", "bom"},
+            "production": {"production"},
+            "all": {"aps", "inventory", "purchase", "bom", "production"},
         }
         for scope, expected in cases.items():
             with self.subTest(scope=scope):
@@ -121,6 +122,7 @@ class ManualScopeTests(unittest.TestCase):
                     patch.object(collector, "collect_inventory", return_value=self.inventory) as collect_inventory,
                     patch.object(collector, "collect_purchase", return_value={}) as collect_purchase,
                     patch.object(collector, "collect_bom", return_value=self.bom) as collect_bom,
+                    patch.object(collector, "collect_production_usage", return_value={}) as collect_production,
                 ):
                     collector.collect_scope(scope, "manual", f"manual_{scope}")
                     actual = {
@@ -130,10 +132,26 @@ class ManualScopeTests(unittest.TestCase):
                             "inventory": collect_inventory,
                             "purchase": collect_purchase,
                             "bom": collect_bom,
+                            "production": collect_production,
                         }.items()
                         if mock.called
                     }
                     self.assertEqual(expected, actual)
+
+    def test_regular_all_collection_does_not_repeat_daily_production_fetch(self) -> None:
+        with (
+            patch.object(collector, "read_json", side_effect=self.read_json),
+            patch.object(collector, "atomic_write"),
+            patch.object(collector, "publish_snapshot"),
+            patch.object(collector, "write_status"),
+            patch.object(collector, "collect_aps", return_value={}),
+            patch.object(collector, "collect_inventory", return_value=self.inventory),
+            patch.object(collector, "collect_purchase", return_value={}),
+            patch.object(collector, "collect_bom", return_value=self.bom),
+            patch.object(collector, "collect_production_usage") as collect_production,
+        ):
+            collector.collect_scope("all", "regular", "aps_changed")
+            collect_production.assert_not_called()
 
 
 class ApsCategoryTests(unittest.TestCase):
@@ -195,6 +213,46 @@ class ApsCategoryTests(unittest.TestCase):
             self.assertRaisesRegex(RuntimeError, "미지원 수요구분"),
         ):
             collector.collect_aps({"rows": []})
+
+
+class ProductionUsageTests(unittest.TestCase):
+    def test_seven_day_process_55_usage_is_bom_converted_and_averaged(self) -> None:
+        period_to = date(2026, 8, 30)
+        bom = {"rows": [
+            {
+                "productCode": "P0001", "liddingCode": "BS0001",
+                "liddingName": "리드지", "liddingSpecification": "BS0001-001",
+                "requirementQty": 1,
+            },
+            {
+                "productCode": "P0002", "liddingCode": "BS0001",
+                "liddingName": "리드지", "liddingSpecification": "BS0001-001",
+                "requirementQty": 2,
+            },
+        ]}
+
+        def fetch(_path, params, _timeout=300):
+            target = params["date_from"]
+            rows = [
+                {"pr_dt": target, "gong_cd": "55", "sale_cd": "P0001", "job_qty": 7},
+                {"pr_dt": target, "gong_cd": "55", "sale_cd": "P0002", "job_qty": 3},
+                {"pr_dt": target, "gong_cd": "45", "sale_cd": "P0001", "job_qty": 999},
+            ]
+            return {
+                "key": "production_performance", "rows": rows,
+                "total_count": len(rows), "returned_count": len(rows), "truncated": False,
+            }
+
+        with patch.object(collector, "fetch_json", side_effect=fetch) as fetch_json:
+            result = collector.collect_production_usage(bom, period_to)
+
+        self.assertEqual(7, fetch_json.call_count)
+        self.assertEqual("2026-08-24", result["dateFrom"])
+        self.assertEqual("2026-08-30", result["dateTo"])
+        self.assertEqual(91, result["liddingUsageTotal"])
+        self.assertEqual(13, result["rows"][0]["averageDailyUsage"])
+        self.assertEqual(7, len(result["rows"][0]["dailyUsage"]))
+        self.assertTrue(result["qualityChecks"]["liddingUsageTotalReconciled"])
 
 
 class SupplyFormulaTests(unittest.TestCase):

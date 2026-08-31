@@ -3,6 +3,8 @@
     data: null,
     aps: null,
     requirementMap: new Map(),
+    productionUsageMap: new Map(),
+    productionUsage: null,
     productMap: new Map(),
     productMapByCode: new Map(),
     selectedItems: new Set(),
@@ -152,35 +154,18 @@
       : "-";
   }
 
-  function weekKey(date) {
-    const monday = new Date(date.getFullYear(), date.getMonth(), date.getDate());
-    monday.setDate(monday.getDate() - ((monday.getDay() + 6) % 7));
-    return `${monday.getFullYear()}-${String(monday.getMonth() + 1).padStart(2, "0")}-${String(monday.getDate()).padStart(2, "0")}`;
-  }
-
   function planningMetrics(itemCode, specification, stockQty, inspectionWaitQty) {
     const requirement = state.requirementMap.get(`${itemCode}|${specification}`);
     const quantities = requirement?.categoryQuantities || {};
     const productionRequired = [...state.apsCategories]
       .reduce((sum, category) => sum + Number(quantities[category] || 0), 0);
-    if (productionRequired <= 0) {
-      return { productionRequired, availableLabel: "-", availableTitle: "", riskLabel: "-", riskTitle: "", riskOrders: [] };
-    }
+    const usage = state.productionUsageMap.get(`${itemCode}|${specification}`);
+    const averageDailyUsage = Number(usage?.averageDailyUsage || 0);
 
     const orders = (requirement?.salesOrders || [])
       .filter((order) => state.apsCategories.has(order.demandCategory))
       .map((order) => ({ ...order, parsedDueDate: parseIsoDate(order.dueDate) }))
       .filter((order) => order.parsedDueDate && Number(order.productionRequiredQty || 0) > 0);
-    const weeklyTotals = new Map();
-    orders.forEach((order) => {
-      const key = weekKey(order.parsedDueDate);
-      weeklyTotals.set(key, (weeklyTotals.get(key) || 0) + Number(order.productionRequiredQty || 0));
-    });
-
-    const weeklyAverage = weeklyTotals.size
-      ? [...weeklyTotals.values()].reduce((sum, value) => sum + value, 0) / weeklyTotals.size
-      : 0;
-    const averageDailyUsage = weeklyAverage / 7;
     const availableQty = Math.max(0, Number(stockQty || 0) + Number(inspectionWaitQty || 0));
     const availableDays = averageDailyUsage > 0
       ? Math.max(0, Math.floor(availableQty / averageDailyUsage))
@@ -235,10 +220,11 @@
 
     return {
       productionRequired,
+      averageDailyUsage,
       availableLabel: availableDate ? `${formatShortDate(availableDate)}(+${availableDays})` : "-",
       availableTitle: availableDate
-        ? `가용 ${numberFormat.format(availableQty)} ÷ APS 환산 일평균 ${numberFormat.format(averageDailyUsage)} = ${availableDays}일`
-        : "APS 주차별 사용량을 계산할 수 없습니다.",
+        ? `가용 ${numberFormat.format(availableQty)} ÷ 최근 7일 실적 일평균 ${numberFormat.format(averageDailyUsage)} = ${availableDays}일 · 실적 ${state.productionUsage?.dateFrom || "-"}~${state.productionUsage?.dateTo || "-"}`
+        : `최근 7일 생산실적 기준 사용량이 없습니다. · 실적 ${state.productionUsage?.dateFrom || "-"}~${state.productionUsage?.dateTo || "-"}`,
       riskLabel: riskOrder ? formatShortDate(riskOrder.parsedDueDate) : "-",
       riskTitle: riskOrder
         ? `${riskOrder.orderNumber} · 1.5배 필요 ${numberFormat.format(riskOrder.bufferedRequiredQty)} · 직전 가용 ${numberFormat.format(riskOrder.availableBeforeOrder)} · 부족 ${numberFormat.format(riskOrder.shortageQty)}`
@@ -546,19 +532,45 @@
   window.lfpSyncSelectionHeader = syncSelectionHeader;
   window.lfpClearSelection = clearSelection;
 
-  function rowCells(_warehouseName, row, stockQty, inspectionWaitQty, productionRequiredQty = null, note = "") {
+  function purchaseWaitingValues(itemCode, specification) {
+    const values = window.lfpPurchaseWaitingValues?.(itemCode, specification) || {};
+    return {
+      inboundWaitQty: Number(values.inboundWaitQty || 0),
+      purchaseWaitQty: Number(values.purchaseWaitQty || 0),
+    };
+  }
+
+  function waitingCell(quantity) {
+    const value = Number(quantity || 0);
+    return `<td class="lfp-number" data-purchase-inbound-value="${value}">${value > 0 ? numberFormat.format(value) : "-"}</td>`;
+  }
+
+  function rowCells(
+    _warehouseName,
+    row,
+    stockQty,
+    inspectionWaitQty,
+    productionRequiredQty = null,
+    note = "",
+    separatedWaitingColumns = false,
+  ) {
     const metrics = planningMetrics(row.itemCode, row.specification, stockQty, inspectionWaitQty);
     const selectedProductionRequiredQty = Number(metrics.productionRequired ?? productionRequiredQty ?? 0);
     const hasProductionRequirement = selectedProductionRequiredQty > 0;
+    const hasAverageUsage = Number(metrics.averageDailyUsage || 0) > 0;
+    const waiting = purchaseWaitingValues(row.itemCode, row.specification);
+    const waitingCells = separatedWaitingColumns
+      ? `${waitingCell(waiting.inboundWaitQty)}${waitingCell(waiting.purchaseWaitQty)}`
+      : waitingCell(waiting.purchaseWaitQty);
     return `
       <td>${escapeHtml(row.itemCode)}</td>
       <td class="lfp-item-name-cell" data-item-code="${escapeHtml(row.itemCode)}" data-item-spec="${escapeHtml(row.specification || "")}">${escapeHtml(row.itemName)}</td>
       <td>${escapeHtml(row.specification || "-")}</td>
       <td class="lfp-number">${numberFormat.format(stockQty)}</td>
       <td class="lfp-number ${inspectionWaitQty ? "lfp-inspection" : ""}">${numberFormat.format(inspectionWaitQty)}</td>
-      <td class="lfp-number">-</td>
+      ${waitingCells}
       <td class="lfp-number">${numberFormat.format(selectedProductionRequiredQty)}</td>
-      <td class="lfp-availability-cell" title="${escapeHtml(hasProductionRequirement ? metrics.availableTitle : "")}">${hasProductionRequirement ? escapeHtml(metrics.availableLabel) : "-"}</td>
+      <td class="lfp-availability-cell" title="${escapeHtml(metrics.availableTitle || "")}">${hasAverageUsage ? escapeHtml(metrics.availableLabel) : "-"}</td>
       <td>-</td>
       <td>-</td>
       <td class="lfp-risk-order-cell ${hasProductionRequirement && metrics.riskLabel !== "-" ? "has-risk" : ""}" data-item-code="${escapeHtml(row.itemCode)}" data-item-spec="${escapeHtml(row.specification || "")}">${hasProductionRequirement ? escapeHtml(metrics.riskLabel) : "-"}</td>
@@ -572,6 +584,10 @@
     const tbody = table.tBodies[0] || table.appendChild(document.createElement("tbody"));
     const rows = filteredRows();
     const html = [];
+    const separatedWaitingColumns = Boolean(
+      table.querySelector('th[data-lfp-role="inbound-waiting"]')
+      && table.querySelector('th[data-lfp-role="purchase-waiting"]'),
+    );
 
     for (const row of rows) {
       if (state.warehouse) {
@@ -579,7 +595,8 @@
         html.push(`<tr>${rowCells(
           escapeHtml(warehouse.warehouseName), row, warehouse.stockQty,
           warehouse.inspectionWaitQty, row.productionRequiredQty,
-          warehouse.inspectionWaitQty ? "검사대기 API 원본값 · APS 필요량은 전체 기준" : "APS 필요량은 전체 기준"
+          warehouse.inspectionWaitQty ? "검사대기 API 원본값 · APS 필요량은 전체 기준" : "APS 필요량은 전체 기준",
+          separatedWaitingColumns,
         )}</tr>`);
         continue;
       }
@@ -587,7 +604,8 @@
       html.push(`<tr class="lfp-summary-row" data-item-code="${escapeHtml(row.itemCode)}">
         ${rowCells(
           "",
-          row, row.stockQty, row.inspectionWaitQty, row.productionRequiredQty, row.planningNote
+          row, row.stockQty, row.inspectionWaitQty, row.productionRequiredQty, row.planningNote,
+          separatedWaitingColumns,
         )}
       </tr>`);
     }
@@ -596,6 +614,7 @@
     replaceText(/총\s*\d+건/, `총 ${rows.length}건`);
     bindSelectionControls(tbody);
     bindHoverPopovers(tbody);
+    window.lfpDecoratePurchaseInbound?.();
   }
 
   function bindControls() {
@@ -636,10 +655,11 @@
   async function init() {
     injectStyles();
     try {
-      const [inventoryResponse, apsResponse, bomResponse] = await Promise.all([
+      const [inventoryResponse, apsResponse, bomResponse, productionResponse] = await Promise.all([
         fetch(`data/lidding-inventory.json?v=${Date.now()}`),
         fetch(`data/aps-lidding-requirement.json?v=${Date.now()}`),
         fetch(`data/bom-product-lidding.json?v=${Date.now()}`),
+        fetch(`data/lidding-production-usage.json?v=${Date.now()}`),
       ]);
       if (!inventoryResponse.ok || !apsResponse.ok) throw new Error(`HTTP ${inventoryResponse.status}/${apsResponse.status}`);
       state.data = await inventoryResponse.json();
@@ -664,6 +684,13 @@
         || String(left.specification).localeCompare(String(right.specification)));
       state.data.itemCount = state.data.rows.length;
       if (bomResponse.ok) buildProductMaps(await bomResponse.json());
+      if (productionResponse.ok) {
+        state.productionUsage = await productionResponse.json();
+        state.productionUsageMap = new Map((state.productionUsage.rows || []).map((row) => [
+          `${row.itemCode}|${row.specification}`,
+          row,
+        ]));
+      }
       state.requirementMap = new Map(state.aps.rows.map((row) => [`${row.liddingCode}|${row.liddingSpecification}`, row]));
       applyApsRequirements();
       const detailTable = findDetailTable();

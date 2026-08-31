@@ -1,22 +1,10 @@
-name: Collect dashboard data
+name: Collect seven-day production usage
 
 on:
   schedule:
-    - cron: "3-58/5 * * * *"
+    # GitHub cron is UTC. 23:00 UTC = 08:00 Asia/Seoul on the next day.
+    - cron: "0 23 * * *"
   workflow_dispatch:
-    inputs:
-      scope:
-        description: Collection scope
-        required: true
-        default: all
-        type: choice
-        options:
-          - all
-          - aps
-          - inventory
-          - purchase
-          - bom
-          - production
 
 permissions:
   contents: write
@@ -42,29 +30,20 @@ jobs:
         with:
           python-version: "3.12"
 
-      - name: Select collection scope
-        shell: bash
-        run: |
-          if [ "${{ github.event_name }}" = "schedule" ]; then
-            echo "COLLECTION_SCOPE=auto" >> "$GITHUB_ENV"
-          else
-            echo "COLLECTION_SCOPE=${{ inputs.scope }}" >> "$GITHUB_ENV"
-          fi
-
-      - name: Collect latest API data
-        run: python scripts/collect_git_data.py --scope "$COLLECTION_SCOPE"
+      - name: Collect process 55 production usage through yesterday
+        run: python scripts/collect_git_data.py --scope production
 
       - name: Commit changed dashboard data
         shell: bash
         run: |
           git add web/data
           if git diff --cached --quiet; then
-            echo "No source change detected."
+            echo "No production usage change detected."
             exit 0
           fi
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git commit -m "data: refresh ${COLLECTION_SCOPE}"
+          git commit -m "data: refresh seven-day production usage"
           for attempt in 1 2 3; do
             if git push; then
               exit 0
@@ -73,8 +52,3 @@ jobs:
             git pull --rebase origin main
           done
           exit 1
-
-      - name: Reset completed delivery schedules
-        shell: bash
-        run: curl --fail --silent --show-error "https://lfp-schedule-relay.hwh2404.workers.dev/data?source=collection"
-

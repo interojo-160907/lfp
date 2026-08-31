@@ -27,6 +27,14 @@
     return `${Number(matched[2])}/${Number(matched[3])}`;
   }
 
+  function waitingValues(itemCode, specification) {
+    const purchase = state.inboundMap.get(key(itemCode, specification));
+    return {
+      inboundWaitQty: Number(purchase?.inboundWaitQty || 0),
+      purchaseWaitQty: Number(purchase?.purchaseWaitQty || 0),
+    };
+  }
+
   function setCell(cell, value, marker) {
     if (!cell || cell.dataset.purchaseInboundValue === marker) return;
     cell.textContent = value;
@@ -35,13 +43,15 @@
 
   function markDetailCell(cell, purchaseKey, kind, quantity) {
     if (!cell) return;
-    cell.classList.remove("lfp-purchase-detail");
-    delete cell.dataset.purchaseKey;
-    delete cell.dataset.purchaseKind;
-    if (number(quantity) <= 0) return;
-    cell.classList.add("lfp-purchase-detail");
-    cell.dataset.purchaseKey = purchaseKey;
-    cell.dataset.purchaseKind = kind;
+    if (number(quantity) <= 0) {
+      cell.classList.remove("lfp-purchase-detail");
+      delete cell.dataset.purchaseKey;
+      delete cell.dataset.purchaseKind;
+      return;
+    }
+    if (!cell.classList.contains("lfp-purchase-detail")) cell.classList.add("lfp-purchase-detail");
+    if (cell.dataset.purchaseKey !== purchaseKey) cell.dataset.purchaseKey = purchaseKey;
+    if (cell.dataset.purchaseKind !== kind) cell.dataset.purchaseKind = kind;
   }
 
   function setPurchaseNote(cell, value, marker, quantity = 0, title = "") {
@@ -178,6 +188,9 @@
     document.querySelectorAll("table").forEach(decorateTable);
     document.dispatchEvent(new CustomEvent("lfp:purchase-status-updated"));
   }
+
+  window.lfpPurchaseWaitingValues = waitingValues;
+  window.lfpDecoratePurchaseInbound = decorate;
 
   function schedule() {
     if (state.scheduled) return;
