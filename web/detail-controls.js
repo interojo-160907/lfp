@@ -268,6 +268,13 @@
     };
   }
 
+  function matchesSelectedWarehouse(item) {
+    if (!item || state.warehouses.size === WAREHOUSES.length - 1) return true;
+    const selectedOptions = WAREHOUSES.filter((entry) => entry.key !== "ALL" && state.warehouses.has(entry.key));
+    return warehouseRows(item).some((row) => selectedOptions.some((option) => matchesWarehouse(row, option))
+      && pick(row, ["hasSourceRow", "has_source_row"], true) !== false);
+  }
+
   function updateWarehouseButtons(group) {
     const isAll = state.warehouses.size === WAREHOUSES.length - 1;
     group.querySelectorAll(".lfp-warehouse-button").forEach((button) => {
@@ -928,6 +935,8 @@
         const confirmedDate = text(row.cells[columns.confirmedDate]?.textContent);
         const productionMatch = !state.productionRequiredOnly || requiredQty > 0;
         const quantityMatch = matchesQuantityFilters(row, columns);
+        const warehouseScopedQuantity = [...state.quantityFilters].some((key) => key !== "required");
+        const warehouseQuantityMatch = !warehouseScopedQuantity || matchesSelectedWarehouse(item);
         const availableDaysMatch = matchesAvailableDaysFilter(row, columns);
         const deliveryMatch = !state.deliveryManagementOnly
           || inboundQty > 0
@@ -938,7 +947,7 @@
           || row.classList.contains("lfp-has-notes");
         applyRowPriorityColor(row, status, columns);
         row.hidden = !(codeMatch && nameMatch && specMatch && statusMatch && shortageMatch && productionMatch
-          && quantityMatch && availableDaysMatch && deliveryMatch && noteMatch);
+          && quantityMatch && warehouseQuantityMatch && availableDaysMatch && deliveryMatch && noteMatch);
       });
     });
     updateVisibleTotals(table, descriptor);
@@ -991,7 +1000,7 @@
     });
   }
 
-  window.lfpApplyDetailFilters = () => scheduleApply(false);
+  window.lfpApplyDetailFilters = (updateInventory = false) => scheduleApply(Boolean(updateInventory));
 
   function normalizeExcelDate(value) {
     if (value instanceof Date && !Number.isNaN(value.getTime())) {

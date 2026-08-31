@@ -429,6 +429,7 @@
         applyApsRequirements();
         refreshButtons();
         render();
+        window.lfpApplyDetailFilters?.(true);
       });
     });
     refreshButtons();

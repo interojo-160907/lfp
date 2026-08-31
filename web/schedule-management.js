@@ -223,22 +223,25 @@
       const latestNote = history.slice().reverse().find((entry) => entry.type === "note");
       const latestDate = history.slice().reverse().find((entry) => entry.type === "date");
       const summaryEntries = [latestDate, latestNote].filter(Boolean);
+      const historyText = (entry) => {
+        let value = text(entry?.text);
+        if (entry?.type === "date" && row.requestedDate && /^납기요청일\s+-\s*→/.test(value)) {
+          value = value.replace(/^납기요청일\s+-/, `납기요청일 ${row.requestedDate}`);
+        }
+        if (entry?.type === "note") value = `비고: ${value}`;
+        return value;
+      };
       openButton.replaceChildren();
       summaryEntries.forEach((entry) => {
         const line = document.createElement("span");
         line.className = `lfp-note-summary-line is-${entry.type || "note"}`;
-        let summary = text(entry.text).split(/\r?\n/)[0];
-        if (entry.type === "date" && row.requestedDate && /^납기요청일\s+-\s*→/.test(summary)) {
-          summary = summary.replace(/^납기요청일\s+-/, `납기요청일 ${row.requestedDate}`);
-        }
-        if (entry.type === "note") summary = `비고: ${summary}`;
+        const fullText = historyText(entry);
+        const summary = fullText.split(/\r?\n/)[0];
         line.textContent = summary;
-        line.title = summary;
+        line.title = fullText;
         openButton.appendChild(line);
       });
-      openButton.title = summaryEntries.length
-        ? Array.from(openButton.children).map((line) => line.textContent).join("\n")
-        : "";
+      openButton.title = history.slice().reverse().map(historyText).filter(Boolean).join("\n");
       openButton.setAttribute("aria-label", hasHistory ? "비고 이력 전체 보기" : "비고 입력");
     });
     ensureNoteHeaderButton(table, info, historyCount);
