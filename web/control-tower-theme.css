@@ -85,8 +85,11 @@
 
 .lfp-note-open-button {
   display: inline-flex;
-  align-items: center;
+  flex-direction: column;
+  align-items: flex-start;
   justify-content: center;
+  gap: 2px;
+  width: calc(100% - 8px);
   margin-left: 0;
   padding: 2px 5px;
   border: 1px solid #7ba5cd;
@@ -97,8 +100,24 @@
   cursor: pointer;
   max-width: calc(100% - 8px);
   overflow: hidden;
+  text-align: left;
+}
+
+.lfp-note-summary-line {
+  display: block;
+  width: 100%;
+  overflow: hidden;
+  line-height: 1.35;
   text-overflow: ellipsis;
   white-space: nowrap;
+}
+
+.lfp-note-summary-line.is-date {
+  color: #9a4b00;
+}
+
+.lfp-note-summary-line.is-note {
+  color: #145b99;
 }
 
 .lfp-note-open-button:empty {

@@ -107,8 +107,13 @@
 
   async function loadRecords() {
     try {
-      let response = await fetch(`${RELAY_URL}/data?v=${Date.now()}`, { cache: "no-store" });
-      if (!response.ok) response = await fetch(`${SCHEDULE_DATA_URL}?v=${Date.now()}`, { cache: "no-store" });
+      let response;
+      try {
+        response = await fetch(`${RELAY_URL}/data?v=${Date.now()}`, { cache: "no-store" });
+      } catch (_) {
+        response = null;
+      }
+      if (!response?.ok) response = await fetch(`${SCHEDULE_DATA_URL}?v=${Date.now()}`, { cache: "no-store" });
       if (!response.ok) throw new Error(`HTTP ${response.status}`);
       const result = await response.json();
       const records = Array.isArray(result.records) ? result.records : Object.values(result.records || {});
@@ -217,10 +222,23 @@
       const history = Array.isArray(record?.history) ? record.history : [];
       const latestNote = history.slice().reverse().find((entry) => entry.type === "note");
       const latestDate = history.slice().reverse().find((entry) => entry.type === "date");
-      const priorityEntry = latestNote || latestDate;
-      openButton.textContent = hasPurchaseNeed || !priorityEntry
-        ? ""
-        : text(priorityEntry.text).split(/\r?\n/)[0];
+      const summaryEntries = [latestDate, latestNote].filter(Boolean);
+      openButton.replaceChildren();
+      summaryEntries.forEach((entry) => {
+        const line = document.createElement("span");
+        line.className = `lfp-note-summary-line is-${entry.type || "note"}`;
+        let summary = text(entry.text).split(/\r?\n/)[0];
+        if (entry.type === "date" && row.requestedDate && /^납기요청일\s+-\s*→/.test(summary)) {
+          summary = summary.replace(/^납기요청일\s+-/, `납기요청일 ${row.requestedDate}`);
+        }
+        if (entry.type === "note") summary = `비고: ${summary}`;
+        line.textContent = summary;
+        line.title = summary;
+        openButton.appendChild(line);
+      });
+      openButton.title = summaryEntries.length
+        ? Array.from(openButton.children).map((line) => line.textContent).join("\n")
+        : "";
       openButton.setAttribute("aria-label", hasHistory ? "비고 이력 전체 보기" : "비고 입력");
     });
     ensureNoteHeaderButton(table, info, historyCount);
