@@ -285,6 +285,58 @@
     });
   }
 
+  function solidFill(color) {
+    return { type: "pattern", pattern: "solid", fgColor: { argb: `FF${color}` } };
+  }
+
+  function downloadBuffer(buffer, filename) {
+    const blob = new Blob([buffer], {
+      type: "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet",
+    });
+    const url = URL.createObjectURL(blob);
+    const anchor = document.createElement("a");
+    anchor.href = url;
+    anchor.download = filename;
+    document.body.appendChild(anchor);
+    anchor.click();
+    anchor.remove();
+    setTimeout(() => URL.revokeObjectURL(url), 1_000);
+  }
+
+  function pendingDetailRows(rows) {
+    const details = [];
+    rows.forEach((row) => {
+      const purchase = state.purchaseItems.get(itemKey(row.itemCode, row.spec)) || {};
+      (purchase.requests || []).forEach((request) => {
+        if (numberValue(request.purchaseWaitQty) <= 0) return;
+        details.push([
+          row.itemCode,
+          row.spec,
+          "발주대기",
+          text(request.requestNo) || null,
+          null,
+          "미발주",
+          numberValue(request.purchaseWaitQty),
+          text(request.requestedDeliveryDate) || null,
+        ]);
+      });
+      (purchase.purchaseOrders || []).forEach((order) => {
+        if (numberValue(order.inboundWaitQty) <= 0) return;
+        details.push([
+          row.itemCode,
+          row.spec,
+          "입고대기",
+          text(order.requestNo) || null,
+          text(order.purchaseOrderNo) || null,
+          text(order.orderStatus) || null,
+          numberValue(order.inboundWaitQty),
+          text(order.deliveryDate) || null,
+        ]);
+      });
+    });
+    return details;
+  }
+
   async function downloadList(button) {
     const rows = pendingRows();
     if (!rows.length) {
@@ -295,48 +347,84 @@
     button.disabled = true;
     button.textContent = "생성 중";
     try {
-      if (!window.XLSX) throw new Error("Excel 모듈을 불러오지 못했습니다. 페이지를 새로고침한 뒤 다시 시도하세요.");
+      if (!window.ExcelJS) throw new Error("서식 Excel 모듈을 불러오지 못했습니다. 페이지를 새로고침한 뒤 다시 시도하세요.");
       const headers = [
         "품목코드", "품목명", "규격", "입고대기", "발주대기", "납기요청일",
         "납기확정일", "납기조정일", "비고", "구매의뢰번호", "발주번호", "대기상태",
       ];
-      const values = [
-        ["", "", "", "", "", "", "", "기입 필요", "기입 가능", "", "", ""],
-        headers,
-        ...rows.map((row) => [
+      const workbook = new window.ExcelJS.Workbook();
+      workbook.creator = "Lidding Foil Planner";
+      workbook.created = new Date();
+      const sheet = workbook.addWorksheet("납기관리", {
+        views: [{ state: "frozen", xSplit: 0, ySplit: 2, topLeftCell: "A3", activeCell: "A3" }],
+      });
+      sheet.addRow([null, null, null, null, null, null, null, "기입 필요", "기입 가능", null, null, null]);
+      sheet.addRow(headers);
+      rows.forEach((row) => {
+        sheet.addRow([
           row.itemCode,
           row.itemName,
           row.spec,
           row.inboundWaiting,
           row.purchaseWaiting,
-          row.requestedDate,
-          row.confirmedDate,
-          "",
-          "",
-          row.requestNos.join("\n"),
-          row.orderNos.join("\n"),
+          row.requestedDate || null,
+          row.confirmedDate || null,
+          null,
+          null,
+          row.requestNos.join("\n") || null,
+          row.orderNos.join("\n") || null,
           [row.inboundWaiting > 0 ? "입고대기" : "", row.purchaseWaiting > 0 ? "발주대기" : ""].filter(Boolean).join("+"),
-        ]),
-      ];
-      const sheet = window.XLSX.utils.aoa_to_sheet(values);
-      sheet["!cols"] = [14, 38, 18, 14, 14, 16, 16, 16, 44, 24, 24, 18].map((wch) => ({ wch }));
-      sheet["!autofilter"] = { ref: `A2:L${values.length}` };
-      sheet["!freeze"] = { xSplit: 0, ySplit: 2, topLeftCell: "A3", activePane: "bottomLeft", state: "frozen" };
-      const workbook = window.XLSX.utils.book_new();
-      window.XLSX.utils.book_append_sheet(workbook, sheet, "납기관리");
-      const detailValues = [["품목코드", "규격", "구매의뢰번호", "발주번호"]];
-      rows.forEach((row) => {
-        const count = Math.max(row.requestNos.length, row.orderNos.length, 1);
-        for (let index = 0; index < count; index += 1) {
-          detailValues.push([row.itemCode, row.spec, row.requestNos[index] || "", row.orderNos[index] || ""]);
-        }
+        ]);
       });
-      const detailSheet = window.XLSX.utils.aoa_to_sheet(detailValues);
-      detailSheet["!cols"] = [14, 18, 24, 24].map((wch) => ({ wch }));
-      window.XLSX.utils.book_append_sheet(workbook, detailSheet, "대기번호 상세");
+
+      sheet.columns = [14, 38, 18, 14, 14, 16, 16, 16, 44, 24, 24, 18].map((width) => ({ width }));
+      sheet.autoFilter = { from: "A2", to: `L${sheet.rowCount}` };
+      sheet.getRow(1).height = 22;
+      sheet.getRow(2).height = 24;
+      sheet.getRow(2).eachCell((cell) => {
+        cell.fill = solidFill("164B7A");
+        cell.font = { color: { argb: "FFFFFFFF" }, bold: true };
+        cell.alignment = { horizontal: "center", vertical: "middle" };
+      });
+      sheet.getCell("H1").fill = solidFill("FCE8E6");
+      sheet.getCell("H1").font = { color: { argb: "FFB42318" }, bold: true };
+      sheet.getCell("I1").fill = solidFill("E6F4EA");
+      sheet.getCell("I1").font = { color: { argb: "FF137044" }, bold: true };
+      sheet.getCell("H2").fill = solidFill("A43A34");
+      sheet.getCell("I2").fill = solidFill("267158");
+
+      for (let rowNumber = 3; rowNumber <= sheet.rowCount; rowNumber += 1) {
+        sheet.getCell(rowNumber, 4).numFmt = "#,##0";
+        sheet.getCell(rowNumber, 5).numFmt = "#,##0";
+        [6, 7, 8].forEach((column) => { sheet.getCell(rowNumber, column).numFmt = "yyyy-mm-dd"; });
+        sheet.getCell(rowNumber, 8).fill = solidFill("FCE8E6");
+        sheet.getCell(rowNumber, 9).fill = solidFill("E6F4EA");
+        sheet.getCell(rowNumber, 9).alignment = { wrapText: true, vertical: "top" };
+        [10, 11].forEach((column) => {
+          sheet.getCell(rowNumber, column).alignment = { wrapText: true, vertical: "top" };
+        });
+      }
+
+      const detailSheet = workbook.addWorksheet("대기번호 상세", {
+        views: [{ state: "frozen", xSplit: 0, ySplit: 1, topLeftCell: "A2", activeCell: "A2" }],
+      });
+      detailSheet.addRow(["품목코드", "규격", "대기구분", "구매의뢰번호", "발주번호", "상태", "연결수량", "납기일"]);
+      pendingDetailRows(rows).forEach((detail) => detailSheet.addRow(detail));
+      detailSheet.columns = [14, 18, 14, 22, 22, 16, 16, 16].map((width) => ({ width }));
+      detailSheet.autoFilter = { from: "A1", to: `H${Math.max(detailSheet.rowCount, 1)}` };
+      detailSheet.getRow(1).eachCell((cell) => {
+        cell.fill = solidFill("164B7A");
+        cell.font = { color: { argb: "FFFFFFFF" }, bold: true };
+        cell.alignment = { horizontal: "center", vertical: "middle" };
+      });
+      for (let rowNumber = 2; rowNumber <= detailSheet.rowCount; rowNumber += 1) {
+        detailSheet.getCell(rowNumber, 7).numFmt = "#,##0";
+        detailSheet.getCell(rowNumber, 8).numFmt = "yyyy-mm-dd";
+      }
+
       const today = new Date();
       const stamp = `${today.getFullYear()}-${String(today.getMonth() + 1).padStart(2, "0")}-${String(today.getDate()).padStart(2, "0")}`;
-      window.XLSX.writeFile(workbook, `${stamp}_납기관리 리스트.xlsx`, { compression: true });
+      downloadBuffer(await workbook.xlsx.writeBuffer(), `${stamp}_납기관리 리스트.xlsx`);
     } catch (error) {
       window.alert(error?.message || "납기관리 리스트를 저장하지 못했습니다.");
     } finally {
