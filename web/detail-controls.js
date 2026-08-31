@@ -702,7 +702,7 @@
         button.dataset.quantityFilter = key;
         button.setAttribute("aria-pressed", "false");
         button.title = `${label}가 0보다 큰 행만 표시`;
-        button.innerHTML = `<span>${label}</span><small>0 초과</small>`;
+        button.innerHTML = `<span>${label}</span>`;
         headerCell.replaceChildren(button);
       }
       if (filterCell && !filterCell.querySelector("[data-lfp-total]")) {
