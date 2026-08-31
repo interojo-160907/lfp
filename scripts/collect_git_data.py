@@ -18,8 +18,10 @@ from zoneinfo import ZoneInfo
 
 ROOT = Path(__file__).resolve().parents[1]
 DATA_DIR = ROOT / "web" / "data"
+AUTOMATION_STATE_PATH = DATA_DIR / "automation-state.json"
 API_BASE_URL = os.environ.get("LFP_API_BASE_URL", "https://plan.interojo.net").rstrip("/")
 KST = ZoneInfo("Asia/Seoul")
+REGULAR_COLLECTION_INTERVAL = timedelta(hours=16)
 PCODE = re.compile(r"^P\d{4}$", re.IGNORECASE)
 LIDDING_NAME = re.compile(r"리드지|lidding|foil", re.IGNORECASE)
 ACTIVE_ORDER_STATUSES = {"발주", "납품진행"}
@@ -33,6 +35,19 @@ WAREHOUSES = (
 
 def now_text() -> str:
     return datetime.now(KST).isoformat(timespec="seconds")
+
+
+def parse_timestamp(value: object) -> datetime | None:
+    source = str(value or "").strip()
+    if not source:
+        return None
+    try:
+        parsed = datetime.fromisoformat(source.replace(" ", "T"))
+    except ValueError:
+        return None
+    if parsed.tzinfo is None:
+        parsed = parsed.replace(tzinfo=KST)
+    return parsed.astimezone(KST)
 
 
 def atomic_write(path: Path, payload: object) -> None:
@@ -543,7 +558,7 @@ def aps_source_version() -> str:
     return version
 
 
-def publish_snapshot(scope: str) -> None:
+def publish_snapshot(scope: str, reason: str) -> None:
     channels = {}
     for name, filename in {
         "aps": "aps-lidding-requirement.json", "inventory": "lidding-inventory.json",
@@ -554,11 +569,11 @@ def publish_snapshot(scope: str) -> None:
             raise RuntimeError(f"대시보드 채널 파일이 없습니다: {filename}")
         channels[name] = payload
     atomic_write(DATA_DIR / "dashboard-snapshot.json", {
-        "snapshotAt": now_text(), "scope": scope, "reason": "github_actions", "channels": channels,
+        "snapshotAt": now_text(), "scope": scope, "reason": reason, "channels": channels,
     })
 
 
-def write_status(scope: str, files: list[str]) -> None:
+def write_status(scope: str, files: list[str], mode: str, reason: str) -> None:
     path = DATA_DIR / "collection-status.json"
     previous = read_json(path, {})
     cutoff = datetime.now(KST) - timedelta(hours=48)
@@ -570,57 +585,164 @@ def write_status(scope: str, files: list[str]) -> None:
                     history.append(item)
             except (TypeError, ValueError):
                 continue
-    entry = {"at": now_text(), "scope": scope, "status": "success", "files": files}
+    entry = {
+        "at": now_text(), "scope": scope, "mode": mode, "reason": reason,
+        "status": "success", "files": files,
+    }
     history.append(entry)
-    atomic_write(path, {"lastCollection": entry, "history": history})
+    last_regular = previous.get("lastRegularCollection") if isinstance(previous, dict) else None
+    last_manual = previous.get("lastManualCollection") if isinstance(previous, dict) else None
+    if mode == "regular":
+        last_regular = entry
+    else:
+        last_manual = entry
+    atomic_write(path, {
+        "lastCollection": entry,
+        "lastRegularCollection": last_regular,
+        "lastManualCollection": last_manual,
+        "history": history,
+    })
 
 
-def run(scope: str) -> bool:
-    if scope == "aps-watch":
-        current = read_json(DATA_DIR / "aps-lidding-requirement.json", {})
-        observed = aps_source_version()
-        if isinstance(current, dict) and str(current.get("sourceRefreshedAt") or "") == observed:
-            print(json.dumps({"changed": False, "sourceRefreshedAt": observed}, ensure_ascii=False))
-            return False
-        scope = "all"
-
+def collect_scope(scope: str, mode: str, reason: str) -> list[str]:
     written = []
     bom = read_json(DATA_DIR / "bom-product-lidding.json", {})
     inventory = read_json(DATA_DIR / "lidding-inventory.json", {})
-    if scope in {"all", "aps", "bom"}:
+    if scope in {"all", "support", "bom"}:
         bom = collect_bom()
         atomic_write(DATA_DIR / "bom-product-lidding.json", bom)
         written.append("bom-product-lidding.json")
-    if scope in {"all", "aps", "inventory"}:
+    if scope in {"all", "support", "inventory"}:
         inventory = collect_inventory()
         atomic_write(DATA_DIR / "lidding-inventory.json", inventory)
         written.append("lidding-inventory.json")
-    if scope in {"all", "aps", "inventory", "purchase"}:
+    if scope in {"all", "support", "purchase"}:
         if not isinstance(inventory, dict) or not inventory:
-            inventory = collect_inventory()
-            atomic_write(DATA_DIR / "lidding-inventory.json", inventory)
-            written.append("lidding-inventory.json")
+            raise RuntimeError("구매·입고 수집에 필요한 기존 재고 데이터가 없습니다.")
         purchase = collect_purchase(inventory)
         atomic_write(DATA_DIR / "lidding-purchase-inbound.json", purchase)
         written.append("lidding-purchase-inbound.json")
-    if scope in {"all", "aps", "bom"}:
+    if scope in {"all", "aps"}:
         if not isinstance(bom, dict) or not bom:
-            bom = collect_bom()
-            atomic_write(DATA_DIR / "bom-product-lidding.json", bom)
-            written.append("bom-product-lidding.json")
+            raise RuntimeError("APS 수집에 필요한 기존 BOM 데이터가 없습니다.")
         aps = collect_aps(bom)
         atomic_write(DATA_DIR / "aps-lidding-requirement.json", aps)
         written.append("aps-lidding-requirement.json")
-    publish_snapshot(scope)
+    publish_snapshot(scope, reason)
     written.append("dashboard-snapshot.json")
-    write_status(scope, sorted(set(written)))
-    print(json.dumps({"changed": True, "scope": scope, "files": sorted(set(written))}, ensure_ascii=False))
+    files = sorted(set(written))
+    write_status(scope, files, mode, reason)
+    print(json.dumps({
+        "changed": True, "scope": scope, "mode": mode, "reason": reason, "files": files,
+    }, ensure_ascii=False))
+    return files
+
+
+def load_automation_state() -> dict:
+    state = read_json(AUTOMATION_STATE_PATH, {})
+    if isinstance(state, dict) and state.get("lastRegularCollectionAt"):
+        return state
+
+    aps = read_json(DATA_DIR / "aps-lidding-requirement.json", {})
+    status = read_json(DATA_DIR / "collection-status.json", {})
+    last_collection = status.get("lastRegularCollection") or status.get("lastCollection") or {}
+    return {
+        "version": 1,
+        "lastRegularCollectionAt": last_collection.get("at") or (
+            aps.get("generatedAt") if isinstance(aps, dict) else None
+        ) or now_text(),
+        "lastRegularReason": "legacy_state",
+        "lastHandledApsVersion": (
+            str(aps.get("sourceRefreshedAt") or "") if isinstance(aps, dict) else ""
+        ),
+    }
+
+
+def regular_collection_due(state: dict, current_time: datetime | None = None) -> bool:
+    last_regular = parse_timestamp(state.get("lastRegularCollectionAt"))
+    if last_regular is None:
+        return True
+    now = current_time or datetime.now(KST)
+    return now - last_regular >= REGULAR_COLLECTION_INTERVAL
+
+
+def finish_regular_collection(
+    state: dict,
+    reason: str,
+    files: list[str],
+    aps_version: str | None = None,
+    aps_error: str | None = None,
+) -> None:
+    state = dict(state)
+    state.update({
+        "version": 1,
+        "lastRegularCollectionAt": now_text(),
+        "lastRegularReason": reason,
+        "lastRegularFiles": files,
+        "lastApsCheckError": aps_error,
+    })
+    if aps_version is not None:
+        state["lastHandledApsVersion"] = aps_version
+    atomic_write(AUTOMATION_STATE_PATH, state)
+
+
+def run_automatic() -> bool:
+    state = load_automation_state()
+    try:
+        observed = aps_source_version()
+    except Exception as error:
+        if not regular_collection_due(state):
+            raise
+        reason = "regular_16h_aps_check_failed"
+        files = collect_scope("support", "regular", reason)
+        finish_regular_collection(
+            state,
+            reason,
+            files,
+            aps_error=f"{type(error).__name__}: {error}",
+        )
+        return True
+
+    handled = str(state.get("lastHandledApsVersion") or "")
+    if observed != handled:
+        reason = "aps_changed"
+        files = collect_scope("all", "regular", reason)
+        finish_regular_collection(state, reason, files, observed)
+        return True
+
+    if regular_collection_due(state):
+        reason = "regular_16h"
+        files = collect_scope("support", "regular", reason)
+        finish_regular_collection(state, reason, files)
+        return True
+
+    print(json.dumps({
+        "changed": False,
+        "scope": "auto",
+        "mode": "regular",
+        "reason": "aps_unchanged",
+        "sourceRefreshedAt": observed,
+        "lastRegularCollectionAt": state.get("lastRegularCollectionAt"),
+    }, ensure_ascii=False))
+    return False
+
+
+def run(scope: str) -> bool:
+    if scope == "auto":
+        return run_automatic()
+
+    reason = f"manual_{scope}"
+    collect_scope(scope, "manual", reason)
     return True
 
 
 def main() -> int:
     parser = argparse.ArgumentParser(description="Collect the latest API data for the Git dashboard")
-    parser.add_argument("--scope", choices=("aps-watch", "aps", "inventory", "purchase", "bom", "all"), default="all")
+    parser.add_argument(
+        "--scope",
+        choices=("auto", "aps", "inventory", "purchase", "bom", "all"),
+        default="all",
+    )
     args = parser.parse_args()
     run(args.scope)
     return 0

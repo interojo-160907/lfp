@@ -2,7 +2,7 @@ name: Collect dashboard data
 
 on:
   schedule:
-    - cron: "*/5 * * * 1-5"
+    - cron: "3-58/5 * * * *"
   workflow_dispatch:
     inputs:
       scope:
@@ -45,7 +45,7 @@ jobs:
         shell: bash
         run: |
           if [ "${{ github.event_name }}" = "schedule" ]; then
-            echo "COLLECTION_SCOPE=aps-watch" >> "$GITHUB_ENV"
+            echo "COLLECTION_SCOPE=auto" >> "$GITHUB_ENV"
           else
             echo "COLLECTION_SCOPE=${{ inputs.scope }}" >> "$GITHUB_ENV"
           fi

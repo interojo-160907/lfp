@@ -22,7 +22,7 @@ def main() -> int:
         description="API-only local compatibility monitor for the dashboard."
     )
     parser.add_argument("--once", action="store_true")
-    parser.add_argument("scope", nargs="?", default="aps-watch")
+    parser.add_argument("scope", nargs="?", default="auto")
     parser.add_argument("--reason", default="")
     parser.add_argument("--poll-seconds", type=int, default=300)
     args = parser.parse_args()
@@ -31,7 +31,7 @@ def main() -> int:
         return collect(args.scope)
 
     while True:
-        collect("aps-watch")
+        collect("auto")
         time.sleep(max(args.poll_seconds, 60))
 
 
