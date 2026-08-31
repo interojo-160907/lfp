@@ -1,4 +1,68 @@
 {
-  "updatedAt": "",
-  "records": {}
+  "updatedAt": "2026-08-31T02:44:38.868Z",
+  "records": {
+    "BS0054|BS0054-003": {
+      "itemCode": "BS0054",
+      "spec": "BS0054-003",
+      "confirmedDate": "2026-08-31",
+      "history": [
+        {
+          "at": "2026-08-31T02:44:38.868Z",
+          "type": "date",
+          "text": "납기요청일 - → 납기확정일 2026-08-31"
+        },
+        {
+          "at": "2026-08-31T02:44:38.868Z",
+          "type": "note",
+          "text": "테스트1"
+        }
+      ],
+      "requestNos": [
+        "PR-2607020003"
+      ],
+      "orderNos": [
+        "PO-2607020008",
+        "PO-2608120019"
+      ],
+      "waitingStatus": "입고대기"
+    },
+    "BS0086|BS0086-001": {
+      "itemCode": "BS0086",
+      "spec": "BS0086-001",
+      "confirmedDate": "",
+      "history": [
+        {
+          "at": "2026-08-31T02:44:38.868Z",
+          "type": "note",
+          "text": "테스트2"
+        }
+      ],
+      "requestNos": [],
+      "orderNos": [
+        "PO-2608130007"
+      ],
+      "waitingStatus": "입고대기"
+    },
+    "BS0115|BS0115-001": {
+      "itemCode": "BS0115",
+      "spec": "BS0115-001",
+      "confirmedDate": "2026-09-30",
+      "history": [
+        {
+          "at": "2026-08-31T02:44:38.868Z",
+          "type": "date",
+          "text": "납기요청일 - → 납기확정일 2026-09-30"
+        }
+      ],
+      "requestNos": [
+        "PR-2608110003",
+        "PR-2608140009"
+      ],
+      "orderNos": [
+        "PO-2608120017",
+        "PO-2608140007"
+      ],
+      "waitingStatus": "입고대기"
+    }
+  }
 }
