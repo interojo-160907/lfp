@@ -1,7 +1,8 @@
 (() => {
   "use strict";
 
-  const API = "api/delivery-management";
+  const SCHEDULE_DATA_URL = "data/lidding-delivery-management.json";
+  const RELAY_URL = "https://lfp-schedule-relay.hwh2404.workers.dev";
   const PURCHASE_DATA_URL = "data/lidding-purchase-inbound.json";
   const state = {
     records: new Map(), scheduled: false, lastReset: "", noteOnly: false,
@@ -77,22 +78,41 @@
     }).format(parsed);
   }
 
-  async function post(path, payload) {
-    const response = await fetch(`${API}/${path}`, {
+  function schedulePassword(forcePrompt = false) {
+    if (!forcePrompt) {
+      const stored = sessionStorage.getItem("lfp-schedule-password");
+      if (stored) return stored;
+    }
+    const entered = window.prompt("일정 관리 업데이트 비밀번호를 입력하세요.");
+    if (!entered) throw new Error("업데이트가 취소되었습니다.");
+    sessionStorage.setItem("lfp-schedule-password", entered);
+    return entered;
+  }
+
+  async function post(path, payload, retry = true) {
+    const password = schedulePassword(!retry);
+    const response = await fetch(`${RELAY_URL}/${path}`, {
       method: "POST",
       headers: { "Content-Type": "application/json" },
-      body: JSON.stringify(payload),
+      body: JSON.stringify({ ...payload, password }),
     });
     const result = await response.json().catch(() => ({}));
+    if (response.status === 401 && retry) {
+      sessionStorage.removeItem("lfp-schedule-password");
+      return post(path, payload, false);
+    }
     if (!response.ok || !result.ok) throw new Error(result.detail || result.error || "처리하지 못했습니다.");
     return result;
   }
 
   async function loadRecords() {
     try {
-      const response = await fetch(API, { cache: "no-store" });
+      let response = await fetch(`${RELAY_URL}/data?v=${Date.now()}`, { cache: "no-store" });
+      if (!response.ok) response = await fetch(`${SCHEDULE_DATA_URL}?v=${Date.now()}`, { cache: "no-store" });
+      if (!response.ok) throw new Error(`HTTP ${response.status}`);
       const result = await response.json();
-      state.records = new Map((result.records || []).map((record) => [itemKey(record.itemCode, record.spec), record]));
+      const records = Array.isArray(result.records) ? result.records : Object.values(result.records || {});
+      state.records = new Map(records.map((record) => [itemKey(record.itemCode, record.spec), record]));
       scheduleDecorate();
     } catch (_) {
       state.records = new Map();
@@ -132,19 +152,14 @@
     if (cell && cell.childNodes.length) cell.replaceChildren();
   }
 
-  async function reconcileCompleted(rows) {
+  function reconcileCompleted(rows) {
     const keys = rows.filter((row) => state.records.has(row.key)
       && row.inboundWaiting <= 0 && row.purchaseWaiting <= 0).map((row) => row.key).sort();
     const signature = keys.join(";");
     if (!keys.length || signature === state.lastReset) return;
     state.lastReset = signature;
-    try {
-      await post("reconcile", { keys });
-      keys.forEach((key) => state.records.delete(key));
-      scheduleDecorate();
-    } catch (_) {
-      state.lastReset = "";
-    }
+    keys.forEach((key) => state.records.delete(key));
+    scheduleDecorate();
   }
 
   function decorate() {
@@ -280,8 +295,48 @@
     button.disabled = true;
     button.textContent = "생성 중";
     try {
-      const result = await post("export", { rows });
-      window.alert(`${result.count.toLocaleString("ko-KR")}건 저장 완료\n${result.path}`);
+      if (!window.XLSX) throw new Error("Excel 모듈을 불러오지 못했습니다. 페이지를 새로고침한 뒤 다시 시도하세요.");
+      const headers = [
+        "품목코드", "품목명", "규격", "입고대기", "발주대기", "납기요청일",
+        "납기확정일", "납기조정일", "비고", "구매의뢰번호", "발주번호", "대기상태",
+      ];
+      const values = [
+        ["", "", "", "", "", "", "", "기입 필요", "기입 가능", "", "", ""],
+        headers,
+        ...rows.map((row) => [
+          row.itemCode,
+          row.itemName,
+          row.spec,
+          row.inboundWaiting,
+          row.purchaseWaiting,
+          row.requestedDate,
+          row.confirmedDate,
+          "",
+          "",
+          row.requestNos.join("\n"),
+          row.orderNos.join("\n"),
+          [row.inboundWaiting > 0 ? "입고대기" : "", row.purchaseWaiting > 0 ? "발주대기" : ""].filter(Boolean).join("+"),
+        ]),
+      ];
+      const sheet = window.XLSX.utils.aoa_to_sheet(values);
+      sheet["!cols"] = [14, 38, 18, 14, 14, 16, 16, 16, 44, 24, 24, 18].map((wch) => ({ wch }));
+      sheet["!autofilter"] = { ref: `A2:L${values.length}` };
+      sheet["!freeze"] = { xSplit: 0, ySplit: 2, topLeftCell: "A3", activePane: "bottomLeft", state: "frozen" };
+      const workbook = window.XLSX.utils.book_new();
+      window.XLSX.utils.book_append_sheet(workbook, sheet, "납기관리");
+      const detailValues = [["품목코드", "규격", "구매의뢰번호", "발주번호"]];
+      rows.forEach((row) => {
+        const count = Math.max(row.requestNos.length, row.orderNos.length, 1);
+        for (let index = 0; index < count; index += 1) {
+          detailValues.push([row.itemCode, row.spec, row.requestNos[index] || "", row.orderNos[index] || ""]);
+        }
+      });
+      const detailSheet = window.XLSX.utils.aoa_to_sheet(detailValues);
+      detailSheet["!cols"] = [14, 18, 24, 24].map((wch) => ({ wch }));
+      window.XLSX.utils.book_append_sheet(workbook, detailSheet, "대기번호 상세");
+      const today = new Date();
+      const stamp = `${today.getFullYear()}-${String(today.getMonth() + 1).padStart(2, "0")}-${String(today.getDate()).padStart(2, "0")}`;
+      window.XLSX.writeFile(workbook, `${stamp}_납기관리 리스트.xlsx`, { compression: true });
     } catch (error) {
       window.alert(error?.message || "납기관리 리스트를 저장하지 못했습니다.");
     } finally {
@@ -290,7 +345,18 @@
     }
   }
 
-  function excelDate(value) {
+  function cleanHeader(value) {
+    return text(value).replace(/\s+/g, "").toLowerCase();
+  }
+
+  function workbookYear(filename) {
+    const long = text(filename).match(/(20\d{2})/);
+    if (long) return Number(long[1]);
+    const short = text(filename).match(/(^|\D)(\d{2})년/);
+    return short ? 2000 + Number(short[2]) : new Date().getFullYear();
+  }
+
+  function excelDate(value, yearHint = new Date().getFullYear()) {
     if (typeof value === "number" && Number.isFinite(value) && window.XLSX?.SSF?.parse_date_code) {
       const parsed = window.XLSX.SSF.parse_date_code(value);
       if (parsed) value = new Date(parsed.y, parsed.m - 1, parsed.d);
@@ -309,7 +375,7 @@
     }
     if (!match) {
       const short = source.match(/^(\d{1,2})-(\d{1,2})$/);
-      if (short) match = [source, String(new Date().getFullYear()), short[1], short[2]];
+      if (short) match = [source, String(yearHint), short[1], short[2]];
     }
     if (!match) return "";
     const year = Number(match[1]);
@@ -320,17 +386,190 @@
     return `${year}-${String(month).padStart(2, "0")}-${String(day).padStart(2, "0")}`;
   }
 
-  async function uploadUpdate(file) {
-    const bytes = new Uint8Array(await file.arrayBuffer());
-    let binary = "";
-    const chunkSize = 0x8000;
-    for (let offset = 0; offset < bytes.length; offset += chunkSize) {
-      binary += String.fromCharCode(...bytes.subarray(offset, offset + chunkSize));
+  function columnFor(headers, ...aliases) {
+    for (const alias of aliases) {
+      const column = headers.get(cleanHeader(alias));
+      if (column !== undefined) return column;
     }
-    const result = await post("import", {
-      filename: file.name,
-      contentBase64: btoa(binary),
+    return -1;
+  }
+
+  function workbookHeader(workbook, requiredGroups) {
+    for (const sheetName of workbook.SheetNames) {
+      const sheet = workbook.Sheets[sheetName];
+      const matrix = window.XLSX.utils.sheet_to_json(sheet, { header: 1, raw: true, defval: null });
+      for (let rowIndex = 0; rowIndex < Math.min(matrix.length, 40); rowIndex += 1) {
+        const headers = new Map();
+        (matrix[rowIndex] || []).forEach((value, column) => {
+          if (value !== null && value !== "") headers.set(cleanHeader(value), column);
+        });
+        const matches = requiredGroups.every((aliases) => aliases.some((alias) => headers.has(cleanHeader(alias))));
+        if (matches) return { sheet, matrix, rowIndex, headers };
+      }
+    }
+    return null;
+  }
+
+  function identifiers(value) {
+    return text(value).split(/[\r\n,;]+/).map((part) => part.trim()).filter(Boolean);
+  }
+
+  function itemPurchaseDates(item) {
+    const values = new Set([
+      item?.nextDeliveryDate,
+      item?.nextRequestedDeliveryDate,
+      item?.nextOrderDeliveryDate,
+      ...(item?.requests || []).map((row) => row.requestedDeliveryDate),
+      ...(item?.purchaseOrders || []).map((row) => row.deliveryDate),
+    ]);
+    return new Set([...values].filter(Boolean).map((value) => text(value).slice(0, 10)));
+  }
+
+  function sourceRowStruck(sheet, rowIndex, row) {
+    return row.some((value, columnIndex) => {
+      if (value === null || value === "") return false;
+      const address = window.XLSX.utils.encode_cell({ r: rowIndex, c: columnIndex });
+      const font = sheet[address]?.s?.font || {};
+      return Boolean(font.strike || font.strikeout);
     });
+  }
+
+  function parseDeliveryWorkbook(content, filename) {
+    if (!window.XLSX) throw new Error("Excel 모듈을 불러오지 못했습니다. 페이지를 새로고침한 뒤 다시 시도하세요.");
+    const workbook = window.XLSX.read(content, { type: "array", cellDates: true, cellStyles: true });
+    const yearHint = workbookYear(filename);
+    const stats = { parsed: 0, blank: 0, struck: 0, unmatched: 0, conflicts: 0 };
+    const management = workbookHeader(workbook, [["품목코드"], ["납기조정일"]]);
+
+    if (management) {
+      const { matrix, rowIndex, headers } = management;
+      const columns = {
+        itemCode: columnFor(headers, "품목코드"),
+        itemName: columnFor(headers, "품목명"),
+        spec: columnFor(headers, "규격"),
+        requestedDate: columnFor(headers, "납기요청일"),
+        confirmedDate: columnFor(headers, "납기확정일"),
+        adjustedDate: columnFor(headers, "납기조정일"),
+        note: columnFor(headers, "비고"),
+        requestNos: columnFor(headers, "구매의뢰번호"),
+        orderNos: columnFor(headers, "발주번호"),
+        waitingStatus: columnFor(headers, "대기상태"),
+      };
+      const valueAt = (row, column) => column >= 0 ? row[column] : "";
+      const activeRequestNos = new Set();
+      const activeOrderNos = new Set();
+      state.purchaseItems.forEach((item) => {
+        [...(item.requests || []), ...(item.purchaseOrders || [])].forEach((row) => {
+          if (text(row.requestNo)) activeRequestNos.add(text(row.requestNo));
+        });
+        (item.purchaseOrders || []).forEach((row) => {
+          if (text(row.purchaseOrderNo)) activeOrderNos.add(text(row.purchaseOrderNo));
+        });
+      });
+      const rows = [];
+      for (let index = rowIndex + 1; index < matrix.length; index += 1) {
+        const row = matrix[index] || [];
+        const itemCode = text(valueAt(row, columns.itemCode));
+        if (!itemCode) continue;
+        const adjustedDate = excelDate(valueAt(row, columns.adjustedDate), yearHint);
+        const note = text(valueAt(row, columns.note));
+        if (!adjustedDate && !note) {
+          stats.blank += 1;
+          continue;
+        }
+        const requestNos = identifiers(valueAt(row, columns.requestNos));
+        const orderNos = identifiers(valueAt(row, columns.orderNos));
+        if (requestNos.length && activeRequestNos.size && !requestNos.some((number) => activeRequestNos.has(number))) {
+          stats.unmatched += 1;
+          continue;
+        }
+        if (orderNos.length && activeOrderNos.size && !orderNos.some((number) => activeOrderNos.has(number))) {
+          stats.unmatched += 1;
+          continue;
+        }
+        rows.push({
+          itemCode,
+          itemName: text(valueAt(row, columns.itemName)),
+          spec: text(valueAt(row, columns.spec)),
+          requestedDate: excelDate(valueAt(row, columns.requestedDate), yearHint),
+          confirmedDate: excelDate(valueAt(row, columns.confirmedDate), yearHint),
+          adjustedDate,
+          note,
+          requestNos,
+          orderNos,
+          waitingStatus: text(valueAt(row, columns.waitingStatus)),
+        });
+      }
+      stats.parsed = rows.length;
+      return { rows, stats: { ...stats, format: "management", formatLabel: "납기관리 리스트" } };
+    }
+
+    const pnp = workbookHeader(workbook, [["규격"], ["요청납기", "요청납기일"], ["조정납기", "조정납기일"]]);
+    if (!pnp) throw new Error("지원하는 납기관리 또는 납품일정 양식을 찾지 못했습니다.");
+    const codeColumn = columnFor(pnp.headers, "규격");
+    const requestedColumn = columnFor(pnp.headers, "요청납기", "요청납기일");
+    const adjustedColumn = columnFor(pnp.headers, "조정납기", "조정납기일");
+    const purchaseItems = [...state.purchaseItems.values()];
+    const rows = [];
+
+    for (let index = pnp.rowIndex + 1; index < pnp.matrix.length; index += 1) {
+      const row = pnp.matrix[index] || [];
+      if (sourceRowStruck(pnp.sheet, index, row)) {
+        stats.struck += 1;
+        continue;
+      }
+      const itemCode = text(row[codeColumn]);
+      if (!itemCode) continue;
+      const requestedDate = excelDate(row[requestedColumn], yearHint);
+      const adjustedDate = excelDate(row[adjustedColumn], yearHint);
+      if (!adjustedDate) {
+        stats.blank += 1;
+        continue;
+      }
+      let candidates = purchaseItems.filter((item) => text(item.itemCode).toUpperCase() === itemCode.toUpperCase()
+        && (!requestedDate || itemPurchaseDates(item).has(requestedDate)));
+      if (!candidates.length && requestedDate) {
+        candidates = purchaseItems.filter((item) => text(item.itemCode).toUpperCase() === itemCode.toUpperCase());
+      }
+      const byKey = new Map(candidates.map((item) => [itemKey(item.itemCode, item.specification), item]));
+      if (!byKey.size) {
+        stats.unmatched += 1;
+        continue;
+      }
+      if (byKey.size > 1) {
+        stats.conflicts += 1;
+        continue;
+      }
+      const item = [...byKey.values()][0];
+      const key = itemKey(item.itemCode, item.specification);
+      const requestNos = [...new Set([...(item.requests || []), ...(item.purchaseOrders || [])]
+        .map((entry) => text(entry.requestNo)).filter(Boolean))].sort();
+      const orderNos = [...new Set((item.purchaseOrders || [])
+        .map((entry) => text(entry.purchaseOrderNo)).filter(Boolean))].sort();
+      rows.push({
+        itemCode: text(item.itemCode),
+        itemName: text(item.itemName),
+        spec: text(item.specification),
+        requestedDate,
+        confirmedDate: text(state.records.get(key)?.confirmedDate),
+        adjustedDate,
+        note: "",
+        requestNos,
+        orderNos,
+        waitingStatus: [numberValue(item.inboundWaitQty) > 0 ? "입고대기" : "", numberValue(item.purchaseWaitQty) > 0 ? "발주대기" : ""].filter(Boolean).join("+"),
+      });
+    }
+    stats.parsed = rows.length;
+    return { rows, stats: { ...stats, format: "pnp-schedule", formatLabel: "피앤피 납품일정" } };
+  }
+
+  async function uploadUpdate(file) {
+    const parsed = parseDeliveryWorkbook(await file.arrayBuffer(), file.name);
+    if (!parsed.rows.length) {
+      window.alert(`${parsed.stats.formatLabel}: 반영 가능한 일정이 없습니다.\n공란 ${parsed.stats.blank}건 · 취소선 제외 ${parsed.stats.struck}건 · 미연결 ${parsed.stats.unmatched}건 · 충돌 ${parsed.stats.conflicts}건`);
+      return;
+    }
+    const result = await post("update", { rows: parsed.rows, importStats: parsed.stats });
     localStorage.removeItem("lfp-delivery-confirmations-v1");
     const summary = [
       `변경 ${result.updated || 0}건`,
@@ -341,8 +580,8 @@
       `미연결 ${result.unmatched || 0}건`,
       `충돌 ${result.conflicts || 0}건`,
     ].join(" · ");
-    window.alert(`${result.formatLabel || "납기 파일"}: ${summary}`);
-    if ((result.updated || 0) + (result.noted || 0) > 0) window.location.reload();
+    window.alert(`${result.formatLabel || "납기 파일"}: ${summary}\nGit 저장과 화면 반영이 완료됐습니다.`);
+    await loadRecords();
   }
 
   function ensureScheduleMenu(button) {

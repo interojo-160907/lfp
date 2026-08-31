@@ -64,5 +64,16 @@ jobs:
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
           git commit -m "data: refresh ${COLLECTION_SCOPE}"
-          git push
+          for attempt in 1 2 3; do
+            if git push; then
+              exit 0
+            fi
+            echo "Push attempt ${attempt} failed; rebasing on the latest main branch."
+            git pull --rebase origin main
+          done
+          exit 1
+
+      - name: Reset completed delivery schedules
+        shell: bash
+        run: curl --fail --silent --show-error "https://lfp-schedule-relay.hwh2404.workers.dev/data?source=collection"
 
