@@ -222,5 +222,7 @@
   }
 
   const observer = new MutationObserver(scheduleDecorate);
-  observer.observe(document.documentElement, { childList: true, subtree: true });
+  const main = document.querySelector("main");
+  if (main) observer.observe(main, { childList: true, subtree: true });
+  document.addEventListener("lfp:detail-rendered", scheduleDecorate);
 })();

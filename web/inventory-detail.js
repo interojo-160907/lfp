@@ -615,6 +615,7 @@
     bindSelectionControls(tbody);
     bindHoverPopovers(tbody);
     window.lfpDecoratePurchaseInbound?.();
+    document.dispatchEvent(new CustomEvent("lfp:detail-rendered"));
   }
 
   function bindControls() {
@@ -655,15 +656,17 @@
   async function init() {
     injectStyles();
     try {
-      const [inventoryResponse, apsResponse, bomResponse, productionResponse] = await Promise.all([
-        fetch(`data/lidding-inventory.json?v=${Date.now()}`),
-        fetch(`data/aps-lidding-requirement.json?v=${Date.now()}`),
-        fetch(`data/bom-product-lidding.json?v=${Date.now()}`),
-        fetch(`data/lidding-production-usage.json?v=${Date.now()}`),
+      const [inventory, aps, bom, production] = await Promise.allSettled([
+        window.LFPResources.json("data/lidding-inventory.json"),
+        window.LFPResources.json("data/aps-lidding-requirement.json"),
+        window.LFPResources.json("data/bom-product-lidding.json"),
+        window.LFPResources.json("data/lidding-production-usage.json"),
       ]);
-      if (!inventoryResponse.ok || !apsResponse.ok) throw new Error(`HTTP ${inventoryResponse.status}/${apsResponse.status}`);
-      state.data = await inventoryResponse.json();
-      state.aps = await apsResponse.json();
+      if (inventory.status !== "fulfilled" || aps.status !== "fulfilled") {
+        throw inventory.reason || aps.reason || new Error("필수 데이터를 불러오지 못했습니다.");
+      }
+      state.data = inventory.value;
+      state.aps = aps.value;
       state.data.rows = Array.isArray(state.data.rows) ? state.data.rows : [];
       const inventoryKeys = new Set(state.data.rows.map((row) => `${row.itemCode}|${row.specification}`));
       for (const requirement of state.aps.rows || []) {
@@ -683,9 +686,9 @@
       state.data.rows.sort((left, right) => String(left.itemCode).localeCompare(String(right.itemCode))
         || String(left.specification).localeCompare(String(right.specification)));
       state.data.itemCount = state.data.rows.length;
-      if (bomResponse.ok) buildProductMaps(await bomResponse.json());
-      if (productionResponse.ok) {
-        state.productionUsage = await productionResponse.json();
+      if (bom.status === "fulfilled") buildProductMaps(bom.value);
+      if (production.status === "fulfilled") {
+        state.productionUsage = production.value;
         state.productionUsageMap = new Map((state.productionUsage.rows || []).map((row) => [
           `${row.itemCode}|${row.specification}`,
           row,

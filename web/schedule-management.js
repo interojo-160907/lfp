@@ -4,6 +4,8 @@
   const SCHEDULE_DATA_URL = "data/lidding-delivery-management.json";
   const RELAY_URL = "https://lfp-schedule-relay.hwh2404.workers.dev";
   const PURCHASE_DATA_URL = "data/lidding-purchase-inbound.json";
+  const SHEETJS_URL = "https://cdn.sheetjs.com/xlsx-0.20.3/package/dist/xlsx.full.min.js";
+  const EXCELJS_URL = "https://cdn.jsdelivr.net/npm/exceljs@4.4.0/dist/exceljs.min.js";
   const state = {
     records: new Map(), scheduled: false, lastReset: "", noteOnly: false,
     noteHoverTimer: null, purchaseItems: new Map(),
@@ -118,6 +120,8 @@
       const result = await response.json();
       const records = Array.isArray(result.records) ? result.records : Object.values(result.records || {});
       state.records = new Map(records.map((record) => [itemKey(record.itemCode, record.spec), record]));
+      window.lfpDeliveryRecords = state.records;
+      document.dispatchEvent(new CustomEvent("lfp:delivery-records-updated", { detail: { records } }));
       scheduleDecorate();
     } catch (_) {
       state.records = new Map();
@@ -126,9 +130,7 @@
 
   async function loadPurchaseItems() {
     try {
-      const response = await fetch(`${PURCHASE_DATA_URL}?v=${Date.now()}`, { cache: "no-store" });
-      if (!response.ok) throw new Error(`HTTP ${response.status}`);
-      const result = await response.json();
+      const result = await window.LFPResources.json(PURCHASE_DATA_URL);
       state.purchaseItems = new Map((result.items || []).map((item) => [
         itemKey(item.itemCode, item.specification), item,
       ]));
@@ -306,6 +308,14 @@
     });
   }
 
+  function ensureSheetJs() {
+    return window.LFPResources.script(SHEETJS_URL, "XLSX");
+  }
+
+  function ensureExcelJs() {
+    return window.LFPResources.script(EXCELJS_URL, "ExcelJS");
+  }
+
   function solidFill(color) {
     return { type: "pattern", pattern: "solid", fgColor: { argb: `FF${color}` } };
   }
@@ -368,7 +378,7 @@
     button.disabled = true;
     button.textContent = "생성 중";
     try {
-      if (!window.ExcelJS) throw new Error("서식 Excel 모듈을 불러오지 못했습니다. 페이지를 새로고침한 뒤 다시 시도하세요.");
+      await ensureExcelJs();
       const headers = [
         "품목코드", "품목명", "규격", "입고대기", "발주대기", "납기요청일",
         "납기확정일", "납기조정일", "비고", "구매의뢰번호", "발주번호", "대기상태",
@@ -673,6 +683,7 @@
   }
 
   async function uploadUpdate(file) {
+    await ensureSheetJs();
     const parsed = parseDeliveryWorkbook(await file.arrayBuffer(), file.name);
     if (!parsed.rows.length) {
       window.alert(`${parsed.stats.formatLabel}: 반영 가능한 일정이 없습니다.\n공란 ${parsed.stats.blank}건 · 취소선 제외 ${parsed.stats.struck}건 · 미연결 ${parsed.stats.unmatched}건 · 충돌 ${parsed.stats.conflicts}건`);
@@ -890,7 +901,7 @@
     installEvents();
     await Promise.allSettled([loadRecords(), loadPurchaseItems()]);
     bindScheduleButton();
-    new MutationObserver(scheduleDecorate).observe(document.body, { childList: true, subtree: true, characterData: true });
+    document.addEventListener("lfp:detail-rendered", scheduleDecorate);
     scheduleDecorate();
   }
 

@@ -1,8 +1,9 @@
 (function () {
   "use strict";
 
-  const SNAPSHOT_URL = "data/dashboard-snapshot.json";
-  const DELIVERY_URL = "api/delivery-management";
+  const INVENTORY_URL = "data/lidding-inventory.json";
+  const APS_URL = "data/aps-lidding-requirement.json";
+  const PURCHASE_URL = "data/lidding-purchase-inbound.json";
   const state = {
     purchaseMap: new Map(),
     apsMap: new Map(),
@@ -752,32 +753,29 @@
     return true;
   }
 
-  function loadDashboardSnapshot() {
-    const stamp = Date.now();
+  function loadDashboardSnapshot(force = false) {
     Promise.all([
-      fetch(`${SNAPSHOT_URL}?v=${stamp}`, { cache: "no-store" }),
-      fetch(`${DELIVERY_URL}?v=${stamp}`, { cache: "no-store" }),
+      window.LFPResources.json(INVENTORY_URL, { force }),
+      window.LFPResources.json(APS_URL, { force }),
+      window.LFPResources.json(PURCHASE_URL, { force }),
     ])
-      .then(async ([snapshotResponse, deliveryResponse]) => {
-        if (!snapshotResponse.ok) throw new Error(`대시보드 스냅샷 로드 실패: ${snapshotResponse.status}`);
-        const payload = await snapshotResponse.json();
-        const deliveryPayload = deliveryResponse.ok ? await deliveryResponse.json() : { records: [] };
-        return { payload, deliveryPayload };
-      })
-      .then(({ payload, deliveryPayload }) => {
-        const channels = payload.channels || {};
-        state.snapshotAt = payload.snapshotAt || "";
-        state.inventoryRows = channels.inventory?.rows || [];
+      .then(([inventory, aps, purchase]) => {
+        state.snapshotAt = [
+          inventory.generatedAt, inventory.sourceRefreshedAt,
+          aps.generatedAt, aps.sourceRefreshedAt,
+          purchase.generatedAt, purchase.sourceRefreshedAt,
+        ].filter(Boolean).sort().at(-1) || "";
+        state.inventoryRows = inventory.rows || [];
         state.apsMap.clear();
         state.purchaseMap.clear();
         state.deliveryMap.clear();
-        (channels.aps?.rows || []).forEach((item) => {
+        (aps.rows || []).forEach((item) => {
           state.apsMap.set(key(item.liddingCode, item.liddingSpecification), item);
         });
-        (channels.purchase?.items || []).forEach((item) => {
+        (purchase.items || []).forEach((item) => {
           state.purchaseMap.set(key(item.itemCode, item.specification), item);
         });
-        (deliveryPayload.records || []).forEach((item) => {
+        Array.from(window.lfpDeliveryRecords?.values?.() || []).forEach((item) => {
           state.deliveryMap.set(key(item.itemCode, item.spec), item);
         });
         schedule();
@@ -790,13 +788,20 @@
     if (!buildShell()) return;
     observeTable(findDetailTable());
     loadDashboardSnapshot();
-    window.setInterval(loadDashboardSnapshot, 60000);
+    document.addEventListener("lfp:data-updated", () => loadDashboardSnapshot(false));
     syncApsFilterControls();
     schedule();
     setTimeout(schedule, 200);
     setTimeout(schedule, 600);
 
     document.addEventListener("lfp:purchase-status-updated", schedule);
+    document.addEventListener("lfp:delivery-records-updated", (event) => {
+      state.deliveryMap.clear();
+      (event.detail?.records || []).forEach((item) => {
+        state.deliveryMap.set(key(item.itemCode, item.spec), item);
+      });
+      schedule();
+    });
 
     document.addEventListener("click", (event) => {
       if (event.target.closest('[data-tab="overview"]')) setTimeout(schedule, 0);

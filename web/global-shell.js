@@ -1,6 +1,8 @@
 (() => {
   const APS_URL = "data/aps-lidding-requirement.json";
   const INVENTORY_URL = "data/lidding-inventory.json";
+  const STATUS_URL = "data/collection-status.json";
+  let lastCollectionAt = "";
 
   function formatTime(value) {
     const source = String(value || "").trim();
@@ -33,18 +35,16 @@
     if (host) host.classList.add("lfp-legacy-time-hidden");
   }
 
-  async function refreshTimes() {
+  async function refreshTimes(force = false) {
     const bar = mount();
     if (!bar) return;
     const apsTarget = bar.querySelector('[data-lfp-global-time="aps"]');
     const inventoryTarget = bar.querySelector('[data-lfp-global-time="inventory"]');
     try {
-      const [apsResponse, inventoryResponse] = await Promise.all([
-        fetch(`${APS_URL}?v=${Date.now()}`, { cache: "no-store" }),
-        fetch(`${INVENTORY_URL}?v=${Date.now()}`, { cache: "no-store" }),
+      const [aps, inventory] = await Promise.all([
+        window.LFPResources.json(APS_URL, { force }),
+        window.LFPResources.json(INVENTORY_URL, { force }),
       ]);
-      const aps = apsResponse.ok ? await apsResponse.json() : {};
-      const inventory = inventoryResponse.ok ? await inventoryResponse.json() : {};
       const apsTime = aps.sourceRefreshedAt || aps.generatedAt;
       const inventoryTime = inventory.generatedAt || inventory.sourceRefreshedAt;
       apsTarget.textContent = formatTime(apsTime);
@@ -58,11 +58,32 @@
     hideLegacyTimes();
   }
 
+  async function checkForUpdates() {
+    try {
+      const status = await window.LFPResources.json(STATUS_URL, { force: true });
+      const collectedAt = String(status.lastCollection?.at || "");
+      if (!lastCollectionAt) {
+        lastCollectionAt = collectedAt;
+        return;
+      }
+      if (!collectedAt || collectedAt === lastCollectionAt) return;
+      lastCollectionAt = collectedAt;
+      await refreshTimes(true);
+      document.dispatchEvent(new CustomEvent("lfp:data-updated", { detail: { collectedAt } }));
+    } catch (_) {
+      // Keep the last good screen when the lightweight status check is temporarily unavailable.
+    }
+  }
+
   document.addEventListener("DOMContentLoaded", () => {
     mount();
     refreshTimes();
-    new MutationObserver(hideLegacyTimes).observe(document.body, { childList: true, subtree: true });
-    window.setInterval(refreshTimes, 30000);
+    checkForUpdates();
+    const detail = document.getElementById("detail");
+    if (detail) new MutationObserver(hideLegacyTimes).observe(detail, { childList: true, subtree: true });
+    window.setInterval(() => {
+      if (!document.hidden) checkForUpdates();
+    }, 60000);
   });
 })();
 

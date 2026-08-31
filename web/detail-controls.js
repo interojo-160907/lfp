@@ -4,6 +4,8 @@
   const INVENTORY_URL = "data/lidding-inventory.json";
   const APS_URL = "data/aps-lidding-requirement.json";
   const CONFIRMATION_URL = "data/lidding-delivery-confirmations.xlsx";
+  const COLLECTION_STATUS_URL = "data/collection-status.json";
+  const SHEETJS_URL = "https://cdn.sheetjs.com/xlsx-0.20.3/package/dist/xlsx.full.min.js";
   const LOCAL_STORAGE_KEY = "lfp-delivery-confirmations-v1";
   const WAREHOUSES = [
     { key: "ALL", label: "전체" },
@@ -221,8 +223,7 @@
   }
 
   function loadInventory() {
-    return fetch(INVENTORY_URL, { cache: "no-store" })
-      .then((response) => response.ok ? response.json() : null)
+    return window.LFPResources.json(INVENTORY_URL)
       .then((payload) => {
         const items = Array.isArray(payload) ? payload : (payload?.items || payload?.rows || payload?.data || []);
         items.forEach((item) => {
@@ -266,6 +267,10 @@
       stock: matchedRows.reduce((sum, row) => sum + numberValue(pick(row, ["stockQty", "stock_qty", "stock", "재고"])), 0),
       inspection: matchedRows.reduce((maximum, row) => Math.max(maximum, numberValue(pick(row, ["inspectionWaitQty", "inspection_wait_qty", "inspectionWait", "검사대기"]))), 0),
     };
+  }
+
+  function ensureSheetJs() {
+    return window.LFPResources.script(SHEETJS_URL, "XLSX");
   }
 
   function matchesSelectedWarehouse(item) {
@@ -1073,12 +1078,10 @@
     const inventoryTarget = document.querySelector('[data-lfp-time="inventory"]');
     if (!apsTarget || !inventoryTarget) return;
     try {
-      const [apsResponse, inventoryResponse] = await Promise.all([
-        fetch(`${APS_URL}?v=${Date.now()}`, { cache: "no-store" }),
-        fetch(`${INVENTORY_URL}?v=${Date.now()}`, { cache: "no-store" }),
+      const [aps, inventory] = await Promise.all([
+        window.LFPResources.json(APS_URL),
+        window.LFPResources.json(INVENTORY_URL),
       ]);
-      const aps = apsResponse.ok ? await apsResponse.json() : {};
-      const inventory = inventoryResponse.ok ? await inventoryResponse.json() : {};
       apsTarget.textContent = formatCollectionTime(aps.sourceRefreshedAt || aps.generatedAt);
       inventoryTarget.textContent = formatCollectionTime(inventory.generatedAt || inventory.sourceRefreshedAt);
       apsTarget.title = text(aps.sourceRefreshedAt || aps.generatedAt);
@@ -1164,7 +1167,7 @@
   }
 
   async function downloadPurchaseWorkbook(rows) {
-    if (!window.XLSX) throw new Error("Excel 모듈을 불러오지 못했습니다. 잠시 후 다시 시도해주세요.");
+    await ensureSheetJs();
     const templateResponse = await fetch("templates/purchase-request-template.xlsx", { cache: "no-store" });
     if (!templateResponse.ok) throw new Error("발주 Excel 양식을 불러오지 못했습니다.");
 
@@ -1235,6 +1238,15 @@
     const target = document.querySelector(".lfp-monitor-status");
     if (!target) return;
     try {
+      if (window.location.hostname.endsWith(".github.io")) {
+        const collection = await window.LFPResources.json(COLLECTION_STATUS_URL);
+        const latest = collection.lastCollection || {};
+        target.classList.toggle("is-error", latest.status === "error");
+        target.textContent = latest.status === "success"
+          ? `자동 수집 정상 · ${formatMonitorTime(latest.at)}`
+          : "자동 수집 상태 확인 필요";
+        return;
+      }
       const response = await fetch("api/monitor-status", { cache: "no-store" });
       if (!response.ok) throw new Error("status_unavailable");
       const status = await response.json();
@@ -1301,6 +1313,7 @@
     const file = event.target.files?.[0];
     if (!file) return;
     try {
+      await ensureSheetJs();
       const rows = workbookRows(await file.arrayBuffer());
       state.localConfirmations = rowsToMap(rows);
       localStorage.setItem(LOCAL_STORAGE_KEY, JSON.stringify(rows));
@@ -1323,10 +1336,10 @@
   }
 
   async function loadRepoConfirmations() {
-    if (!window.XLSX) return;
     try {
       const response = await fetch(CONFIRMATION_URL, { cache: "no-store" });
       if (!response.ok) return;
+      await ensureSheetJs();
       const rows = workbookRows(await response.arrayBuffer());
       state.repoConfirmations = rowsToMap(rows);
       setUploadStatus(`Git 납기확정일 ${rows.length.toLocaleString("ko-KR")}건 + 로컬 ${state.localConfirmations.size.toLocaleString("ko-KR")}건`);
@@ -1346,12 +1359,18 @@
     scheduleApply(true);
     loadRepoConfirmations();
     loadMonitorStatus();
-    if (!state.monitorTimer) state.monitorTimer = window.setInterval(loadMonitorStatus, 15000);
+    if (!state.monitorTimer) {
+      state.monitorTimer = window.setInterval(() => {
+        if (!document.hidden) loadMonitorStatus();
+      }, 15000);
+    }
 
     state.observer = new MutationObserver(() => {
       if (!state.applying) scheduleApply(false);
     });
-    state.observer.observe(document.body, { childList: true, subtree: true, characterData: true });
+    const table = findDetailTable();
+    if (table) state.observer.observe(table, { childList: true, subtree: true });
+    document.addEventListener("lfp:purchase-status-updated", () => scheduleApply(false));
   }
 
   if (document.readyState === "loading") {

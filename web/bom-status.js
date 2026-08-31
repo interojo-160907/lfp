@@ -217,11 +217,9 @@
     renderTable(live);
   }
 
-  async function loadBomData(forceRender = false) {
+  async function loadBomData(forceRender = false, forceLoad = false) {
     const previousVersion = collectionVersion();
-    const response = await fetch(`data/bom-product-lidding.json?v=${Date.now()}`, { cache: "no-store" });
-    if (!response.ok) throw new Error(`HTTP ${response.status}`);
-    const nextData = await response.json();
+    const nextData = await window.LFPResources.json("data/bom-product-lidding.json", { force: forceLoad });
     const changed = collectionVersion(nextData) !== previousVersion;
     state.data = nextData;
     const panel = findBomPanel();
@@ -291,9 +289,7 @@
         buildPanel();
         ensureBomTools(findBomPanel());
       }, 0));
-      if (!state.refreshTimer) {
-        state.refreshTimer = window.setInterval(() => loadBomData(false).catch(() => {}), 60000);
-      }
+      document.addEventListener("lfp:data-updated", () => loadBomData(false, true).catch(() => {}));
     } catch (error) {
       console.error("BOM 데이터 로드 실패", error);
     }

@@ -201,12 +201,6 @@
     });
   }
 
-  function scheduleAfterFilterChange() {
-    schedule();
-    setTimeout(schedule, 100);
-    setTimeout(schedule, 350);
-  }
-
   function getPopover() {
     let popover = document.getElementById("lfp-purchase-popover");
     if (popover) return popover;
@@ -302,23 +296,19 @@
     state.hideTimer = setTimeout(hidePurchasePopover, 260);
   }
 
-  function loadPurchaseData() {
-    fetch(`${DATA_URL}?v=${Date.now()}`, { cache: "no-store" })
-      .then((response) => {
-        if (!response.ok) throw new Error(`구매 데이터 로드 실패: ${response.status}`);
-        return response.json();
-      })
+  function loadPurchaseData(force = false) {
+    window.LFPResources.json(DATA_URL, { force })
       .then((payload) => {
         state.inboundMap.clear();
         (payload.items || []).forEach((item) => state.inboundMap.set(key(item.itemCode, item.specification), item));
         state.loaded = true;
-        scheduleAfterFilterChange();
+        schedule();
       })
       .catch((error) => console.error(error));
   }
 
   loadPurchaseData();
-  window.setInterval(loadPurchaseData, 60000);
+  document.addEventListener("lfp:data-updated", () => loadPurchaseData(true));
 
   document.addEventListener("mouseover", (event) => {
     const cell = event.target.closest(".lfp-purchase-detail[data-purchase-key], .lfp-purchase-date[data-purchase-key]");
@@ -328,10 +318,7 @@
     const cell = event.target.closest(".lfp-purchase-detail[data-purchase-key], .lfp-purchase-date[data-purchase-key]");
     if (cell && !cell.contains(event.relatedTarget)) scheduleHidePurchasePopover();
   });
-  document.addEventListener("click", (event) => {
-    if (event.target.closest("button")) scheduleAfterFilterChange();
-  });
-  document.addEventListener("change", scheduleAfterFilterChange);
+  document.addEventListener("lfp:detail-rendered", schedule);
   window.addEventListener("scroll", hidePurchasePopover, true);
   window.addEventListener("resize", hidePurchasePopover);
   document.addEventListener("mouseenter", (event) => {
@@ -341,9 +328,4 @@
     if (event.target.closest?.("#lfp-purchase-popover")) scheduleHidePurchasePopover();
   }, true);
 
-  new MutationObserver(schedule).observe(document.documentElement, {
-    childList: true,
-    subtree: true,
-    characterData: true,
-  });
 })();
