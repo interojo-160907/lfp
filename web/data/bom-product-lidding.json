@@ -1,14 +1,14 @@
 {
-  "generatedAt": "2026-08-31T10:11:04+09:00",
-  "sourceSignature": "9e29ea97329582100e5611afea62b3d7d9bef18f8af9aa325cb23ea06d0a3800",
-  "productSourceCount": 1716,
+  "generatedAt": "2026-08-31T12:16:53+09:00",
+  "sourceSignature": "8498620c04441967dcf5f0b41732668e276b6f414eb0c8ec78f52b9fac617c85",
+  "productSourceCount": 1714,
   "bomSourceCount": 28563,
-  "activePProductCount": 1716,
+  "activePProductCount": 1714,
   "productApiFilterApplied": true,
   "bomApiFilterApplied": true,
   "storageScope": "active P-code + level-1 active BS lidding only",
-  "mappingCount": 1636,
-  "mappedProductCount": 1636,
+  "mappingCount": 1634,
+  "mappedProductCount": 1634,
   "liddingCodeCount": 239,
   "specificationVersionCount": 239,
   "unmappedProductCount": 80,
@@ -14292,28 +14292,6 @@
       "useYn": "Y"
     },
     {
-      "productCode": "P5113",
-      "productName": "MOODY D_Nanodat_U-buding_55%_6P(미사용)",
-      "liddingCode": "BS0207",
-      "liddingName": "알루미늄리드지 (Moody nanodat 탄수화물 6P)_유광 코팅",
-      "liddingSpecification": "BS0207-001",
-      "requirementQty": 1,
-      "bomLevel": 1,
-      "statusCode": "S",
-      "useYn": "Y"
-    },
-    {
-      "productCode": "P5114",
-      "productName": "MOODY D_Nanodat_P-tang_55%_6P(미사용)",
-      "liddingCode": "BS0207",
-      "liddingName": "알루미늄리드지 (Moody nanodat 탄수화물 6P)_유광 코팅",
-      "liddingSpecification": "BS0207-001",
-      "requirementQty": 1,
-      "bomLevel": 1,
-      "statusCode": "S",
-      "useYn": "Y"
-    },
-    {
       "productCode": "P5115",
       "productName": "MOODY D_Nanodat_B-beiguo_55%_6P(미사용)",
       "liddingCode": "BS0207",
@@ -18010,5 +17988,5 @@
       "useYn": "Y"
     }
   ],
-  "changed": false
+  "changed": true
 }

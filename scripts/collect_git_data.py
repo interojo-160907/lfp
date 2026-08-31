@@ -25,6 +25,7 @@ REGULAR_COLLECTION_INTERVAL = timedelta(hours=16)
 PCODE = re.compile(r"^P\d{4}$", re.IGNORECASE)
 LIDDING_NAME = re.compile(r"리드지|lidding|foil", re.IGNORECASE)
 ACTIVE_ORDER_STATUSES = {"발주", "납품진행"}
+APS_CATEGORIES = ("해외", "PB", "국내", "안전재고")
 WAREHOUSES = (
     ("300", "L관창고(자재)"),
     ("P010", "A관 공정부자재"),
@@ -99,7 +100,20 @@ def normalized(value: object) -> str:
     return " ".join(str(value or "").strip().upper().split())
 
 
+def repair_legacy_korean_text(value: object) -> str:
+    """Repair CP949 text that an upstream system decoded as Latin-1."""
+    text = str(value or "").strip()
+    if not text:
+        return text
+    try:
+        repaired = text.encode("latin-1").decode("cp949")
+    except (UnicodeEncodeError, UnicodeDecodeError):
+        return text
+    return repaired
+
+
 def category(demand_type: str) -> str:
+    demand_type = repair_legacy_korean_text(demand_type)
     if demand_type == "PB":
         return "PB"
     if demand_type == "국내":
@@ -209,50 +223,74 @@ def collect_bom() -> dict:
 def collect_inventory() -> dict:
     collected: list[dict] = []
     channel_status: list[dict] = []
+    raw_lidding_source_row_count = 0
+    raw_stock_total = Decimal("0")
+    negative_stock_source_row_count = 0
+    duplicate_warehouse_item_source_row_count = 0
     for warehouse_code, warehouse_name in WAREHOUSES:
         payload = fetch_json(
             "/api/warehouse-item-stock", {"wh_cd": warehouse_code, "itm_cd": "BS", "limit": 0}, 180
         )
-        if payload.get("truncated"):
-            raise RuntimeError(f"{warehouse_name} API 응답이 잘렸습니다.")
-        source_rows = payload.get("rows") or []
-        grouped: dict[str, dict] = {}
+        source_rows = validated_rows(f"{warehouse_name} 재고", payload)
+        lidding_rows = []
         for row in source_rows:
             item_code = str(row.get("itm_cd") or "").strip()
             if str(row.get("wh_cd") or "") != warehouse_code or not item_code.upper().startswith("BS"):
                 continue
             if not LIDDING_NAME.search(str(row.get("itm_nm") or "")):
                 continue
+            lidding_rows.append(row)
+
+        raw_lidding_source_row_count += len(lidding_rows)
+        raw_stock_total += sum((number(row.get("stock_qty")) for row in lidding_rows), Decimal("0"))
+        negative_stock_source_row_count += sum(
+            1 for row in lidding_rows if number(row.get("stock_qty")) < 0
+        )
+
+        grouped: dict[tuple[str, str], dict] = {}
+        for row in lidding_rows:
+            item_code = str(row.get("itm_cd") or "").strip()
+            specification = str(row.get("spec") or "").strip()
+            key = (item_code, specification)
             current = grouped.setdefault(
-                item_code,
+                key,
                 {
                     "snapshotDate": row.get("std_dt") or datetime.now(KST).date().isoformat(),
                     "warehouseCode": warehouse_code,
                     "warehouseName": warehouse_name,
                     "itemCode": item_code,
                     "itemName": str(row.get("itm_nm") or "").strip(),
-                    "specification": str(row.get("spec") or "").strip(),
+                    "specification": specification,
                     "stockQty": Decimal("0"),
                     "inspectionWaitQty": Decimal("0"),
                 },
             )
             current["stockQty"] += number(row.get("stock_qty"))
             current["inspectionWaitQty"] = max(current["inspectionWaitQty"], number(row.get("stay_qty")))
+        duplicate_warehouse_item_source_row_count += len(lidding_rows) - len(grouped)
         collected.extend(grouped.values())
         channel_status.append({
             "warehouseCode": warehouse_code,
             "warehouseName": warehouse_name,
             "sourceRows": len(source_rows),
             "liddingRows": len(grouped),
+            "rawLiddingRows": len(lidding_rows),
+            "duplicateLiddingRows": len(lidding_rows) - len(grouped),
             "truncated": False,
         })
 
-    by_item: dict[str, list[dict]] = defaultdict(list)
+    by_item: dict[tuple[str, str], list[dict]] = defaultdict(list)
     for row in collected:
-        by_item[row["itemCode"]].append(row)
+        by_item[(row["itemCode"], row["specification"])].append(row)
     summary_rows = []
-    for item_code, item_rows in sorted(by_item.items()):
+    inspection_repeated_warehouse_row_count = 0
+    inspection_conflict_item_count = 0
+    for (item_code, _specification), item_rows in sorted(by_item.items()):
         representative = item_rows[0]
+        nonzero_inspections = [row["inspectionWaitQty"] for row in item_rows if row["inspectionWaitQty"] != 0]
+        inspection_repeated_warehouse_row_count += max(0, len(nonzero_inspections) - 1)
+        if len(set(nonzero_inspections)) > 1:
+            inspection_conflict_item_count += 1
         warehouse_map = {row["warehouseCode"]: row for row in item_rows}
         warehouses = []
         for warehouse_code, warehouse_name in WAREHOUSES:
@@ -273,13 +311,33 @@ def collect_inventory() -> dict:
             "warehouses": warehouses,
             "note": "검사대기는 창고 간 반복되는 API 공통값으로 중복 합산하지 않음",
         })
+    stock_total = sum((number(row["stockQty"]) for row in summary_rows), Decimal("0"))
+    inspection_total = sum((number(row["inspectionWaitQty"]) for row in summary_rows), Decimal("0"))
+    if stock_total != raw_stock_total:
+        raise RuntimeError(f"재고 합계 불일치: 원본={raw_stock_total}, 집계={stock_total}")
     return {
         "generatedAt": now_text(),
         "snapshotDate": max((row["snapshotDate"] for row in collected), default=datetime.now(KST).date().isoformat()),
         "warehouseOptions": [{"code": code, "name": name} for code, name in WAREHOUSES],
         "itemCount": len(summary_rows),
         "sourceRowCount": len(collected),
+        "rawLiddingSourceRowCount": raw_lidding_source_row_count,
+        "stockTotal": decimal_json(stock_total),
+        "inspectionWaitTotal": decimal_json(inspection_total),
         "inspectionAggregation": "max-per-item",
+        "formula": {
+            "grain": "item_code + specification",
+            "stock": "sum(stock_qty) across the four selected warehouses",
+            "inspectionWait": "max(stay_qty) per item_code + specification because the API repeats the same quantity across warehouses",
+        },
+        "qualityChecks": {
+            "sourceCountsValidated": True,
+            "stockTotalReconciled": True,
+            "negativeStockSourceRowCount": negative_stock_source_row_count,
+            "duplicateWarehouseItemSourceRowCount": duplicate_warehouse_item_source_row_count,
+            "inspectionRepeatedWarehouseRowCount": inspection_repeated_warehouse_row_count,
+            "inspectionConflictItemCount": inspection_conflict_item_count,
+        },
         "status": {"warehouses": channel_status},
         "rows": summary_rows,
     }
@@ -327,8 +385,8 @@ def collect_purchase(inventory: dict) -> dict:
             "purchase_order_qty": purchase_order_qty,
             "not_ordered_qty": not_ordered_qty,
             "requested_delivery_date": row.get("dlv_dt") or None,
-            "request_status_name": row.get("stat_bc_nm"),
-            "approval_status": row.get("gw_stat"),
+            "request_status_name": repair_legacy_korean_text(row.get("stat_bc_nm")),
+            "approval_status": str(row.get("gw_stat") or "").strip().upper(),
         })
 
     order_rows = []
@@ -356,7 +414,7 @@ def collect_purchase(inventory: dict) -> dict:
             "provisional_receipt_qty": provisional_receipt_qty,
             "received_qty": number(row.get("in_qty")),
             "remaining_qty": remaining_qty,
-            "order_status_name": row.get("stat_bc_nm"),
+            "order_status_name": repair_legacy_korean_text(row.get("stat_bc_nm")),
             "delivery_date": row.get("dlv_dt") or None,
             "supplier_name": row.get("cust_nm"),
         })
@@ -436,6 +494,30 @@ def collect_purchase(inventory: dict) -> dict:
     items.sort(key=lambda row: (row["itemCode"], row["specification"]))
     inbound_total = sum((number(item["inboundWaitQty"]) for item in items), Decimal("0"))
     purchase_total = sum((number(item["purchaseWaitQty"]) for item in items), Decimal("0"))
+    expected_inbound_total = sum(
+        (
+            row["remaining_qty"]
+            for row in order_rows
+            if row["order_status_name"] in ACTIVE_ORDER_STATUSES and row["remaining_qty"] > 0
+        ),
+        Decimal("0"),
+    )
+    expected_purchase_total = sum(
+        (
+            row["not_ordered_qty"]
+            for row in request_rows
+            if row["approval_status"] == "Y"
+            and row["request_status_name"] == "완료"
+            and row["not_ordered_qty"] > 0
+        ),
+        Decimal("0"),
+    )
+    if inbound_total != expected_inbound_total or purchase_total != expected_purchase_total:
+        raise RuntimeError(
+            "구매 대기 합계 불일치: "
+            f"입고대기 원본={expected_inbound_total}, 집계={inbound_total}; "
+            f"발주대기 원본={expected_purchase_total}, 집계={purchase_total}"
+        )
     return {
         "collectedAt": now_text(), "queryDate": order_payload.get("query_date") or today.isoformat(),
         "dateFrom": date_from, "dateTo": date_to,
@@ -451,7 +533,16 @@ def collect_purchase(inventory: dict) -> dict:
         "formula": {
             "inboundWait": "sum(rem_qty) where stat_bc_nm in (발주, 납품진행), regardless of req_no or rmks",
             "purchaseWait": "sum(not_inqty) where gw_stat=Y and stat_bc_nm=완료",
-            "grain": "item_code + specification", "requestLinkKey": "request_no + request_seq",
+            "grain": "item_code + specification",
+            "requestLinkKey": "request_no + specification",
+            "requestSequenceUsage": "trace-only",
+        },
+        "qualityChecks": {
+            "sourceCountsValidated": True,
+            "requestFormulaMismatchCount": 0,
+            "orderFormulaMismatchCount": 0,
+            "inboundWaitTotalReconciled": True,
+            "purchaseWaitTotalReconciled": True,
         },
         "items": items,
     }
@@ -471,29 +562,49 @@ def collect_aps(bom: dict) -> dict:
         qty = number(row.get("plan_qty"))
         if not p_code.startswith("P") or qty <= 0:
             continue
-        demand_type = str(row.get("demand_type") or "미분류").strip()
+        demand_type = repair_legacy_korean_text(row.get("demand_type") or "미분류")
         aggregates[(p_code, demand_type)] += qty
         details.append({
             "sourceRowNo": source_row_no, "pCode": p_code,
             "demandType": demand_type, "demandCategory": category(demand_type),
-            "demandId": str(row.get("demand_id") or "").strip(),
+            "demandId": repair_legacy_korean_text(row.get("demand_id")),
             "salesOrderNo": str(row.get("so_id") or "").strip(),
             "sequence": int(row.get("seq") or 0),
-            "initial": str(row.get("initial") or "").strip(),
-            "customerName": str(row.get("cust_name") or "").strip(),
+            "initial": repair_legacy_korean_text(row.get("initial")),
+            "customerName": repair_legacy_korean_text(row.get("cust_name")),
             "dueDate": row.get("due_date") or None,
             "productionRequiredQty": qty,
         })
 
     category_totals: dict[str, Decimal] = defaultdict(lambda: Decimal("0"))
+    unknown_demand_types: dict[str, Decimal] = defaultdict(lambda: Decimal("0"))
+    source_total = sum(aggregates.values(), Decimal("0"))
+    declared_source_total = number(payload.get("total_plan_qty"))
+    if payload.get("total_plan_qty") is not None and source_total != declared_source_total:
+        raise RuntimeError(f"APS 원본 합계 불일치: API={declared_source_total}, P코드 합계={source_total}")
+    for (p_code, demand_type), qty in aggregates.items():
+        demand_category = category(demand_type)
+        category_totals[demand_category] += qty
+        if demand_category == "기타":
+            unknown_demand_types[demand_type] += qty
+    if unknown_demand_types:
+        values = ", ".join(
+            f"{name}={decimal_json(qty)}" for name, qty in sorted(unknown_demand_types.items())
+        )
+        raise RuntimeError(f"APS 미지원 수요구분 발견: {values}")
+    categorized_total = sum((category_totals[name] for name in APS_CATEGORIES), Decimal("0"))
+    if categorized_total != source_total:
+        raise RuntimeError(f"APS 구분 합계 불일치: 원본={source_total}, 구분={categorized_total}")
+
     requirements: dict[tuple[str, str], dict] = {}
     unmatched = set()
+    unmatched_total = Decimal("0")
     source_refreshed_at = payload.get("source_refreshed_at")
     for (p_code, demand_type), qty in aggregates.items():
-        category_totals[category(demand_type)] += qty
         mappings = bom_by_product.get(p_code, [])
         if not mappings:
             unmatched.add(p_code)
+            unmatched_total += qty
         due_dates = [str(row["dueDate"]) for row in details if row["pCode"] == p_code and row["demandType"] == demand_type and row["dueDate"]]
         for mapping in mappings:
             key = (str(mapping.get("liddingCode") or ""), str(mapping.get("liddingSpecification") or ""))
@@ -537,7 +648,7 @@ def collect_aps(bom: dict) -> dict:
             "linkedPCodeCount": len(linked),
             "dueDateFrom": min(due_dates) if due_dates else None,
             "dueDateTo": max(due_dates) if due_dates else None,
-            "categoryQuantities": {name: decimal_json(quantities.get(name, Decimal("0"))) for name in ("해외", "PB", "국내", "안전재고", "기타")},
+            "categoryQuantities": {name: decimal_json(quantities.get(name, Decimal("0"))) for name in APS_CATEGORIES},
             "salesOrders": sales_orders,
         })
     output_rows.sort(key=lambda row: (row["liddingCode"], row["liddingSpecification"]))
@@ -545,8 +656,18 @@ def collect_aps(bom: dict) -> dict:
         "generatedAt": now_text(), "sourceRefreshedAt": source_refreshed_at,
         "sourceRowCount": payload.get("returned_count"), "sourceTotalQty": payload.get("total_plan_qty"),
         "pCodeDemandRows": len(aggregates),
-        "categoryTotals": {name: decimal_json(value) for name, value in category_totals.items()},
-        "liddingRequirementCount": len(output_rows), "unmatchedPCodes": sorted(unmatched), "rows": output_rows,
+        "categoryTotals": {name: decimal_json(category_totals[name]) for name in APS_CATEGORIES},
+        "liddingRequirementCount": len(output_rows),
+        "unmatchedPCodes": sorted(unmatched),
+        "unmatchedPCodeTotalQty": decimal_json(unmatched_total),
+        "qualityChecks": {
+            "sourceCountsValidated": True,
+            "sourceTotalReconciled": True,
+            "categoryTotalReconciled": True,
+            "unknownDemandTypeCount": 0,
+            "acceptedCategories": list(APS_CATEGORIES),
+        },
+        "rows": output_rows,
     }
 
 

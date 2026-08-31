@@ -2,6 +2,7 @@ from __future__ import annotations
 
 import importlib.util
 import unittest
+from decimal import Decimal
 from datetime import datetime, timedelta
 from pathlib import Path
 from unittest.mock import patch
@@ -133,6 +134,130 @@ class ManualScopeTests(unittest.TestCase):
                         if mock.called
                     }
                     self.assertEqual(expected, actual)
+
+
+class ApsCategoryTests(unittest.TestCase):
+    @staticmethod
+    def mojibake(value: str) -> str:
+        return value.encode("cp949").decode("latin-1")
+
+    def test_cp949_mojibake_categories_are_repaired(self) -> None:
+        cases = {
+            "이니셜": "해외",
+            "해외": "해외",
+            "PB": "PB",
+            "국내": "국내",
+            "안전(국내)": "안전재고",
+            "안전(해외)": "안전재고",
+        }
+        for demand_type, expected in cases.items():
+            source = demand_type if demand_type == "PB" else self.mojibake(demand_type)
+            with self.subTest(demand_type=demand_type):
+                self.assertEqual(demand_type, collector.repair_legacy_korean_text(source))
+                self.assertEqual(expected, collector.category(source))
+
+    def test_collect_aps_reconciles_all_category_totals(self) -> None:
+        source_rows = [
+            {"item_cd_5": "P0001", "demand_type": self.mojibake("이니셜"), "plan_qty": 10},
+            {"item_cd_5": "P0001", "demand_type": "PB", "plan_qty": 20},
+            {"item_cd_5": "P0001", "demand_type": self.mojibake("국내"), "plan_qty": 30},
+            {"item_cd_5": "P0001", "demand_type": self.mojibake("안전(국내)"), "plan_qty": 40},
+        ]
+        payload = {
+            "rows": source_rows,
+            "total_count": len(source_rows),
+            "returned_count": len(source_rows),
+            "total_plan_qty": 100,
+            "source_refreshed_at": "2026-08-31 08:00:00",
+        }
+        bom = {"rows": [{
+            "productCode": "P0001", "liddingCode": "BS0001",
+            "liddingSpecification": "BS0001-001", "liddingName": "리드지",
+        }]}
+        with patch.object(collector, "fetch_json", return_value=payload):
+            result = collector.collect_aps(bom)
+        self.assertEqual(
+            {"해외": 10, "PB": 20, "국내": 30, "안전재고": 40},
+            result["categoryTotals"],
+        )
+        self.assertEqual(result["categoryTotals"], result["rows"][0]["categoryQuantities"])
+        self.assertTrue(result["qualityChecks"]["categoryTotalReconciled"])
+
+    def test_collect_aps_rejects_unknown_demand_type(self) -> None:
+        payload = {
+            "rows": [{"item_cd_5": "P0001", "demand_type": "NEW", "plan_qty": 1}],
+            "total_count": 1,
+            "returned_count": 1,
+            "total_plan_qty": 1,
+        }
+        with (
+            patch.object(collector, "fetch_json", return_value=payload),
+            self.assertRaisesRegex(RuntimeError, "미지원 수요구분"),
+        ):
+            collector.collect_aps({"rows": []})
+
+
+class SupplyFormulaTests(unittest.TestCase):
+    @staticmethod
+    def payload(rows: list[dict]) -> dict:
+        return {
+            "rows": rows,
+            "total_count": len(rows),
+            "returned_count": len(rows),
+            "truncated": False,
+        }
+
+    def test_inventory_sums_stock_and_deduplicates_repeated_inspection_wait(self) -> None:
+        rows_by_warehouse = {
+            "300": [
+                {"wh_cd": "300", "itm_cd": "BS0001", "itm_nm": "리드지", "spec": "BS0001-001", "stock_qty": 10, "stay_qty": 5},
+                {"wh_cd": "300", "itm_cd": "BS0001", "itm_nm": "리드지", "spec": "BS0001-001", "stock_qty": 2, "stay_qty": 5},
+            ],
+            "P010": [
+                {"wh_cd": "P010", "itm_cd": "BS0001", "itm_nm": "리드지", "spec": "BS0001-001", "stock_qty": 20, "stay_qty": 0},
+            ],
+            "P030": [
+                {"wh_cd": "P030", "itm_cd": "BS0001", "itm_nm": "리드지", "spec": "BS0001-001", "stock_qty": 30, "stay_qty": 5},
+            ],
+            "S100": [],
+        }
+
+        def fetch(_path, params, _timeout=300):
+            return self.payload(rows_by_warehouse[params["wh_cd"]])
+
+        with patch.object(collector, "fetch_json", side_effect=fetch):
+            result = collector.collect_inventory()
+        self.assertEqual(62, result["stockTotal"])
+        self.assertEqual(5, result["inspectionWaitTotal"])
+        self.assertEqual(5, result["rows"][0]["inspectionWaitQty"])
+        self.assertEqual(1, result["qualityChecks"]["duplicateWarehouseItemSourceRowCount"])
+        self.assertEqual(1, result["qualityChecks"]["inspectionRepeatedWarehouseRowCount"])
+        self.assertTrue(result["qualityChecks"]["stockTotalReconciled"])
+
+    def test_purchase_wait_formulas_reconcile_to_grouped_totals(self) -> None:
+        request_rows = [{
+            "itm_cd": "BS0001", "itm_nm": "리드지", "spec": "BS0001-001",
+            "req_no": "REQ1", "req_sq": 1, "req_qty": 10, "po_tot": 5,
+            "not_inqty": 5, "stat_bc_nm": "완료", "gw_stat": "Y",
+        }]
+        order_rows = [{
+            "itm_cd": "BS0001", "itm_nm": "리드지", "spec": "BS0001-001",
+            "po_no": "PO1", "po_sq": 1, "req_no": "REQ1", "req_sq": 1,
+            "po_qty": 10, "dlv_qty": 3, "in_qty": 3, "rem_qty": 7,
+            "stat_bc_nm": "발주",
+        }]
+
+        def fetch(path, _params, _timeout=300):
+            return self.payload(request_rows if path == "/api/purchase-requests" else order_rows)
+
+        inventory = {"rows": [{"itemCode": "BS0001", "specification": "BS0001-001"}]}
+        with patch.object(collector, "fetch_json", side_effect=fetch):
+            result = collector.collect_purchase(inventory)
+        self.assertEqual(7, result["inboundWaitTotal"])
+        self.assertEqual(5, result["purchaseWaitTotal"])
+        self.assertEqual("request_no + specification", result["formula"]["requestLinkKey"])
+        self.assertTrue(result["qualityChecks"]["inboundWaitTotalReconciled"])
+        self.assertTrue(result["qualityChecks"]["purchaseWaitTotalReconciled"])
 
 
 if __name__ == "__main__":

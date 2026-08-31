@@ -1,9 +1,9 @@
 {
-  "collectedAt": "2026-08-31T10:11:11+09:00",
-  "queryDate": "2026-08-31 10:10",
+  "collectedAt": "2026-08-31T12:17:14+09:00",
+  "queryDate": "2026-08-31 12:16",
   "dateFrom": "2026-06-30",
   "dateTo": "2026-08-31",
-  "requestSourceRowCount": 109,
+  "requestSourceRowCount": 110,
   "purchaseOrderSourceRowCount": 173,
   "matchedLiddingRequestRows": 88,
   "matchedLiddingPurchaseOrderRows": 149,
@@ -20,7 +20,15 @@
     "inboundWait": "sum(rem_qty) where stat_bc_nm in (발주, 납품진행), regardless of req_no or rmks",
     "purchaseWait": "sum(not_inqty) where gw_stat=Y and stat_bc_nm=완료",
     "grain": "item_code + specification",
-    "requestLinkKey": "request_no + request_seq"
+    "requestLinkKey": "request_no + specification",
+    "requestSequenceUsage": "trace-only"
+  },
+  "qualityChecks": {
+    "sourceCountsValidated": true,
+    "requestFormulaMismatchCount": 0,
+    "orderFormulaMismatchCount": 0,
+    "inboundWaitTotalReconciled": true,
+    "purchaseWaitTotalReconciled": true
   },
   "items": [
     {
