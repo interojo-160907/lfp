@@ -1,10 +1,10 @@
 {
-  "snapshotAt": "2026-09-01T08:53:35+09:00",
+  "snapshotAt": "2026-09-01T08:57:09+09:00",
   "scope": "all",
-  "reason": "manual_all",
+  "reason": "aps_changed",
   "channels": {
     "aps": {
-      "generatedAt": "2026-09-01T08:53:00+09:00",
+      "generatedAt": "2026-09-01T08:57:09+09:00",
       "sourceRefreshedAt": "2026-09-01 08:00:18",
       "sourceRowCount": 6127,
       "sourceTotalQty": 17492463.0,
@@ -51942,7 +51942,7 @@
       ]
     },
     "inventory": {
-      "generatedAt": "2026-09-01T08:52:55+09:00",
+      "generatedAt": "2026-09-01T08:56:57+09:00",
       "snapshotDate": "2026-09-01",
       "warehouseOptions": [
         {
@@ -61221,8 +61221,8 @@
       ]
     },
     "purchase": {
-      "collectedAt": "2026-09-01T08:52:57+09:00",
-      "queryDate": "2026-09-01 08:52",
+      "collectedAt": "2026-09-01T08:56:59+09:00",
+      "queryDate": "2026-09-01 08:56",
       "dateFrom": "2026-07-01",
       "dateTo": "2026-09-01",
       "requestSourceRowCount": 124,
@@ -62080,7 +62080,7 @@
       ]
     },
     "bom": {
-      "generatedAt": "2026-09-01T08:52:29+09:00",
+      "generatedAt": "2026-09-01T08:56:34+09:00",
       "sourceSignature": "8498620c04441967dcf5f0b41732668e276b6f414eb0c8ec78f52b9fac617c85",
       "productSourceCount": 1714,
       "bomSourceCount": 28563,
