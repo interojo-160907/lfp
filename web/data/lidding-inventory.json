@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-09-01T17:48:13+09:00",
+  "generatedAt": "2026-09-01T17:50:29+09:00",
   "snapshotDate": "2026-09-01",
   "warehouseOptions": [
     {
@@ -22,7 +22,7 @@
   "itemCount": 242,
   "sourceRowCount": 469,
   "rawLiddingSourceRowCount": 471,
-  "stockTotal": 96435851,
+  "stockTotal": 96431566,
   "inspectionWaitTotal": 0,
   "inspectionAggregation": "max-per-item",
   "formula": {
@@ -104,14 +104,14 @@
           "warehouseCode": "P030",
           "warehouseName": "C관 공정부자재",
           "stockQty": 0,
-          "inspectionWaitQty": 1476960,
+          "inspectionWaitQty": 0,
           "hasSourceRow": true
         },
         {
           "warehouseCode": "S100",
           "warehouseName": "S관 공정부자재",
           "stockQty": 0,
-          "inspectionWaitQty": 1476960,
+          "inspectionWaitQty": 0,
           "hasSourceRow": true
         }
       ],
@@ -180,7 +180,7 @@
           "warehouseCode": "P030",
           "warehouseName": "C관 공정부자재",
           "stockQty": 0,
-          "inspectionWaitQty": 246000,
+          "inspectionWaitQty": 0,
           "hasSourceRow": true
         },
         {
@@ -2515,7 +2515,7 @@
       "itemCode": "BS0095",
       "itemName": "알루미늄리드지 (러시아 Optic Center 1-Day GO 리드지)",
       "specification": "BS0095-003",
-      "stockQty": 2290815,
+      "stockQty": 2288155,
       "inspectionWaitQty": 0,
       "warehouses": [
         {
@@ -2542,7 +2542,7 @@
         {
           "warehouseCode": "S100",
           "warehouseName": "S관 공정부자재",
-          "stockQty": 187815,
+          "stockQty": 185155,
           "inspectionWaitQty": 0,
           "hasSourceRow": true
         }
@@ -4588,7 +4588,7 @@
           "warehouseCode": "P030",
           "warehouseName": "C관 공정부자재",
           "stockQty": 75481,
-          "inspectionWaitQty": 240000,
+          "inspectionWaitQty": 0,
           "hasSourceRow": true
         },
         {
@@ -6999,7 +6999,7 @@
       "itemCode": "BS0261",
       "itemName": "알루미늄리드지 (PIA_1D 55% Resay 리드지)",
       "specification": "BS0261-001",
-      "stockQty": 812053,
+      "stockQty": 810428,
       "inspectionWaitQty": 0,
       "warehouses": [
         {
@@ -7019,7 +7019,7 @@
         {
           "warehouseCode": "P030",
           "warehouseName": "C관 공정부자재",
-          "stockQty": 201053,
+          "stockQty": 199428,
           "inspectionWaitQty": 0,
           "hasSourceRow": true
         },

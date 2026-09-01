@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-09-01T17:48:30+09:00",
+  "generatedAt": "2026-09-01T17:50:43+09:00",
   "dateFrom": "2026-08-25",
   "dateTo": "2026-08-31",
   "dayCount": 7,
@@ -8,12 +8,12 @@
   "apiProcessFilterReason": "gong_cd=55 verified against every returned row; P-code rows are also validated locally",
   "quantityField": "job_qty",
   "quantityLabel": "지시수량",
-  "sourceRefreshedAt": "2026-09-01T17:48:26",
-  "sourceRowCount": 3489,
-  "filteredSourceRowCount": 3489,
-  "sourceInstructionQty": 5940702,
-  "mappedSourceInstructionQty": 5924686,
-  "liddingUsageTotal": 5924686,
+  "sourceRefreshedAt": "2026-09-01T17:50:40",
+  "sourceRowCount": 3488,
+  "filteredSourceRowCount": 3488,
+  "sourceInstructionQty": 5938042,
+  "mappedSourceInstructionQty": 5922026,
+  "liddingUsageTotal": 5922026,
   "liddingUsageCount": 43,
   "unmatchedPCodes": [
     {
@@ -563,8 +563,8 @@
       "itemCode": "BS0095",
       "itemName": "알루미늄리드지 (러시아 Optic Center 1-Day GO 리드지)",
       "specification": "BS0095-003",
-      "totalUsageQty": 317008,
-      "averageDailyUsage": 45286.857142857145,
+      "totalUsageQty": 314348,
+      "averageDailyUsage": 44906.857142857145,
       "dayCount": 7,
       "productCount": 1,
       "dailyUsage": [
@@ -594,7 +594,7 @@
         },
         {
           "date": "2026-08-31",
-          "usageQty": 21635
+          "usageQty": 18975
         }
       ]
     },
