@@ -6,7 +6,6 @@
     "reason": "manual_all",
     "status": "success",
     "files": [
-      "aps-lidding-requirement.json",
       "bom-product-lidding.json",
       "dashboard-snapshot.json",
       "lidding-inventory.json",
@@ -15,7 +14,7 @@
     ]
   },
   "lastRegularCollection": {
-    "at": "2026-09-01T08:57:09+09:00",
+    "at": "2026-09-01T16:05:06+09:00",
     "scope": "all",
     "mode": "regular",
     "reason": "aps_changed",
@@ -32,15 +31,11 @@
     "at": "2026-09-01T17:48:30+09:00",
     "scope": "all",
     "mode": "manual",
-    "reason": "manual_all",
+    "reason": "manual_bom",
     "status": "success",
     "files": [
-      "aps-lidding-requirement.json",
       "bom-product-lidding.json",
-      "dashboard-snapshot.json",
-      "lidding-inventory.json",
-      "lidding-production-usage.json",
-      "lidding-purchase-inbound.json"
+      "dashboard-snapshot.json"
     ]
   },
   "history": [
