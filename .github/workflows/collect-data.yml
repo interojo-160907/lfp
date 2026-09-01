@@ -8,7 +8,6 @@ on:
     types:
       - lfp-auto-collect
       - lfp-manual-collect
-      - lfp-production-collect
   workflow_dispatch:
     inputs:
       scope:
@@ -41,6 +40,11 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v5
         with:
+          # repository_dispatch is pinned to the commit that existed when the
+          # button was pressed. Consecutive manual requests are serialized by
+          # the concurrency group, so start each queued job from the latest
+          # main branch instead of that stale event commit.
+          ref: main
           fetch-depth: 1
 
       - name: Set up Python
@@ -66,8 +70,6 @@ jobs:
                 exit 1
                 ;;
             esac
-          elif [ "$EVENT_NAME" = "repository_dispatch" ] && [ "$EVENT_ACTION" = "lfp-production-collect" ]; then
-            echo "COLLECTION_SCOPE=production" >> "$GITHUB_ENV"
           elif [ "$EVENT_NAME" = "schedule" ] || [ "$EVENT_NAME" = "repository_dispatch" ]; then
             echo "COLLECTION_SCOPE=auto" >> "$GITHUB_ENV"
           else

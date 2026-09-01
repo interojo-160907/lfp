@@ -26,6 +26,9 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v5
         with:
+          # A queued repository_dispatch run must start after any earlier
+          # collection commit, not from the commit captured when dispatched.
+          ref: main
           fetch-depth: 1
 
       - name: Set up Python

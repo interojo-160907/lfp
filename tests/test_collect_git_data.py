@@ -372,12 +372,18 @@ class SupplyFormulaTests(unittest.TestCase):
 
 class WorkflowConfigurationTests(unittest.TestCase):
     def test_daily_production_dispatch_is_registered_and_routed(self) -> None:
-        workflow = (
-            Path(__file__).resolve().parents[1] / ".github" / "workflows" / "collect-data.yml"
-        ).read_text(encoding="utf-8")
-        self.assertIn("- lfp-production-collect", workflow)
-        self.assertIn('"$EVENT_ACTION" = "lfp-production-collect"', workflow)
-        self.assertIn('echo "COLLECTION_SCOPE=production"', workflow)
+        workflow_dir = Path(__file__).resolve().parents[1] / ".github" / "workflows"
+        general_workflow = (workflow_dir / "collect-data.yml").read_text(encoding="utf-8")
+        production_workflow = (workflow_dir / "collect-production.yml").read_text(encoding="utf-8")
+        self.assertNotIn("- lfp-production-collect", general_workflow)
+        self.assertIn("- lfp-production-collect", production_workflow)
+
+    def test_collection_workflows_checkout_latest_main(self) -> None:
+        workflow_dir = Path(__file__).resolve().parents[1] / ".github" / "workflows"
+        for name in ("collect-data.yml", "collect-production.yml"):
+            with self.subTest(workflow=name):
+                workflow = (workflow_dir / name).read_text(encoding="utf-8")
+                self.assertIn("ref: main", workflow)
 
 
 if __name__ == "__main__":
