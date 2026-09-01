@@ -7,7 +7,9 @@ const CONFIG = Object.freeze({
   dispatchStatePath: ".github/lfp-dispatch-state.json",
   apiBaseUrl: "https://plan.interojo.net",
   automaticEventType: "lfp-auto-collect",
+  manualEventType: "lfp-manual-collect",
   productionEventType: "lfp-production-collect",
+  manualScopes: Object.freeze(["all", "aps", "inventory", "purchase", "bom", "production"]),
   productionCron: "0 23 * * *",
   regularIntervalMs: 16 * 60 * 60 * 1_000,
   dispatchCooldownMs: 10 * 60 * 1_000,
@@ -296,6 +298,19 @@ async function runProductionSchedule(env, now = new Date()) {
   return { dispatched: true, reason: "daily_08_kst", date: dateKey };
 }
 
+async function dispatchManualCollection(env, scope, now = new Date()) {
+  if (!env.GITHUB_TOKEN) throw new Error("missing_worker_secrets");
+  const normalizedScope = normalizeText(scope, 40).toLowerCase();
+  if (!CONFIG.manualScopes.includes(normalizedScope)) throw new Error("invalid_collection_scope");
+  const requestedAt = now.toISOString();
+  await dispatchRepositoryEvent(env, CONFIG.manualEventType, {
+    scope: normalizedScope,
+    reason: `dashboard_manual_${normalizedScope}`,
+    requestedAt,
+  });
+  return { ok: true, accepted: true, scope: normalizedScope, requestedAt };
+}
+
 async function writeSchedule(env, sha, payload, message) {
   const content = bytesToBase64(encoder.encode(`${JSON.stringify(payload, null, 2)}\n`));
   const body = {
@@ -483,6 +498,7 @@ export default {
         service: "lfp-schedule-relay",
         automation: "cron-ready",
         schedules: ["every-minute APS monitor", "08:00 Asia/Seoul production"],
+        manualCollection: CONFIG.manualScopes,
       });
     }
     if (request.method !== "POST") return jsonResponse(origin, 405, { ok: false, error: "method_not_allowed" });
@@ -496,7 +512,9 @@ export default {
       }
 
       let result;
-      if (url.pathname === "/update") {
+      if (url.pathname === "/collect") {
+        result = await dispatchManualCollection(env, body.scope);
+      } else if (url.pathname === "/update") {
         if (!Array.isArray(body.rows) || !body.rows.length || body.rows.length > CONFIG.maxRows) throw new Error("invalid_rows");
         result = await mutateSchedule(
           env,
@@ -533,6 +551,7 @@ export default {
 export const __test = Object.freeze({
   koreaDate,
   parseTimestamp,
+  dispatchManualCollection,
   runAutomaticMonitor,
   runProductionSchedule,
 });

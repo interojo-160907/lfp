@@ -1238,70 +1238,33 @@
     const target = document.querySelector(".lfp-monitor-status");
     if (!target) return;
     try {
-      if (window.location.hostname.endsWith(".github.io")) {
-        const collection = await window.LFPResources.json(COLLECTION_STATUS_URL);
-        const latest = collection.lastCollection || {};
-        target.classList.toggle("is-error", latest.status === "error");
-        target.textContent = latest.status === "success"
-          ? `자동 수집 정상 · ${formatMonitorTime(latest.at)}`
-          : "자동 수집 상태 확인 필요";
-        return;
-      }
-      const response = await fetch("api/monitor-status", { cache: "no-store" });
-      if (!response.ok) throw new Error("status_unavailable");
-      const status = await response.json();
-      target.classList.toggle("is-error", status.lastStatus === "error");
-      if (status.running) {
-        target.textContent = `${status.runningScope || "데이터"} 갱신 중`;
-      } else if (status.lastStatus === "success") {
-        target.textContent = `최근 갱신 ${formatMonitorTime(status.lastCollectedAt)}`;
-      } else if (status.lastStatus === "watching") {
-        target.textContent = "APS 갱신 감시 중";
-      } else if (status.lastStatus === "error") {
-        target.textContent = `수집 오류 · ${status.lastError || "상태 확인 필요"}`;
-      } else {
-        target.textContent = "수집 모니터 대기";
-      }
+      const collection = await window.LFPCollectionClient.readStatus();
+      const latest = collection.lastCollection || {};
+      target.classList.toggle("is-error", latest.status === "error");
+      target.textContent = latest.status === "success"
+        ? `ERP 수집 정상 · ${formatMonitorTime(latest.at)}`
+        : "ERP 수집 상태 확인 필요";
     } catch (_) {
-      target.textContent = "DMZ 수집 서버 연결 필요";
+      target.textContent = "ERP 수집 상태 확인 필요";
     }
   }
 
   async function requestManualRefresh(button) {
     button.disabled = true;
     const original = button.textContent;
-    const requestedAt = Date.now();
     button.textContent = "수집 요청 중";
     try {
-      const response = await fetch("api/refresh", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ scope: "inventory" }),
+      await window.LFPCollectionClient.collect("inventory", {
+        onProgress: (message) => { button.textContent = message; },
       });
-      if (!response.ok) throw new Error("수동 갱신 요청 실패");
-      button.textContent = "재고 수집 중";
-      let observedRunning = false;
-      for (let attempt = 0; attempt < 90; attempt += 1) {
-        await new Promise((resolve) => window.setTimeout(resolve, 2000));
-        const statusResponse = await fetch("api/monitor-status", { cache: "no-store" });
-        if (!statusResponse.ok) continue;
-        const status = await statusResponse.json();
-        observedRunning = observedRunning || Boolean(status.running);
-        await loadMonitorStatus();
-        const collectedAt = Date.parse(status.lastCollectedAt || "");
-        if (!status.running && status.lastStatus === "error" && status.lastScope === "inventory") {
-          throw new Error(status.lastError || "ERP 데이터 갱신 실패");
-        }
-        if (!status.running && status.lastStatus === "success" && status.lastScope === "inventory"
-            && (observedRunning || (Number.isFinite(collectedAt) && collectedAt >= requestedAt - 2000))) {
-          button.textContent = "수집 완료";
-          window.setTimeout(() => window.location.reload(), 350);
-          return;
-        }
-      }
-      throw new Error("ERP 데이터 갱신 시간이 초과되었습니다.");
-    } catch (_) {
-      button.textContent = "DMZ 연결 필요";
+      window.LFPResources.invalidate(INVENTORY_URL);
+      await loadMonitorStatus();
+      button.textContent = "수집 완료";
+      window.setTimeout(() => window.location.reload(), 500);
+    } catch (error) {
+      button.textContent = "수집 실패";
+      button.title = error?.message || "ERP 재고를 갱신하지 못했습니다.";
+      window.alert(button.title);
       window.setTimeout(() => {
         button.disabled = false;
         button.textContent = original;

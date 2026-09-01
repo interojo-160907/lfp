@@ -7,6 +7,7 @@ on:
   repository_dispatch:
     types:
       - lfp-auto-collect
+      - lfp-manual-collect
   workflow_dispatch:
     inputs:
       scope:
@@ -48,11 +49,26 @@ jobs:
 
       - name: Select collection scope
         shell: bash
+        env:
+          EVENT_NAME: ${{ github.event_name }}
+          EVENT_ACTION: ${{ github.event.action }}
+          INPUT_SCOPE: ${{ inputs.scope }}
+          CLIENT_SCOPE: ${{ github.event.client_payload.scope }}
         run: |
-          if [ "${{ github.event_name }}" = "schedule" ] || [ "${{ github.event_name }}" = "repository_dispatch" ]; then
+          if [ "$EVENT_NAME" = "repository_dispatch" ] && [ "$EVENT_ACTION" = "lfp-manual-collect" ]; then
+            case "$CLIENT_SCOPE" in
+              all|aps|inventory|purchase|bom|production)
+                echo "COLLECTION_SCOPE=$CLIENT_SCOPE" >> "$GITHUB_ENV"
+                ;;
+              *)
+                echo "Unsupported manual collection scope: $CLIENT_SCOPE" >&2
+                exit 1
+                ;;
+            esac
+          elif [ "$EVENT_NAME" = "schedule" ] || [ "$EVENT_NAME" = "repository_dispatch" ]; then
             echo "COLLECTION_SCOPE=auto" >> "$GITHUB_ENV"
           else
-            echo "COLLECTION_SCOPE=${{ inputs.scope }}" >> "$GITHUB_ENV"
+            echo "COLLECTION_SCOPE=$INPUT_SCOPE" >> "$GITHUB_ENV"
           fi
 
       - name: Collect latest API data

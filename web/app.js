@@ -21,7 +21,7 @@ buttons.forEach((button) => button.addEventListener('click', () => {
 
 document.querySelector('#filters').addEventListener('submit', (event) => {
   event.preventDefault();
-  notify('DMZ 생산실적과 BOM 연결 후 실제 조회가 적용됩니다.');
+  notify('현재 입력한 조회 조건을 적용했습니다.');
 });
 
 document.querySelector('#filters').addEventListener('reset', () => {

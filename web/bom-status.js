@@ -236,43 +236,23 @@
 
   async function requestBomRefresh(button) {
     const original = button.textContent;
-    const requestedAt = Date.now();
     button.disabled = true;
     button.textContent = "수집 요청 중";
     try {
-      const response = await fetch("api/refresh", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ scope: "bom" }),
+      await window.LFPCollectionClient.collect("bom", {
+        onProgress: (message) => { button.textContent = message; },
       });
-      if (!response.ok) throw new Error("BOM 갱신 요청 실패");
-      button.textContent = "BOM 수집 중";
-      let observedRunning = false;
-      for (let attempt = 0; attempt < 90; attempt += 1) {
-        await new Promise((resolve) => window.setTimeout(resolve, 2000));
-        const statusResponse = await fetch("api/monitor-status", { cache: "no-store" });
-        if (!statusResponse.ok) continue;
-        const status = await statusResponse.json();
-        observedRunning = observedRunning || Boolean(status.running);
-        const collectedAt = Date.parse(status.lastCollectedAt || "");
-        if (!status.running && status.lastStatus === "error" && status.lastScope === "bom") {
-          throw new Error(status.lastError || "BOM 갱신 실패");
-        }
-        if (!status.running && status.lastStatus === "success" && status.lastScope === "bom"
-            && (observedRunning || (Number.isFinite(collectedAt) && collectedAt >= requestedAt - 2000))) {
-          await loadBomData(true);
-          button.textContent = "수집 완료";
-          window.setTimeout(() => {
-            button.disabled = false;
-            button.textContent = original;
-          }, 900);
-          return;
-        }
-      }
-      throw new Error("BOM 갱신 시간이 초과되었습니다.");
+      window.LFPResources.invalidate("data/bom-product-lidding.json");
+      await loadBomData(true, true);
+      button.textContent = "수집 완료";
+      window.setTimeout(() => {
+        button.disabled = false;
+        button.textContent = original;
+      }, 900);
     } catch (error) {
-      button.textContent = "수집 서버 연결 필요";
+      button.textContent = "수집 실패";
       button.title = error?.message || "BOM을 갱신하지 못했습니다.";
+      window.alert(button.title);
       window.setTimeout(() => {
         button.disabled = false;
         button.textContent = original;

@@ -1,7 +1,7 @@
 import assert from "node:assert/strict";
 import test from "node:test";
 
-import { __test } from "./lfp-schedule-relay.js";
+import worker, { __test } from "./lfp-schedule-relay.js";
 
 const originalFetch = global.fetch;
 
@@ -118,4 +118,40 @@ test("08:00 production dispatch runs once per Korea date", async () => {
   const duplicate = await __test.runProductionSchedule({ GITHUB_TOKEN: "test" }, now);
   assert.equal(duplicate.dispatched, false);
   assert.equal(duplicateCalls.some((call) => call.url.endsWith("/dispatches")), false);
+});
+
+test("dashboard manual inventory request dispatches the ERP collector", async () => {
+  const calls = mockFetch({ automation: {} });
+  const request = new Request("https://worker.example/collect", {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json",
+      Origin: "https://interojo-160907.github.io",
+    },
+    body: JSON.stringify({ password: "secret", scope: "inventory" }),
+  });
+  const response = await worker.fetch(request, { GITHUB_TOKEN: "test", UPLOAD_PASSWORD: "secret" });
+  const result = await response.json();
+  assert.equal(response.status, 200);
+  assert.equal(result.accepted, true);
+  assert.equal(result.scope, "inventory");
+  const dispatch = calls.find((call) => call.url.endsWith("/dispatches"));
+  assert.equal(dispatch.body.event_type, "lfp-manual-collect");
+  assert.equal(dispatch.body.client_payload.scope, "inventory");
+});
+
+test("dashboard manual request rejects an unsupported collection scope", async () => {
+  mockFetch({ automation: {} });
+  const request = new Request("https://worker.example/collect", {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json",
+      Origin: "https://interojo-160907.github.io",
+    },
+    body: JSON.stringify({ password: "secret", scope: "unknown" }),
+  });
+  const response = await worker.fetch(request, { GITHUB_TOKEN: "test", UPLOAD_PASSWORD: "secret" });
+  const result = await response.json();
+  assert.equal(response.status, 400);
+  assert.equal(result.error, "invalid_collection_scope");
 });
