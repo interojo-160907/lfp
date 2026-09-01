@@ -154,6 +154,41 @@ class ManualScopeTests(unittest.TestCase):
             collect_production.assert_not_called()
 
 
+class BomApiFilterTests(unittest.TestCase):
+    def test_bom_uses_supported_product_filters_and_marks_bom_filter_as_local(self) -> None:
+        products = [{"nm_cd": "P0001", "nm_nm": "제품", "use_yn": "Y"}]
+        bom_rows = [{
+            "root_cd": "P0001", "parent_cd": "P0001", "child_cd": "BS0001",
+            "child_nm": "리드지", "child_spec": "BS0001-001", "lvl": 1,
+            "use_yn": "Y", "qty": 1,
+        }]
+
+        def fetch(path, _params, _timeout=300):
+            rows = products if path == "/api/product-names" else bom_rows
+            return {
+                "rows": rows, "total_count": len(rows),
+                "returned_count": len(rows), "truncated": False,
+            }
+
+        with (
+            patch.object(collector, "fetch_json", side_effect=fetch) as fetch_json,
+            patch.object(collector, "read_json", return_value={}),
+        ):
+            result = collector.collect_bom()
+
+        self.assertEqual(
+            ("/api/product-names", {"nm_cd": "P", "use_yn": "Y", "limit": 0}),
+            fetch_json.call_args_list[0].args,
+        )
+        self.assertEqual(
+            ("/api/bom-explosion", {"limit": 0}),
+            fetch_json.call_args_list[1].args,
+        )
+        self.assertTrue(result["productApiFilterApplied"])
+        self.assertFalse(result["bomApiFilterApplied"])
+        self.assertEqual(1, result["mappingCount"])
+
+
 class ApsCategoryTests(unittest.TestCase):
     @staticmethod
     def mojibake(value: str) -> str:
@@ -192,8 +227,11 @@ class ApsCategoryTests(unittest.TestCase):
             "productCode": "P0001", "liddingCode": "BS0001",
             "liddingSpecification": "BS0001-001", "liddingName": "리드지",
         }]}
-        with patch.object(collector, "fetch_json", return_value=payload):
+        with patch.object(collector, "fetch_json", return_value=payload) as fetch_json:
             result = collector.collect_aps(bom)
+        fetch_json.assert_called_once_with(
+            "/api/aps-plan", {"oper": 45, "item_cd": "P", "limit": 0}, 300
+        )
         self.assertEqual(
             {"해외": 10, "PB": 20, "국내": 30, "안전재고": 40},
             result["categoryTotals"],
@@ -232,6 +270,8 @@ class ProductionUsageTests(unittest.TestCase):
         ]}
 
         def fetch(_path, params, _timeout=300):
+            self.assertEqual("55", params["gong_cd"])
+            self.assertEqual(0, params["limit"])
             target = params["date_from"]
             rows = [
                 {"pr_dt": target, "gong_cd": "55", "sale_cd": "P0001", "job_qty": 7},
@@ -280,7 +320,10 @@ class SupplyFormulaTests(unittest.TestCase):
             "S100": [],
         }
 
+        requested_params = []
+
         def fetch(_path, params, _timeout=300):
+            requested_params.append(params)
             return self.payload(rows_by_warehouse[params["wh_cd"]])
 
         with patch.object(collector, "fetch_json", side_effect=fetch):
@@ -291,6 +334,8 @@ class SupplyFormulaTests(unittest.TestCase):
         self.assertEqual(1, result["qualityChecks"]["duplicateWarehouseItemSourceRowCount"])
         self.assertEqual(1, result["qualityChecks"]["inspectionRepeatedWarehouseRowCount"])
         self.assertTrue(result["qualityChecks"]["stockTotalReconciled"])
+        self.assertTrue(all(params["itm_cd"] == "BS" for params in requested_params))
+        self.assertTrue(all(params["itm_nm"] == "리드지" for params in requested_params))
 
     def test_purchase_wait_formulas_reconcile_to_grouped_totals(self) -> None:
         request_rows = [{
@@ -305,7 +350,10 @@ class SupplyFormulaTests(unittest.TestCase):
             "stat_bc_nm": "발주",
         }]
 
-        def fetch(path, _params, _timeout=300):
+        requested_params = {}
+
+        def fetch(path, params, _timeout=300):
+            requested_params[path] = params
             return self.payload(request_rows if path == "/api/purchase-requests" else order_rows)
 
         inventory = {"rows": [{"itemCode": "BS0001", "specification": "BS0001-001"}]}
@@ -316,6 +364,20 @@ class SupplyFormulaTests(unittest.TestCase):
         self.assertEqual("request_no + specification", result["formula"]["requestLinkKey"])
         self.assertTrue(result["qualityChecks"]["inboundWaitTotalReconciled"])
         self.assertTrue(result["qualityChecks"]["purchaseWaitTotalReconciled"])
+        self.assertEqual(1, requested_params["/api/purchase-requests"]["not_ordered"])
+        self.assertEqual(1, requested_params["/api/purchase-order-status"]["open_only"])
+        self.assertEqual("BS", requested_params["/api/purchase-requests"]["itm_cd"])
+        self.assertEqual("BS", requested_params["/api/purchase-order-status"]["itm_cd"])
+
+
+class WorkflowConfigurationTests(unittest.TestCase):
+    def test_daily_production_dispatch_is_registered_and_routed(self) -> None:
+        workflow = (
+            Path(__file__).resolve().parents[1] / ".github" / "workflows" / "collect-data.yml"
+        ).read_text(encoding="utf-8")
+        self.assertIn("- lfp-production-collect", workflow)
+        self.assertIn('"$EVENT_ACTION" = "lfp-production-collect"', workflow)
+        self.assertIn('echo "COLLECTION_SCOPE=production"', workflow)
 
 
 if __name__ == "__main__":

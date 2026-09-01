@@ -8,6 +8,7 @@ on:
     types:
       - lfp-auto-collect
       - lfp-manual-collect
+      - lfp-production-collect
   workflow_dispatch:
     inputs:
       scope:
@@ -65,6 +66,8 @@ jobs:
                 exit 1
                 ;;
             esac
+          elif [ "$EVENT_NAME" = "repository_dispatch" ] && [ "$EVENT_ACTION" = "lfp-production-collect" ]; then
+            echo "COLLECTION_SCOPE=production" >> "$GITHUB_ENV"
           elif [ "$EVENT_NAME" = "schedule" ] || [ "$EVENT_NAME" = "repository_dispatch" ]; then
             echo "COLLECTION_SCOPE=auto" >> "$GITHUB_ENV"
           else

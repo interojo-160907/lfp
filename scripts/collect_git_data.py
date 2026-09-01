@@ -19,7 +19,7 @@ from zoneinfo import ZoneInfo
 ROOT = Path(__file__).resolve().parents[1]
 DATA_DIR = ROOT / "web" / "data"
 AUTOMATION_STATE_PATH = DATA_DIR / "automation-state.json"
-API_BASE_URL = os.environ.get("LFP_API_BASE_URL", "https://plan.interojo.net").rstrip("/")
+API_BASE_URL = (os.environ.get("LFP_API_BASE_URL") or "https://plan.interojo.net").rstrip("/")
 KST = ZoneInfo("Asia/Seoul")
 REGULAR_COLLECTION_INTERVAL = timedelta(hours=16)
 PCODE = re.compile(r"^P\d{4}$", re.IGNORECASE)
@@ -132,34 +132,30 @@ def months_before(value: date, months: int) -> date:
     return date(year, month, min(value.day, monthrange(year, month)[1]))
 
 
-def fetch_filtered_or_full(path: str, filtered: dict[str, object]) -> tuple[dict, bool]:
-    try:
-        payload = fetch_json(path, {**filtered, "limit": 0})
-        if payload.get("rows"):
-            return payload, True
-    except Exception:
-        pass
-    return fetch_json(path, {"limit": 0}), False
-
-
 def collect_bom() -> dict:
-    products_payload, product_filter_applied = fetch_filtered_or_full(
-        "/api/product-names", {"nm_cd": "P", "use_yn": "Y"}
+    products_payload = fetch_json(
+        "/api/product-names", {"nm_cd": "P", "use_yn": "Y", "limit": 0}
     )
-    bom_payload, bom_filter_applied = fetch_filtered_or_full(
-        "/api/bom-explosion", {"root_cd": "P", "child_cd": "BS", "lvl": 1, "use_yn": "Y"}
+    # The BOM endpoint currently supports an exact gd_cd lookup only. It does not
+    # support P/BS prefix, level, or use-status filters, so fetch once and apply
+    # those conditions locally instead of reporting unsupported filters as active.
+    bom_payload = fetch_json("/api/bom-explosion", {"limit": 0})
+    product_source_rows = validated_rows("제품명", products_payload)
+    bom_source_rows = validated_rows("BOM", bom_payload)
+    product_filter_applied = all(
+        PCODE.fullmatch(str(row.get("nm_cd") or ""))
+        and str(row.get("use_yn") or "").upper() == "Y"
+        for row in product_source_rows
     )
-    if products_payload.get("truncated") or bom_payload.get("truncated"):
-        raise RuntimeError("제품 또는 BOM API 응답이 잘렸습니다.")
 
     products = {
         str(row.get("nm_cd") or "").upper(): row
-        for row in products_payload.get("rows") or []
+        for row in product_source_rows
         if PCODE.fullmatch(str(row.get("nm_cd") or ""))
         and str(row.get("use_yn") or "").upper() == "Y"
     }
     mappings: dict[tuple[str, str, str], dict] = {}
-    for row in bom_payload.get("rows") or []:
+    for row in bom_source_rows:
         product_code = str(row.get("root_cd") or "").upper().strip()
         parent_code = str(row.get("parent_cd") or "").upper().strip()
         lidding_code = str(row.get("child_cd") or "").upper().strip()
@@ -204,11 +200,12 @@ def collect_bom() -> dict:
     return {
         "generatedAt": now_text(),
         "sourceSignature": signature,
-        "productSourceCount": products_payload.get("total_count"),
-        "bomSourceCount": bom_payload.get("total_count"),
+        "productSourceCount": len(product_source_rows),
+        "bomSourceCount": len(bom_source_rows),
         "activePProductCount": len(products),
         "productApiFilterApplied": product_filter_applied,
-        "bomApiFilterApplied": bom_filter_applied,
+        "bomApiFilterApplied": False,
+        "bomApiFilterReason": "BOM API supports exact gd_cd only; P-prefix + level-1 BS lidding filters are applied locally",
         "storageScope": "active P-code + level-1 active BS lidding only",
         "mappingCount": len(rows),
         "mappedProductCount": len(mapped_products),
@@ -245,6 +242,7 @@ def collect_production_usage(bom: dict, date_to: date | None = None) -> dict:
     mapped_source_instruction = Decimal("0")
     expected_lidding_usage = Decimal("0")
     extracted_values: list[str] = []
+    api_process_filter_applied = True
     unmatched: dict[str, Decimal] = defaultdict(lambda: Decimal("0"))
     daily_usage: dict[tuple[str, str], dict[str, Decimal]] = defaultdict(
         lambda: defaultdict(lambda: Decimal("0"))
@@ -260,13 +258,16 @@ def collect_production_usage(bom: dict, date_to: date | None = None) -> dict:
                 "date_from": current.isoformat(),
                 "date_to": current.isoformat(),
                 "gong_cd": "55",
-                "limit": 100000,
+                "limit": 0,
             },
             300,
         )
         if payload.get("key") not in (None, "production_performance"):
             raise RuntimeError(f"생산실적 API 채널이 올바르지 않습니다: {payload.get('key')}")
         rows = validated_rows(f"생산실적 {current.isoformat()}", payload)
+        api_process_filter_applied = api_process_filter_applied and all(
+            normalized(row.get("gong_cd")) == "55" for row in rows
+        )
         source_row_count += len(rows)
         for source in rows:
             production_date = str(source.get("pr_dt") or "").strip()
@@ -330,6 +331,8 @@ def collect_production_usage(bom: dict, date_to: date | None = None) -> dict:
         "dateTo": period_to.isoformat(),
         "dayCount": day_count,
         "processCode": "55",
+        "apiProcessFilterApplied": api_process_filter_applied,
+        "apiProcessFilterReason": "gong_cd=55 verified against every returned row; P-code rows are also validated locally",
         "quantityField": "job_qty",
         "quantityLabel": "지시수량",
         "sourceRefreshedAt": max(extracted_values) if extracted_values else "",
@@ -367,7 +370,9 @@ def collect_inventory() -> dict:
     duplicate_warehouse_item_source_row_count = 0
     for warehouse_code, warehouse_name in WAREHOUSES:
         payload = fetch_json(
-            "/api/warehouse-item-stock", {"wh_cd": warehouse_code, "itm_cd": "BS", "limit": 0}, 180
+            "/api/warehouse-item-stock",
+            {"wh_cd": warehouse_code, "itm_cd": "BS", "itm_nm": "리드지", "limit": 0},
+            180,
         )
         source_rows = validated_rows(f"{warehouse_name} 재고", payload)
         lidding_rows = []
@@ -485,10 +490,12 @@ def collect_purchase(inventory: dict) -> dict:
     today = datetime.now(KST).date()
     date_from = os.environ.get("LFP_PURCHASE_DATE_FROM", months_before(today, 2).isoformat())
     date_to = os.environ.get("LFP_PURCHASE_DATE_TO", today.isoformat())
-    params = {"date_from": date_from, "date_to": date_to, "itm_cd": "BS", "limit": 0}
+    common_params = {"date_from": date_from, "date_to": date_to, "itm_cd": "BS", "limit": 0}
+    request_params = {**common_params, "not_ordered": 1}
+    order_params = {**common_params, "open_only": 1}
     with ThreadPoolExecutor(max_workers=2) as executor:
-        request_future = executor.submit(fetch_json, "/api/purchase-requests", params)
-        order_future = executor.submit(fetch_json, "/api/purchase-order-status", params)
+        request_future = executor.submit(fetch_json, "/api/purchase-requests", request_params)
+        order_future = executor.submit(fetch_json, "/api/purchase-order-status", order_params)
         request_payload = request_future.result()
         order_payload = order_future.result()
     request_source_rows = validated_rows("구매 의뢰 현황", request_payload)
@@ -659,6 +666,8 @@ def collect_purchase(inventory: dict) -> dict:
     return {
         "collectedAt": now_text(), "queryDate": order_payload.get("query_date") or today.isoformat(),
         "dateFrom": date_from, "dateTo": date_to,
+        "historyWindow": "recent two months",
+        "apiFilters": {"requests": "itm_cd=BS, not_ordered=1", "orders": "itm_cd=BS, open_only=1"},
         "requestSourceRowCount": len(request_source_rows), "purchaseOrderSourceRowCount": len(order_source_rows),
         "matchedLiddingRequestRows": len(request_rows), "matchedLiddingPurchaseOrderRows": len(order_rows),
         "openLiddingItemCount": len(items),
@@ -687,7 +696,7 @@ def collect_purchase(inventory: dict) -> dict:
 
 
 def collect_aps(bom: dict) -> dict:
-    payload = fetch_json("/api/aps-plan", {"oper": 45, "limit": 0}, 300)
+    payload = fetch_json("/api/aps-plan", {"oper": 45, "item_cd": "P", "limit": 0}, 300)
     source_rows = validated_rows("APS", payload)
     bom_by_product: dict[str, list[dict]] = defaultdict(list)
     for row in bom.get("rows") or []:
@@ -792,6 +801,7 @@ def collect_aps(bom: dict) -> dict:
     output_rows.sort(key=lambda row: (row["liddingCode"], row["liddingSpecification"]))
     return {
         "generatedAt": now_text(), "sourceRefreshedAt": source_refreshed_at,
+        "apiFilters": {"oper": "45", "item_cd": "P"},
         "sourceRowCount": payload.get("returned_count"), "sourceTotalQty": payload.get("total_plan_qty"),
         "pCodeDemandRows": len(aggregates),
         "categoryTotals": {name: decimal_json(category_totals[name]) for name in APS_CATEGORIES},
@@ -810,7 +820,7 @@ def collect_aps(bom: dict) -> dict:
 
 
 def aps_source_version() -> str:
-    payload = fetch_json("/api/aps-plan", {"oper": 45, "limit": 1}, 120)
+    payload = fetch_json("/api/aps-plan", {"oper": 45, "item_cd": "P", "limit": 1}, 120)
     version = str(payload.get("source_refreshed_at") or "").strip()
     if not version:
         raise RuntimeError("APS source_refreshed_at 값이 없습니다.")
