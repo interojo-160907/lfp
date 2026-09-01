@@ -1,7 +1,7 @@
 {
-  "snapshotAt": "2026-09-01T17:52:59+09:00",
-  "scope": "inventory",
-  "reason": "manual_inventory",
+  "snapshotAt": "2026-09-01T17:58:17+09:00",
+  "scope": "bom",
+  "reason": "manual_bom",
   "channels": {
     "aps": {
       "generatedAt": "2026-09-01T17:50:33+09:00",
@@ -70049,7 +70049,7 @@
       ]
     },
     "bom": {
-      "generatedAt": "2026-09-01T17:50:23+09:00",
+      "generatedAt": "2026-09-01T17:58:17+09:00",
       "sourceSignature": "af28715af72475325aac291e9370bebe217878f52095601034edcb0db5847369",
       "productSourceCount": 1714,
       "bomSourceCount": 28564,
