@@ -2,7 +2,11 @@ name: Collect dashboard data
 
 on:
   schedule:
-    - cron: "3-58/5 * * * *"
+    # Cloudflare is the primary one-minute monitor. This is a twice-hourly backup.
+    - cron: "17,47 * * * *"
+  repository_dispatch:
+    types:
+      - lfp-auto-collect
   workflow_dispatch:
     inputs:
       scope:
@@ -45,7 +49,7 @@ jobs:
       - name: Select collection scope
         shell: bash
         run: |
-          if [ "${{ github.event_name }}" = "schedule" ]; then
+          if [ "${{ github.event_name }}" = "schedule" ] || [ "${{ github.event_name }}" = "repository_dispatch" ]; then
             echo "COLLECTION_SCOPE=auto" >> "$GITHUB_ENV"
           else
             echo "COLLECTION_SCOPE=${{ inputs.scope }}" >> "$GITHUB_ENV"

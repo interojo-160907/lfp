@@ -1,4 +1,8 @@
 {
   "private": true,
-  "type": "module"
+  "type": "module",
+  "scripts": {
+    "check": "node --check lfp-schedule-relay.js",
+    "test": "node --test lfp-schedule-relay.test.mjs"
+  }
 }

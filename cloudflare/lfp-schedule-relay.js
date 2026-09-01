@@ -3,6 +3,14 @@ const CONFIG = Object.freeze({
   repo: "lfp",
   branch: "main",
   path: "web/data/lidding-delivery-management.json",
+  automationStatePath: "web/data/automation-state.json",
+  dispatchStatePath: ".github/lfp-dispatch-state.json",
+  apiBaseUrl: "https://plan.interojo.net",
+  automaticEventType: "lfp-auto-collect",
+  productionEventType: "lfp-production-collect",
+  productionCron: "0 23 * * *",
+  regularIntervalMs: 16 * 60 * 60 * 1_000,
+  dispatchCooldownMs: 10 * 60 * 1_000,
   allowedOrigin: "https://interojo-160907.github.io",
   maxBodyBytes: 256_000,
   maxRows: 1_000,
@@ -121,6 +129,171 @@ async function readRepositoryJson(env, path) {
   } catch (_) {
     throw new Error(`Stored JSON is invalid: ${path}`);
   }
+}
+
+async function readRepositoryDocument(env, path, fallback = null) {
+  const response = await fetch(`${contentsUrl(path)}?ref=${encodeURIComponent(CONFIG.branch)}`, {
+    headers: githubHeaders(env),
+  });
+  if (response.status === 404 && fallback !== null) {
+    return { sha: "", payload: structuredClone(fallback) };
+  }
+  const result = await response.json().catch(() => ({}));
+  if (!response.ok) throw new Error(`GitHub read failed (${response.status}): ${result.message || "unknown error"}`);
+  try {
+    return {
+      sha: normalizeText(result.sha, 100),
+      payload: JSON.parse(base64ToText(result.content)),
+    };
+  } catch (_) {
+    throw new Error(`Stored JSON is invalid: ${path}`);
+  }
+}
+
+async function writeRepositoryJson(env, path, sha, payload, message) {
+  const body = {
+    message,
+    content: bytesToBase64(encoder.encode(`${JSON.stringify(payload, null, 2)}\n`)),
+    branch: CONFIG.branch,
+  };
+  if (sha) body.sha = sha;
+  const response = await fetch(contentsUrl(path), {
+    method: "PUT",
+    headers: { ...githubHeaders(env), "Content-Type": "application/json" },
+    body: JSON.stringify(body),
+  });
+  const result = await response.json().catch(() => ({}));
+  return { response, result };
+}
+
+async function mutateDispatchState(env, mutate, message) {
+  const fallback = {
+    version: 1,
+    lastAutoDispatchAt: "",
+    lastAutoSignature: "",
+    lastProductionDate: "",
+    lastProductionDispatchAt: "",
+  };
+  for (let attempt = 1; attempt <= 3; attempt += 1) {
+    const { sha, payload } = await readRepositoryDocument(env, CONFIG.dispatchStatePath, fallback);
+    const state = payload && typeof payload === "object" ? payload : structuredClone(fallback);
+    const outcome = mutate(state);
+    if (!outcome.changed) return outcome.result;
+    const { response, result } = await writeRepositoryJson(env, CONFIG.dispatchStatePath, sha, state, message);
+    if (response.ok) return outcome.result;
+    if (![409, 422].includes(response.status) || attempt === 3) {
+      throw new Error(`GitHub lock write failed (${response.status}): ${result.message || "unknown error"}`);
+    }
+  }
+  throw new Error("GitHub dispatch lock conflict.");
+}
+
+async function dispatchRepositoryEvent(env, eventType, clientPayload) {
+  const response = await fetch(`https://api.github.com/repos/${CONFIG.owner}/${CONFIG.repo}/dispatches`, {
+    method: "POST",
+    headers: { ...githubHeaders(env), "Content-Type": "application/json" },
+    body: JSON.stringify({ event_type: eventType, client_payload: clientPayload }),
+  });
+  if (response.status !== 204) {
+    const result = await response.json().catch(() => ({}));
+    throw new Error(`GitHub dispatch failed (${response.status}): ${result.message || "unknown error"}`);
+  }
+}
+
+function parseTimestamp(value) {
+  const parsed = Date.parse(String(value || ""));
+  return Number.isFinite(parsed) ? parsed : null;
+}
+
+function koreaDate(now = new Date()) {
+  return new Date(now.getTime() + (9 * 60 * 60 * 1_000)).toISOString().slice(0, 10);
+}
+
+async function fetchApsSourceVersion(env) {
+  const baseUrl = normalizeText(env.LFP_API_BASE_URL || CONFIG.apiBaseUrl, 500).replace(/\/$/, "");
+  const response = await fetch(`${baseUrl}/api/aps-plan?oper=45&limit=1`, {
+    headers: { Accept: "application/json", "User-Agent": "LFP-Cloudflare-Monitor/1.0" },
+  });
+  const payload = await response.json().catch(() => ({}));
+  if (!response.ok) throw new Error(`APS check failed (${response.status})`);
+  const version = normalizeText(payload.source_refreshed_at, 100);
+  if (!version) throw new Error("APS source_refreshed_at is missing.");
+  return version;
+}
+
+async function acquireAutoDispatch(env, signature, now) {
+  return mutateDispatchState(env, (state) => {
+    const previousAt = parseTimestamp(state.lastAutoDispatchAt);
+    if (state.lastAutoSignature === signature && previousAt !== null && now.getTime() - previousAt < CONFIG.dispatchCooldownMs) {
+      return { changed: false, result: false };
+    }
+    state.version = 1;
+    state.lastAutoDispatchAt = now.toISOString();
+    state.lastAutoSignature = signature;
+    return { changed: true, result: true };
+  }, "automation: lock dashboard collection dispatch");
+}
+
+async function acquireProductionDispatch(env, dateKey, now) {
+  return mutateDispatchState(env, (state) => {
+    if (state.lastProductionDate === dateKey) return { changed: false, result: false };
+    state.version = 1;
+    state.lastProductionDate = dateKey;
+    state.lastProductionDispatchAt = now.toISOString();
+    return { changed: true, result: true };
+  }, "automation: lock production collection dispatch");
+}
+
+async function runAutomaticMonitor(env, now = new Date()) {
+  if (!env.GITHUB_TOKEN) throw new Error("missing_worker_secrets");
+  const [automationResult, apsResult] = await Promise.allSettled([
+    readRepositoryJson(env, CONFIG.automationStatePath),
+    fetchApsSourceVersion(env),
+  ]);
+  if (automationResult.status !== "fulfilled") throw automationResult.reason;
+  const state = automationResult.value || {};
+  const lastRegularAt = parseTimestamp(state.lastRegularCollectionAt);
+  const regularDue = lastRegularAt === null || now.getTime() - lastRegularAt >= CONFIG.regularIntervalMs;
+  let reason = "";
+  let observedVersion = "";
+
+  if (apsResult.status === "fulfilled") {
+    observedVersion = apsResult.value;
+    if (observedVersion !== normalizeText(state.lastHandledApsVersion, 100)) reason = "aps_changed";
+    else if (regularDue) reason = "regular_16h";
+  } else if (regularDue) {
+    reason = "regular_16h_aps_check_failed";
+  }
+
+  if (!reason) {
+    if (apsResult.status === "rejected") throw apsResult.reason;
+    return { dispatched: false, reason: "aps_unchanged", observedVersion };
+  }
+
+  const signature = `${reason}:${observedVersion || state.lastRegularCollectionAt || "unknown"}`;
+  if (!(await acquireAutoDispatch(env, signature, now))) {
+    return { dispatched: false, reason: "cooldown", signature };
+  }
+  await dispatchRepositoryEvent(env, CONFIG.automaticEventType, {
+    reason,
+    observedVersion,
+    checkedAt: now.toISOString(),
+  });
+  return { dispatched: true, reason, observedVersion };
+}
+
+async function runProductionSchedule(env, now = new Date()) {
+  if (!env.GITHUB_TOKEN) throw new Error("missing_worker_secrets");
+  const dateKey = koreaDate(now);
+  if (!(await acquireProductionDispatch(env, dateKey, now))) {
+    return { dispatched: false, reason: "already_dispatched", date: dateKey };
+  }
+  await dispatchRepositoryEvent(env, CONFIG.productionEventType, {
+    reason: "daily_08_kst",
+    date: dateKey,
+    checkedAt: now.toISOString(),
+  });
+  return { dispatched: true, reason: "daily_08_kst", date: dateKey };
 }
 
 async function writeSchedule(env, sha, payload, message) {
@@ -305,7 +478,12 @@ export default {
           return jsonResponse(origin, 502, { ok: false, error: "relay_failed", detail: normalizeText(error?.message || error, 500) });
         }
       }
-      return jsonResponse(origin, 200, { ok: true, service: "lfp-schedule-relay" });
+      return jsonResponse(origin, 200, {
+        ok: true,
+        service: "lfp-schedule-relay",
+        automation: "cron-ready",
+        schedules: ["every-minute APS monitor", "08:00 Asia/Seoul production"],
+      });
     }
     if (request.method !== "POST") return jsonResponse(origin, 405, { ok: false, error: "method_not_allowed" });
     if (origin && origin !== CONFIG.allowedOrigin) return jsonResponse(origin, 403, { ok: false, error: "origin_not_allowed" });
@@ -343,4 +521,18 @@ export default {
       });
     }
   },
+
+  async scheduled(controller, env) {
+    const result = controller.cron === CONFIG.productionCron
+      ? await runProductionSchedule(env)
+      : await runAutomaticMonitor(env);
+    console.log(JSON.stringify({ cron: controller.cron, ...result }));
+  },
 };
+
+export const __test = Object.freeze({
+  koreaDate,
+  parseTimestamp,
+  runAutomaticMonitor,
+  runProductionSchedule,
+});
