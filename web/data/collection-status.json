@@ -1,17 +1,20 @@
 {
   "lastCollection": {
-    "at": "2026-09-06T08:00:26+09:00",
-    "scope": "production",
-    "mode": "manual",
-    "reason": "manual_production",
+    "at": "2026-09-06T15:52:34+09:00",
+    "scope": "all",
+    "mode": "regular",
+    "reason": "aps_changed",
     "status": "success",
     "files": [
+      "aps-lidding-requirement.json",
+      "bom-product-lidding.json",
       "dashboard-snapshot.json",
-      "lidding-production-usage.json"
+      "lidding-inventory.json",
+      "lidding-purchase-inbound.json"
     ]
   },
   "lastRegularCollection": {
-    "at": "2026-09-06T07:50:40+09:00",
+    "at": "2026-09-06T15:52:34+09:00",
     "scope": "all",
     "mode": "regular",
     "reason": "aps_changed",
@@ -36,31 +39,6 @@
     ]
   },
   "history": [
-    {
-      "at": "2026-09-04T08:00:38+09:00",
-      "scope": "production",
-      "mode": "manual",
-      "reason": "manual_production",
-      "status": "success",
-      "files": [
-        "dashboard-snapshot.json",
-        "lidding-production-usage.json"
-      ]
-    },
-    {
-      "at": "2026-09-04T08:01:14+09:00",
-      "scope": "all",
-      "mode": "regular",
-      "reason": "aps_changed",
-      "status": "success",
-      "files": [
-        "aps-lidding-requirement.json",
-        "bom-product-lidding.json",
-        "dashboard-snapshot.json",
-        "lidding-inventory.json",
-        "lidding-purchase-inbound.json"
-      ]
-    },
     {
       "at": "2026-09-04T16:00:56+09:00",
       "scope": "all",
@@ -137,6 +115,20 @@
       "files": [
         "dashboard-snapshot.json",
         "lidding-production-usage.json"
+      ]
+    },
+    {
+      "at": "2026-09-06T15:52:34+09:00",
+      "scope": "all",
+      "mode": "regular",
+      "reason": "aps_changed",
+      "status": "success",
+      "files": [
+        "aps-lidding-requirement.json",
+        "bom-product-lidding.json",
+        "dashboard-snapshot.json",
+        "lidding-inventory.json",
+        "lidding-purchase-inbound.json"
       ]
     }
   ]
