@@ -1,18 +1,18 @@
 {
-  "generatedAt": "2026-09-09T15:54:42+09:00",
-  "sourceSignature": "af28715af72475325aac291e9370bebe217878f52095601034edcb0db5847369",
+  "generatedAt": "2026-09-10T07:51:28+09:00",
+  "sourceSignature": "91283dc69ec69c802f2fd8605e9563ea4b9fc617a875ee3d617a4a6ba433f95e",
   "productSourceCount": 1720,
-  "bomSourceCount": 28570,
+  "bomSourceCount": 28605,
   "activePProductCount": 1720,
   "productApiFilterApplied": true,
   "bomApiFilterApplied": false,
   "bomApiFilterReason": "BOM API supports exact gd_cd only; P-prefix + level-1 BS lidding filters are applied locally",
   "storageScope": "active P-code + level-1 active BS lidding only",
-  "mappingCount": 1634,
-  "mappedProductCount": 1634,
+  "mappingCount": 1640,
+  "mappedProductCount": 1640,
   "liddingCodeCount": 239,
   "specificationVersionCount": 239,
-  "unmappedProductCount": 86,
+  "unmappedProductCount": 80,
   "rows": [
     {
       "productCode": "P0001",
@@ -6444,6 +6444,72 @@
       "liddingCode": "BS0363",
       "liddingName": "알루미늄리드지(미국_1D Toric_Glazed Kristin 리드지)",
       "liddingSpecification": "BS0363-001",
+      "requirementQty": 1,
+      "bomLevel": 1,
+      "statusCode": "S",
+      "useYn": "Y"
+    },
+    {
+      "productCode": "P1288",
+      "productName": "SkyOptical M_Prismatica One_Shift Green_43%",
+      "liddingCode": "BS0005",
+      "liddingName": "알루미늄리드지 (Monthly_무지)",
+      "liddingSpecification": "BS0005-002",
+      "requirementQty": 1,
+      "bomLevel": 1,
+      "statusCode": "S",
+      "useYn": "Y"
+    },
+    {
+      "productCode": "P1289",
+      "productName": "SkyOptical M_Prismatica One_Hybrid Green_Hazel_43%",
+      "liddingCode": "BS0005",
+      "liddingName": "알루미늄리드지 (Monthly_무지)",
+      "liddingSpecification": "BS0005-002",
+      "requirementQty": 1,
+      "bomLevel": 1,
+      "statusCode": "S",
+      "useYn": "Y"
+    },
+    {
+      "productCode": "P1290",
+      "productName": "SkyOptical M_Prismatica One_Ambient Hazel_43%",
+      "liddingCode": "BS0005",
+      "liddingName": "알루미늄리드지 (Monthly_무지)",
+      "liddingSpecification": "BS0005-002",
+      "requirementQty": 1,
+      "bomLevel": 1,
+      "statusCode": "S",
+      "useYn": "Y"
+    },
+    {
+      "productCode": "P1291",
+      "productName": "SkyOptical M_Prismatica One_Halftone Gray_43%",
+      "liddingCode": "BS0005",
+      "liddingName": "알루미늄리드지 (Monthly_무지)",
+      "liddingSpecification": "BS0005-002",
+      "requirementQty": 1,
+      "bomLevel": 1,
+      "statusCode": "S",
+      "useYn": "Y"
+    },
+    {
+      "productCode": "P1292",
+      "productName": "SkyOptical M_Prismatica One_Glaze Brown_43%",
+      "liddingCode": "BS0005",
+      "liddingName": "알루미늄리드지 (Monthly_무지)",
+      "liddingSpecification": "BS0005-002",
+      "requirementQty": 1,
+      "bomLevel": 1,
+      "statusCode": "S",
+      "useYn": "Y"
+    },
+    {
+      "productCode": "P1293",
+      "productName": "SkyOptical M_Prismatica One_Blended Brown_43%",
+      "liddingCode": "BS0005",
+      "liddingName": "알루미늄리드지 (Monthly_무지)",
+      "liddingSpecification": "BS0005-002",
       "requirementQty": 1,
       "bomLevel": 1,
       "statusCode": "S",
@@ -17989,5 +18055,5 @@
       "useYn": "Y"
     }
   ],
-  "changed": false
+  "changed": true
 }
