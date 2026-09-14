@@ -1,6 +1,6 @@
 {
-  "collectedAt": "2026-09-14T07:54:18+09:00",
-  "queryDate": "2026-09-14 07:54",
+  "collectedAt": "2026-09-14T15:55:02+09:00",
+  "queryDate": "2026-09-14 15:55",
   "dateFrom": "2026-07-14",
   "dateTo": "2026-09-14",
   "historyWindow": "recent two months",
@@ -10,12 +10,12 @@
   },
   "requestSourceRowCount": 13,
   "purchaseOrderSourceRowCount": 32,
-  "matchedLiddingRequestRows": 13,
-  "matchedLiddingPurchaseOrderRows": 20,
-  "openLiddingItemCount": 14,
-  "inboundWaitItemCount": 14,
+  "matchedLiddingRequestRows": 12,
+  "matchedLiddingPurchaseOrderRows": 21,
+  "openLiddingItemCount": 15,
+  "inboundWaitItemCount": 15,
   "purchaseWaitItemCount": 0,
-  "inboundWaitTotal": 7313259,
+  "inboundWaitTotal": 7613259,
   "purchaseWaitTotal": 0,
   "excludedMissingRequestNoRows": 0,
   "excludedMissingRequestNoQty": 0,
@@ -115,6 +115,40 @@
           "inboundWaitQty": 500000,
           "orderStatus": "발주",
           "supplierName": "피앤피 주식회사"
+        }
+      ]
+    },
+    {
+      "requestQty": 0,
+      "requestPurchaseOrderQty": 0,
+      "purchaseWaitQty": 0,
+      "purchaseOrderQty": 300000,
+      "provisionalReceiptQty": 0,
+      "receivedQty": 0,
+      "inboundWaitQty": 300000,
+      "itemCode": "BS0031",
+      "itemName": "알루미늄리드지 (원데이-MPG&E)_유광 코팅",
+      "specification": "BS0031-004",
+      "openRequestCount": 0,
+      "openPurchaseOrderCount": 1,
+      "nextRequestedDeliveryDate": null,
+      "nextOrderDeliveryDate": "2026-09-22",
+      "nextDeliveryDate": "2026-09-22",
+      "requests": [],
+      "purchaseOrders": [
+        {
+          "purchaseOrderNo": "PO-2609140013",
+          "purchaseOrderSeq": 1,
+          "purchaseOrderDate": "2026-09-14",
+          "requestNo": "PR-2609110011",
+          "requestSeq": 1,
+          "deliveryDate": "2026-09-22",
+          "purchaseOrderQty": 300000,
+          "provisionalReceiptQty": 0,
+          "receivedQty": 0,
+          "inboundWaitQty": 300000,
+          "orderStatus": "발주",
+          "supplierName": "주식회사 삼영특수인쇄"
         }
       ]
     },
