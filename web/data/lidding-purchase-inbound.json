@@ -1,15 +1,15 @@
 {
-  "collectedAt": "2026-09-17T15:50:59+09:00",
-  "queryDate": "2026-09-17 15:50",
-  "dateFrom": "2026-07-17",
-  "dateTo": "2026-09-17",
+  "collectedAt": "2026-09-18T07:49:28+09:00",
+  "queryDate": "2026-09-18 07:48",
+  "dateFrom": "2026-07-18",
+  "dateTo": "2026-09-18",
   "historyWindow": "recent two months",
   "apiFilters": {
     "requests": "itm_cd=BS, not_ordered=1",
     "orders": "itm_cd=BS, open_only=1"
   },
   "requestSourceRowCount": 1,
-  "purchaseOrderSourceRowCount": 34,
+  "purchaseOrderSourceRowCount": 33,
   "matchedLiddingRequestRows": 1,
   "matchedLiddingPurchaseOrderRows": 22,
   "openLiddingItemCount": 14,
