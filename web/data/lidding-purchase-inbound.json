@@ -1,14 +1,14 @@
 {
-  "collectedAt": "2026-09-21T15:51:17+09:00",
-  "queryDate": "2026-09-21 15:51",
-  "dateFrom": "2026-07-21",
-  "dateTo": "2026-09-21",
+  "collectedAt": "2026-09-22T07:46:15+09:00",
+  "queryDate": "2026-09-22 07:45",
+  "dateFrom": "2026-07-22",
+  "dateTo": "2026-09-22",
   "historyWindow": "recent two months",
   "apiFilters": {
     "requests": "itm_cd=BS, not_ordered=1",
     "orders": "itm_cd=BS, open_only=1"
   },
-  "requestSourceRowCount": 1,
+  "requestSourceRowCount": 3,
   "purchaseOrderSourceRowCount": 31,
   "matchedLiddingRequestRows": 1,
   "matchedLiddingPurchaseOrderRows": 20,
@@ -42,7 +42,7 @@
       "purchaseWaitQty": 0,
       "purchaseOrderQty": 3000000,
       "provisionalReceiptQty": 1384800,
-      "receivedQty": 0,
+      "receivedQty": 1384800,
       "inboundWaitQty": 1615200,
       "itemCode": "BS0005",
       "itemName": "알루미늄리드지 (Monthly_무지)",
@@ -63,7 +63,7 @@
           "deliveryDate": "2026-09-30",
           "purchaseOrderQty": 3000000,
           "provisionalReceiptQty": 1384800,
-          "receivedQty": 0,
+          "receivedQty": 1384800,
           "inboundWaitQty": 1615200,
           "orderStatus": "납품진행",
           "supplierName": "주식회사 에이치앤케이"
