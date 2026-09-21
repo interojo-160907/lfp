@@ -1,18 +1,18 @@
 {
-  "generatedAt": "2026-09-21T07:46:27+09:00",
-  "sourceSignature": "5cb1bcfb70bf452fd81cc6f846c5dae540603d736cb377a636b8f61d575012cc",
+  "generatedAt": "2026-09-21T15:49:11+09:00",
+  "sourceSignature": "597b66c7c21e7ca5e3b8aa5aeaf49d9be74e9da419d70d4aa63d38023230803e",
   "productSourceCount": 1733,
-  "bomSourceCount": 28652,
+  "bomSourceCount": 28707,
   "activePProductCount": 1733,
   "productApiFilterApplied": true,
   "bomApiFilterApplied": false,
   "bomApiFilterReason": "BOM API supports exact gd_cd only; P-prefix + level-1 BS lidding filters are applied locally",
   "storageScope": "active P-code + level-1 active BS lidding only",
-  "mappingCount": 1645,
-  "mappedProductCount": 1645,
+  "mappingCount": 1650,
+  "mappedProductCount": 1650,
   "liddingCodeCount": 239,
   "specificationVersionCount": 239,
-  "unmappedProductCount": 88,
+  "unmappedProductCount": 83,
   "rows": [
     {
       "productCode": "P0001",
@@ -2382,6 +2382,61 @@
     {
       "productCode": "P0443",
       "productName": "Clalen Iris M_Luster Olive_2P",
+      "liddingCode": "BS0358",
+      "liddingName": "알루미늄리드지 (Clalen Iris Color M)",
+      "liddingSpecification": "BS0358-001",
+      "requirementQty": 1,
+      "bomLevel": 1,
+      "statusCode": "S",
+      "useYn": "Y"
+    },
+    {
+      "productCode": "P0444",
+      "productName": "Clalen Iris M_Balm Brown_2P",
+      "liddingCode": "BS0358",
+      "liddingName": "알루미늄리드지 (Clalen Iris Color M)",
+      "liddingSpecification": "BS0358-001",
+      "requirementQty": 1,
+      "bomLevel": 1,
+      "statusCode": "S",
+      "useYn": "Y"
+    },
+    {
+      "productCode": "P0445",
+      "productName": "Clalen Iris M_Balm Gray_2P",
+      "liddingCode": "BS0358",
+      "liddingName": "알루미늄리드지 (Clalen Iris Color M)",
+      "liddingSpecification": "BS0358-001",
+      "requirementQty": 1,
+      "bomLevel": 1,
+      "statusCode": "S",
+      "useYn": "Y"
+    },
+    {
+      "productCode": "P0446",
+      "productName": "Clalen Iris M_Balm Choco_2P",
+      "liddingCode": "BS0358",
+      "liddingName": "알루미늄리드지 (Clalen Iris Color M)",
+      "liddingSpecification": "BS0358-001",
+      "requirementQty": 1,
+      "bomLevel": 1,
+      "statusCode": "S",
+      "useYn": "Y"
+    },
+    {
+      "productCode": "P0447",
+      "productName": "Clalen Iris M_Balm Navy_2P",
+      "liddingCode": "BS0358",
+      "liddingName": "알루미늄리드지 (Clalen Iris Color M)",
+      "liddingSpecification": "BS0358-001",
+      "requirementQty": 1,
+      "bomLevel": 1,
+      "statusCode": "S",
+      "useYn": "Y"
+    },
+    {
+      "productCode": "P0448",
+      "productName": "Clalen Iris M_Balm Olive_2P",
       "liddingCode": "BS0358",
       "liddingName": "알루미늄리드지 (Clalen Iris Color M)",
       "liddingSpecification": "BS0358-001",
@@ -18110,5 +18165,5 @@
       "useYn": "Y"
     }
   ],
-  "changed": false
+  "changed": true
 }
