@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-09-21T15:49:16+09:00",
+  "generatedAt": "2026-09-21T15:51:16+09:00",
   "snapshotDate": "2026-09-21",
   "warehouseOptions": [
     {
@@ -22,7 +22,7 @@
   "itemCount": 242,
   "sourceRowCount": 471,
   "rawLiddingSourceRowCount": 473,
-  "stockTotal": 89078427,
+  "stockTotal": 89075160,
   "inspectionWaitTotal": 3451960,
   "inspectionAggregation": "max-per-item",
   "formula": {
@@ -159,7 +159,7 @@
       "itemCode": "BS0007",
       "itemName": "알루미늄리드지 (원데이-데일리)_유광 코팅",
       "specification": "BS0007-001",
-      "stockQty": 1089335,
+      "stockQty": 1086068,
       "inspectionWaitQty": 0,
       "warehouses": [
         {
@@ -186,7 +186,7 @@
         {
           "warehouseCode": "S100",
           "warehouseName": "S관 공정부자재",
-          "stockQty": 137335,
+          "stockQty": 134068,
           "inspectionWaitQty": 0,
           "hasSourceRow": true
         }

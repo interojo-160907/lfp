@@ -1,10 +1,10 @@
 {
-  "snapshotAt": "2026-09-21T15:49:18+09:00",
+  "snapshotAt": "2026-09-21T15:51:21+09:00",
   "scope": "all",
   "reason": "aps_changed",
   "channels": {
     "aps": {
-      "generatedAt": "2026-09-21T15:49:18+09:00",
+      "generatedAt": "2026-09-21T15:51:21+09:00",
       "sourceRefreshedAt": "2026-09-21 15:48:04",
       "apiFilters": {
         "oper": "45",
@@ -44220,7 +44220,7 @@
       ]
     },
     "inventory": {
-      "generatedAt": "2026-09-21T15:49:16+09:00",
+      "generatedAt": "2026-09-21T15:51:16+09:00",
       "snapshotDate": "2026-09-21",
       "warehouseOptions": [
         {
@@ -44243,7 +44243,7 @@
       "itemCount": 242,
       "sourceRowCount": 471,
       "rawLiddingSourceRowCount": 473,
-      "stockTotal": 89078427,
+      "stockTotal": 89075160,
       "inspectionWaitTotal": 3451960,
       "inspectionAggregation": "max-per-item",
       "formula": {
@@ -44380,7 +44380,7 @@
           "itemCode": "BS0007",
           "itemName": "알루미늄리드지 (원데이-데일리)_유광 코팅",
           "specification": "BS0007-001",
-          "stockQty": 1089335,
+          "stockQty": 1086068,
           "inspectionWaitQty": 0,
           "warehouses": [
             {
@@ -44407,7 +44407,7 @@
             {
               "warehouseCode": "S100",
               "warehouseName": "S관 공정부자재",
-              "stockQty": 137335,
+              "stockQty": 134068,
               "inspectionWaitQty": 0,
               "hasSourceRow": true
             }
@@ -53499,8 +53499,8 @@
       ]
     },
     "purchase": {
-      "collectedAt": "2026-09-21T15:49:16+09:00",
-      "queryDate": "2026-09-21 15:49",
+      "collectedAt": "2026-09-21T15:51:17+09:00",
+      "queryDate": "2026-09-21 15:51",
       "dateFrom": "2026-07-21",
       "dateTo": "2026-09-21",
       "historyWindow": "recent two months",
@@ -54071,7 +54071,7 @@
       ]
     },
     "bom": {
-      "generatedAt": "2026-09-21T15:49:11+09:00",
+      "generatedAt": "2026-09-21T15:51:12+09:00",
       "sourceSignature": "597b66c7c21e7ca5e3b8aa5aeaf49d9be74e9da419d70d4aa63d38023230803e",
       "productSourceCount": 1733,
       "bomSourceCount": 28707,
@@ -72237,7 +72237,7 @@
           "useYn": "Y"
         }
       ],
-      "changed": true
+      "changed": false
     },
     "production": {
       "generatedAt": "2026-09-21T08:01:12+09:00",
