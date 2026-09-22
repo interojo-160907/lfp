@@ -1,18 +1,18 @@
 {
-  "generatedAt": "2026-09-22T11:06:17+09:00",
-  "sourceSignature": "597b66c7c21e7ca5e3b8aa5aeaf49d9be74e9da419d70d4aa63d38023230803e",
+  "generatedAt": "2026-09-22T16:15:50+09:00",
+  "sourceSignature": "0175af181a5be9ad42d318f104b2e642274bfe32c3c1b84d206c3157b1bf027b",
   "productSourceCount": 1733,
-  "bomSourceCount": 28706,
+  "bomSourceCount": 28710,
   "activePProductCount": 1733,
   "productApiFilterApplied": true,
   "bomApiFilterApplied": false,
   "bomApiFilterReason": "BOM API supports exact gd_cd only; P-prefix + level-1 BS lidding filters are applied locally",
   "storageScope": "active P-code + level-1 active BS lidding only",
-  "mappingCount": 1650,
-  "mappedProductCount": 1650,
-  "liddingCodeCount": 239,
-  "specificationVersionCount": 239,
-  "unmappedProductCount": 83,
+  "mappingCount": 1651,
+  "mappedProductCount": 1651,
+  "liddingCodeCount": 240,
+  "specificationVersionCount": 240,
+  "unmappedProductCount": 82,
   "rows": [
     {
       "productCode": "P0001",
@@ -6572,7 +6572,7 @@
     },
     {
       "productCode": "P1289",
-      "productName": "SkyOptical M_Prismatica One_Hybrid Green_Hazel_43%",
+      "productName": "SkyOptical M_Prismatica One_Hybrid Hazel_43%",
       "liddingCode": "BS0005",
       "liddingName": "알루미늄리드지 (Monthly_무지)",
       "liddingSpecification": "BS0005-002",
@@ -6620,6 +6620,17 @@
       "liddingCode": "BS0005",
       "liddingName": "알루미늄리드지 (Monthly_무지)",
       "liddingSpecification": "BS0005-002",
+      "requirementQty": 1,
+      "bomLevel": 1,
+      "statusCode": "S",
+      "useYn": "Y"
+    },
+    {
+      "productCode": "P1296",
+      "productName": "Sincere Amazon clear 1day 55%",
+      "liddingCode": "BS0364",
+      "liddingName": "알루미늄리드지 (일본 Sincere Amazon 1day 55% 리드지)",
+      "liddingSpecification": "BS0364-001",
       "requirementQty": 1,
       "bomLevel": 1,
       "statusCode": "S",
@@ -18165,5 +18176,5 @@
       "useYn": "Y"
     }
   ],
-  "changed": false
+  "changed": true
 }
