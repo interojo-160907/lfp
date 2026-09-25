@@ -1,6 +1,6 @@
 {
-  "generatedAt": "2026-09-25T16:12:15+09:00",
-  "snapshotDate": "2026-09-25",
+  "generatedAt": "2026-09-26T08:13:14+09:00",
+  "snapshotDate": "2026-09-26",
   "warehouseOptions": [
     {
       "code": "300",
@@ -22,8 +22,8 @@
   "itemCount": 242,
   "sourceRowCount": 471,
   "rawLiddingSourceRowCount": 473,
-  "stockTotal": 91756458,
-  "inspectionWaitTotal": 1286000,
+  "stockTotal": 93042458,
+  "inspectionWaitTotal": 0,
   "inspectionAggregation": "max-per-item",
   "formula": {
     "grain": "item_code + specification",
@@ -35,7 +35,7 @@
     "stockTotalReconciled": true,
     "negativeStockSourceRowCount": 1,
     "duplicateWarehouseItemSourceRowCount": 2,
-    "inspectionRepeatedWarehouseRowCount": 1,
+    "inspectionRepeatedWarehouseRowCount": 0,
     "inspectionConflictItemCount": 0
   },
   "status": {
@@ -8899,14 +8899,14 @@
       "itemCode": "BS0354",
       "itemName": "알루미늄리드지 (PIA_1D 55% CoFANCY 리드지)",
       "specification": "BS0354-001",
-      "stockQty": 4108560,
-      "inspectionWaitQty": 1286000,
+      "stockQty": 5394560,
+      "inspectionWaitQty": 0,
       "warehouses": [
         {
           "warehouseCode": "300",
           "warehouseName": "L관창고(자재)",
-          "stockQty": 2675000,
-          "inspectionWaitQty": 1286000,
+          "stockQty": 3961000,
+          "inspectionWaitQty": 0,
           "hasSourceRow": true
         },
         {
@@ -8920,7 +8920,7 @@
           "warehouseCode": "P030",
           "warehouseName": "C관 공정부자재",
           "stockQty": 1433560,
-          "inspectionWaitQty": 1286000,
+          "inspectionWaitQty": 0,
           "hasSourceRow": true
         },
         {
