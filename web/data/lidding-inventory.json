@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-09-28T08:03:59+09:00",
+  "generatedAt": "2026-09-28T08:05:23+09:00",
   "snapshotDate": "2026-09-28",
   "warehouseOptions": [
     {
@@ -22,7 +22,7 @@
   "itemCount": 242,
   "sourceRowCount": 471,
   "rawLiddingSourceRowCount": 473,
-  "stockTotal": 92312813,
+  "stockTotal": 92311663,
   "inspectionWaitTotal": 0,
   "inspectionAggregation": "max-per-item",
   "formula": {
@@ -4149,7 +4149,7 @@
       "itemCode": "BS0154",
       "itemName": "알루미늄리드지 (공용 Alcon Freshlook)_유광 코팅",
       "specification": "BS0154-001",
-      "stockQty": 379839,
+      "stockQty": 378689,
       "inspectionWaitQty": 0,
       "warehouses": [
         {
@@ -4169,7 +4169,7 @@
         {
           "warehouseCode": "P030",
           "warehouseName": "C관 공정부자재",
-          "stockQty": 38839,
+          "stockQty": 37689,
           "inspectionWaitQty": 0,
           "hasSourceRow": true
         },
