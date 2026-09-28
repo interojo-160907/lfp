@@ -1,6 +1,6 @@
 {
   "lastCollection": {
-    "at": "2026-09-28T08:05:29+09:00",
+    "at": "2026-09-28T15:14:36+09:00",
     "scope": "all",
     "mode": "regular",
     "reason": "aps_changed",
@@ -14,7 +14,7 @@
     ]
   },
   "lastRegularCollection": {
-    "at": "2026-09-28T08:05:29+09:00",
+    "at": "2026-09-28T15:14:36+09:00",
     "scope": "all",
     "mode": "regular",
     "reason": "aps_changed",
@@ -39,47 +39,6 @@
     ]
   },
   "history": [
-    {
-      "at": "2026-09-26T08:13:15+09:00",
-      "scope": "support",
-      "mode": "regular",
-      "reason": "regular_16h",
-      "status": "success",
-      "files": [
-        "bom-product-lidding.json",
-        "dashboard-snapshot.json",
-        "lidding-inventory.json",
-        "lidding-purchase-inbound.json"
-      ]
-    },
-    {
-      "at": "2026-09-26T08:21:42+09:00",
-      "scope": "all",
-      "mode": "regular",
-      "reason": "aps_changed",
-      "status": "success",
-      "files": [
-        "aps-lidding-requirement.json",
-        "bom-product-lidding.json",
-        "dashboard-snapshot.json",
-        "lidding-inventory.json",
-        "lidding-purchase-inbound.json"
-      ]
-    },
-    {
-      "at": "2026-09-26T08:23:21+09:00",
-      "scope": "all",
-      "mode": "regular",
-      "reason": "aps_changed",
-      "status": "success",
-      "files": [
-        "aps-lidding-requirement.json",
-        "bom-product-lidding.json",
-        "dashboard-snapshot.json",
-        "lidding-inventory.json",
-        "lidding-purchase-inbound.json"
-      ]
-    },
     {
       "at": "2026-09-26T16:12:28+09:00",
       "scope": "all",
@@ -188,6 +147,20 @@
     },
     {
       "at": "2026-09-28T08:05:29+09:00",
+      "scope": "all",
+      "mode": "regular",
+      "reason": "aps_changed",
+      "status": "success",
+      "files": [
+        "aps-lidding-requirement.json",
+        "bom-product-lidding.json",
+        "dashboard-snapshot.json",
+        "lidding-inventory.json",
+        "lidding-purchase-inbound.json"
+      ]
+    },
+    {
+      "at": "2026-09-28T15:14:36+09:00",
       "scope": "all",
       "mode": "regular",
       "reason": "aps_changed",
