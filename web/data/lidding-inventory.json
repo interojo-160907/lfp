@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-09-29T17:59:23+09:00",
+  "generatedAt": "2026-09-29T18:01:44+09:00",
   "snapshotDate": "2026-09-29",
   "warehouseOptions": [
     {
@@ -22,7 +22,7 @@
   "itemCount": 242,
   "sourceRowCount": 471,
   "rawLiddingSourceRowCount": 473,
-  "stockTotal": 92721519,
+  "stockTotal": 92716647,
   "inspectionWaitTotal": 0,
   "inspectionAggregation": "max-per-item",
   "formula": {
@@ -1793,7 +1793,7 @@
       "itemCode": "BS0073",
       "itemName": "알루미늄리드지 (일본 PIA 1day 55%)_유광 코팅",
       "specification": "BS0073-002",
-      "stockQty": 3084878,
+      "stockQty": 3081808,
       "inspectionWaitQty": 0,
       "warehouses": [
         {
@@ -1813,7 +1813,7 @@
         {
           "warehouseCode": "P030",
           "warehouseName": "C관 공정부자재",
-          "stockQty": 611941,
+          "stockQty": 608871,
           "inspectionWaitQty": 0,
           "hasSourceRow": true
         },
@@ -1831,7 +1831,7 @@
       "itemCode": "BS0074",
       "itemName": "알루미늄리드지 (해외공용 1-day 리드지)_유광 코팅",
       "specification": "BS0074-001",
-      "stockQty": 645086,
+      "stockQty": 643284,
       "inspectionWaitQty": 0,
       "warehouses": [
         {
@@ -1858,7 +1858,7 @@
         {
           "warehouseCode": "S100",
           "warehouseName": "S관 공정부자재",
-          "stockQty": 159086,
+          "stockQty": 157284,
           "inspectionWaitQty": 0,
           "hasSourceRow": true
         }
