@@ -1,11 +1,11 @@
 {
-  "snapshotAt": "2026-09-29T17:55:26+09:00",
+  "snapshotAt": "2026-09-29T17:56:33+09:00",
   "scope": "all",
   "reason": "aps_changed",
   "channels": {
     "aps": {
-      "generatedAt": "2026-09-29T17:55:26+09:00",
-      "sourceRefreshedAt": "2026-09-29 17:54:40",
+      "generatedAt": "2026-09-29T17:56:33+09:00",
+      "sourceRefreshedAt": "2026-09-29 17:55:41",
       "apiFilters": {
         "oper": "45",
         "item_cd": "P"
@@ -37,7 +37,7 @@
       "rows": []
     },
     "inventory": {
-      "generatedAt": "2026-09-29T17:55:25+09:00",
+      "generatedAt": "2026-09-29T17:56:32+09:00",
       "snapshotDate": "2026-09-29",
       "warehouseOptions": [
         {
@@ -60,7 +60,7 @@
       "itemCount": 242,
       "sourceRowCount": 471,
       "rawLiddingSourceRowCount": 473,
-      "stockTotal": 92726954,
+      "stockTotal": 92726034,
       "inspectionWaitTotal": 0,
       "inspectionAggregation": "max-per-item",
       "formula": {
@@ -8937,7 +8937,7 @@
           "itemCode": "BS0354",
           "itemName": "알루미늄리드지 (PIA_1D 55% CoFANCY 리드지)",
           "specification": "BS0354-001",
-          "stockQty": 5555455,
+          "stockQty": 5554535,
           "inspectionWaitQty": 0,
           "warehouses": [
             {
@@ -8957,7 +8957,7 @@
             {
               "warehouseCode": "P030",
               "warehouseName": "C관 공정부자재",
-              "stockQty": 880455,
+              "stockQty": 879535,
               "inspectionWaitQty": 0,
               "hasSourceRow": true
             },
@@ -9316,8 +9316,8 @@
       ]
     },
     "purchase": {
-      "collectedAt": "2026-09-29T17:55:25+09:00",
-      "queryDate": "2026-09-29 17:55",
+      "collectedAt": "2026-09-29T17:56:32+09:00",
+      "queryDate": "2026-09-29 17:56",
       "dateFrom": "2026-07-29",
       "dateTo": "2026-09-29",
       "historyWindow": "recent two months",
@@ -9854,7 +9854,7 @@
       ]
     },
     "bom": {
-      "generatedAt": "2026-09-29T17:55:21+09:00",
+      "generatedAt": "2026-09-29T17:56:28+09:00",
       "sourceSignature": "b9f5467eb9053e503f352dce76ff9525e51e597af41a89c417d4fb22affd1a5d",
       "productSourceCount": 1733,
       "bomSourceCount": 28747,
