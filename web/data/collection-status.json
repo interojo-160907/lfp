@@ -1,16 +1,13 @@
 {
   "lastCollection": {
-    "at": "2026-10-01T07:12:46+09:00",
-    "scope": "all",
-    "mode": "regular",
-    "reason": "aps_changed",
+    "at": "2026-10-01T08:01:36+09:00",
+    "scope": "production",
+    "mode": "manual",
+    "reason": "manual_production",
     "status": "success",
     "files": [
-      "aps-lidding-requirement.json",
-      "bom-product-lidding.json",
       "dashboard-snapshot.json",
-      "lidding-inventory.json",
-      "lidding-purchase-inbound.json"
+      "lidding-production-usage.json"
     ]
   },
   "lastRegularCollection": {
@@ -28,7 +25,7 @@
     ]
   },
   "lastManualCollection": {
-    "at": "2026-09-30T08:01:35+09:00",
+    "at": "2026-10-01T08:01:36+09:00",
     "scope": "production",
     "mode": "manual",
     "reason": "manual_production",
@@ -39,58 +36,6 @@
     ]
   },
   "history": [
-    {
-      "at": "2026-09-29T07:18:25+09:00",
-      "scope": "support",
-      "mode": "regular",
-      "reason": "regular_16h",
-      "status": "success",
-      "files": [
-        "bom-product-lidding.json",
-        "dashboard-snapshot.json",
-        "lidding-inventory.json",
-        "lidding-purchase-inbound.json"
-      ]
-    },
-    {
-      "at": "2026-09-29T07:36:34+09:00",
-      "scope": "all",
-      "mode": "regular",
-      "reason": "aps_changed",
-      "status": "success",
-      "files": [
-        "aps-lidding-requirement.json",
-        "bom-product-lidding.json",
-        "dashboard-snapshot.json",
-        "lidding-inventory.json",
-        "lidding-purchase-inbound.json"
-      ]
-    },
-    {
-      "at": "2026-09-29T07:38:41+09:00",
-      "scope": "all",
-      "mode": "regular",
-      "reason": "aps_changed",
-      "status": "success",
-      "files": [
-        "aps-lidding-requirement.json",
-        "bom-product-lidding.json",
-        "dashboard-snapshot.json",
-        "lidding-inventory.json",
-        "lidding-purchase-inbound.json"
-      ]
-    },
-    {
-      "at": "2026-09-29T08:01:30+09:00",
-      "scope": "production",
-      "mode": "manual",
-      "reason": "manual_production",
-      "status": "success",
-      "files": [
-        "dashboard-snapshot.json",
-        "lidding-production-usage.json"
-      ]
-    },
     {
       "at": "2026-09-29T15:00:27+09:00",
       "scope": "all",
@@ -520,6 +465,17 @@
         "dashboard-snapshot.json",
         "lidding-inventory.json",
         "lidding-purchase-inbound.json"
+      ]
+    },
+    {
+      "at": "2026-10-01T08:01:36+09:00",
+      "scope": "production",
+      "mode": "manual",
+      "reason": "manual_production",
+      "status": "success",
+      "files": [
+        "dashboard-snapshot.json",
+        "lidding-production-usage.json"
       ]
     }
   ]
