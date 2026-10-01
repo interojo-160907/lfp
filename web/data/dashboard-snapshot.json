@@ -1,7 +1,7 @@
 {
-  "snapshotAt": "2026-10-02T07:51:37+09:00",
-  "scope": "all",
-  "reason": "aps_changed",
+  "snapshotAt": "2026-10-02T08:01:44+09:00",
+  "scope": "production",
+  "reason": "manual_production",
   "channels": {
     "aps": {
       "generatedAt": "2026-10-02T07:51:37+09:00",
@@ -126079,22 +126079,22 @@
       "changed": false
     },
     "production": {
-      "generatedAt": "2026-10-01T08:01:36+09:00",
-      "dateFrom": "2026-09-24",
-      "dateTo": "2026-09-30",
+      "generatedAt": "2026-10-02T08:01:44+09:00",
+      "dateFrom": "2026-09-25",
+      "dateTo": "2026-10-01",
       "dayCount": 7,
       "processCode": "55",
       "apiProcessFilterApplied": true,
       "apiProcessFilterReason": "gong_cd=55 verified against every returned row; P-code rows are also validated locally",
       "quantityField": "job_qty",
       "quantityLabel": "지시수량",
-      "sourceRefreshedAt": "2026-10-01T08:00:37",
-      "sourceRowCount": 1986,
-      "filteredSourceRowCount": 1986,
-      "sourceInstructionQty": 3379227,
-      "mappedSourceInstructionQty": 3363562,
-      "liddingUsageTotal": 3363562,
-      "liddingUsageCount": 35,
+      "sourceRefreshedAt": "2026-10-02T08:00:13",
+      "sourceRowCount": 2504,
+      "filteredSourceRowCount": 2504,
+      "sourceInstructionQty": 4346003,
+      "mappedSourceInstructionQty": 4330338,
+      "liddingUsageTotal": 4330338,
+      "liddingUsageCount": 38,
       "unmatchedPCodes": [
         {
           "productCode": "P1125",
@@ -126120,15 +126120,11 @@
           "itemCode": "BS0005",
           "itemName": "알루미늄리드지 (Monthly_무지)",
           "specification": "BS0005-002",
-          "totalUsageQty": 252219,
-          "averageDailyUsage": 36031.28571428572,
+          "totalUsageQty": 325884,
+          "averageDailyUsage": 46554.857142857145,
           "dayCount": 7,
-          "productCount": 34,
+          "productCount": 35,
           "dailyUsage": [
-            {
-              "date": "2026-09-24",
-              "usageQty": 0
-            },
             {
               "date": "2026-09-25",
               "usageQty": 0
@@ -126152,6 +126148,10 @@
             {
               "date": "2026-09-30",
               "usageQty": 82585
+            },
+            {
+              "date": "2026-10-01",
+              "usageQty": 73665
             }
           ]
         },
@@ -126159,15 +126159,11 @@
           "itemCode": "BS0007",
           "itemName": "알루미늄리드지 (원데이-데일리)_유광 코팅",
           "specification": "BS0007-001",
-          "totalUsageQty": 7348,
-          "averageDailyUsage": 1049.7142857142858,
+          "totalUsageQty": 13488,
+          "averageDailyUsage": 1926.857142857143,
           "dayCount": 7,
-          "productCount": 1,
+          "productCount": 2,
           "dailyUsage": [
-            {
-              "date": "2026-09-24",
-              "usageQty": 0
-            },
             {
               "date": "2026-09-25",
               "usageQty": 0
@@ -126191,6 +126187,10 @@
             {
               "date": "2026-09-30",
               "usageQty": 3677
+            },
+            {
+              "date": "2026-10-01",
+              "usageQty": 6140
             }
           ]
         },
@@ -126203,10 +126203,6 @@
           "dayCount": 7,
           "productCount": 3,
           "dailyUsage": [
-            {
-              "date": "2026-09-24",
-              "usageQty": 0
-            },
             {
               "date": "2026-09-25",
               "usageQty": 0
@@ -126230,6 +126226,49 @@
             {
               "date": "2026-09-30",
               "usageQty": 12340
+            },
+            {
+              "date": "2026-10-01",
+              "usageQty": 0
+            }
+          ]
+        },
+        {
+          "itemCode": "BS0039",
+          "itemName": "알루미늄리드지 (신시아 2week UV)_유광 코팅",
+          "specification": "BS0039-002",
+          "totalUsageQty": 7275,
+          "averageDailyUsage": 1039.2857142857142,
+          "dayCount": 7,
+          "productCount": 1,
+          "dailyUsage": [
+            {
+              "date": "2026-09-25",
+              "usageQty": 0
+            },
+            {
+              "date": "2026-09-26",
+              "usageQty": 0
+            },
+            {
+              "date": "2026-09-27",
+              "usageQty": 0
+            },
+            {
+              "date": "2026-09-28",
+              "usageQty": 0
+            },
+            {
+              "date": "2026-09-29",
+              "usageQty": 0
+            },
+            {
+              "date": "2026-09-30",
+              "usageQty": 0
+            },
+            {
+              "date": "2026-10-01",
+              "usageQty": 7275
             }
           ]
         },
@@ -126242,10 +126281,6 @@
           "dayCount": 7,
           "productCount": 1,
           "dailyUsage": [
-            {
-              "date": "2026-09-24",
-              "usageQty": 0
-            },
             {
               "date": "2026-09-25",
               "usageQty": 0
@@ -126269,6 +126304,10 @@
             {
               "date": "2026-09-30",
               "usageQty": 3150
+            },
+            {
+              "date": "2026-10-01",
+              "usageQty": 0
             }
           ]
         },
@@ -126281,10 +126320,6 @@
           "dayCount": 7,
           "productCount": 1,
           "dailyUsage": [
-            {
-              "date": "2026-09-24",
-              "usageQty": 0
-            },
             {
               "date": "2026-09-25",
               "usageQty": 0
@@ -126308,6 +126343,10 @@
             {
               "date": "2026-09-30",
               "usageQty": 17323
+            },
+            {
+              "date": "2026-10-01",
+              "usageQty": 0
             }
           ]
         },
@@ -126315,15 +126354,11 @@
           "itemCode": "BS0054",
           "itemName": "알루미늄리드지 (국내/중국 원데이_아이리스)_무광 코팅",
           "specification": "BS0054-003",
-          "totalUsageQty": 295400,
-          "averageDailyUsage": 42200,
+          "totalUsageQty": 425290,
+          "averageDailyUsage": 60755.71428571428,
           "dayCount": 7,
-          "productCount": 4,
+          "productCount": 6,
           "dailyUsage": [
-            {
-              "date": "2026-09-24",
-              "usageQty": 0
-            },
             {
               "date": "2026-09-25",
               "usageQty": 0
@@ -126346,7 +126381,11 @@
             },
             {
               "date": "2026-09-30",
-              "usageQty": 78640
+              "usageQty": 81140
+            },
+            {
+              "date": "2026-10-01",
+              "usageQty": 127390
             }
           ]
         },
@@ -126354,15 +126393,11 @@
           "itemCode": "BS0059",
           "itemName": "알루미늄리드지 (Bella_1Day_컬러 리드지)_유광 코팅",
           "specification": "BS0059-001",
-          "totalUsageQty": 193473,
-          "averageDailyUsage": 27639,
+          "totalUsageQty": 195237,
+          "averageDailyUsage": 27891,
           "dayCount": 7,
           "productCount": 4,
           "dailyUsage": [
-            {
-              "date": "2026-09-24",
-              "usageQty": 0
-            },
             {
               "date": "2026-09-25",
               "usageQty": 0
@@ -126385,7 +126420,11 @@
             },
             {
               "date": "2026-09-30",
-              "usageQty": 38193
+              "usageQty": 30882
+            },
+            {
+              "date": "2026-10-01",
+              "usageQty": 9075
             }
           ]
         },
@@ -126393,15 +126432,11 @@
           "itemCode": "BS0073",
           "itemName": "알루미늄리드지 (일본 PIA 1day 55%)_유광 코팅",
           "specification": "BS0073-002",
-          "totalUsageQty": 629695,
-          "averageDailyUsage": 89956.42857142857,
+          "totalUsageQty": 842385,
+          "averageDailyUsage": 120340.71428571429,
           "dayCount": 7,
-          "productCount": 13,
+          "productCount": 15,
           "dailyUsage": [
-            {
-              "date": "2026-09-24",
-              "usageQty": 0
-            },
             {
               "date": "2026-09-25",
               "usageQty": 0
@@ -126424,7 +126459,11 @@
             },
             {
               "date": "2026-09-30",
-              "usageQty": 163170
+              "usageQty": 157305
+            },
+            {
+              "date": "2026-10-01",
+              "usageQty": 218555
             }
           ]
         },
@@ -126437,10 +126476,6 @@
           "dayCount": 7,
           "productCount": 1,
           "dailyUsage": [
-            {
-              "date": "2026-09-24",
-              "usageQty": 0
-            },
             {
               "date": "2026-09-25",
               "usageQty": 0
@@ -126464,6 +126499,10 @@
             {
               "date": "2026-09-30",
               "usageQty": 4785
+            },
+            {
+              "date": "2026-10-01",
+              "usageQty": 0
             }
           ]
         },
@@ -126471,15 +126510,11 @@
           "itemCode": "BS0083",
           "itemName": "알루미늄리드지 (체코 Alensa US 원데이 리드지)_유광 코팅",
           "specification": "BS0083-002",
-          "totalUsageQty": 9830,
-          "averageDailyUsage": 1404.2857142857142,
+          "totalUsageQty": 24250,
+          "averageDailyUsage": 3464.285714285714,
           "dayCount": 7,
           "productCount": 1,
           "dailyUsage": [
-            {
-              "date": "2026-09-24",
-              "usageQty": 0
-            },
             {
               "date": "2026-09-25",
               "usageQty": 0
@@ -126503,6 +126538,10 @@
             {
               "date": "2026-09-30",
               "usageQty": 8330
+            },
+            {
+              "date": "2026-10-01",
+              "usageQty": 14420
             }
           ]
         },
@@ -126510,15 +126549,11 @@
           "itemCode": "BS0086",
           "itemName": "알루미늄리드지 (Iris_수지브라운)_무광 코팅",
           "specification": "BS0086-001",
-          "totalUsageQty": 189035,
-          "averageDailyUsage": 27005,
+          "totalUsageQty": 198985,
+          "averageDailyUsage": 28426.428571428572,
           "dayCount": 7,
           "productCount": 1,
           "dailyUsage": [
-            {
-              "date": "2026-09-24",
-              "usageQty": 0
-            },
             {
               "date": "2026-09-25",
               "usageQty": 0
@@ -126542,6 +126577,10 @@
             {
               "date": "2026-09-30",
               "usageQty": 42655
+            },
+            {
+              "date": "2026-10-01",
+              "usageQty": 9950
             }
           ]
         },
@@ -126554,10 +126593,6 @@
           "dayCount": 7,
           "productCount": 1,
           "dailyUsage": [
-            {
-              "date": "2026-09-24",
-              "usageQty": 0
-            },
             {
               "date": "2026-09-25",
               "usageQty": 0
@@ -126581,6 +126616,10 @@
             {
               "date": "2026-09-30",
               "usageQty": 0
+            },
+            {
+              "date": "2026-10-01",
+              "usageQty": 0
             }
           ]
         },
@@ -126588,15 +126627,11 @@
           "itemCode": "BS0103",
           "itemName": "알루미늄리드지 (이태리 soleko US 58% 1day)_유광 코팅",
           "specification": "BS0103-001",
-          "totalUsageQty": 6312,
-          "averageDailyUsage": 901.7142857142857,
+          "totalUsageQty": 39940,
+          "averageDailyUsage": 5705.714285714285,
           "dayCount": 7,
           "productCount": 1,
           "dailyUsage": [
-            {
-              "date": "2026-09-24",
-              "usageQty": 0
-            },
             {
               "date": "2026-09-25",
               "usageQty": 0
@@ -126619,7 +126654,11 @@
             },
             {
               "date": "2026-09-30",
-              "usageQty": 6312
+              "usageQty": 1365
+            },
+            {
+              "date": "2026-10-01",
+              "usageQty": 38575
             }
           ]
         },
@@ -126627,15 +126666,11 @@
           "itemCode": "BS0115",
           "itemName": "알루미늄리드지 (무지-백색_PET12/AL30/CPP100_White 리버스인쇄)",
           "specification": "BS0115-001",
-          "totalUsageQty": 91253,
-          "averageDailyUsage": 13036.142857142857,
+          "totalUsageQty": 149717,
+          "averageDailyUsage": 21388.14285714286,
           "dayCount": 7,
-          "productCount": 3,
+          "productCount": 4,
           "dailyUsage": [
-            {
-              "date": "2026-09-24",
-              "usageQty": 0
-            },
             {
               "date": "2026-09-25",
               "usageQty": 0
@@ -126658,7 +126693,11 @@
             },
             {
               "date": "2026-09-30",
-              "usageQty": 32681
+              "usageQty": 17297
+            },
+            {
+              "date": "2026-10-01",
+              "usageQty": 73848
             }
           ]
         },
@@ -126671,10 +126710,6 @@
           "dayCount": 7,
           "productCount": 1,
           "dailyUsage": [
-            {
-              "date": "2026-09-24",
-              "usageQty": 0
-            },
             {
               "date": "2026-09-25",
               "usageQty": 0
@@ -126698,6 +126733,10 @@
             {
               "date": "2026-09-30",
               "usageQty": 0
+            },
+            {
+              "date": "2026-10-01",
+              "usageQty": 0
             }
           ]
         },
@@ -126710,10 +126749,6 @@
           "dayCount": 7,
           "productCount": 2,
           "dailyUsage": [
-            {
-              "date": "2026-09-24",
-              "usageQty": 0
-            },
             {
               "date": "2026-09-25",
               "usageQty": 0
@@ -126737,6 +126772,10 @@
             {
               "date": "2026-09-30",
               "usageQty": 1520
+            },
+            {
+              "date": "2026-10-01",
+              "usageQty": 0
             }
           ]
         },
@@ -126744,15 +126783,11 @@
           "itemCode": "BS0149",
           "itemName": "알루미늄리드지 (Clalen O2O2 Color 1Day)_무광 코팅",
           "specification": "BS0149-002",
-          "totalUsageQty": 92953,
-          "averageDailyUsage": 13279,
+          "totalUsageQty": 127916,
+          "averageDailyUsage": 18273.714285714286,
           "dayCount": 7,
           "productCount": 2,
           "dailyUsage": [
-            {
-              "date": "2026-09-24",
-              "usageQty": 0
-            },
             {
               "date": "2026-09-25",
               "usageQty": 0
@@ -126775,7 +126810,11 @@
             },
             {
               "date": "2026-09-30",
-              "usageQty": 10134
+              "usageQty": 5057
+            },
+            {
+              "date": "2026-10-01",
+              "usageQty": 40040
             }
           ]
         },
@@ -126783,15 +126822,11 @@
           "itemCode": "BS0150",
           "itemName": "알루미늄리드지 (일본 ANW Dopewink 1D 리드지)_유광 코팅",
           "specification": "BS0150-001",
-          "totalUsageQty": 25550,
-          "averageDailyUsage": 3650,
+          "totalUsageQty": 47915,
+          "averageDailyUsage": 6845,
           "dayCount": 7,
-          "productCount": 2,
+          "productCount": 3,
           "dailyUsage": [
-            {
-              "date": "2026-09-24",
-              "usageQty": 0
-            },
             {
               "date": "2026-09-25",
               "usageQty": 0
@@ -126815,6 +126850,10 @@
             {
               "date": "2026-09-30",
               "usageQty": 8010
+            },
+            {
+              "date": "2026-10-01",
+              "usageQty": 22365
             }
           ]
         },
@@ -126822,15 +126861,11 @@
           "itemCode": "BS0154",
           "itemName": "알루미늄리드지 (공용 Alcon Freshlook)_유광 코팅",
           "specification": "BS0154-001",
-          "totalUsageQty": 181070,
-          "averageDailyUsage": 25867.14285714286,
+          "totalUsageQty": 197275,
+          "averageDailyUsage": 28182.14285714286,
           "dayCount": 7,
           "productCount": 4,
           "dailyUsage": [
-            {
-              "date": "2026-09-24",
-              "usageQty": 0
-            },
             {
               "date": "2026-09-25",
               "usageQty": 0
@@ -126854,6 +126889,10 @@
             {
               "date": "2026-09-30",
               "usageQty": 23275
+            },
+            {
+              "date": "2026-10-01",
+              "usageQty": 16205
             }
           ]
         },
@@ -126866,10 +126905,6 @@
           "dayCount": 7,
           "productCount": 3,
           "dailyUsage": [
-            {
-              "date": "2026-09-24",
-              "usageQty": 0
-            },
             {
               "date": "2026-09-25",
               "usageQty": 0
@@ -126893,6 +126928,10 @@
             {
               "date": "2026-09-30",
               "usageQty": 3350
+            },
+            {
+              "date": "2026-10-01",
+              "usageQty": 0
             }
           ]
         },
@@ -126900,15 +126939,11 @@
           "itemCode": "BS0159",
           "itemName": "알루미늄리드지 (Bioxifilcon A Daily 공용 리드지)_무광 코팅",
           "specification": "BS0159-002",
-          "totalUsageQty": 19998,
-          "averageDailyUsage": 2856.8571428571427,
+          "totalUsageQty": 22859,
+          "averageDailyUsage": 3265.5714285714284,
           "dayCount": 7,
           "productCount": 1,
           "dailyUsage": [
-            {
-              "date": "2026-09-24",
-              "usageQty": 0
-            },
             {
               "date": "2026-09-25",
               "usageQty": 0
@@ -126931,7 +126966,11 @@
             },
             {
               "date": "2026-09-30",
-              "usageQty": 9890
+              "usageQty": 9068
+            },
+            {
+              "date": "2026-10-01",
+              "usageQty": 3683
             }
           ]
         },
@@ -126939,15 +126978,11 @@
           "itemCode": "BS0191",
           "itemName": "알루미늄리드지 (하파크리스틴_1Day Color)_유광 코팅",
           "specification": "BS0191-003",
-          "totalUsageQty": 57660,
-          "averageDailyUsage": 8237.142857142857,
+          "totalUsageQty": 82685,
+          "averageDailyUsage": 11812.142857142857,
           "dayCount": 7,
           "productCount": 5,
           "dailyUsage": [
-            {
-              "date": "2026-09-24",
-              "usageQty": 0
-            },
             {
               "date": "2026-09-25",
               "usageQty": 0
@@ -126971,6 +127006,10 @@
             {
               "date": "2026-09-30",
               "usageQty": 33190
+            },
+            {
+              "date": "2026-10-01",
+              "usageQty": 25025
             }
           ]
         },
@@ -126983,10 +127022,6 @@
           "dayCount": 7,
           "productCount": 2,
           "dailyUsage": [
-            {
-              "date": "2026-09-24",
-              "usageQty": 0
-            },
             {
               "date": "2026-09-25",
               "usageQty": 0
@@ -127010,6 +127045,10 @@
             {
               "date": "2026-09-30",
               "usageQty": 0
+            },
+            {
+              "date": "2026-10-01",
+              "usageQty": 0
             }
           ]
         },
@@ -127022,10 +127061,6 @@
           "dayCount": 7,
           "productCount": 1,
           "dailyUsage": [
-            {
-              "date": "2026-09-24",
-              "usageQty": 0
-            },
             {
               "date": "2026-09-25",
               "usageQty": 0
@@ -127049,6 +127084,10 @@
             {
               "date": "2026-09-30",
               "usageQty": 0
+            },
+            {
+              "date": "2026-10-01",
+              "usageQty": 0
             }
           ]
         },
@@ -127061,10 +127100,6 @@
           "dayCount": 7,
           "productCount": 1,
           "dailyUsage": [
-            {
-              "date": "2026-09-24",
-              "usageQty": 0
-            },
             {
               "date": "2026-09-25",
               "usageQty": 0
@@ -127088,6 +127123,10 @@
             {
               "date": "2026-09-30",
               "usageQty": 0
+            },
+            {
+              "date": "2026-10-01",
+              "usageQty": 0
             }
           ]
         },
@@ -127095,15 +127134,11 @@
           "itemCode": "BS0214",
           "itemName": "알루미늄리드지 (Bella 리뉴얼 원데이 리드지(아랍))_유광코팅",
           "specification": "BS0214-001",
-          "totalUsageQty": 99517,
-          "averageDailyUsage": 14216.714285714286,
+          "totalUsageQty": 104400,
+          "averageDailyUsage": 14914.285714285714,
           "dayCount": 7,
           "productCount": 3,
           "dailyUsage": [
-            {
-              "date": "2026-09-24",
-              "usageQty": 0
-            },
             {
               "date": "2026-09-25",
               "usageQty": 0
@@ -127126,7 +127161,50 @@
             },
             {
               "date": "2026-09-30",
-              "usageQty": 19619
+              "usageQty": 13256
+            },
+            {
+              "date": "2026-10-01",
+              "usageQty": 11246
+            }
+          ]
+        },
+        {
+          "itemCode": "BS0215",
+          "itemName": "알루미늄리드지 (Hioxifilcon A Daily 공용 리드지)_무광 코팅",
+          "specification": "BS0215-001",
+          "totalUsageQty": 11806,
+          "averageDailyUsage": 1686.5714285714287,
+          "dayCount": 7,
+          "productCount": 1,
+          "dailyUsage": [
+            {
+              "date": "2026-09-25",
+              "usageQty": 0
+            },
+            {
+              "date": "2026-09-26",
+              "usageQty": 0
+            },
+            {
+              "date": "2026-09-27",
+              "usageQty": 0
+            },
+            {
+              "date": "2026-09-28",
+              "usageQty": 0
+            },
+            {
+              "date": "2026-09-29",
+              "usageQty": 0
+            },
+            {
+              "date": "2026-09-30",
+              "usageQty": 0
+            },
+            {
+              "date": "2026-10-01",
+              "usageQty": 11806
             }
           ]
         },
@@ -127139,10 +127217,6 @@
           "dayCount": 7,
           "productCount": 1,
           "dailyUsage": [
-            {
-              "date": "2026-09-24",
-              "usageQty": 0
-            },
             {
               "date": "2026-09-25",
               "usageQty": 0
@@ -127166,6 +127240,10 @@
             {
               "date": "2026-09-30",
               "usageQty": 0
+            },
+            {
+              "date": "2026-10-01",
+              "usageQty": 0
             }
           ]
         },
@@ -127178,10 +127256,6 @@
           "dayCount": 7,
           "productCount": 1,
           "dailyUsage": [
-            {
-              "date": "2026-09-24",
-              "usageQty": 0
-            },
             {
               "date": "2026-09-25",
               "usageQty": 0
@@ -127205,6 +127279,49 @@
             {
               "date": "2026-09-30",
               "usageQty": 0
+            },
+            {
+              "date": "2026-10-01",
+              "usageQty": 0
+            }
+          ]
+        },
+        {
+          "itemCode": "BS0279",
+          "itemName": "알루미늄리드지 (일본 HAPA(PIA) 1D 55% Sugar High Kristin)",
+          "specification": "BS0279-001",
+          "totalUsageQty": 2245,
+          "averageDailyUsage": 320.7142857142857,
+          "dayCount": 7,
+          "productCount": 1,
+          "dailyUsage": [
+            {
+              "date": "2026-09-25",
+              "usageQty": 0
+            },
+            {
+              "date": "2026-09-26",
+              "usageQty": 0
+            },
+            {
+              "date": "2026-09-27",
+              "usageQty": 0
+            },
+            {
+              "date": "2026-09-28",
+              "usageQty": 0
+            },
+            {
+              "date": "2026-09-29",
+              "usageQty": 0
+            },
+            {
+              "date": "2026-09-30",
+              "usageQty": 0
+            },
+            {
+              "date": "2026-10-01",
+              "usageQty": 2245
             }
           ]
         },
@@ -127217,10 +127334,6 @@
           "dayCount": 7,
           "productCount": 1,
           "dailyUsage": [
-            {
-              "date": "2026-09-24",
-              "usageQty": 0
-            },
             {
               "date": "2026-09-25",
               "usageQty": 0
@@ -127244,6 +127357,10 @@
             {
               "date": "2026-09-30",
               "usageQty": 0
+            },
+            {
+              "date": "2026-10-01",
+              "usageQty": 0
             }
           ]
         },
@@ -127251,15 +127368,11 @@
           "itemCode": "BS0300",
           "itemName": "알루미늄리드지 (이탈리아 Esoform SiHy 1Day 리드지)",
           "specification": "BS0300-001",
-          "totalUsageQty": 8740,
-          "averageDailyUsage": 1248.5714285714287,
+          "totalUsageQty": 6305,
+          "averageDailyUsage": 900.7142857142857,
           "dayCount": 7,
           "productCount": 1,
           "dailyUsage": [
-            {
-              "date": "2026-09-24",
-              "usageQty": 2435
-            },
             {
               "date": "2026-09-25",
               "usageQty": 0
@@ -127283,6 +127396,10 @@
             {
               "date": "2026-09-30",
               "usageQty": 0
+            },
+            {
+              "date": "2026-10-01",
+              "usageQty": 0
             }
           ]
         },
@@ -127295,10 +127412,6 @@
           "dayCount": 7,
           "productCount": 1,
           "dailyUsage": [
-            {
-              "date": "2026-09-24",
-              "usageQty": 0
-            },
             {
               "date": "2026-09-25",
               "usageQty": 0
@@ -127322,6 +127435,10 @@
             {
               "date": "2026-09-30",
               "usageQty": 0
+            },
+            {
+              "date": "2026-10-01",
+              "usageQty": 0
             }
           ]
         },
@@ -127334,10 +127451,6 @@
           "dayCount": 7,
           "productCount": 2,
           "dailyUsage": [
-            {
-              "date": "2026-09-24",
-              "usageQty": 0
-            },
             {
               "date": "2026-09-25",
               "usageQty": 0
@@ -127361,6 +127474,10 @@
             {
               "date": "2026-09-30",
               "usageQty": 2795
+            },
+            {
+              "date": "2026-10-01",
+              "usageQty": 0
             }
           ]
         },
@@ -127373,10 +127490,6 @@
           "dayCount": 7,
           "productCount": 1,
           "dailyUsage": [
-            {
-              "date": "2026-09-24",
-              "usageQty": 0
-            },
             {
               "date": "2026-09-25",
               "usageQty": 0
@@ -127400,6 +127513,10 @@
             {
               "date": "2026-09-30",
               "usageQty": 0
+            },
+            {
+              "date": "2026-10-01",
+              "usageQty": 0
             }
           ]
         },
@@ -127407,15 +127524,11 @@
           "itemCode": "BS0354",
           "itemName": "알루미늄리드지 (PIA_1D 55% CoFANCY 리드지)",
           "specification": "BS0354-001",
-          "totalUsageQty": 946970,
-          "averageDailyUsage": 135281.42857142858,
+          "totalUsageQty": 1237735,
+          "averageDailyUsage": 176819.2857142857,
           "dayCount": 7,
           "productCount": 5,
           "dailyUsage": [
-            {
-              "date": "2026-09-24",
-              "usageQty": 0
-            },
             {
               "date": "2026-09-25",
               "usageQty": 0
@@ -127438,7 +127551,11 @@
             },
             {
               "date": "2026-09-30",
-              "usageQty": 283390
+              "usageQty": 278610
+            },
+            {
+              "date": "2026-10-01",
+              "usageQty": 295545
             }
           ]
         },
@@ -127446,15 +127563,11 @@
           "itemCode": "BS0361",
           "itemName": "알루미늄리드지 (Optic Center Adria O2O2 White 리드지_SMHL)",
           "specification": "BS0361-001",
-          "totalUsageQty": 11720,
-          "averageDailyUsage": 1674.2857142857142,
+          "totalUsageQty": 21927,
+          "averageDailyUsage": 3132.4285714285716,
           "dayCount": 7,
           "productCount": 1,
           "dailyUsage": [
-            {
-              "date": "2026-09-24",
-              "usageQty": 0
-            },
             {
               "date": "2026-09-25",
               "usageQty": 0
@@ -127477,7 +127590,11 @@
             },
             {
               "date": "2026-09-30",
-              "usageQty": 11720
+              "usageQty": 9924
+            },
+            {
+              "date": "2026-10-01",
+              "usageQty": 12003
             }
           ]
         }
