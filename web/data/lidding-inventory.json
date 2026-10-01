@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-10-02T07:41:41+09:00",
+  "generatedAt": "2026-10-02T07:43:23+09:00",
   "snapshotDate": "2026-10-02",
   "warehouseOptions": [
     {
@@ -22,7 +22,7 @@
   "itemCount": 242,
   "sourceRowCount": 471,
   "rawLiddingSourceRowCount": 473,
-  "stockTotal": 90542648,
+  "stockTotal": 90540726,
   "inspectionWaitTotal": 0,
   "inspectionAggregation": "max-per-item",
   "formula": {
@@ -5821,7 +5821,7 @@
       "itemCode": "BS0215",
       "itemName": "알루미늄리드지 (Hioxifilcon A Daily 공용 리드지)_무광 코팅",
       "specification": "BS0215-001",
-      "stockQty": 334691,
+      "stockQty": 332769,
       "inspectionWaitQty": 0,
       "warehouses": [
         {
@@ -5848,7 +5848,7 @@
         {
           "warehouseCode": "S100",
           "warehouseName": "S관 공정부자재",
-          "stockQty": 137691,
+          "stockQty": 135769,
           "inspectionWaitQty": 0,
           "hasSourceRow": true
         }

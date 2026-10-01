@@ -1,11 +1,11 @@
 {
-  "snapshotAt": "2026-10-02T07:41:42+09:00",
+  "snapshotAt": "2026-10-02T07:43:23+09:00",
   "scope": "all",
   "reason": "aps_changed",
   "channels": {
     "aps": {
-      "generatedAt": "2026-10-02T07:41:42+09:00",
-      "sourceRefreshedAt": "2026-10-02 07:40:55",
+      "generatedAt": "2026-10-02T07:43:23+09:00",
+      "sourceRefreshedAt": "2026-10-02 07:42:57",
       "apiFilters": {
         "oper": "45",
         "item_cd": "P"
@@ -37,7 +37,7 @@
       "rows": []
     },
     "inventory": {
-      "generatedAt": "2026-10-02T07:41:41+09:00",
+      "generatedAt": "2026-10-02T07:43:23+09:00",
       "snapshotDate": "2026-10-02",
       "warehouseOptions": [
         {
@@ -60,7 +60,7 @@
       "itemCount": 242,
       "sourceRowCount": 471,
       "rawLiddingSourceRowCount": 473,
-      "stockTotal": 90542648,
+      "stockTotal": 90540726,
       "inspectionWaitTotal": 0,
       "inspectionAggregation": "max-per-item",
       "formula": {
@@ -5859,7 +5859,7 @@
           "itemCode": "BS0215",
           "itemName": "알루미늄리드지 (Hioxifilcon A Daily 공용 리드지)_무광 코팅",
           "specification": "BS0215-001",
-          "stockQty": 334691,
+          "stockQty": 332769,
           "inspectionWaitQty": 0,
           "warehouses": [
             {
@@ -5886,7 +5886,7 @@
             {
               "warehouseCode": "S100",
               "warehouseName": "S관 공정부자재",
-              "stockQty": 137691,
+              "stockQty": 135769,
               "inspectionWaitQty": 0,
               "hasSourceRow": true
             }
@@ -9316,8 +9316,8 @@
       ]
     },
     "purchase": {
-      "collectedAt": "2026-10-02T07:41:42+09:00",
-      "queryDate": "2026-10-02 07:40",
+      "collectedAt": "2026-10-02T07:43:23+09:00",
+      "queryDate": "2026-10-02 07:41",
       "dateFrom": "2026-08-02",
       "dateTo": "2026-10-02",
       "historyWindow": "recent two months",
@@ -9766,7 +9766,7 @@
       ]
     },
     "bom": {
-      "generatedAt": "2026-10-02T07:41:35+09:00",
+      "generatedAt": "2026-10-02T07:43:20+09:00",
       "sourceSignature": "b9f5467eb9053e503f352dce76ff9525e51e597af41a89c417d4fb22affd1a5d",
       "productSourceCount": 1733,
       "bomSourceCount": 28764,
