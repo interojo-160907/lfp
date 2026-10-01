@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-10-02T07:45:23+09:00",
+  "generatedAt": "2026-10-02T07:46:31+09:00",
   "snapshotDate": "2026-10-02",
   "warehouseOptions": [
     {
@@ -22,7 +22,7 @@
   "itemCount": 242,
   "sourceRowCount": 471,
   "rawLiddingSourceRowCount": 473,
-  "stockTotal": 90538981,
+  "stockTotal": 90537901,
   "inspectionWaitTotal": 0,
   "inspectionAggregation": "max-per-item",
   "formula": {
@@ -7455,7 +7455,7 @@
       "itemCode": "BS0279",
       "itemName": "알루미늄리드지 (일본 HAPA(PIA) 1D 55% Sugar High Kristin)",
       "specification": "BS0279-001",
-      "stockQty": 828,
+      "stockQty": -252,
       "inspectionWaitQty": 0,
       "warehouses": [
         {
@@ -7475,7 +7475,7 @@
         {
           "warehouseCode": "P030",
           "warehouseName": "C관 공정부자재",
-          "stockQty": 96828,
+          "stockQty": 95748,
           "inspectionWaitQty": 0,
           "hasSourceRow": true
         },

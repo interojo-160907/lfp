@@ -1,11 +1,11 @@
 {
-  "snapshotAt": "2026-10-02T07:45:24+09:00",
+  "snapshotAt": "2026-10-02T07:46:32+09:00",
   "scope": "all",
   "reason": "aps_changed",
   "channels": {
     "aps": {
-      "generatedAt": "2026-10-02T07:45:24+09:00",
-      "sourceRefreshedAt": "2026-10-02 07:44:59",
+      "generatedAt": "2026-10-02T07:46:32+09:00",
+      "sourceRefreshedAt": "2026-10-02 07:46:00",
       "apiFilters": {
         "oper": "45",
         "item_cd": "P"
@@ -37,7 +37,7 @@
       "rows": []
     },
     "inventory": {
-      "generatedAt": "2026-10-02T07:45:23+09:00",
+      "generatedAt": "2026-10-02T07:46:31+09:00",
       "snapshotDate": "2026-10-02",
       "warehouseOptions": [
         {
@@ -60,7 +60,7 @@
       "itemCount": 242,
       "sourceRowCount": 471,
       "rawLiddingSourceRowCount": 473,
-      "stockTotal": 90538981,
+      "stockTotal": 90537901,
       "inspectionWaitTotal": 0,
       "inspectionAggregation": "max-per-item",
       "formula": {
@@ -7493,7 +7493,7 @@
           "itemCode": "BS0279",
           "itemName": "알루미늄리드지 (일본 HAPA(PIA) 1D 55% Sugar High Kristin)",
           "specification": "BS0279-001",
-          "stockQty": 828,
+          "stockQty": -252,
           "inspectionWaitQty": 0,
           "warehouses": [
             {
@@ -7513,7 +7513,7 @@
             {
               "warehouseCode": "P030",
               "warehouseName": "C관 공정부자재",
-              "stockQty": 96828,
+              "stockQty": 95748,
               "inspectionWaitQty": 0,
               "hasSourceRow": true
             },
@@ -9316,8 +9316,8 @@
       ]
     },
     "purchase": {
-      "collectedAt": "2026-10-02T07:45:24+09:00",
-      "queryDate": "2026-10-02 07:43",
+      "collectedAt": "2026-10-02T07:46:32+09:00",
+      "queryDate": "2026-10-02 07:45",
       "dateFrom": "2026-08-02",
       "dateTo": "2026-10-02",
       "historyWindow": "recent two months",
@@ -9766,7 +9766,7 @@
       ]
     },
     "bom": {
-      "generatedAt": "2026-10-02T07:45:19+09:00",
+      "generatedAt": "2026-10-02T07:46:27+09:00",
       "sourceSignature": "b9f5467eb9053e503f352dce76ff9525e51e597af41a89c417d4fb22affd1a5d",
       "productSourceCount": 1733,
       "bomSourceCount": 28764,
