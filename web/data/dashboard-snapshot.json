@@ -1,11 +1,11 @@
 {
-  "snapshotAt": "2026-10-02T07:43:23+09:00",
+  "snapshotAt": "2026-10-02T07:45:24+09:00",
   "scope": "all",
   "reason": "aps_changed",
   "channels": {
     "aps": {
-      "generatedAt": "2026-10-02T07:43:23+09:00",
-      "sourceRefreshedAt": "2026-10-02 07:42:57",
+      "generatedAt": "2026-10-02T07:45:24+09:00",
+      "sourceRefreshedAt": "2026-10-02 07:44:59",
       "apiFilters": {
         "oper": "45",
         "item_cd": "P"
@@ -37,7 +37,7 @@
       "rows": []
     },
     "inventory": {
-      "generatedAt": "2026-10-02T07:43:23+09:00",
+      "generatedAt": "2026-10-02T07:45:23+09:00",
       "snapshotDate": "2026-10-02",
       "warehouseOptions": [
         {
@@ -60,7 +60,7 @@
       "itemCount": 242,
       "sourceRowCount": 471,
       "rawLiddingSourceRowCount": 473,
-      "stockTotal": 90540726,
+      "stockTotal": 90538981,
       "inspectionWaitTotal": 0,
       "inspectionAggregation": "max-per-item",
       "formula": {
@@ -1223,7 +1223,7 @@
           "itemCode": "BS0054",
           "itemName": "알루미늄리드지 (국내/중국 원데이_아이리스)_무광 코팅",
           "specification": "BS0054-003",
-          "stockQty": 3089663,
+          "stockQty": 3087918,
           "inspectionWaitQty": 0,
           "warehouses": [
             {
@@ -1243,7 +1243,7 @@
             {
               "warehouseCode": "P030",
               "warehouseName": "C관 공정부자재",
-              "stockQty": 449758,
+              "stockQty": 448013,
               "inspectionWaitQty": 0,
               "hasSourceRow": true
             },
@@ -9316,8 +9316,8 @@
       ]
     },
     "purchase": {
-      "collectedAt": "2026-10-02T07:43:23+09:00",
-      "queryDate": "2026-10-02 07:41",
+      "collectedAt": "2026-10-02T07:45:24+09:00",
+      "queryDate": "2026-10-02 07:43",
       "dateFrom": "2026-08-02",
       "dateTo": "2026-10-02",
       "historyWindow": "recent two months",
@@ -9766,7 +9766,7 @@
       ]
     },
     "bom": {
-      "generatedAt": "2026-10-02T07:43:20+09:00",
+      "generatedAt": "2026-10-02T07:45:19+09:00",
       "sourceSignature": "b9f5467eb9053e503f352dce76ff9525e51e597af41a89c417d4fb22affd1a5d",
       "productSourceCount": 1733,
       "bomSourceCount": 28764,
