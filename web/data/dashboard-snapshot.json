@@ -1,11 +1,11 @@
 {
-  "snapshotAt": "2026-10-02T15:05:21+09:00",
+  "snapshotAt": "2026-10-02T15:07:29+09:00",
   "scope": "all",
   "reason": "aps_changed",
   "channels": {
     "aps": {
-      "generatedAt": "2026-10-02T15:05:21+09:00",
-      "sourceRefreshedAt": "2026-10-02 15:04:48",
+      "generatedAt": "2026-10-02T15:07:29+09:00",
+      "sourceRefreshedAt": "2026-10-02 15:06:48",
       "apiFilters": {
         "oper": "45",
         "item_cd": "P"
@@ -37,7 +37,7 @@
       "rows": []
     },
     "inventory": {
-      "generatedAt": "2026-10-02T15:05:20+09:00",
+      "generatedAt": "2026-10-02T15:07:28+09:00",
       "snapshotDate": "2026-10-02",
       "warehouseOptions": [
         {
@@ -9316,8 +9316,8 @@
       ]
     },
     "purchase": {
-      "collectedAt": "2026-10-02T15:05:21+09:00",
-      "queryDate": "2026-10-02 15:03",
+      "collectedAt": "2026-10-02T15:07:29+09:00",
+      "queryDate": "2026-10-02 15:05",
       "dateFrom": "2026-08-02",
       "dateTo": "2026-10-02",
       "historyWindow": "recent two months",
@@ -9746,20 +9746,20 @@
       ]
     },
     "bom": {
-      "generatedAt": "2026-10-02T15:05:17+09:00",
-      "sourceSignature": "b9f5467eb9053e503f352dce76ff9525e51e597af41a89c417d4fb22affd1a5d",
+      "generatedAt": "2026-10-02T15:07:24+09:00",
+      "sourceSignature": "99e8a8f8be0b6d0a8e6782ad87539d741f8b097e6870c5a19cac45271f45a16e",
       "productSourceCount": 1738,
-      "bomSourceCount": 28763,
+      "bomSourceCount": 28778,
       "activePProductCount": 1738,
       "productApiFilterApplied": true,
       "bomApiFilterApplied": false,
       "bomApiFilterReason": "BOM API supports exact gd_cd only; P-prefix + level-1 BS lidding filters are applied locally",
       "storageScope": "active P-code + level-1 active BS lidding only",
-      "mappingCount": 1653,
-      "mappedProductCount": 1653,
+      "mappingCount": 1658,
+      "mappedProductCount": 1658,
       "liddingCodeCount": 240,
       "specificationVersionCount": 240,
-      "unmappedProductCount": 85,
+      "unmappedProductCount": 80,
       "rows": [
         {
           "productCode": "P0001",
@@ -16406,6 +16406,39 @@
           "useYn": "Y"
         },
         {
+          "productCode": "P1297",
+          "productName": "중국 D_Clalen Iris Haze_Brown",
+          "liddingCode": "BS0054",
+          "liddingName": "알루미늄리드지 (국내/중국 원데이_아이리스)_무광 코팅",
+          "liddingSpecification": "BS0054-003",
+          "requirementQty": 1,
+          "bomLevel": 1,
+          "statusCode": "S",
+          "useYn": "Y"
+        },
+        {
+          "productCode": "P1298",
+          "productName": "중국 D_Clalen Iris Haze_Gray",
+          "liddingCode": "BS0054",
+          "liddingName": "알루미늄리드지 (국내/중국 원데이_아이리스)_무광 코팅",
+          "liddingSpecification": "BS0054-003",
+          "requirementQty": 1,
+          "bomLevel": 1,
+          "statusCode": "S",
+          "useYn": "Y"
+        },
+        {
+          "productCode": "P1299",
+          "productName": "중국 D_Clalen Iris Haze_Choco",
+          "liddingCode": "BS0054",
+          "liddingName": "알루미늄리드지 (국내/중국 원데이_아이리스)_무광 코팅",
+          "liddingSpecification": "BS0054-003",
+          "requirementQty": 1,
+          "bomLevel": 1,
+          "statusCode": "S",
+          "useYn": "Y"
+        },
+        {
           "productCode": "P1301",
           "productName": "(UV_NEW)CS30_원형_8.60",
           "liddingCode": "BS0005",
@@ -16444,6 +16477,28 @@
           "liddingCode": "BS0121",
           "liddingName": "알루미늄리드지 (일본 sincere FAP 1D 38% UV)_유광 코팅",
           "liddingSpecification": "BS0121-002",
+          "requirementQty": 1,
+          "bomLevel": 1,
+          "statusCode": "S",
+          "useYn": "Y"
+        },
+        {
+          "productCode": "P1308",
+          "productName": "중국 D_Clalen Iris Haze_Black",
+          "liddingCode": "BS0054",
+          "liddingName": "알루미늄리드지 (국내/중국 원데이_아이리스)_무광 코팅",
+          "liddingSpecification": "BS0054-003",
+          "requirementQty": 1,
+          "bomLevel": 1,
+          "statusCode": "S",
+          "useYn": "Y"
+        },
+        {
+          "productCode": "P1309",
+          "productName": "중국 D_Clalen Iris Haze_Olive",
+          "liddingCode": "BS0054",
+          "liddingName": "알루미늄리드지 (국내/중국 원데이_아이리스)_무광 코팅",
+          "liddingSpecification": "BS0054-003",
           "requirementQty": 1,
           "bomLevel": 1,
           "statusCode": "S",
@@ -27945,7 +28000,7 @@
           "useYn": "Y"
         }
       ],
-      "changed": false
+      "changed": true
     },
     "production": {
       "generatedAt": "2026-10-02T08:01:44+09:00",
