@@ -1,7 +1,7 @@
 {
-  "snapshotAt": "2026-10-04T07:53:49+09:00",
-  "scope": "all",
-  "reason": "aps_changed",
+  "snapshotAt": "2026-10-04T08:01:34+09:00",
+  "scope": "production",
+  "reason": "manual_production",
   "channels": {
     "aps": {
       "generatedAt": "2026-10-04T07:53:49+09:00",
@@ -139503,21 +139503,21 @@
       "changed": false
     },
     "production": {
-      "generatedAt": "2026-10-03T08:01:37+09:00",
-      "dateFrom": "2026-09-26",
-      "dateTo": "2026-10-02",
+      "generatedAt": "2026-10-04T08:01:34+09:00",
+      "dateFrom": "2026-09-27",
+      "dateTo": "2026-10-03",
       "dayCount": 7,
       "processCode": "55",
       "apiProcessFilterApplied": true,
       "apiProcessFilterReason": "gong_cd=55 verified against every returned row; P-code rows are also validated locally",
       "quantityField": "job_qty",
       "quantityLabel": "지시수량",
-      "sourceRefreshedAt": "2026-10-03T08:02:08",
-      "sourceRowCount": 3041,
-      "filteredSourceRowCount": 3041,
-      "sourceInstructionQty": 5303866,
-      "mappedSourceInstructionQty": 5288176,
-      "liddingUsageTotal": 5288176,
+      "sourceRefreshedAt": "2026-10-04T08:01:40",
+      "sourceRowCount": 3042,
+      "filteredSourceRowCount": 3042,
+      "sourceInstructionQty": 5305508,
+      "mappedSourceInstructionQty": 5289818,
+      "liddingUsageTotal": 5289818,
       "liddingUsageCount": 39,
       "unmatchedPCodes": [
         {
@@ -139550,10 +139550,6 @@
           "productCount": 38,
           "dailyUsage": [
             {
-              "date": "2026-09-26",
-              "usageQty": 0
-            },
-            {
               "date": "2026-09-27",
               "usageQty": 57133
             },
@@ -139576,6 +139572,10 @@
             {
               "date": "2026-10-02",
               "usageQty": 58327
+            },
+            {
+              "date": "2026-10-03",
+              "usageQty": 0
             }
           ]
         },
@@ -139588,10 +139588,6 @@
           "dayCount": 7,
           "productCount": 2,
           "dailyUsage": [
-            {
-              "date": "2026-09-26",
-              "usageQty": 0
-            },
             {
               "date": "2026-09-27",
               "usageQty": 0
@@ -139615,6 +139611,10 @@
             {
               "date": "2026-10-02",
               "usageQty": 4294
+            },
+            {
+              "date": "2026-10-03",
+              "usageQty": 0
             }
           ]
         },
@@ -139627,10 +139627,6 @@
           "dayCount": 7,
           "productCount": 3,
           "dailyUsage": [
-            {
-              "date": "2026-09-26",
-              "usageQty": 0
-            },
             {
               "date": "2026-09-27",
               "usageQty": 13530
@@ -139654,6 +139650,10 @@
             {
               "date": "2026-10-02",
               "usageQty": 7270
+            },
+            {
+              "date": "2026-10-03",
+              "usageQty": 0
             }
           ]
         },
@@ -139666,10 +139666,6 @@
           "dayCount": 7,
           "productCount": 1,
           "dailyUsage": [
-            {
-              "date": "2026-09-26",
-              "usageQty": 0
-            },
             {
               "date": "2026-09-27",
               "usageQty": 0
@@ -139693,6 +139689,10 @@
             {
               "date": "2026-10-02",
               "usageQty": 1975
+            },
+            {
+              "date": "2026-10-03",
+              "usageQty": 0
             }
           ]
         },
@@ -139705,10 +139705,6 @@
           "dayCount": 7,
           "productCount": 1,
           "dailyUsage": [
-            {
-              "date": "2026-09-26",
-              "usageQty": 0
-            },
             {
               "date": "2026-09-27",
               "usageQty": 0
@@ -139732,6 +139728,10 @@
             {
               "date": "2026-10-02",
               "usageQty": 0
+            },
+            {
+              "date": "2026-10-03",
+              "usageQty": 0
             }
           ]
         },
@@ -139744,10 +139744,6 @@
           "dayCount": 7,
           "productCount": 1,
           "dailyUsage": [
-            {
-              "date": "2026-09-26",
-              "usageQty": 0
-            },
             {
               "date": "2026-09-27",
               "usageQty": 19585
@@ -139771,6 +139767,10 @@
             {
               "date": "2026-10-02",
               "usageQty": 29340
+            },
+            {
+              "date": "2026-10-03",
+              "usageQty": 0
             }
           ]
         },
@@ -139783,10 +139783,6 @@
           "dayCount": 7,
           "productCount": 1,
           "dailyUsage": [
-            {
-              "date": "2026-09-26",
-              "usageQty": 0
-            },
             {
               "date": "2026-09-27",
               "usageQty": 0
@@ -139810,6 +139806,10 @@
             {
               "date": "2026-10-02",
               "usageQty": 39784
+            },
+            {
+              "date": "2026-10-03",
+              "usageQty": 0
             }
           ]
         },
@@ -139822,10 +139822,6 @@
           "dayCount": 7,
           "productCount": 7,
           "dailyUsage": [
-            {
-              "date": "2026-09-26",
-              "usageQty": 0
-            },
             {
               "date": "2026-09-27",
               "usageQty": 49595
@@ -139849,6 +139845,10 @@
             {
               "date": "2026-10-02",
               "usageQty": 106265
+            },
+            {
+              "date": "2026-10-03",
+              "usageQty": 0
             }
           ]
         },
@@ -139861,10 +139861,6 @@
           "dayCount": 7,
           "productCount": 4,
           "dailyUsage": [
-            {
-              "date": "2026-09-26",
-              "usageQty": 0
-            },
             {
               "date": "2026-09-27",
               "usageQty": 67010
@@ -139888,6 +139884,10 @@
             {
               "date": "2026-10-02",
               "usageQty": 7050
+            },
+            {
+              "date": "2026-10-03",
+              "usageQty": 0
             }
           ]
         },
@@ -139900,10 +139900,6 @@
           "dayCount": 7,
           "productCount": 18,
           "dailyUsage": [
-            {
-              "date": "2026-09-26",
-              "usageQty": 0
-            },
             {
               "date": "2026-09-27",
               "usageQty": 70695
@@ -139927,6 +139923,10 @@
             {
               "date": "2026-10-02",
               "usageQty": 103960
+            },
+            {
+              "date": "2026-10-03",
+              "usageQty": 0
             }
           ]
         },
@@ -139939,10 +139939,6 @@
           "dayCount": 7,
           "productCount": 1,
           "dailyUsage": [
-            {
-              "date": "2026-09-26",
-              "usageQty": 0
-            },
             {
               "date": "2026-09-27",
               "usageQty": 0
@@ -139966,6 +139962,10 @@
             {
               "date": "2026-10-02",
               "usageQty": 0
+            },
+            {
+              "date": "2026-10-03",
+              "usageQty": 0
             }
           ]
         },
@@ -139978,10 +139978,6 @@
           "dayCount": 7,
           "productCount": 1,
           "dailyUsage": [
-            {
-              "date": "2026-09-26",
-              "usageQty": 0
-            },
             {
               "date": "2026-09-27",
               "usageQty": 0
@@ -140005,6 +140001,10 @@
             {
               "date": "2026-10-02",
               "usageQty": 3884
+            },
+            {
+              "date": "2026-10-03",
+              "usageQty": 0
             }
           ]
         },
@@ -140017,10 +140017,6 @@
           "dayCount": 7,
           "productCount": 1,
           "dailyUsage": [
-            {
-              "date": "2026-09-26",
-              "usageQty": 0
-            },
             {
               "date": "2026-09-27",
               "usageQty": 49950
@@ -140044,6 +140040,10 @@
             {
               "date": "2026-10-02",
               "usageQty": 0
+            },
+            {
+              "date": "2026-10-03",
+              "usageQty": 0
             }
           ]
         },
@@ -140056,10 +140056,6 @@
           "dayCount": 7,
           "productCount": 1,
           "dailyUsage": [
-            {
-              "date": "2026-09-26",
-              "usageQty": 0
-            },
             {
               "date": "2026-09-27",
               "usageQty": 0
@@ -140083,6 +140079,10 @@
             {
               "date": "2026-10-02",
               "usageQty": 0
+            },
+            {
+              "date": "2026-10-03",
+              "usageQty": 0
             }
           ]
         },
@@ -140095,10 +140095,6 @@
           "dayCount": 7,
           "productCount": 1,
           "dailyUsage": [
-            {
-              "date": "2026-09-26",
-              "usageQty": 0
-            },
             {
               "date": "2026-09-27",
               "usageQty": 0
@@ -140122,6 +140118,10 @@
             {
               "date": "2026-10-02",
               "usageQty": 8340
+            },
+            {
+              "date": "2026-10-03",
+              "usageQty": 0
             }
           ]
         },
@@ -140129,15 +140129,11 @@
           "itemCode": "BS0115",
           "itemName": "알루미늄리드지 (무지-백색_PET12/AL30/CPP100_White 리버스인쇄)",
           "specification": "BS0115-001",
-          "totalUsageQty": 195863,
-          "averageDailyUsage": 27980.428571428572,
+          "totalUsageQty": 194385,
+          "averageDailyUsage": 27769.285714285714,
           "dayCount": 7,
           "productCount": 4,
           "dailyUsage": [
-            {
-              "date": "2026-09-26",
-              "usageQty": 0
-            },
             {
               "date": "2026-09-27",
               "usageQty": 19898
@@ -140156,11 +140152,15 @@
             },
             {
               "date": "2026-10-01",
-              "usageQty": 55282
+              "usageQty": 53804
             },
             {
               "date": "2026-10-02",
               "usageQty": 64712
+            },
+            {
+              "date": "2026-10-03",
+              "usageQty": 0
             }
           ]
         },
@@ -140173,10 +140173,6 @@
           "dayCount": 7,
           "productCount": 1,
           "dailyUsage": [
-            {
-              "date": "2026-09-26",
-              "usageQty": 0
-            },
             {
               "date": "2026-09-27",
               "usageQty": 0
@@ -140200,6 +140196,10 @@
             {
               "date": "2026-10-02",
               "usageQty": 0
+            },
+            {
+              "date": "2026-10-03",
+              "usageQty": 0
             }
           ]
         },
@@ -140212,10 +140212,6 @@
           "dayCount": 7,
           "productCount": 2,
           "dailyUsage": [
-            {
-              "date": "2026-09-26",
-              "usageQty": 0
-            },
             {
               "date": "2026-09-27",
               "usageQty": 0
@@ -140239,6 +140235,10 @@
             {
               "date": "2026-10-02",
               "usageQty": 0
+            },
+            {
+              "date": "2026-10-03",
+              "usageQty": 0
             }
           ]
         },
@@ -140251,10 +140251,6 @@
           "dayCount": 7,
           "productCount": 2,
           "dailyUsage": [
-            {
-              "date": "2026-09-26",
-              "usageQty": 0
-            },
             {
               "date": "2026-09-27",
               "usageQty": 33930
@@ -140278,6 +140274,10 @@
             {
               "date": "2026-10-02",
               "usageQty": 53498
+            },
+            {
+              "date": "2026-10-03",
+              "usageQty": 0
             }
           ]
         },
@@ -140290,10 +140290,6 @@
           "dayCount": 7,
           "productCount": 3,
           "dailyUsage": [
-            {
-              "date": "2026-09-26",
-              "usageQty": 0
-            },
             {
               "date": "2026-09-27",
               "usageQty": 0
@@ -140317,6 +140313,10 @@
             {
               "date": "2026-10-02",
               "usageQty": 0
+            },
+            {
+              "date": "2026-10-03",
+              "usageQty": 0
             }
           ]
         },
@@ -140329,10 +140329,6 @@
           "dayCount": 7,
           "productCount": 5,
           "dailyUsage": [
-            {
-              "date": "2026-09-26",
-              "usageQty": 0
-            },
             {
               "date": "2026-09-27",
               "usageQty": 100905
@@ -140356,6 +140352,10 @@
             {
               "date": "2026-10-02",
               "usageQty": 43275
+            },
+            {
+              "date": "2026-10-03",
+              "usageQty": 0
             }
           ]
         },
@@ -140368,10 +140368,6 @@
           "dayCount": 7,
           "productCount": 3,
           "dailyUsage": [
-            {
-              "date": "2026-09-26",
-              "usageQty": 0
-            },
             {
               "date": "2026-09-27",
               "usageQty": 4550
@@ -140395,6 +140391,10 @@
             {
               "date": "2026-10-02",
               "usageQty": 0
+            },
+            {
+              "date": "2026-10-03",
+              "usageQty": 0
             }
           ]
         },
@@ -140407,10 +140407,6 @@
           "dayCount": 7,
           "productCount": 1,
           "dailyUsage": [
-            {
-              "date": "2026-09-26",
-              "usageQty": 0
-            },
             {
               "date": "2026-09-27",
               "usageQty": 0
@@ -140434,6 +140430,10 @@
             {
               "date": "2026-10-02",
               "usageQty": 0
+            },
+            {
+              "date": "2026-10-03",
+              "usageQty": 0
             }
           ]
         },
@@ -140446,10 +140446,6 @@
           "dayCount": 7,
           "productCount": 6,
           "dailyUsage": [
-            {
-              "date": "2026-09-26",
-              "usageQty": 0
-            },
             {
               "date": "2026-09-27",
               "usageQty": 24470
@@ -140473,6 +140469,10 @@
             {
               "date": "2026-10-02",
               "usageQty": 21070
+            },
+            {
+              "date": "2026-10-03",
+              "usageQty": 0
             }
           ]
         },
@@ -140485,10 +140485,6 @@
           "dayCount": 7,
           "productCount": 2,
           "dailyUsage": [
-            {
-              "date": "2026-09-26",
-              "usageQty": 0
-            },
             {
               "date": "2026-09-27",
               "usageQty": 3355
@@ -140512,6 +140508,10 @@
             {
               "date": "2026-10-02",
               "usageQty": 0
+            },
+            {
+              "date": "2026-10-03",
+              "usageQty": 0
             }
           ]
         },
@@ -140524,10 +140524,6 @@
           "dayCount": 7,
           "productCount": 1,
           "dailyUsage": [
-            {
-              "date": "2026-09-26",
-              "usageQty": 0
-            },
             {
               "date": "2026-09-27",
               "usageQty": 0
@@ -140551,6 +140547,10 @@
             {
               "date": "2026-10-02",
               "usageQty": 0
+            },
+            {
+              "date": "2026-10-03",
+              "usageQty": 0
             }
           ]
         },
@@ -140563,10 +140563,6 @@
           "dayCount": 7,
           "productCount": 1,
           "dailyUsage": [
-            {
-              "date": "2026-09-26",
-              "usageQty": 0
-            },
             {
               "date": "2026-09-27",
               "usageQty": 16695
@@ -140590,6 +140586,10 @@
             {
               "date": "2026-10-02",
               "usageQty": 0
+            },
+            {
+              "date": "2026-10-03",
+              "usageQty": 0
             }
           ]
         },
@@ -140602,10 +140602,6 @@
           "dayCount": 7,
           "productCount": 3,
           "dailyUsage": [
-            {
-              "date": "2026-09-26",
-              "usageQty": 0
-            },
             {
               "date": "2026-09-27",
               "usageQty": 15740
@@ -140629,6 +140625,10 @@
             {
               "date": "2026-10-02",
               "usageQty": 0
+            },
+            {
+              "date": "2026-10-03",
+              "usageQty": 0
             }
           ]
         },
@@ -140641,10 +140641,6 @@
           "dayCount": 7,
           "productCount": 1,
           "dailyUsage": [
-            {
-              "date": "2026-09-26",
-              "usageQty": 0
-            },
             {
               "date": "2026-09-27",
               "usageQty": 0
@@ -140668,6 +140664,10 @@
             {
               "date": "2026-10-02",
               "usageQty": 27747
+            },
+            {
+              "date": "2026-10-03",
+              "usageQty": 0
             }
           ]
         },
@@ -140680,10 +140680,6 @@
           "dayCount": 7,
           "productCount": 1,
           "dailyUsage": [
-            {
-              "date": "2026-09-26",
-              "usageQty": 0
-            },
             {
               "date": "2026-09-27",
               "usageQty": 0
@@ -140707,6 +140703,10 @@
             {
               "date": "2026-10-02",
               "usageQty": 0
+            },
+            {
+              "date": "2026-10-03",
+              "usageQty": 0
             }
           ]
         },
@@ -140719,10 +140719,6 @@
           "dayCount": 7,
           "productCount": 1,
           "dailyUsage": [
-            {
-              "date": "2026-09-26",
-              "usageQty": 0
-            },
             {
               "date": "2026-09-27",
               "usageQty": 0
@@ -140746,6 +140742,10 @@
             {
               "date": "2026-10-02",
               "usageQty": 0
+            },
+            {
+              "date": "2026-10-03",
+              "usageQty": 0
             }
           ]
         },
@@ -140758,10 +140758,6 @@
           "dayCount": 7,
           "productCount": 2,
           "dailyUsage": [
-            {
-              "date": "2026-09-26",
-              "usageQty": 0
-            },
             {
               "date": "2026-09-27",
               "usageQty": 0
@@ -140785,6 +140781,10 @@
             {
               "date": "2026-10-02",
               "usageQty": 43515
+            },
+            {
+              "date": "2026-10-03",
+              "usageQty": 0
             }
           ]
         },
@@ -140797,10 +140797,6 @@
           "dayCount": 7,
           "productCount": 1,
           "dailyUsage": [
-            {
-              "date": "2026-09-26",
-              "usageQty": 0
-            },
             {
               "date": "2026-09-27",
               "usageQty": 2300
@@ -140824,6 +140820,10 @@
             {
               "date": "2026-10-02",
               "usageQty": 0
+            },
+            {
+              "date": "2026-10-03",
+              "usageQty": 0
             }
           ]
         },
@@ -140831,15 +140831,11 @@
           "itemCode": "BS0300",
           "itemName": "알루미늄리드지 (이탈리아 Esoform SiHy 1Day 리드지)",
           "specification": "BS0300-001",
-          "totalUsageQty": 29830,
-          "averageDailyUsage": 4261.428571428572,
+          "totalUsageQty": 32950,
+          "averageDailyUsage": 4707.142857142857,
           "dayCount": 7,
           "productCount": 1,
           "dailyUsage": [
-            {
-              "date": "2026-09-26",
-              "usageQty": 0
-            },
             {
               "date": "2026-09-27",
               "usageQty": 2300
@@ -140863,6 +140859,10 @@
             {
               "date": "2026-10-02",
               "usageQty": 23525
+            },
+            {
+              "date": "2026-10-03",
+              "usageQty": 3120
             }
           ]
         },
@@ -140875,10 +140875,6 @@
           "dayCount": 7,
           "productCount": 1,
           "dailyUsage": [
-            {
-              "date": "2026-09-26",
-              "usageQty": 0
-            },
             {
               "date": "2026-09-27",
               "usageQty": 19571
@@ -140902,6 +140898,10 @@
             {
               "date": "2026-10-02",
               "usageQty": 3229
+            },
+            {
+              "date": "2026-10-03",
+              "usageQty": 0
             }
           ]
         },
@@ -140914,10 +140914,6 @@
           "dayCount": 7,
           "productCount": 2,
           "dailyUsage": [
-            {
-              "date": "2026-09-26",
-              "usageQty": 0
-            },
             {
               "date": "2026-09-27",
               "usageQty": 0
@@ -140941,6 +140937,10 @@
             {
               "date": "2026-10-02",
               "usageQty": 0
+            },
+            {
+              "date": "2026-10-03",
+              "usageQty": 0
             }
           ]
         },
@@ -140953,10 +140953,6 @@
           "dayCount": 7,
           "productCount": 1,
           "dailyUsage": [
-            {
-              "date": "2026-09-26",
-              "usageQty": 0
-            },
             {
               "date": "2026-09-27",
               "usageQty": 0
@@ -140980,6 +140976,10 @@
             {
               "date": "2026-10-02",
               "usageQty": 0
+            },
+            {
+              "date": "2026-10-03",
+              "usageQty": 0
             }
           ]
         },
@@ -140992,10 +140992,6 @@
           "dayCount": 7,
           "productCount": 5,
           "dailyUsage": [
-            {
-              "date": "2026-09-26",
-              "usageQty": 0
-            },
             {
               "date": "2026-09-27",
               "usageQty": 211185
@@ -141019,6 +141015,10 @@
             {
               "date": "2026-10-02",
               "usageQty": 380905
+            },
+            {
+              "date": "2026-10-03",
+              "usageQty": 0
             }
           ]
         },
@@ -141031,10 +141031,6 @@
           "dayCount": 7,
           "productCount": 1,
           "dailyUsage": [
-            {
-              "date": "2026-09-26",
-              "usageQty": 0
-            },
             {
               "date": "2026-09-27",
               "usageQty": 0
@@ -141057,6 +141053,10 @@
             },
             {
               "date": "2026-10-02",
+              "usageQty": 0
+            },
+            {
+              "date": "2026-10-03",
               "usageQty": 0
             }
           ]
