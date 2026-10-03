@@ -1,11 +1,12 @@
 {
   "lastCollection": {
-    "at": "2026-10-04T07:19:21+09:00",
-    "scope": "support",
+    "at": "2026-10-04T07:43:24+09:00",
+    "scope": "all",
     "mode": "regular",
-    "reason": "regular_16h",
+    "reason": "aps_changed",
     "status": "success",
     "files": [
+      "aps-lidding-requirement.json",
       "bom-product-lidding.json",
       "dashboard-snapshot.json",
       "lidding-inventory.json",
@@ -13,12 +14,13 @@
     ]
   },
   "lastRegularCollection": {
-    "at": "2026-10-04T07:19:21+09:00",
-    "scope": "support",
+    "at": "2026-10-04T07:43:24+09:00",
+    "scope": "all",
     "mode": "regular",
-    "reason": "regular_16h",
+    "reason": "aps_changed",
     "status": "success",
     "files": [
+      "aps-lidding-requirement.json",
       "bom-product-lidding.json",
       "dashboard-snapshot.json",
       "lidding-inventory.json",
@@ -37,34 +39,6 @@
     ]
   },
   "history": [
-    {
-      "at": "2026-10-02T07:41:42+09:00",
-      "scope": "all",
-      "mode": "regular",
-      "reason": "aps_changed",
-      "status": "success",
-      "files": [
-        "aps-lidding-requirement.json",
-        "bom-product-lidding.json",
-        "dashboard-snapshot.json",
-        "lidding-inventory.json",
-        "lidding-purchase-inbound.json"
-      ]
-    },
-    {
-      "at": "2026-10-02T07:43:23+09:00",
-      "scope": "all",
-      "mode": "regular",
-      "reason": "aps_changed",
-      "status": "success",
-      "files": [
-        "aps-lidding-requirement.json",
-        "bom-product-lidding.json",
-        "dashboard-snapshot.json",
-        "lidding-inventory.json",
-        "lidding-purchase-inbound.json"
-      ]
-    },
     {
       "at": "2026-10-02T07:45:24+09:00",
       "scope": "all",
@@ -471,6 +445,20 @@
       "reason": "regular_16h",
       "status": "success",
       "files": [
+        "bom-product-lidding.json",
+        "dashboard-snapshot.json",
+        "lidding-inventory.json",
+        "lidding-purchase-inbound.json"
+      ]
+    },
+    {
+      "at": "2026-10-04T07:43:24+09:00",
+      "scope": "all",
+      "mode": "regular",
+      "reason": "aps_changed",
+      "status": "success",
+      "files": [
+        "aps-lidding-requirement.json",
         "bom-product-lidding.json",
         "dashboard-snapshot.json",
         "lidding-inventory.json",
