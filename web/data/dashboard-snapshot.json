@@ -1,11 +1,11 @@
 {
-  "snapshotAt": "2026-10-04T07:46:30+09:00",
+  "snapshotAt": "2026-10-04T07:48:19+09:00",
   "scope": "all",
   "reason": "aps_changed",
   "channels": {
     "aps": {
-      "generatedAt": "2026-10-04T07:46:30+09:00",
-      "sourceRefreshedAt": "2026-10-04 07:46:21",
+      "generatedAt": "2026-10-04T07:48:19+09:00",
+      "sourceRefreshedAt": "2026-10-04 07:47:22",
       "apiFilters": {
         "oper": "45",
         "item_cd": "P"
@@ -37,7 +37,7 @@
       "rows": []
     },
     "inventory": {
-      "generatedAt": "2026-10-04T07:46:29+09:00",
+      "generatedAt": "2026-10-04T07:48:19+09:00",
       "snapshotDate": "2026-10-04",
       "warehouseOptions": [
         {
@@ -60,7 +60,7 @@
       "itemCount": 242,
       "sourceRowCount": 471,
       "rawLiddingSourceRowCount": 473,
-      "stockTotal": 90464099,
+      "stockTotal": 90462621,
       "inspectionWaitTotal": 0,
       "inspectionAggregation": "max-per-item",
       "formula": {
@@ -3199,7 +3199,7 @@
           "itemCode": "BS0115",
           "itemName": "알루미늄리드지 (무지-백색_PET12/AL30/CPP100_White 리버스인쇄)",
           "specification": "BS0115-001",
-          "stockQty": 3331048,
+          "stockQty": 3329570,
           "inspectionWaitQty": 0,
           "warehouses": [
             {
@@ -3226,7 +3226,7 @@
             {
               "warehouseCode": "S100",
               "warehouseName": "S관 공정부자재",
-              "stockQty": 644048,
+              "stockQty": 642570,
               "inspectionWaitQty": 0,
               "hasSourceRow": true
             }
@@ -9316,8 +9316,8 @@
       ]
     },
     "purchase": {
-      "collectedAt": "2026-10-04T07:46:29+09:00",
-      "queryDate": "2026-10-04 07:46",
+      "collectedAt": "2026-10-04T07:48:19+09:00",
+      "queryDate": "2026-10-04 07:48",
       "dateFrom": "2026-08-04",
       "dateTo": "2026-10-04",
       "historyWindow": "recent two months",
@@ -9746,7 +9746,7 @@
       ]
     },
     "bom": {
-      "generatedAt": "2026-10-04T07:46:26+09:00",
+      "generatedAt": "2026-10-04T07:48:14+09:00",
       "sourceSignature": "99e8a8f8be0b6d0a8e6782ad87539d741f8b097e6870c5a19cac45271f45a16e",
       "productSourceCount": 1738,
       "bomSourceCount": 28778,
