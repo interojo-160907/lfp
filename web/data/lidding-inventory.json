@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-10-05T07:46:24+09:00",
+  "generatedAt": "2026-10-05T07:48:23+09:00",
   "snapshotDate": "2026-10-05",
   "warehouseOptions": [
     {
@@ -22,7 +22,7 @@
   "itemCount": 242,
   "sourceRowCount": 471,
   "rawLiddingSourceRowCount": 473,
-  "stockTotal": 89678800,
+  "stockTotal": 89678610,
   "inspectionWaitTotal": 0,
   "inspectionAggregation": "max-per-item",
   "formula": {
@@ -83,7 +83,7 @@
       "itemCode": "BS0005",
       "itemName": "알루미늄리드지 (Monthly_무지)",
       "specification": "BS0005-002",
-      "stockQty": 7893777,
+      "stockQty": 7893587,
       "inspectionWaitQty": 0,
       "warehouses": [
         {
@@ -96,7 +96,7 @@
         {
           "warehouseCode": "P010",
           "warehouseName": "A관 공정부자재",
-          "stockQty": 178396,
+          "stockQty": 178206,
           "inspectionWaitQty": 0,
           "hasSourceRow": true
         },
