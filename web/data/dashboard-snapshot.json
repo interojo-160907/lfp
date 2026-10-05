@@ -1,11 +1,11 @@
 {
-  "snapshotAt": "2026-10-05T15:00:16+09:00",
+  "snapshotAt": "2026-10-05T15:01:37+09:00",
   "scope": "all",
   "reason": "aps_changed",
   "channels": {
     "aps": {
-      "generatedAt": "2026-10-05T15:00:16+09:00",
-      "sourceRefreshedAt": "2026-10-05 14:59:43",
+      "generatedAt": "2026-10-05T15:01:37+09:00",
+      "sourceRefreshedAt": "2026-10-05 15:00:43",
       "apiFilters": {
         "oper": "45",
         "item_cd": "P"
@@ -37,7 +37,7 @@
       "rows": []
     },
     "inventory": {
-      "generatedAt": "2026-10-05T15:00:15+09:00",
+      "generatedAt": "2026-10-05T15:01:36+09:00",
       "snapshotDate": "2026-10-05",
       "warehouseOptions": [
         {
@@ -60,7 +60,7 @@
       "itemCount": 242,
       "sourceRowCount": 471,
       "rawLiddingSourceRowCount": 473,
-      "stockTotal": 89415811,
+      "stockTotal": 89412252,
       "inspectionWaitTotal": 0,
       "inspectionAggregation": "max-per-item",
       "formula": {
@@ -1223,7 +1223,7 @@
           "itemCode": "BS0054",
           "itemName": "알루미늄리드지 (국내/중국 원데이_아이리스)_무광 코팅",
           "specification": "BS0054-003",
-          "stockQty": 2912258,
+          "stockQty": 2910268,
           "inspectionWaitQty": 0,
           "warehouses": [
             {
@@ -1243,7 +1243,7 @@
             {
               "warehouseCode": "P030",
               "warehouseName": "C관 공정부자재",
-              "stockQty": 608353,
+              "stockQty": 606363,
               "inspectionWaitQty": 0,
               "hasSourceRow": true
             },
@@ -4073,7 +4073,7 @@
           "itemCode": "BS0149",
           "itemName": "알루미늄리드지 (Clalen O2O2 Color 1Day)_무광 코팅",
           "specification": "BS0149-002",
-          "stockQty": 251605,
+          "stockQty": 250036,
           "inspectionWaitQty": 0,
           "warehouses": [
             {
@@ -4100,7 +4100,7 @@
             {
               "warehouseCode": "S100",
               "warehouseName": "S관 공정부자재",
-              "stockQty": 109605,
+              "stockQty": 108036,
               "inspectionWaitQty": 0,
               "hasSourceRow": true
             }
@@ -9316,8 +9316,8 @@
       ]
     },
     "purchase": {
-      "collectedAt": "2026-10-05T15:00:16+09:00",
-      "queryDate": "2026-10-05 15:00",
+      "collectedAt": "2026-10-05T15:01:37+09:00",
+      "queryDate": "2026-10-05 15:01",
       "dateFrom": "2026-08-05",
       "dateTo": "2026-10-05",
       "historyWindow": "recent two months",
@@ -9746,7 +9746,7 @@
       ]
     },
     "bom": {
-      "generatedAt": "2026-10-05T15:00:11+09:00",
+      "generatedAt": "2026-10-05T15:01:32+09:00",
       "sourceSignature": "99e8a8f8be0b6d0a8e6782ad87539d741f8b097e6870c5a19cac45271f45a16e",
       "productSourceCount": 1738,
       "bomSourceCount": 28778,
