@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-10-05T15:02:56+09:00",
+  "generatedAt": "2026-10-05T15:04:15+09:00",
   "snapshotDate": "2026-10-05",
   "warehouseOptions": [
     {
@@ -22,7 +22,7 @@
   "itemCount": 242,
   "sourceRowCount": 471,
   "rawLiddingSourceRowCount": 473,
-  "stockTotal": 89406437,
+  "stockTotal": 89402927,
   "inspectionWaitTotal": 0,
   "inspectionAggregation": "max-per-item",
   "formula": {
@@ -8899,7 +8899,7 @@
       "itemCode": "BS0354",
       "itemName": "알루미늄리드지 (PIA_1D 55% CoFANCY 리드지)",
       "specification": "BS0354-001",
-      "stockQty": 4187685,
+      "stockQty": 4184175,
       "inspectionWaitQty": 0,
       "warehouses": [
         {
@@ -8919,7 +8919,7 @@
         {
           "warehouseCode": "P030",
           "warehouseName": "C관 공정부자재",
-          "stockQty": 1154685,
+          "stockQty": 1151175,
           "inspectionWaitQty": 0,
           "hasSourceRow": true
         },
