@@ -1,11 +1,11 @@
 {
-  "snapshotAt": "2026-10-06T07:55:11+09:00",
+  "snapshotAt": "2026-10-06T07:56:12+09:00",
   "scope": "all",
   "reason": "aps_changed",
   "channels": {
     "aps": {
-      "generatedAt": "2026-10-06T07:55:11+09:00",
-      "sourceRefreshedAt": "2026-10-06 07:54:15",
+      "generatedAt": "2026-10-06T07:56:12+09:00",
+      "sourceRefreshedAt": "2026-10-06 07:55:16",
       "apiFilters": {
         "oper": "45",
         "item_cd": "P"
@@ -37,7 +37,7 @@
       "rows": []
     },
     "inventory": {
-      "generatedAt": "2026-10-06T07:55:09+09:00",
+      "generatedAt": "2026-10-06T07:56:11+09:00",
       "snapshotDate": "2026-10-06",
       "warehouseOptions": [
         {
@@ -60,7 +60,7 @@
       "itemCount": 242,
       "sourceRowCount": 471,
       "rawLiddingSourceRowCount": 473,
-      "stockTotal": 88660880,
+      "stockTotal": 88659260,
       "inspectionWaitTotal": 0,
       "inspectionAggregation": "max-per-item",
       "formula": {
@@ -7037,7 +7037,7 @@
           "itemCode": "BS0261",
           "itemName": "알루미늄리드지 (PIA_1D 55% Resay 리드지)",
           "specification": "BS0261-001",
-          "stockQty": 265370,
+          "stockQty": 263750,
           "inspectionWaitQty": 0,
           "warehouses": [
             {
@@ -7057,7 +7057,7 @@
             {
               "warehouseCode": "P030",
               "warehouseName": "C관 공정부자재",
-              "stockQty": 265370,
+              "stockQty": 263750,
               "inspectionWaitQty": 0,
               "hasSourceRow": true
             },
@@ -9316,8 +9316,8 @@
       ]
     },
     "purchase": {
-      "collectedAt": "2026-10-06T07:55:10+09:00",
-      "queryDate": "2026-10-06 07:55",
+      "collectedAt": "2026-10-06T07:56:11+09:00",
+      "queryDate": "2026-10-06 07:56",
       "dateFrom": "2026-08-06",
       "dateTo": "2026-10-06",
       "historyWindow": "recent two months",
@@ -9746,7 +9746,7 @@
       ]
     },
     "bom": {
-      "generatedAt": "2026-10-06T07:55:05+09:00",
+      "generatedAt": "2026-10-06T07:56:06+09:00",
       "sourceSignature": "99e8a8f8be0b6d0a8e6782ad87539d741f8b097e6870c5a19cac45271f45a16e",
       "productSourceCount": 1738,
       "bomSourceCount": 28779,
