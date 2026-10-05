@@ -1,11 +1,11 @@
 {
-  "snapshotAt": "2026-10-06T07:53:08+09:00",
+  "snapshotAt": "2026-10-06T07:55:11+09:00",
   "scope": "all",
   "reason": "aps_changed",
   "channels": {
     "aps": {
-      "generatedAt": "2026-10-06T07:53:08+09:00",
-      "sourceRefreshedAt": "2026-10-06 07:52:13",
+      "generatedAt": "2026-10-06T07:55:11+09:00",
+      "sourceRefreshedAt": "2026-10-06 07:54:15",
       "apiFilters": {
         "oper": "45",
         "item_cd": "P"
@@ -37,7 +37,7 @@
       "rows": []
     },
     "inventory": {
-      "generatedAt": "2026-10-06T07:53:07+09:00",
+      "generatedAt": "2026-10-06T07:55:09+09:00",
       "snapshotDate": "2026-10-06",
       "warehouseOptions": [
         {
@@ -60,7 +60,7 @@
       "itemCount": 242,
       "sourceRowCount": 471,
       "rawLiddingSourceRowCount": 473,
-      "stockTotal": 88662780,
+      "stockTotal": 88660880,
       "inspectionWaitTotal": 0,
       "inspectionAggregation": "max-per-item",
       "formula": {
@@ -8481,7 +8481,7 @@
           "itemCode": "BS0333",
           "itemName": "알루미늄리드지 (Monthly_무지) (80mm)",
           "specification": "BS0333-001",
-          "stockQty": 594635,
+          "stockQty": 592735,
           "inspectionWaitQty": 0,
           "warehouses": [
             {
@@ -8494,7 +8494,7 @@
             {
               "warehouseCode": "P010",
               "warehouseName": "A관 공정부자재",
-              "stockQty": 71755,
+              "stockQty": 69855,
               "inspectionWaitQty": 0,
               "hasSourceRow": true
             },
@@ -9316,8 +9316,8 @@
       ]
     },
     "purchase": {
-      "collectedAt": "2026-10-06T07:53:07+09:00",
-      "queryDate": "2026-10-06 07:53",
+      "collectedAt": "2026-10-06T07:55:10+09:00",
+      "queryDate": "2026-10-06 07:55",
       "dateFrom": "2026-08-06",
       "dateTo": "2026-10-06",
       "historyWindow": "recent two months",
@@ -9746,7 +9746,7 @@
       ]
     },
     "bom": {
-      "generatedAt": "2026-10-06T07:53:03+09:00",
+      "generatedAt": "2026-10-06T07:55:05+09:00",
       "sourceSignature": "99e8a8f8be0b6d0a8e6782ad87539d741f8b097e6870c5a19cac45271f45a16e",
       "productSourceCount": 1738,
       "bomSourceCount": 28779,
