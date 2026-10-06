@@ -1,13 +1,13 @@
 {
   "lastCollection": {
-    "at": "2026-10-06T10:01:34+09:00",
-    "scope": "inventory",
+    "at": "2026-10-06T10:08:40+09:00",
+    "scope": "purchase",
     "mode": "manual",
-    "reason": "manual_inventory",
+    "reason": "manual_purchase",
     "status": "success",
     "files": [
       "dashboard-snapshot.json",
-      "lidding-inventory.json"
+      "lidding-purchase-inbound.json"
     ]
   },
   "lastRegularCollection": {
@@ -25,14 +25,14 @@
     ]
   },
   "lastManualCollection": {
-    "at": "2026-10-06T10:01:34+09:00",
-    "scope": "inventory",
+    "at": "2026-10-06T10:08:40+09:00",
+    "scope": "purchase",
     "mode": "manual",
-    "reason": "manual_inventory",
+    "reason": "manual_purchase",
     "status": "success",
     "files": [
       "dashboard-snapshot.json",
-      "lidding-inventory.json"
+      "lidding-purchase-inbound.json"
     ]
   },
   "history": [
@@ -485,6 +485,17 @@
       "files": [
         "dashboard-snapshot.json",
         "lidding-inventory.json"
+      ]
+    },
+    {
+      "at": "2026-10-06T10:08:40+09:00",
+      "scope": "purchase",
+      "mode": "manual",
+      "reason": "manual_purchase",
+      "status": "success",
+      "files": [
+        "dashboard-snapshot.json",
+        "lidding-purchase-inbound.json"
       ]
     }
   ]

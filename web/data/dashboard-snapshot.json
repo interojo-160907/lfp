@@ -1,7 +1,7 @@
 {
-  "snapshotAt": "2026-10-06T10:01:34+09:00",
-  "scope": "inventory",
-  "reason": "manual_inventory",
+  "snapshotAt": "2026-10-06T10:08:40+09:00",
+  "scope": "purchase",
+  "reason": "manual_purchase",
   "channels": {
     "aps": {
       "generatedAt": "2026-10-06T07:58:32+09:00",
@@ -127158,8 +127158,8 @@
       ]
     },
     "purchase": {
-      "collectedAt": "2026-10-06T07:58:28+09:00",
-      "queryDate": "2026-10-06 07:58",
+      "collectedAt": "2026-10-06T10:08:40+09:00",
+      "queryDate": "2026-10-06 10:08",
       "dateFrom": "2026-08-06",
       "dateTo": "2026-10-06",
       "historyWindow": "recent two months",
@@ -127167,14 +127167,14 @@
         "requests": "itm_cd=BS, not_ordered=1",
         "orders": "itm_cd=BS, open_only=1"
       },
-      "requestSourceRowCount": 3,
-      "purchaseOrderSourceRowCount": 27,
+      "requestSourceRowCount": 2,
+      "purchaseOrderSourceRowCount": 28,
       "matchedLiddingRequestRows": 1,
-      "matchedLiddingPurchaseOrderRows": 17,
-      "openLiddingItemCount": 9,
-      "inboundWaitItemCount": 9,
+      "matchedLiddingPurchaseOrderRows": 18,
+      "openLiddingItemCount": 10,
+      "inboundWaitItemCount": 10,
       "purchaseWaitItemCount": 0,
-      "inboundWaitTotal": 19476299,
+      "inboundWaitTotal": 21476299,
       "purchaseWaitTotal": 0,
       "excludedMissingRequestNoRows": 0,
       "excludedMissingRequestNoQty": 0,
@@ -127192,7 +127192,10 @@
         "requestFormulaMismatchCount": 0,
         "orderFormulaMismatchCount": 0,
         "inboundWaitTotalReconciled": true,
-        "purchaseWaitTotalReconciled": true
+        "purchaseWaitTotalReconciled": true,
+        "matchingBasis": "inventory or BOM: item_code + specification",
+        "bomOnlyMatchedRequestRows": 0,
+        "bomOnlyMatchedPurchaseOrderRows": 1
       },
       "items": [
         {
@@ -127580,6 +127583,40 @@
               "provisionalReceiptQty": 0,
               "receivedQty": 0,
               "inboundWaitQty": 200000,
+              "orderStatus": "발주",
+              "supplierName": "피앤피 주식회사"
+            }
+          ]
+        },
+        {
+          "requestQty": 0,
+          "requestPurchaseOrderQty": 0,
+          "purchaseWaitQty": 0,
+          "purchaseOrderQty": 2000000,
+          "provisionalReceiptQty": 0,
+          "receivedQty": 0,
+          "inboundWaitQty": 2000000,
+          "itemCode": "BS0364",
+          "itemName": "알루미늄리드지 (일본 Sincere Amazon 1day 55% 리드지)",
+          "specification": "BS0364-001",
+          "openRequestCount": 0,
+          "openPurchaseOrderCount": 1,
+          "nextRequestedDeliveryDate": null,
+          "nextOrderDeliveryDate": "2026-10-06",
+          "nextDeliveryDate": "2026-10-06",
+          "requests": [],
+          "purchaseOrders": [
+            {
+              "purchaseOrderNo": "PO-2609290001",
+              "purchaseOrderSeq": 4,
+              "purchaseOrderDate": "2026-09-29",
+              "requestNo": "PR-2609280012",
+              "requestSeq": 1,
+              "deliveryDate": "2026-10-06",
+              "purchaseOrderQty": 2000000,
+              "provisionalReceiptQty": 0,
+              "receivedQty": 0,
+              "inboundWaitQty": 2000000,
               "orderStatus": "발주",
               "supplierName": "피앤피 주식회사"
             }
