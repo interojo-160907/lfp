@@ -1,11 +1,11 @@
 {
-  "snapshotAt": "2026-10-07T07:30:10+09:00",
+  "snapshotAt": "2026-10-07T07:31:18+09:00",
   "scope": "all",
   "reason": "aps_changed",
   "channels": {
     "aps": {
-      "generatedAt": "2026-10-07T07:30:10+09:00",
-      "sourceRefreshedAt": "2026-10-07 07:29:45",
+      "generatedAt": "2026-10-07T07:31:18+09:00",
+      "sourceRefreshedAt": "2026-10-07 07:30:47",
       "apiFilters": {
         "oper": "45",
         "item_cd": "P"
@@ -37,7 +37,7 @@
       "rows": []
     },
     "inventory": {
-      "generatedAt": "2026-10-07T07:30:09+09:00",
+      "generatedAt": "2026-10-07T07:31:16+09:00",
       "snapshotDate": "2026-10-07",
       "warehouseOptions": [
         {
@@ -60,7 +60,7 @@
       "itemCount": 242,
       "sourceRowCount": 471,
       "rawLiddingSourceRowCount": 473,
-      "stockTotal": 87629608,
+      "stockTotal": 87628898,
       "inspectionWaitTotal": 4435000,
       "inspectionAggregation": "max-per-item",
       "formula": {
@@ -7835,7 +7835,7 @@
           "itemCode": "BS0290",
           "itemName": "알루미늄리드지 (태국 MG Medical Group_SISSE ONE DAY_Marie_Little Lady 리드지)",
           "specification": "BS0290-001",
-          "stockQty": 57122,
+          "stockQty": 56412,
           "inspectionWaitQty": 0,
           "warehouses": [
             {
@@ -7855,7 +7855,7 @@
             {
               "warehouseCode": "P030",
               "warehouseName": "C관 공정부자재",
-              "stockQty": 19122,
+              "stockQty": 18412,
               "inspectionWaitQty": 0,
               "hasSourceRow": true
             },
@@ -9316,8 +9316,8 @@
       ]
     },
     "purchase": {
-      "collectedAt": "2026-10-07T07:30:10+09:00",
-      "queryDate": "2026-10-07 07:30",
+      "collectedAt": "2026-10-07T07:31:17+09:00",
+      "queryDate": "2026-10-07 07:31",
       "dateFrom": "2026-08-07",
       "dateTo": "2026-10-07",
       "historyWindow": "recent two months",
@@ -9755,7 +9755,7 @@
       ]
     },
     "bom": {
-      "generatedAt": "2026-10-07T07:30:04+09:00",
+      "generatedAt": "2026-10-07T07:31:12+09:00",
       "sourceSignature": "99e8a8f8be0b6d0a8e6782ad87539d741f8b097e6870c5a19cac45271f45a16e",
       "productSourceCount": 1738,
       "bomSourceCount": 28920,

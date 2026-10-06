@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-10-07T07:30:09+09:00",
+  "generatedAt": "2026-10-07T07:31:16+09:00",
   "snapshotDate": "2026-10-07",
   "warehouseOptions": [
     {
@@ -22,7 +22,7 @@
   "itemCount": 242,
   "sourceRowCount": 471,
   "rawLiddingSourceRowCount": 473,
-  "stockTotal": 87629608,
+  "stockTotal": 87628898,
   "inspectionWaitTotal": 4435000,
   "inspectionAggregation": "max-per-item",
   "formula": {
@@ -7797,7 +7797,7 @@
       "itemCode": "BS0290",
       "itemName": "알루미늄리드지 (태국 MG Medical Group_SISSE ONE DAY_Marie_Little Lady 리드지)",
       "specification": "BS0290-001",
-      "stockQty": 57122,
+      "stockQty": 56412,
       "inspectionWaitQty": 0,
       "warehouses": [
         {
@@ -7817,7 +7817,7 @@
         {
           "warehouseCode": "P030",
           "warehouseName": "C관 공정부자재",
-          "stockQty": 19122,
+          "stockQty": 18412,
           "inspectionWaitQty": 0,
           "hasSourceRow": true
         },
