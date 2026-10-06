@@ -1,6 +1,6 @@
 {
-  "collectedAt": "2026-10-06T14:51:26+09:00",
-  "queryDate": "2026-10-06 14:51",
+  "collectedAt": "2026-10-06T14:53:10+09:00",
+  "queryDate": "2026-10-06 14:53",
   "dateFrom": "2026-08-06",
   "dateTo": "2026-10-06",
   "historyWindow": "recent two months",
@@ -15,7 +15,7 @@
   "openLiddingItemCount": 10,
   "inboundWaitItemCount": 10,
   "purchaseWaitItemCount": 0,
-  "inboundWaitTotal": 17041299,
+  "inboundWaitTotal": 16181299,
   "purchaseWaitTotal": 0,
   "excludedMissingRequestNoRows": 0,
   "excludedMissingRequestNoQty": 0,
@@ -406,9 +406,9 @@
       "requestPurchaseOrderQty": 0,
       "purchaseWaitQty": 0,
       "purchaseOrderQty": 2000000,
-      "provisionalReceiptQty": 0,
+      "provisionalReceiptQty": 860000,
       "receivedQty": 0,
-      "inboundWaitQty": 2000000,
+      "inboundWaitQty": 1140000,
       "itemCode": "BS0364",
       "itemName": "알루미늄리드지 (일본 Sincere Amazon 1day 55% 리드지)",
       "specification": "BS0364-001",
@@ -427,10 +427,10 @@
           "requestSeq": 1,
           "deliveryDate": "2026-10-06",
           "purchaseOrderQty": 2000000,
-          "provisionalReceiptQty": 0,
+          "provisionalReceiptQty": 860000,
           "receivedQty": 0,
-          "inboundWaitQty": 2000000,
-          "orderStatus": "발주",
+          "inboundWaitQty": 1140000,
+          "orderStatus": "납품진행",
           "supplierName": "피앤피 주식회사"
         }
       ]
