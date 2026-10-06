@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-10-06T14:49:11+09:00",
+  "generatedAt": "2026-10-06T14:51:25+09:00",
   "snapshotDate": "2026-10-06",
   "warehouseOptions": [
     {
@@ -22,7 +22,7 @@
   "itemCount": 242,
   "sourceRowCount": 471,
   "rawLiddingSourceRowCount": 473,
-  "stockTotal": 88345202,
+  "stockTotal": 88341002,
   "inspectionWaitTotal": 4435000,
   "inspectionAggregation": "max-per-item",
   "formula": {
@@ -8443,7 +8443,7 @@
       "itemCode": "BS0333",
       "itemName": "알루미늄리드지 (Monthly_무지) (80mm)",
       "specification": "BS0333-001",
-      "stockQty": 571045,
+      "stockQty": 566845,
       "inspectionWaitQty": 0,
       "warehouses": [
         {
@@ -8456,7 +8456,7 @@
         {
           "warehouseCode": "P010",
           "warehouseName": "A관 공정부자재",
-          "stockQty": 178885,
+          "stockQty": 174685,
           "inspectionWaitQty": 0,
           "hasSourceRow": true
         },
