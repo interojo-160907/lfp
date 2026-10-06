@@ -137,6 +137,8 @@ class ManualScopeTests(unittest.TestCase):
                         if mock.called
                     }
                     self.assertEqual(expected, actual)
+                    if "purchase" in expected:
+                        collect_purchase.assert_called_once_with(self.inventory, self.bom)
 
     def test_regular_all_collection_does_not_repeat_daily_production_fetch(self) -> None:
         with (
@@ -368,6 +370,55 @@ class SupplyFormulaTests(unittest.TestCase):
         self.assertEqual(1, requested_params["/api/purchase-order-status"]["open_only"])
         self.assertEqual("BS", requested_params["/api/purchase-requests"]["itm_cd"])
         self.assertEqual("BS", requested_params["/api/purchase-order-status"]["itm_cd"])
+
+
+    def test_bom_only_purchase_preserves_exact_spec_and_active_status(self) -> None:
+        bom = {"rows": [
+            {"liddingCode": " bs0364 ", "liddingSpecification": " bs0364-001 "},
+            {"liddingCode": "BS0364", "liddingSpecification": "BS0364-001"},
+        ]}
+        base = {
+            "itm_cd": "BS0364", "spec": "BS0364-001", "po_sq": 1,
+            "po_qty": 2000000, "dlv_qty": 0, "rem_qty": 2000000,
+            "stat_bc_nm": "발주", "req_no": "",
+        }
+        orders = [
+            {**base, "po_no": "NEW"},
+            {**base, "po_no": "OTHER-SPEC", "spec": "BS0364-002"},
+            {**base, "po_no": "UNKNOWN", "itm_cd": "BS9999"},
+            {**base, "po_no": "CLOSED", "stat_bc_nm": "완료"},
+        ]
+        requests = [{
+            "itm_cd": "BS0364", "spec": "BS0364-001", "req_no": "REQ",
+            "req_sq": 1, "req_qty": 100, "po_tot": 20, "not_inqty": 80,
+            "stat_bc_nm": "완료", "gw_stat": "Y",
+        }]
+        def fetch(path, *_args):
+            return self.payload(requests if path == "/api/purchase-requests" else orders)
+        for inventory in (
+            {"rows": []},
+            {"rows": [{"itemCode": "BS0001", "specification": "BS0001-001"}]},
+            {"rows": [{"itemCode": "BS0364", "specification": "BS0364-001"}]},
+        ):
+            with self.subTest(inventory=inventory), patch.object(collector, "fetch_json", side_effect=fetch):
+                result = collector.collect_purchase(inventory, bom)
+            self.assertEqual(2000000, result["inboundWaitTotal"])
+            self.assertEqual(80, result["purchaseWaitTotal"])
+            self.assertEqual(1, len(result["items"]))
+            self.assertEqual(["NEW"], [r["purchaseOrderNo"] for r in result["items"][0]["purchaseOrders"]])
+            self.assertEqual(2000000, result["includedMissingRequestNoQty"])
+            has_inventory = any(r["itemCode"] == "BS0364" for r in inventory["rows"])
+            self.assertEqual(0 if has_inventory else 2, result["qualityChecks"]["bomOnlyMatchedPurchaseOrderRows"])
+
+    def test_bom_only_purchase_still_rejects_inconsistent_quantities(self) -> None:
+        bom = {"rows": [{"liddingCode": "BS0364", "liddingSpecification": "BS0364-001"}]}
+        orders = [{"itm_cd": "BS0364", "spec": "BS0364-001", "po_qty": 2000000,
+                   "dlv_qty": 0, "rem_qty": 1, "stat_bc_nm": "발주"}]
+        with patch.object(collector, "fetch_json", side_effect=lambda path, *_: self.payload(
+            [] if path == "/api/purchase-requests" else orders
+        )):
+            with self.assertRaisesRegex(RuntimeError, "산식 불일치"):
+                collector.collect_purchase({"rows": []}, bom)
 
 
 class WorkflowConfigurationTests(unittest.TestCase):

@@ -486,7 +486,7 @@ def collect_inventory() -> dict:
     }
 
 
-def collect_purchase(inventory: dict) -> dict:
+def collect_purchase(inventory: dict, bom: dict | None = None) -> dict:
     today = datetime.now(KST).date()
     date_from = os.environ.get("LFP_PURCHASE_DATE_FROM", months_before(today, 2).isoformat())
     date_to = os.environ.get("LFP_PURCHASE_DATE_TO", today.isoformat())
@@ -500,12 +500,22 @@ def collect_purchase(inventory: dict) -> dict:
         order_payload = order_future.result()
     request_source_rows = validated_rows("구매 의뢰 현황", request_payload)
     order_source_rows = validated_rows("구매 발주 현황", order_payload)
-    lidding_keys = {
+    inventory_keys = {
         (normalized(row.get("itemCode")), normalized(row.get("specification")))
         for row in inventory.get("rows") or []
+        if normalized(row.get("itemCode")) and normalized(row.get("specification"))
     }
+    # A new foil can have an open PO before its first warehouse receipt.
+    # Match exact item/specification pairs from either source, never code alone.
+    bom_keys = {
+        (normalized(row.get("liddingCode")), normalized(row.get("liddingSpecification")))
+        for row in (bom or {}).get("rows") or []
+        if normalized(row.get("liddingCode")).startswith("BS")
+        and normalized(row.get("liddingSpecification"))
+    }
+    lidding_keys = inventory_keys | bom_keys
     if not lidding_keys:
-        raise RuntimeError("리드지 재고 기준키가 없습니다.")
+        raise RuntimeError("리드지 재고/BOM 기준키가 없습니다.")
 
     request_rows = []
     request_formula_mismatches = 0
@@ -690,6 +700,15 @@ def collect_purchase(inventory: dict) -> dict:
             "orderFormulaMismatchCount": 0,
             "inboundWaitTotalReconciled": True,
             "purchaseWaitTotalReconciled": True,
+            "matchingBasis": "inventory or BOM: item_code + specification",
+            "bomOnlyMatchedRequestRows": sum(
+                (row["item_code"], row["specification"]) not in inventory_keys
+                for row in request_rows
+            ),
+            "bomOnlyMatchedPurchaseOrderRows": sum(
+                (row["item_code"], row["specification"]) not in inventory_keys
+                for row in order_rows
+            ),
         },
         "items": items,
     }
@@ -889,7 +908,9 @@ def collect_scope(scope: str, mode: str, reason: str) -> list[str]:
     if scope in {"all", "support", "purchase"}:
         if not isinstance(inventory, dict) or not inventory:
             raise RuntimeError("구매·입고 수집에 필요한 기존 재고 데이터가 없습니다.")
-        purchase = collect_purchase(inventory)
+        if not isinstance(bom, dict) or not bom.get("rows"):
+            raise RuntimeError("구매·입고 수집에 필요한 기존 BOM 데이터가 없습니다.")
+        purchase = collect_purchase(inventory, bom)
         atomic_write(DATA_DIR / "lidding-purchase-inbound.json", purchase)
         written.append("lidding-purchase-inbound.json")
     if scope in {"all", "aps"}:
