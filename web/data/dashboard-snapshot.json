@@ -1,11 +1,11 @@
 {
-  "snapshotAt": "2026-10-07T14:48:06+09:00",
+  "snapshotAt": "2026-10-07T14:51:24+09:00",
   "scope": "all",
   "reason": "aps_changed",
   "channels": {
     "aps": {
-      "generatedAt": "2026-10-07T14:48:06+09:00",
-      "sourceRefreshedAt": "2026-10-07 14:47:50",
+      "generatedAt": "2026-10-07T14:51:24+09:00",
+      "sourceRefreshedAt": "2026-10-07 14:50:58",
       "apiFilters": {
         "oper": "45",
         "item_cd": "P"
@@ -37,7 +37,7 @@
       "rows": []
     },
     "inventory": {
-      "generatedAt": "2026-10-07T14:48:05+09:00",
+      "generatedAt": "2026-10-07T14:51:23+09:00",
       "snapshotDate": "2026-10-07",
       "warehouseOptions": [
         {
@@ -60,7 +60,7 @@
       "itemCount": 243,
       "sourceRowCount": 473,
       "rawLiddingSourceRowCount": 475,
-      "stockTotal": 92660673,
+      "stockTotal": 92656663,
       "inspectionWaitTotal": 0,
       "inspectionAggregation": "max-per-item",
       "formula": {
@@ -121,7 +121,7 @@
           "itemCode": "BS0005",
           "itemName": "알루미늄리드지 (Monthly_무지)",
           "specification": "BS0005-002",
-          "stockQty": 7835054,
+          "stockQty": 7834562,
           "inspectionWaitQty": 0,
           "warehouses": [
             {
@@ -134,7 +134,7 @@
             {
               "warehouseCode": "P010",
               "warehouseName": "A관 공정부자재",
-              "stockQty": 304293,
+              "stockQty": 303801,
               "inspectionWaitQty": 0,
               "hasSourceRow": true
             },
@@ -2781,7 +2781,7 @@
           "itemCode": "BS0103",
           "itemName": "알루미늄리드지 (이태리 soleko US 58% 1day)_유광 코팅",
           "specification": "BS0103-001",
-          "stockQty": 455113,
+          "stockQty": 453315,
           "inspectionWaitQty": 0,
           "warehouses": [
             {
@@ -2808,7 +2808,7 @@
             {
               "warehouseCode": "S100",
               "warehouseName": "S관 공정부자재",
-              "stockQty": 104113,
+              "stockQty": 102315,
               "inspectionWaitQty": 0,
               "hasSourceRow": true
             }
@@ -5859,7 +5859,7 @@
           "itemCode": "BS0215",
           "itemName": "알루미늄리드지 (Hioxifilcon A Daily 공용 리드지)_무광 코팅",
           "specification": "BS0215-001",
-          "stockQty": 267877,
+          "stockQty": 267797,
           "inspectionWaitQty": 0,
           "warehouses": [
             {
@@ -5886,7 +5886,7 @@
             {
               "warehouseCode": "S100",
               "warehouseName": "S관 공정부자재",
-              "stockQty": 123877,
+              "stockQty": 123797,
               "inspectionWaitQty": 0,
               "hasSourceRow": true
             }
@@ -8481,7 +8481,7 @@
           "itemCode": "BS0333",
           "itemName": "알루미늄리드지 (Monthly_무지) (80mm)",
           "specification": "BS0333-001",
-          "stockQty": 511515,
+          "stockQty": 509875,
           "inspectionWaitQty": 0,
           "warehouses": [
             {
@@ -8494,7 +8494,7 @@
             {
               "warehouseCode": "P010",
               "warehouseName": "A관 공정부자재",
-              "stockQty": 250075,
+              "stockQty": 248435,
               "inspectionWaitQty": 0,
               "hasSourceRow": true
             },
@@ -9354,8 +9354,8 @@
       ]
     },
     "purchase": {
-      "collectedAt": "2026-10-07T14:48:06+09:00",
-      "queryDate": "2026-10-07 14:48",
+      "collectedAt": "2026-10-07T14:51:24+09:00",
+      "queryDate": "2026-10-07 14:51",
       "dateFrom": "2026-08-07",
       "dateTo": "2026-10-07",
       "historyWindow": "recent two months",
@@ -9793,7 +9793,7 @@
       ]
     },
     "bom": {
-      "generatedAt": "2026-10-07T14:48:01+09:00",
+      "generatedAt": "2026-10-07T14:51:19+09:00",
       "sourceSignature": "99e8a8f8be0b6d0a8e6782ad87539d741f8b097e6870c5a19cac45271f45a16e",
       "productSourceCount": 1738,
       "bomSourceCount": 28920,
