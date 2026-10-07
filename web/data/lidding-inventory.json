@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-10-07T09:51:28+09:00",
+  "generatedAt": "2026-10-07T09:53:41+09:00",
   "snapshotDate": "2026-10-07",
   "warehouseOptions": [
     {
@@ -22,7 +22,7 @@
   "itemCount": 242,
   "sourceRowCount": 471,
   "rawLiddingSourceRowCount": 473,
-  "stockTotal": 87562373,
+  "stockTotal": 87554606,
   "inspectionWaitTotal": 4435000,
   "inspectionAggregation": "max-per-item",
   "formula": {
@@ -2743,7 +2743,7 @@
       "itemCode": "BS0103",
       "itemName": "알루미늄리드지 (이태리 soleko US 58% 1day)_유광 코팅",
       "specification": "BS0103-001",
-      "stockQty": 456979,
+      "stockQty": 455612,
       "inspectionWaitQty": 0,
       "warehouses": [
         {
@@ -2770,7 +2770,7 @@
         {
           "warehouseCode": "S100",
           "warehouseName": "S관 공정부자재",
-          "stockQty": 105979,
+          "stockQty": 104612,
           "inspectionWaitQty": 0,
           "hasSourceRow": true
         }
@@ -8899,7 +8899,7 @@
       "itemCode": "BS0354",
       "itemName": "알루미늄리드지 (PIA_1D 55% CoFANCY 리드지)",
       "specification": "BS0354-001",
-      "stockQty": 3402985,
+      "stockQty": 3396585,
       "inspectionWaitQty": 0,
       "warehouses": [
         {
@@ -8919,7 +8919,7 @@
         {
           "warehouseCode": "P030",
           "warehouseName": "C관 공정부자재",
-          "stockQty": 957985,
+          "stockQty": 951585,
           "inspectionWaitQty": 0,
           "hasSourceRow": true
         },
