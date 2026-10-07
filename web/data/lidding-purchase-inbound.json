@@ -1,6 +1,6 @@
 {
-  "collectedAt": "2026-10-07T09:59:50+09:00",
-  "queryDate": "2026-10-07 09:59",
+  "collectedAt": "2026-10-07T14:46:17+09:00",
+  "queryDate": "2026-10-07 14:46",
   "dateFrom": "2026-08-07",
   "dateTo": "2026-10-07",
   "historyWindow": "recent two months",
@@ -36,7 +36,7 @@
     "purchaseWaitTotalReconciled": true,
     "matchingBasis": "inventory or BOM: item_code + specification",
     "bomOnlyMatchedRequestRows": 0,
-    "bomOnlyMatchedPurchaseOrderRows": 1
+    "bomOnlyMatchedPurchaseOrderRows": 0
   },
   "items": [
     {
@@ -161,7 +161,7 @@
       "purchaseWaitQty": 0,
       "purchaseOrderQty": 3320000,
       "provisionalReceiptQty": 175000,
-      "receivedQty": 0,
+      "receivedQty": 175000,
       "inboundWaitQty": 3145000,
       "itemCode": "BS0073",
       "itemName": "알루미늄리드지 (일본 PIA 1day 55%)_유광 코팅",
@@ -196,7 +196,7 @@
           "deliveryDate": "2026-10-06",
           "purchaseOrderQty": 2000000,
           "provisionalReceiptQty": 175000,
-          "receivedQty": 0,
+          "receivedQty": 175000,
           "inboundWaitQty": 1825000,
           "orderStatus": "납품진행",
           "supplierName": "피앤피 주식회사"
@@ -243,7 +243,7 @@
       "purchaseWaitQty": 0,
       "purchaseOrderQty": 5500000,
       "provisionalReceiptQty": 4890000,
-      "receivedQty": 2950000,
+      "receivedQty": 4890000,
       "inboundWaitQty": 610000,
       "itemCode": "BS0115",
       "itemName": "알루미늄리드지 (무지-백색_PET12/AL30/CPP100_White 리버스인쇄)",
@@ -292,7 +292,7 @@
           "deliveryDate": "2026-10-13",
           "purchaseOrderQty": 2500000,
           "provisionalReceiptQty": 1940000,
-          "receivedQty": 0,
+          "receivedQty": 1940000,
           "inboundWaitQty": 560000,
           "orderStatus": "납품진행",
           "supplierName": "피앤피 주식회사"
@@ -407,7 +407,7 @@
       "purchaseWaitQty": 0,
       "purchaseOrderQty": 2000000,
       "provisionalReceiptQty": 860000,
-      "receivedQty": 0,
+      "receivedQty": 860000,
       "inboundWaitQty": 1140000,
       "itemCode": "BS0364",
       "itemName": "알루미늄리드지 (일본 Sincere Amazon 1day 55% 리드지)",
@@ -428,7 +428,7 @@
           "deliveryDate": "2026-10-06",
           "purchaseOrderQty": 2000000,
           "provisionalReceiptQty": 860000,
-          "receivedQty": 0,
+          "receivedQty": 860000,
           "inboundWaitQty": 1140000,
           "orderStatus": "납품진행",
           "supplierName": "피앤피 주식회사"
