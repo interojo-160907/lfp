@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-10-08T07:26:22+09:00",
+  "generatedAt": "2026-10-08T07:28:07+09:00",
   "snapshotDate": "2026-10-08",
   "warehouseOptions": [
     {
@@ -22,7 +22,7 @@
   "itemCount": 243,
   "sourceRowCount": 473,
   "rawLiddingSourceRowCount": 475,
-  "stockTotal": 91905810,
+  "stockTotal": 91904845,
   "inspectionWaitTotal": 0,
   "inspectionAggregation": "max-per-item",
   "formula": {
@@ -577,7 +577,7 @@
       "itemCode": "BS0036",
       "itemName": "알루미늄리드지 (PIA 1Day)_유광 코팅",
       "specification": "BS0036-001",
-      "stockQty": 2261885,
+      "stockQty": 2260920,
       "inspectionWaitQty": 0,
       "warehouses": [
         {
@@ -597,7 +597,7 @@
         {
           "warehouseCode": "P030",
           "warehouseName": "C관 공정부자재",
-          "stockQty": 371885,
+          "stockQty": 370920,
           "inspectionWaitQty": 0,
           "hasSourceRow": true
         },
