@@ -1,10 +1,10 @@
 {
-  "snapshotAt": "2026-10-08T14:40:27+09:00",
+  "snapshotAt": "2026-10-08T14:42:30+09:00",
   "scope": "all",
-  "reason": "manual_all",
+  "reason": "aps_changed",
   "channels": {
     "aps": {
-      "generatedAt": "2026-10-08T14:40:12+09:00",
+      "generatedAt": "2026-10-08T14:42:30+09:00",
       "sourceRefreshedAt": "2026-10-08 12:06:01",
       "apiFilters": {
         "oper": "55"
@@ -115516,7 +115516,7 @@
       ]
     },
     "inventory": {
-      "generatedAt": "2026-10-08T14:40:06+09:00",
+      "generatedAt": "2026-10-08T14:42:23+09:00",
       "snapshotDate": "2026-10-08",
       "warehouseOptions": [
         {
@@ -115539,7 +115539,7 @@
       "itemCount": 243,
       "sourceRowCount": 474,
       "rawLiddingSourceRowCount": 476,
-      "stockTotal": 93115877,
+      "stockTotal": 93113315,
       "inspectionWaitTotal": 0,
       "inspectionAggregation": "max-per-item",
       "formula": {
@@ -121338,7 +121338,7 @@
           "itemCode": "BS0215",
           "itemName": "알루미늄리드지 (Hioxifilcon A Daily 공용 리드지)_무광 코팅",
           "specification": "BS0215-001",
-          "stockQty": 227075,
+          "stockQty": 224513,
           "inspectionWaitQty": 0,
           "warehouses": [
             {
@@ -121365,7 +121365,7 @@
             {
               "warehouseCode": "S100",
               "warehouseName": "S관 공정부자재",
-              "stockQty": 83075,
+              "stockQty": 80513,
               "inspectionWaitQty": 0,
               "hasSourceRow": true
             }
@@ -124833,8 +124833,8 @@
       ]
     },
     "purchase": {
-      "collectedAt": "2026-10-08T14:40:07+09:00",
-      "queryDate": "2026-10-08 14:40",
+      "collectedAt": "2026-10-08T14:42:24+09:00",
+      "queryDate": "2026-10-08 14:42",
       "dateFrom": "2026-08-08",
       "dateTo": "2026-10-08",
       "historyWindow": "recent two months",
@@ -125391,11 +125391,11 @@
       ]
     },
     "bom": {
-      "generatedAt": "2026-10-08T14:39:59+09:00",
+      "generatedAt": "2026-10-08T14:42:16+09:00",
       "sourceSignature": "99e8a8f8be0b6d0a8e6782ad87539d741f8b097e6870c5a19cac45271f45a16e",
-      "productSourceCount": 1738,
+      "productSourceCount": 1747,
       "bomSourceCount": 28920,
-      "activePProductCount": 1738,
+      "activePProductCount": 1747,
       "productApiFilterApplied": true,
       "bomApiFilterApplied": false,
       "bomApiFilterReason": "BOM API supports exact gd_cd only; P-prefix + level-1 BS lidding filters are applied locally",
@@ -125404,7 +125404,7 @@
       "mappedProductCount": 1658,
       "liddingCodeCount": 240,
       "specificationVersionCount": 240,
-      "unmappedProductCount": 80,
+      "unmappedProductCount": 89,
       "rows": [
         {
           "productCode": "P0001",
