@@ -1,11 +1,11 @@
 {
-  "snapshotAt": "2026-10-08T12:05:12+09:00",
+  "snapshotAt": "2026-10-08T12:06:14+09:00",
   "scope": "all",
   "reason": "aps_changed",
   "channels": {
     "aps": {
-      "generatedAt": "2026-10-08T12:05:12+09:00",
-      "sourceRefreshedAt": "2026-10-08 12:04:44",
+      "generatedAt": "2026-10-08T12:06:14+09:00",
+      "sourceRefreshedAt": "2026-10-08 12:05:47",
       "apiFilters": {
         "oper": "45",
         "item_cd": "P"
@@ -37,7 +37,7 @@
       "rows": []
     },
     "inventory": {
-      "generatedAt": "2026-10-08T12:05:11+09:00",
+      "generatedAt": "2026-10-08T12:06:13+09:00",
       "snapshotDate": "2026-10-08",
       "warehouseOptions": [
         {
@@ -60,7 +60,7 @@
       "itemCount": 243,
       "sourceRowCount": 474,
       "rawLiddingSourceRowCount": 476,
-      "stockTotal": 91716292,
+      "stockTotal": 91714457,
       "inspectionWaitTotal": 1476960,
       "inspectionAggregation": "max-per-item",
       "formula": {
@@ -2781,7 +2781,7 @@
           "itemCode": "BS0103",
           "itemName": "알루미늄리드지 (이태리 soleko US 58% 1day)_유광 코팅",
           "specification": "BS0103-001",
-          "stockQty": 409385,
+          "stockQty": 407550,
           "inspectionWaitQty": 0,
           "warehouses": [
             {
@@ -2808,7 +2808,7 @@
             {
               "warehouseCode": "S100",
               "warehouseName": "S관 공정부자재",
-              "stockQty": 58385,
+              "stockQty": 56550,
               "inspectionWaitQty": 0,
               "hasSourceRow": true
             }
@@ -9354,8 +9354,8 @@
       ]
     },
     "purchase": {
-      "collectedAt": "2026-10-08T12:05:12+09:00",
-      "queryDate": "2026-10-08 12:05",
+      "collectedAt": "2026-10-08T12:06:13+09:00",
+      "queryDate": "2026-10-08 12:06",
       "dateFrom": "2026-08-08",
       "dateTo": "2026-10-08",
       "historyWindow": "recent two months",
@@ -9759,7 +9759,7 @@
       ]
     },
     "bom": {
-      "generatedAt": "2026-10-08T12:05:05+09:00",
+      "generatedAt": "2026-10-08T12:06:10+09:00",
       "sourceSignature": "99e8a8f8be0b6d0a8e6782ad87539d741f8b097e6870c5a19cac45271f45a16e",
       "productSourceCount": 1738,
       "bomSourceCount": 28920,
