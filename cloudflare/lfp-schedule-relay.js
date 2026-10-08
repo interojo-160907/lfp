@@ -213,7 +213,7 @@ function koreaDate(now = new Date()) {
 
 async function fetchApsSourceVersion(env) {
   const baseUrl = normalizeText(env.LFP_API_BASE_URL || CONFIG.apiBaseUrl, 500).replace(/\/$/, "");
-  const response = await fetch(`${baseUrl}/api/aps-plan?oper=45&limit=1`, {
+  const response = await fetch(`${baseUrl}/api/aps-backward-plan?oper=55&limit=1`, {
     headers: { Accept: "application/json", "User-Agent": "LFP-Cloudflare-Monitor/1.0" },
   });
   const payload = await response.json().catch(() => ({}));

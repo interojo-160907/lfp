@@ -656,14 +656,15 @@
   async function init() {
     injectStyles();
     try {
-      const [inventory, aps, bom, production] = await Promise.allSettled([
+      const [inventory, aps, bom, production, purchase] = await Promise.allSettled([
         window.LFPResources.json("data/lidding-inventory.json"),
         window.LFPResources.json("data/aps-lidding-requirement.json"),
         window.LFPResources.json("data/bom-product-lidding.json"),
         window.LFPResources.json("data/lidding-production-usage.json"),
+        window.LFPResources.json("data/lidding-purchase-inbound.json"),
       ]);
-      if (inventory.status !== "fulfilled" || aps.status !== "fulfilled") {
-        throw inventory.reason || aps.reason || new Error("필수 데이터를 불러오지 못했습니다.");
+      if (inventory.status !== "fulfilled" || aps.status !== "fulfilled" || purchase.status !== "fulfilled") {
+        throw inventory.reason || aps.reason || purchase.reason || new Error("필수 데이터를 불러오지 못했습니다.");
       }
       state.data = inventory.value;
       state.aps = aps.value;
@@ -681,6 +682,14 @@
           warehouses: [],
           note: "APS 요구량 존재 · 재고 마스터 미연결",
         });
+        inventoryKeys.add(rowKey);
+      }
+      for (const item of purchase.value.items || []) {
+        const rowKey = `${item.itemCode}|${item.specification}`;
+        if (inventoryKeys.has(rowKey)) continue;
+        state.data.rows.push({itemCode: item.itemCode, specification: item.specification,
+          itemName: item.itemName, stockQty: 0, inspectionWaitQty: 0, warehouses: [],
+          note: "구매·입고 내역 존재 · 재고 미등록"});
         inventoryKeys.add(rowKey);
       }
       state.data.rows.sort((left, right) => String(left.itemCode).localeCompare(String(right.itemCode))

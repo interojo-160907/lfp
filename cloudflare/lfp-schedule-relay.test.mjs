@@ -20,7 +20,7 @@ function mockFetch({ automation, apsVersion = "v1", apsStatus = 200, dispatchSta
     calls.push({ url, method, body: init.body ? JSON.parse(init.body) : null });
 
     if (url.includes("web/data/automation-state.json")) return repositoryDocument(automation);
-    if (url.includes("/api/aps-plan")) {
+    if (url.includes("/api/aps-backward-plan")) {
       return new Response(JSON.stringify({ source_refreshed_at: apsVersion }), {
         status: apsStatus,
         headers: { "Content-Type": "application/json" },

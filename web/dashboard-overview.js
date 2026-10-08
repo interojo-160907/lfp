@@ -102,6 +102,12 @@
         inspectionWaitQty: 0,
       });
     });
+    state.purchaseMap.forEach((purchase, itemKey) => {
+      if (!rowsByKey.has(itemKey)) rowsByKey.set(itemKey, {
+        itemCode: purchase.itemCode, specification: purchase.specification,
+        itemName: purchase.itemName, stockQty: 0, inspectionWaitQty: 0,
+      });
+    });
     return [...rowsByKey.values()].map((inventory) => {
       const itemCode = String(inventory.itemCode || "").trim();
       const specification = String(inventory.specification || "").trim();
@@ -690,7 +696,7 @@
             <h2>리드지 수급 관리</h2>
             <p>납기 리스크와 구매 필요 품목을 한 화면에서 우선순위대로 확인합니다.</p>
           </div>
-          <div class="lfp-dashboard-updated">APS · 재고 · 구매 최신 연결 기준</div>
+          <div class="lfp-dashboard-updated">Backward 접착(55) · 재고 · 구매 기준</div>
         </header>
 
         <section class="lfp-risk-kpi-strip" aria-label="리드지 리스크 KPI">

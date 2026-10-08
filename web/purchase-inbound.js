@@ -133,6 +133,18 @@
 
     const noteCell = cells[indexes.note];
     if (!noteCell) return;
+    let pendingNote = noteCell.querySelector(".lfp-pending-approval-note");
+    const pendingQty = Number(purchase?.pendingApprovalQty || 0);
+    if (pendingQty > 0) {
+      if (!pendingNote) {
+        pendingNote = document.createElement("span");
+        pendingNote.className = "lfp-pending-approval-note";
+        noteCell.append(pendingNote);
+      }
+      const label = ` · 기안 의뢰 ${format(pendingQty)} (확보 제외)`;
+      if (pendingNote.textContent !== label) pendingNote.textContent = label;
+      pendingNote.title = (purchase.pendingRequests || []).map((r) => `${r.requestNo}: ${format(r.quantity)}`).join(" / ");
+    } else pendingNote?.remove();
     noteCell.classList.remove("lfp-status-ok", "lfp-status-wait", "lfp-status-buy", "lfp-status-inbound");
 
     if (productionRequired <= 0 || recommendedOrderQuantity <= 0) {

@@ -104,9 +104,9 @@ class ManualScopeTests(unittest.TestCase):
 
     def test_each_manual_scope_fetches_only_the_selected_channel(self) -> None:
         cases = {
-            "aps": {"aps"},
-            "inventory": {"inventory"},
-            "purchase": {"purchase"},
+            "aps": {"aps", "bom", "inventory", "purchase"},
+            "inventory": {"bom", "inventory", "purchase"},
+            "purchase": {"bom", "inventory", "purchase"},
             "bom": {"bom"},
             "production": {"production"},
             "all": {"aps", "inventory", "purchase", "bom", "production"},
@@ -213,16 +213,15 @@ class ApsCategoryTests(unittest.TestCase):
 
     def test_collect_aps_reconciles_all_category_totals(self) -> None:
         source_rows = [
-            {"item_cd_5": "P0001", "demand_type": self.mojibake("이니셜"), "plan_qty": 10},
-            {"item_cd_5": "P0001", "demand_type": "PB", "plan_qty": 20},
-            {"item_cd_5": "P0001", "demand_type": self.mojibake("국내"), "plan_qty": 30},
-            {"item_cd_5": "P0001", "demand_type": self.mojibake("안전(국내)"), "plan_qty": 40},
+            {"item_id": "P0001A-03.00", "oper_cd": "55", "demand_id": f"{prefix}_R202610010001_1_1", "backward_qty": qty,
+             "forward_qty": 999, "plan_qty": 999, "diff_qty": -100}
+            for prefix, qty in [("HW0530", 10), ("PB", 20), ("국내", 30), ("안전(국내)", 40)]
         ]
         payload = {
             "rows": source_rows,
             "total_count": len(source_rows),
             "returned_count": len(source_rows),
-            "total_plan_qty": 100,
+            "totals": {"Backward 필요수량": 100},
             "source_refreshed_at": "2026-08-31 08:00:00",
         }
         bom = {"rows": [{
@@ -232,7 +231,7 @@ class ApsCategoryTests(unittest.TestCase):
         with patch.object(collector, "fetch_json", return_value=payload) as fetch_json:
             result = collector.collect_aps(bom)
         fetch_json.assert_called_once_with(
-            "/api/aps-plan", {"oper": 45, "item_cd": "P", "limit": 0}, 300
+            "/api/aps-backward-plan", {"oper": 55, "limit": 0}, 300
         )
         self.assertEqual(
             {"해외": 10, "PB": 20, "국내": 30, "안전재고": 40},
@@ -243,16 +242,32 @@ class ApsCategoryTests(unittest.TestCase):
 
     def test_collect_aps_rejects_unknown_demand_type(self) -> None:
         payload = {
-            "rows": [{"item_cd_5": "P0001", "demand_type": "NEW", "plan_qty": 1}],
+            "rows": [{"item_id": "P0001A", "oper_cd": "55", "demand_id": "NEW_R202610010001_1_1", "backward_qty": 1}],
             "total_count": 1,
             "returned_count": 1,
-            "total_plan_qty": 1,
+            "totals": {"Backward 필요수량": 1},
         }
         with (
             patch.object(collector, "fetch_json", return_value=payload),
             self.assertRaisesRegex(RuntimeError, "미지원 수요구분"),
         ):
             collector.collect_aps({"rows": []})
+
+    def test_backward_missing_never_falls_back_to_plan(self):
+        row = {"oper_cd": "55", "item_id": "P0001A", "plan_qty": 999}
+        with patch.object(collector, "fetch_json", return_value={"rows": [row]}):
+            with self.assertRaisesRegex(RuntimeError, "PLAN 대체 사용 금지"):
+                collector.collect_aps({"rows": []})
+
+    def test_backward_converts_bom_and_keeps_forward_zero_demands(self):
+        row = {"oper_cd": "55", "item_id": "P0001A", "demand_id": "국내_R202610010001_2_1",
+               "backward_qty": 10, "forward_qty": 0, "plan_qty": 777}
+        bom = {"rows": [{"productCode": "P0001", "liddingCode": "BS0001", "liddingSpecification": "BS0001-001", "requirementQty": 2}]}
+        with patch.object(collector, "fetch_json", return_value={"rows": [row], "totals": {"Backward 필요수량": 10}}):
+            result = collector.collect_aps(bom)
+        self.assertEqual(20, result["rows"][0]["productionRequiredQty"])
+        self.assertEqual(20, result["rows"][0]["salesOrders"][0]["productionRequiredQty"])
+        self.assertEqual("R202610010001", result["rows"][0]["salesOrders"][0]["salesOrderNo"])
 
 
 class ProductionUsageTests(unittest.TestCase):
@@ -419,6 +434,39 @@ class SupplyFormulaTests(unittest.TestCase):
         )):
             with self.assertRaisesRegex(RuntimeError, "산식 불일치"):
                 collector.collect_purchase({"rows": []}, bom)
+
+
+class SupplyRefreshRegressionTests(unittest.TestCase):
+    def test_purchase_failure_does_not_replace_new_inventory(self):
+        with (
+            patch.object(collector, "read_json", return_value={"rows": [{}]}),
+            patch.object(collector, "collect_bom", return_value={"rows": [{}]}),
+            patch.object(collector, "collect_inventory", return_value={"rows": []}),
+            patch.object(collector, "collect_purchase", side_effect=RuntimeError("ERP timeout")),
+            patch.object(collector, "atomic_write") as write,
+            patch.object(collector, "publish_snapshot") as publish,
+            patch.object(collector, "write_status") as status,
+        ):
+            with self.assertRaisesRegex(RuntimeError, "ERP timeout"):
+                collector.collect_scope("inventory", "manual", "manual_inventory")
+            write.assert_not_called()
+            publish.assert_not_called()
+            status.assert_not_called()
+
+    def test_draft_requests_are_visible_but_not_secured_and_closed_are_explained(self):
+        base = {"itm_cd": "BS0115", "spec": "BS0115-001", "itm_nm": "리드지",
+                "req_qty": 3000000, "po_tot": 0, "not_inqty": 3000000, "req_sq": 1}
+        requests = [{**base, "req_no": "DRAFT", "stat_bc_nm": "의뢰", "gw_stat": "G"},
+                    {**base, "req_no": "CLOSED", "stat_bc_nm": "강제완결", "gw_stat": "Y"}]
+        def fetch(path, *_args):
+            rows = requests if path.endswith("purchase-requests") else []
+            return {"rows": rows, "total_count": len(rows), "returned_count": len(rows), "truncated": False}
+        with patch.object(collector, "fetch_json", side_effect=fetch):
+            result = collector.collect_purchase({"rows": [{"itemCode": "BS0115", "specification": "BS0115-001"}]})
+        self.assertEqual(0, result["purchaseWaitTotal"])
+        self.assertEqual(3000000, result["pendingApprovalTotal"])
+        self.assertEqual(2, len(result["excludedRows"]))
+        self.assertEqual("DRAFT", result["items"][0]["pendingRequests"][0]["requestNo"])
 
 
 class WorkflowConfigurationTests(unittest.TestCase):

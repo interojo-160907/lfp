@@ -156,7 +156,7 @@
           if (!commandShell.querySelector(".ct-page-title")) {
             const pageTitle = document.createElement("div");
             pageTitle.className = "ct-page-title";
-            pageTitle.innerHTML = "<strong>리드지별 상세내역</strong><span>재고부터 APS 생산필요까지 한눈에 확인</span>";
+            pageTitle.innerHTML = "<strong>리드지별 상세내역</strong><span>Backward 접착(55) 필요수량과 재고·구매 대기수량</span>";
             commandShell.prepend(pageTitle);
           }
           break;

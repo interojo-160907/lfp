@@ -1259,7 +1259,7 @@
       });
       window.LFPResources.invalidate(INVENTORY_URL);
       await loadMonitorStatus();
-      button.textContent = "수집 완료";
+      button.textContent = "수급 전체 갱신 완료";
       window.setTimeout(() => window.location.reload(), 500);
     } catch (error) {
       button.textContent = "수집 실패";

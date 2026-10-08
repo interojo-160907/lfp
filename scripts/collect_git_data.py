@@ -517,12 +517,17 @@ def collect_purchase(inventory: dict, bom: dict | None = None) -> dict:
     if not lidding_keys:
         raise RuntimeError("리드지 재고/BOM 기준키가 없습니다.")
 
+    excluded_rows = []
     request_rows = []
     request_formula_mismatches = 0
     for row in request_source_rows:
         item_code = normalized(row.get("itm_cd"))
         specification = normalized(row.get("spec"))
         if (item_code, specification) not in lidding_keys:
+            if LIDDING_NAME.search(str(row.get("itm_nm") or "")):
+                excluded_rows.append({"itemCode": item_code, "specification": specification,
+                                      "documentNo": row.get("po_no") or row.get("req_no"),
+                                      "reason": "재고/BOM의 품목·규격과 미연결"})
             continue
         request_qty = number(row.get("req_qty"))
         purchase_order_qty = number(row.get("po_tot"))
@@ -550,6 +555,10 @@ def collect_purchase(inventory: dict, bom: dict | None = None) -> dict:
         item_code = normalized(row.get("itm_cd"))
         specification = normalized(row.get("spec") or row.get("specc"))
         if (item_code, specification) not in lidding_keys:
+            if LIDDING_NAME.search(str(row.get("itm_nm") or "")):
+                excluded_rows.append({"itemCode": item_code, "specification": specification,
+                                      "documentNo": row.get("po_no") or row.get("req_no"),
+                                      "reason": "재고/BOM의 품목·규격과 미연결"})
             continue
         purchase_order_qty = number(row.get("po_qty"))
         provisional_receipt_qty = number(row.get("dlv_qty"))
@@ -582,7 +591,7 @@ def collect_purchase(inventory: dict, bom: dict | None = None) -> dict:
         "requestQty": Decimal("0"), "requestPurchaseOrderQty": Decimal("0"),
         "purchaseWaitQty": Decimal("0"), "purchaseOrderQty": Decimal("0"),
         "provisionalReceiptQty": Decimal("0"), "receivedQty": Decimal("0"),
-        "inboundWaitQty": Decimal("0"), "requests": [], "purchaseOrders": [],
+        "inboundWaitQty": Decimal("0"), "pendingApprovalQty": Decimal("0"), "pendingRequests": [], "requests": [], "purchaseOrders": [],
     })
 
     def item_for(row: dict) -> dict:
@@ -594,6 +603,15 @@ def collect_purchase(inventory: dict, bom: dict | None = None) -> dict:
 
     for row in request_rows:
         if row["approval_status"] != "Y" or row["request_status_name"] != "완료" or row["not_ordered_qty"] <= 0:
+            excluded_rows.append({"itemCode": row["item_code"], "specification": row["specification"],
+                                  "documentNo": row["request_no"], "quantity": decimal_json(row["not_ordered_qty"]),
+                                  "reason": "승인·완료된 양수 미발주 의뢰만 확보수량에 포함",
+                                  "status": row["request_status_name"], "approval": row["approval_status"]})
+            if row["approval_status"] == "G" and row["request_status_name"] == "의뢰" and row["not_ordered_qty"] > 0:
+                item = item_for(row)
+                item["pendingApprovalQty"] += row["not_ordered_qty"]
+                item["pendingRequests"].append({"requestNo": row["request_no"], "requestSeq": row["request_seq"],
+                    "quantity": decimal_json(row["not_ordered_qty"]), "status": "기안"})
             continue
         item = item_for(row)
         item["requestQty"] += row["request_qty"]
@@ -613,6 +631,9 @@ def collect_purchase(inventory: dict, bom: dict | None = None) -> dict:
         if active and not row["request_no"]:
             included_missing.append(row)
         if not active:
+            excluded_rows.append({"itemCode": row["item_code"], "specification": row["specification"],
+                                  "documentNo": row["purchase_order_no"], "status": row["order_status_name"],
+                                  "quantity": decimal_json(row["remaining_qty"]), "reason": "유효 미납 발주 아님"})
             continue
         item = item_for(row)
         item["purchaseOrderQty"] += row["purchase_order_qty"]
@@ -677,6 +698,8 @@ def collect_purchase(inventory: dict, bom: dict | None = None) -> dict:
         "collectedAt": now_text(), "queryDate": order_payload.get("query_date") or today.isoformat(),
         "dateFrom": date_from, "dateTo": date_to,
         "historyWindow": "recent two months",
+        "excludedRows": excluded_rows,
+        "pendingApprovalTotal": sum(item["pendingApprovalQty"] for item in items),
         "apiFilters": {"requests": "itm_cd=BS, not_ordered=1", "orders": "itm_cd=BS, open_only=1"},
         "requestSourceRowCount": len(request_source_rows), "purchaseOrderSourceRowCount": len(order_source_rows),
         "matchedLiddingRequestRows": len(request_rows), "matchedLiddingPurchaseOrderRows": len(order_rows),
@@ -715,7 +738,7 @@ def collect_purchase(inventory: dict, bom: dict | None = None) -> dict:
 
 
 def collect_aps(bom: dict) -> dict:
-    payload = fetch_json("/api/aps-plan", {"oper": 45, "item_cd": "P", "limit": 0}, 300)
+    payload = fetch_json("/api/aps-backward-plan", {"oper": 55, "limit": 0}, 300)
     source_rows = validated_rows("APS", payload)
     bom_by_product: dict[str, list[dict]] = defaultdict(list)
     for row in bom.get("rows") or []:
@@ -724,18 +747,34 @@ def collect_aps(bom: dict) -> dict:
     aggregates: dict[tuple[str, str], Decimal] = defaultdict(lambda: Decimal("0"))
     details = []
     for source_row_no, row in enumerate(source_rows, start=1):
-        p_code = str(row.get("item_cd_5") or "").upper().strip()
-        qty = number(row.get("plan_qty"))
-        if not p_code.startswith("P") or qty <= 0:
+        if str(row.get("oper_cd") or "").strip() != "55":
+            raise RuntimeError("Backward API에 접착/멸균 55 이외 공정이 포함됐습니다.")
+        item_id = normalized(row.get("item_id"))
+        match = re.match(r"^(P[0-9]{4})(?![0-9])", item_id)
+        if not match:
+            raise RuntimeError(f"Backward 접착 P코드 해석 실패: {item_id}")
+        p_code = match.group(1)
+        if row.get("backward_qty") is None:
+            raise RuntimeError("Backward 필요수량 필드가 없습니다. PLAN 대체 사용 금지")
+        qty = number(row["backward_qty"])
+        if qty < 0:
+            raise RuntimeError("Backward 필요수량이 음수입니다.")
+        if qty == 0:
             continue
-        demand_type = repair_legacy_korean_text(row.get("demand_type") or "미분류")
+        demand_id = repair_legacy_korean_text(row.get("demand_id"))
+        demand_match = re.match(r"^(.*?)_([R]?[0-9]{12})_([0-9]+)(?:_|$)", demand_id)
+        if not demand_match:
+            raise RuntimeError(f"Backward 수요 식별자 해석 실패: {demand_id}")
+        demand_type = demand_match.group(1)
+        if re.fullmatch(r"[A-Z]+[0-9]+", demand_type):
+            demand_type = "이니셜"
         aggregates[(p_code, demand_type)] += qty
         details.append({
             "sourceRowNo": source_row_no, "pCode": p_code,
             "demandType": demand_type, "demandCategory": category(demand_type),
             "demandId": repair_legacy_korean_text(row.get("demand_id")),
-            "salesOrderNo": str(row.get("so_id") or "").strip(),
-            "sequence": int(row.get("seq") or 0),
+            "salesOrderNo": demand_match.group(2),
+            "sequence": int(demand_match.group(3)),
             "initial": repair_legacy_korean_text(row.get("initial")),
             "customerName": repair_legacy_korean_text(row.get("cust_name")),
             "dueDate": row.get("due_date") or None,
@@ -745,8 +784,8 @@ def collect_aps(bom: dict) -> dict:
     category_totals: dict[str, Decimal] = defaultdict(lambda: Decimal("0"))
     unknown_demand_types: dict[str, Decimal] = defaultdict(lambda: Decimal("0"))
     source_total = sum(aggregates.values(), Decimal("0"))
-    declared_source_total = number(payload.get("total_plan_qty"))
-    if payload.get("total_plan_qty") is not None and source_total != declared_source_total:
+    declared_source_total = number((payload.get("totals") or {}).get("Backward 필요수량"))
+    if (payload.get("totals") or {}).get("Backward 필요수량") is not None and source_total != declared_source_total:
         raise RuntimeError(f"APS 원본 합계 불일치: API={declared_source_total}, P코드 합계={source_total}")
     for (p_code, demand_type), qty in aggregates.items():
         demand_category = category(demand_type)
@@ -781,10 +820,10 @@ def collect_aps(bom: dict) -> dict:
                 "dueDates": [], "sourceRefreshedAt": source_refreshed_at,
                 "categoryQuantities": defaultdict(lambda: Decimal("0")), "orderGroups": {},
             })
-            target["productionRequiredQty"] += qty
+            target["productionRequiredQty"] += qty * number(mapping.get("requirementQty", 1))
             target["linkedPCodes"].add(p_code)
             target["dueDates"].extend(due_dates)
-            target["categoryQuantities"][category(demand_type)] += qty
+            target["categoryQuantities"][category(demand_type)] += qty * number(mapping.get("requirementQty", 1))
 
     for detail in details:
         for mapping in bom_by_product.get(detail["pCode"], []):
@@ -795,7 +834,7 @@ def collect_aps(bom: dict) -> dict:
                 detail["salesOrderNo"], detail["sequence"], detail["initial"], detail["customerName"], detail["dueDate"],
             )
             order = target["orderGroups"].setdefault(group_key, {**detail, "productionRequiredQty": Decimal("0")})
-            order["productionRequiredQty"] += detail["productionRequiredQty"]
+            order["productionRequiredQty"] += detail["productionRequiredQty"] * number(mapping.get("requirementQty", 1))
 
     output_rows = []
     for target in requirements.values():
@@ -820,8 +859,10 @@ def collect_aps(bom: dict) -> dict:
     output_rows.sort(key=lambda row: (row["liddingCode"], row["liddingSpecification"]))
     return {
         "generatedAt": now_text(), "sourceRefreshedAt": source_refreshed_at,
-        "apiFilters": {"oper": "45", "item_cd": "P"},
-        "sourceRowCount": payload.get("returned_count"), "sourceTotalQty": payload.get("total_plan_qty"),
+        "apiFilters": {"oper": "55"},
+        "sourceEndpoint": "/api/aps-backward-plan", "quantityField": "backward_qty",
+        "processName": "접착/멸균", "pCodeFilter": "item_id P + 4 digits",
+        "sourceRowCount": payload.get("returned_count"), "sourceTotalQty": (payload.get("totals") or {}).get("Backward 필요수량"),
         "pCodeDemandRows": len(aggregates),
         "categoryTotals": {name: decimal_json(category_totals[name]) for name in APS_CATEGORIES},
         "liddingRequirementCount": len(output_rows),
@@ -839,7 +880,7 @@ def collect_aps(bom: dict) -> dict:
 
 
 def aps_source_version() -> str:
-    payload = fetch_json("/api/aps-plan", {"oper": 45, "item_cd": "P", "limit": 1}, 120)
+    payload = fetch_json("/api/aps-backward-plan", {"oper": 55, "limit": 1}, 120)
     version = str(payload.get("source_refreshed_at") or "").strip()
     if not version:
         raise RuntimeError("APS source_refreshed_at 값이 없습니다.")
@@ -895,36 +936,41 @@ def write_status(scope: str, files: list[str], mode: str, reason: str) -> None:
 
 def collect_scope(scope: str, mode: str, reason: str) -> list[str]:
     written = []
+    pending = {}
+    supply_refresh = scope in {"all", "support", "aps", "inventory", "purchase"}
     bom = read_json(DATA_DIR / "bom-product-lidding.json", {})
     inventory = read_json(DATA_DIR / "lidding-inventory.json", {})
-    if scope in {"all", "support", "bom"}:
+    if supply_refresh or scope == "bom":
         bom = collect_bom()
-        atomic_write(DATA_DIR / "bom-product-lidding.json", bom)
+        pending["bom-product-lidding.json"] = bom
         written.append("bom-product-lidding.json")
-    if scope in {"all", "support", "inventory"}:
+    if supply_refresh:
         inventory = collect_inventory()
-        atomic_write(DATA_DIR / "lidding-inventory.json", inventory)
+        pending["lidding-inventory.json"] = inventory
         written.append("lidding-inventory.json")
-    if scope in {"all", "support", "purchase"}:
+    if supply_refresh:
         if not isinstance(inventory, dict) or not inventory:
             raise RuntimeError("구매·입고 수집에 필요한 기존 재고 데이터가 없습니다.")
         if not isinstance(bom, dict) or not bom.get("rows"):
             raise RuntimeError("구매·입고 수집에 필요한 기존 BOM 데이터가 없습니다.")
         purchase = collect_purchase(inventory, bom)
-        atomic_write(DATA_DIR / "lidding-purchase-inbound.json", purchase)
+        pending["lidding-purchase-inbound.json"] = purchase
         written.append("lidding-purchase-inbound.json")
     if scope in {"all", "aps"}:
         if not isinstance(bom, dict) or not bom:
             raise RuntimeError("APS 수집에 필요한 기존 BOM 데이터가 없습니다.")
         aps = collect_aps(bom)
-        atomic_write(DATA_DIR / "aps-lidding-requirement.json", aps)
+        pending["aps-lidding-requirement.json"] = aps
         written.append("aps-lidding-requirement.json")
     if scope == "production" or (scope == "all" and mode == "manual"):
         if not isinstance(bom, dict) or not bom:
             raise RuntimeError("생산실적 환산에 필요한 기존 BOM 데이터가 없습니다.")
         production = collect_production_usage(bom)
-        atomic_write(DATA_DIR / "lidding-production-usage.json", production)
+        pending["lidding-production-usage.json"] = production
         written.append("lidding-production-usage.json")
+    # No channel is replaced until every requested source has passed validation.
+    for filename, payload in pending.items():
+        atomic_write(DATA_DIR / filename, payload)
     publish_snapshot(scope, reason)
     written.append("dashboard-snapshot.json")
     files = sorted(set(written))
