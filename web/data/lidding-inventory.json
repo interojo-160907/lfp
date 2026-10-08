@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-10-08T12:03:06+09:00",
+  "generatedAt": "2026-10-08T12:04:07+09:00",
   "snapshotDate": "2026-10-08",
   "warehouseOptions": [
     {
@@ -22,7 +22,7 @@
   "itemCount": 243,
   "sourceRowCount": 474,
   "rawLiddingSourceRowCount": 476,
-  "stockTotal": 91719412,
+  "stockTotal": 91716544,
   "inspectionWaitTotal": 1476960,
   "inspectionAggregation": "max-per-item",
   "formula": {
@@ -2743,7 +2743,7 @@
       "itemCode": "BS0103",
       "itemName": "알루미늄리드지 (이태리 soleko US 58% 1day)_유광 코팅",
       "specification": "BS0103-001",
-      "stockQty": 411353,
+      "stockQty": 409385,
       "inspectionWaitQty": 0,
       "warehouses": [
         {
@@ -2770,7 +2770,7 @@
         {
           "warehouseCode": "S100",
           "warehouseName": "S관 공정부자재",
-          "stockQty": 60353,
+          "stockQty": 58385,
           "inspectionWaitQty": 0,
           "hasSourceRow": true
         }
@@ -8443,7 +8443,7 @@
       "itemCode": "BS0333",
       "itemName": "알루미늄리드지 (Monthly_무지) (80mm)",
       "specification": "BS0333-001",
-      "stockQty": 467544,
+      "stockQty": 466644,
       "inspectionWaitQty": 0,
       "warehouses": [
         {
@@ -8456,7 +8456,7 @@
         {
           "warehouseCode": "P010",
           "warehouseName": "A관 공정부자재",
-          "stockQty": 206104,
+          "stockQty": 205204,
           "inspectionWaitQty": 0,
           "hasSourceRow": true
         },
