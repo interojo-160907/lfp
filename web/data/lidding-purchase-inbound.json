@@ -1,43 +1,16 @@
 {
-  "collectedAt": "2026-10-08T14:29:14+09:00",
-  "queryDate": "2026-10-08 14:29",
+  "collectedAt": "2026-10-08T14:40:07+09:00",
+  "queryDate": "2026-10-08 14:40",
   "dateFrom": "2026-08-08",
   "dateTo": "2026-10-08",
   "historyWindow": "recent two months",
   "excludedRows": [
     {
-      "itemCode": "BS0115",
-      "specification": "BS0115-001",
-      "documentNo": "PR-2610060013",
-      "quantity": 3000000,
-      "reason": "승인·완료된 양수 미발주 의뢰만 확보수량에 포함",
-      "status": "의뢰",
-      "approval": "G"
-    },
-    {
-      "itemCode": "BS0352",
-      "specification": "BS0352-001",
-      "documentNo": "PR-2610060013",
-      "quantity": 500000,
-      "reason": "승인·완료된 양수 미발주 의뢰만 확보수량에 포함",
-      "status": "의뢰",
-      "approval": "G"
-    },
-    {
-      "itemCode": "BS0356",
-      "specification": "BS0356-001",
-      "documentNo": "PR-2610060013",
-      "quantity": 1200000,
-      "reason": "승인·완료된 양수 미발주 의뢰만 확보수량에 포함",
-      "status": "의뢰",
-      "approval": "G"
-    },
-    {
       "itemCode": "BS0362",
       "specification": "BS0362-001",
       "documentNo": "PR-2608140009",
       "quantity": 200000,
-      "reason": "승인·완료된 양수 미발주 의뢰만 확보수량에 포함",
+      "reason": "진행 중인 양수 미발주 의뢰가 아님",
       "status": "강제완결",
       "approval": "Y"
     },
@@ -69,16 +42,16 @@
   "matchedLiddingPurchaseOrderRows": 16,
   "openLiddingItemCount": 11,
   "inboundWaitItemCount": 9,
-  "purchaseWaitItemCount": 0,
+  "purchaseWaitItemCount": 3,
   "inboundWaitTotal": 14824339,
-  "purchaseWaitTotal": 0,
+  "purchaseWaitTotal": 4700000,
   "excludedMissingRequestNoRows": 0,
   "excludedMissingRequestNoQty": 0,
   "includedMissingRequestNoRows": 5,
   "includedMissingRequestNoQty": 10447099,
   "formula": {
     "inboundWait": "sum(rem_qty) where stat_bc_nm in (발주, 납품진행), regardless of req_no or rmks",
-    "purchaseWait": "sum(not_inqty) where gw_stat=Y and stat_bc_nm=완료",
+    "purchaseWait": "sum(not_inqty) where stat_bc_nm in (의뢰, 완료)",
     "grain": "item_code + specification",
     "requestLinkKey": "request_no + specification",
     "requestSequenceUsage": "trace-only"
@@ -267,9 +240,9 @@
       ]
     },
     {
-      "requestQty": 0,
+      "requestQty": 3000000,
       "requestPurchaseOrderQty": 0,
-      "purchaseWaitQty": 0,
+      "purchaseWaitQty": 3000000,
       "purchaseOrderQty": 5500000,
       "provisionalReceiptQty": 4890000,
       "receivedQty": 4890000,
@@ -286,12 +259,22 @@
       "itemCode": "BS0115",
       "itemName": "알루미늄리드지 (무지-백색_PET12/AL30/CPP100_White 리버스인쇄)",
       "specification": "BS0115-001",
-      "openRequestCount": 0,
+      "openRequestCount": 1,
       "openPurchaseOrderCount": 3,
-      "nextRequestedDeliveryDate": null,
+      "nextRequestedDeliveryDate": "2026-10-16",
       "nextOrderDeliveryDate": "2026-08-21",
       "nextDeliveryDate": "2026-08-21",
-      "requests": [],
+      "requests": [
+        {
+          "requestNo": "PR-2610060013",
+          "requestSeq": 1,
+          "requestDate": "2026-10-06",
+          "requestedDeliveryDate": "2026-10-16",
+          "requestQty": 3000000,
+          "purchaseOrderQty": 0,
+          "purchaseWaitQty": 3000000
+        }
+      ],
       "purchaseOrders": [
         {
           "purchaseOrderNo": "PO-2608120017",
@@ -410,9 +393,9 @@
       ]
     },
     {
-      "requestQty": 0,
+      "requestQty": 500000,
       "requestPurchaseOrderQty": 0,
-      "purchaseWaitQty": 0,
+      "purchaseWaitQty": 500000,
       "purchaseOrderQty": 0,
       "provisionalReceiptQty": 0,
       "receivedQty": 0,
@@ -429,18 +412,28 @@
       "itemCode": "BS0352",
       "itemName": "알루미늄리드지 (일본 Sincere pium 1day 55% 리드지)",
       "specification": "BS0352-001",
-      "openRequestCount": 0,
+      "openRequestCount": 1,
       "openPurchaseOrderCount": 0,
-      "nextRequestedDeliveryDate": null,
+      "nextRequestedDeliveryDate": "2026-10-12",
       "nextOrderDeliveryDate": null,
-      "nextDeliveryDate": null,
-      "requests": [],
+      "nextDeliveryDate": "2026-10-12",
+      "requests": [
+        {
+          "requestNo": "PR-2610060013",
+          "requestSeq": 2,
+          "requestDate": "2026-10-06",
+          "requestedDeliveryDate": "2026-10-12",
+          "requestQty": 500000,
+          "purchaseOrderQty": 0,
+          "purchaseWaitQty": 500000
+        }
+      ],
       "purchaseOrders": []
     },
     {
-      "requestQty": 0,
+      "requestQty": 1200000,
       "requestPurchaseOrderQty": 0,
-      "purchaseWaitQty": 0,
+      "purchaseWaitQty": 1200000,
       "purchaseOrderQty": 0,
       "provisionalReceiptQty": 0,
       "receivedQty": 0,
@@ -457,12 +450,22 @@
       "itemCode": "BS0356",
       "itemName": "알루미늄리드지 (PIA_1D 55% 리본 렌즈 리드지)",
       "specification": "BS0356-001",
-      "openRequestCount": 0,
+      "openRequestCount": 1,
       "openPurchaseOrderCount": 0,
-      "nextRequestedDeliveryDate": null,
+      "nextRequestedDeliveryDate": "2026-10-12",
       "nextOrderDeliveryDate": null,
-      "nextDeliveryDate": null,
-      "requests": [],
+      "nextDeliveryDate": "2026-10-12",
+      "requests": [
+        {
+          "requestNo": "PR-2610060013",
+          "requestSeq": 3,
+          "requestDate": "2026-10-06",
+          "requestedDeliveryDate": "2026-10-12",
+          "requestQty": 1200000,
+          "purchaseOrderQty": 0,
+          "purchaseWaitQty": 1200000
+        }
+      ],
       "purchaseOrders": []
     },
     {
