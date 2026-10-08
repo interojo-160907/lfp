@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-10-08T12:06:13+09:00",
+  "generatedAt": "2026-10-08T12:08:05+09:00",
   "snapshotDate": "2026-10-08",
   "warehouseOptions": [
     {
@@ -22,7 +22,7 @@
   "itemCount": 243,
   "sourceRowCount": 474,
   "rawLiddingSourceRowCount": 476,
-  "stockTotal": 91714457,
+  "stockTotal": 91710820,
   "inspectionWaitTotal": 1476960,
   "inspectionAggregation": "max-per-item",
   "formula": {
@@ -83,7 +83,7 @@
       "itemCode": "BS0005",
       "itemName": "알루미늄리드지 (Monthly_무지)",
       "specification": "BS0005-002",
-      "stockQty": 7799012,
+      "stockQty": 7798560,
       "inspectionWaitQty": 1476960,
       "warehouses": [
         {
@@ -96,7 +96,7 @@
         {
           "warehouseCode": "P010",
           "warehouseName": "A관 공정부자재",
-          "stockQty": 452871,
+          "stockQty": 452419,
           "inspectionWaitQty": 1476960,
           "hasSourceRow": true
         },
@@ -8899,7 +8899,7 @@
       "itemCode": "BS0354",
       "itemName": "알루미늄리드지 (PIA_1D 55% CoFANCY 리드지)",
       "specification": "BS0354-001",
-      "stockQty": 2871605,
+      "stockQty": 2868420,
       "inspectionWaitQty": 0,
       "warehouses": [
         {
@@ -8919,7 +8919,7 @@
         {
           "warehouseCode": "P030",
           "warehouseName": "C관 공정부자재",
-          "stockQty": 820605,
+          "stockQty": 817420,
           "inspectionWaitQty": 0,
           "hasSourceRow": true
         },

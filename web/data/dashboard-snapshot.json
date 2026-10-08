@@ -1,11 +1,11 @@
 {
-  "snapshotAt": "2026-10-08T12:06:14+09:00",
+  "snapshotAt": "2026-10-08T12:08:06+09:00",
   "scope": "all",
   "reason": "aps_changed",
   "channels": {
     "aps": {
-      "generatedAt": "2026-10-08T12:06:14+09:00",
-      "sourceRefreshedAt": "2026-10-08 12:05:47",
+      "generatedAt": "2026-10-08T12:08:06+09:00",
+      "sourceRefreshedAt": "2026-10-08 12:08:03",
       "apiFilters": {
         "oper": "45",
         "item_cd": "P"
@@ -37,7 +37,7 @@
       "rows": []
     },
     "inventory": {
-      "generatedAt": "2026-10-08T12:06:13+09:00",
+      "generatedAt": "2026-10-08T12:08:05+09:00",
       "snapshotDate": "2026-10-08",
       "warehouseOptions": [
         {
@@ -60,7 +60,7 @@
       "itemCount": 243,
       "sourceRowCount": 474,
       "rawLiddingSourceRowCount": 476,
-      "stockTotal": 91714457,
+      "stockTotal": 91710820,
       "inspectionWaitTotal": 1476960,
       "inspectionAggregation": "max-per-item",
       "formula": {
@@ -121,7 +121,7 @@
           "itemCode": "BS0005",
           "itemName": "알루미늄리드지 (Monthly_무지)",
           "specification": "BS0005-002",
-          "stockQty": 7799012,
+          "stockQty": 7798560,
           "inspectionWaitQty": 1476960,
           "warehouses": [
             {
@@ -134,7 +134,7 @@
             {
               "warehouseCode": "P010",
               "warehouseName": "A관 공정부자재",
-              "stockQty": 452871,
+              "stockQty": 452419,
               "inspectionWaitQty": 1476960,
               "hasSourceRow": true
             },
@@ -8937,7 +8937,7 @@
           "itemCode": "BS0354",
           "itemName": "알루미늄리드지 (PIA_1D 55% CoFANCY 리드지)",
           "specification": "BS0354-001",
-          "stockQty": 2871605,
+          "stockQty": 2868420,
           "inspectionWaitQty": 0,
           "warehouses": [
             {
@@ -8957,7 +8957,7 @@
             {
               "warehouseCode": "P030",
               "warehouseName": "C관 공정부자재",
-              "stockQty": 820605,
+              "stockQty": 817420,
               "inspectionWaitQty": 0,
               "hasSourceRow": true
             },
@@ -9354,8 +9354,8 @@
       ]
     },
     "purchase": {
-      "collectedAt": "2026-10-08T12:06:13+09:00",
-      "queryDate": "2026-10-08 12:06",
+      "collectedAt": "2026-10-08T12:08:06+09:00",
+      "queryDate": "2026-10-08 12:08",
       "dateFrom": "2026-08-08",
       "dateTo": "2026-10-08",
       "historyWindow": "recent two months",
@@ -9759,7 +9759,7 @@
       ]
     },
     "bom": {
-      "generatedAt": "2026-10-08T12:06:10+09:00",
+      "generatedAt": "2026-10-08T12:08:01+09:00",
       "sourceSignature": "99e8a8f8be0b6d0a8e6782ad87539d741f8b097e6870c5a19cac45271f45a16e",
       "productSourceCount": 1738,
       "bomSourceCount": 28920,
