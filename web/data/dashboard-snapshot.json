@@ -1,10 +1,10 @@
 {
-  "snapshotAt": "2026-10-08T14:21:43+09:00",
+  "snapshotAt": "2026-10-08T14:24:06+09:00",
   "scope": "aps",
   "reason": "manual_aps",
   "channels": {
     "aps": {
-      "generatedAt": "2026-10-08T14:21:43+09:00",
+      "generatedAt": "2026-10-08T14:24:06+09:00",
       "sourceRefreshedAt": "2026-10-08 12:06:01",
       "apiFilters": {
         "oper": "55"
@@ -115516,7 +115516,7 @@
       ]
     },
     "inventory": {
-      "generatedAt": "2026-10-08T14:21:38+09:00",
+      "generatedAt": "2026-10-08T14:24:02+09:00",
       "snapshotDate": "2026-10-08",
       "warehouseOptions": [
         {
@@ -115539,8 +115539,8 @@
       "itemCount": 243,
       "sourceRowCount": 474,
       "rawLiddingSourceRowCount": 476,
-      "stockTotal": 91653465,
-      "inspectionWaitTotal": 1476960,
+      "stockTotal": 93128332,
+      "inspectionWaitTotal": 0,
       "inspectionAggregation": "max-per-item",
       "formula": {
         "grain": "item_code + specification",
@@ -115552,7 +115552,7 @@
         "stockTotalReconciled": true,
         "negativeStockSourceRowCount": 2,
         "duplicateWarehouseItemSourceRowCount": 2,
-        "inspectionRepeatedWarehouseRowCount": 3,
+        "inspectionRepeatedWarehouseRowCount": 0,
         "inspectionConflictItemCount": 0
       },
       "status": {
@@ -115600,35 +115600,35 @@
           "itemCode": "BS0005",
           "itemName": "알루미늄리드지 (Monthly_무지)",
           "specification": "BS0005-002",
-          "stockQty": 7798260,
-          "inspectionWaitQty": 1476960,
+          "stockQty": 9275122,
+          "inspectionWaitQty": 0,
           "warehouses": [
             {
               "warehouseCode": "300",
               "warehouseName": "L관창고(자재)",
-              "stockQty": 7347876,
-              "inspectionWaitQty": 1476960,
+              "stockQty": 8824836,
+              "inspectionWaitQty": 0,
               "hasSourceRow": true
             },
             {
               "warehouseCode": "P010",
               "warehouseName": "A관 공정부자재",
-              "stockQty": 452119,
-              "inspectionWaitQty": 1476960,
+              "stockQty": 452021,
+              "inspectionWaitQty": 0,
               "hasSourceRow": true
             },
             {
               "warehouseCode": "P030",
               "warehouseName": "C관 공정부자재",
               "stockQty": -1735,
-              "inspectionWaitQty": 1476960,
+              "inspectionWaitQty": 0,
               "hasSourceRow": true
             },
             {
               "warehouseCode": "S100",
               "warehouseName": "S관 공정부자재",
               "stockQty": 0,
-              "inspectionWaitQty": 1476960,
+              "inspectionWaitQty": 0,
               "hasSourceRow": true
             }
           ],
@@ -116702,7 +116702,7 @@
           "itemCode": "BS0054",
           "itemName": "알루미늄리드지 (국내/중국 원데이_아이리스)_무광 코팅",
           "specification": "BS0054-003",
-          "stockQty": 2598818,
+          "stockQty": 2596823,
           "inspectionWaitQty": 0,
           "warehouses": [
             {
@@ -116722,7 +116722,7 @@
             {
               "warehouseCode": "P030",
               "warehouseName": "C관 공정부자재",
-              "stockQty": 589913,
+              "stockQty": 587918,
               "inspectionWaitQty": 0,
               "hasSourceRow": true
             },
@@ -124833,8 +124833,8 @@
       ]
     },
     "purchase": {
-      "collectedAt": "2026-10-08T14:21:39+09:00",
-      "queryDate": "2026-10-08 14:21",
+      "collectedAt": "2026-10-08T14:24:03+09:00",
+      "queryDate": "2026-10-08 14:24",
       "dateFrom": "2026-08-08",
       "dateTo": "2026-10-08",
       "historyWindow": "recent two months",
@@ -124934,7 +124934,7 @@
           "purchaseWaitQty": 0,
           "purchaseOrderQty": 12000000,
           "provisionalReceiptQty": 2861760,
-          "receivedQty": 1384800,
+          "receivedQty": 2861760,
           "inboundWaitQty": 9138240,
           "pendingApprovalQty": 0,
           "pendingRequests": [],
@@ -124957,7 +124957,7 @@
               "deliveryDate": "2026-09-30",
               "purchaseOrderQty": 3000000,
               "provisionalReceiptQty": 2861760,
-              "receivedQty": 1384800,
+              "receivedQty": 2861760,
               "inboundWaitQty": 138240,
               "orderStatus": "납품진행",
               "supplierName": "주식회사 에이치앤케이"
@@ -125388,7 +125388,7 @@
       ]
     },
     "bom": {
-      "generatedAt": "2026-10-08T14:21:29+09:00",
+      "generatedAt": "2026-10-08T14:23:57+09:00",
       "sourceSignature": "99e8a8f8be0b6d0a8e6782ad87539d741f8b097e6870c5a19cac45271f45a16e",
       "productSourceCount": 1738,
       "bomSourceCount": 28920,
