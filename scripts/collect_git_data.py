@@ -25,6 +25,7 @@ REGULAR_COLLECTION_INTERVAL = timedelta(hours=16)
 PCODE = re.compile(r"^P\d{4}$", re.IGNORECASE)
 LIDDING_NAME = re.compile(r"리드지|lidding|foil", re.IGNORECASE)
 ACTIVE_ORDER_STATUSES = {"발주", "납품진행"}
+ACTIVE_REQUEST_STATUSES = {"의뢰", "완료"}
 APS_CATEGORIES = ("해외", "PB", "국내", "안전재고")
 WAREHOUSES = (
     ("300", "L관창고(자재)"),
@@ -602,18 +603,18 @@ def collect_purchase(inventory: dict, bom: dict | None = None) -> dict:
         return item
 
     for row in request_rows:
-        if row["approval_status"] != "Y" or row["request_status_name"] != "완료" or row["not_ordered_qty"] <= 0:
+        active = row["request_status_name"] in ACTIVE_REQUEST_STATUSES and row["not_ordered_qty"] > 0
+        if not active:
             excluded_rows.append({"itemCode": row["item_code"], "specification": row["specification"],
                                   "documentNo": row["request_no"], "quantity": decimal_json(row["not_ordered_qty"]),
-                                  "reason": "승인·완료된 양수 미발주 의뢰만 확보수량에 포함",
+                                  "reason": "진행 중인 양수 미발주 의뢰가 아님",
                                   "status": row["request_status_name"], "approval": row["approval_status"]})
-            if row["approval_status"] == "G" and row["request_status_name"] == "의뢰" and row["not_ordered_qty"] > 0:
-                item = item_for(row)
-                item["pendingApprovalQty"] += row["not_ordered_qty"]
-                item["pendingRequests"].append({"requestNo": row["request_no"], "requestSeq": row["request_seq"],
-                    "quantity": decimal_json(row["not_ordered_qty"]), "status": "기안"})
             continue
         item = item_for(row)
+        if row["approval_status"] == "G":
+            item["pendingApprovalQty"] += row["not_ordered_qty"]
+            item["pendingRequests"].append({"requestNo": row["request_no"], "requestSeq": row["request_seq"],
+                "quantity": decimal_json(row["not_ordered_qty"]), "status": "기안"})
         item["requestQty"] += row["request_qty"]
         item["requestPurchaseOrderQty"] += row["purchase_order_qty"]
         item["purchaseWaitQty"] += row["not_ordered_qty"]
@@ -682,8 +683,7 @@ def collect_purchase(inventory: dict, bom: dict | None = None) -> dict:
         (
             row["not_ordered_qty"]
             for row in request_rows
-            if row["approval_status"] == "Y"
-            and row["request_status_name"] == "완료"
+            if row["request_status_name"] in ACTIVE_REQUEST_STATUSES
             and row["not_ordered_qty"] > 0
         ),
         Decimal("0"),
@@ -712,7 +712,7 @@ def collect_purchase(inventory: dict, bom: dict | None = None) -> dict:
         "includedMissingRequestNoQty": decimal_json(sum((row["remaining_qty"] for row in included_missing), Decimal("0"))),
         "formula": {
             "inboundWait": "sum(rem_qty) where stat_bc_nm in (발주, 납품진행), regardless of req_no or rmks",
-            "purchaseWait": "sum(not_inqty) where gw_stat=Y and stat_bc_nm=완료",
+            "purchaseWait": "sum(not_inqty) where stat_bc_nm in (의뢰, 완료)",
             "grain": "item_code + specification",
             "requestLinkKey": "request_no + specification",
             "requestSequenceUsage": "trace-only",
@@ -879,12 +879,21 @@ def collect_aps(bom: dict) -> dict:
     }
 
 
-def aps_source_version() -> str:
-    payload = fetch_json("/api/aps-backward-plan", {"oper": 55, "limit": 1}, 120)
-    version = str(payload.get("source_refreshed_at") or "").strip()
-    if not version:
-        raise RuntimeError("APS source_refreshed_at 값이 없습니다.")
-    return version
+def aps_outbound_run_status() -> dict[str, str]:
+    payload = fetch_json("/api/aps-outbound-status", {"limit": 0}, 120)
+    rows = validated_rows("APS 아웃바운드 상태", payload)
+    run = next((row for row in rows if str(row.get("tbl") or "").strip() == "RUN"), None)
+    if run is None:
+        raise RuntimeError("APS 아웃바운드 상태에 RUN 행이 없습니다.")
+    run_state = str(run.get("run_state") or "").strip().upper()
+    run_key = str(run.get("run_key") or "").strip()
+    if run_state == "D" and not run_key:
+        raise RuntimeError("완료된 APS 아웃바운드의 run_key가 없습니다.")
+    return {
+        "runState": run_state,
+        "runKey": run_key,
+        "lastUpdated": str(run.get("last_upd") or "").strip(),
+    }
 
 
 def publish_snapshot(scope: str, reason: str) -> None:
@@ -1032,7 +1041,7 @@ def finish_regular_collection(
 def run_automatic() -> bool:
     state = load_automation_state()
     try:
-        observed = aps_source_version()
+        outbound = aps_outbound_run_status()
     except Exception as error:
         if not regular_collection_due(state):
             raise
@@ -1045,6 +1054,26 @@ def run_automatic() -> bool:
             aps_error=f"{type(error).__name__}: {error}",
         )
         return True
+
+    run_state = outbound["runState"]
+    observed = outbound["runKey"]
+    if run_state != "D":
+        if regular_collection_due(state):
+            reason = "regular_16h_aps_not_complete"
+            files = collect_scope("support", "regular", reason)
+            finish_regular_collection(state, reason, files)
+            return True
+        print(json.dumps({
+            "changed": False,
+            "scope": "auto",
+            "mode": "regular",
+            "reason": "aps_outbound_not_complete",
+            "runState": run_state,
+            "runKey": observed,
+            "lastUpdated": outbound["lastUpdated"],
+            "lastRegularCollectionAt": state.get("lastRegularCollectionAt"),
+        }, ensure_ascii=False))
+        return False
 
     handled = str(state.get("lastHandledApsVersion") or "")
     if observed != handled:
@@ -1064,7 +1093,8 @@ def run_automatic() -> bool:
         "scope": "auto",
         "mode": "regular",
         "reason": "aps_unchanged",
-        "sourceRefreshedAt": observed,
+        "runKey": observed,
+        "runState": run_state,
         "lastRegularCollectionAt": state.get("lastRegularCollectionAt"),
     }, ensure_ascii=False))
     return False

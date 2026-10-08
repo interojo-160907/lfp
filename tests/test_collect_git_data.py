@@ -28,7 +28,7 @@ class AutomaticCollectionTests(unittest.TestCase):
         state = self.state(hours_ago=1)
         with (
             patch.object(collector, "load_automation_state", return_value=state),
-            patch.object(collector, "aps_source_version", return_value="v1"),
+            patch.object(collector, "aps_outbound_run_status", return_value={"runState": "D", "runKey": "v1", "lastUpdated": "t1"}),
             patch.object(collector, "collect_scope") as collect_scope,
         ):
             self.assertFalse(collector.run_automatic())
@@ -38,7 +38,7 @@ class AutomaticCollectionTests(unittest.TestCase):
         state = self.state(hours_ago=1)
         with (
             patch.object(collector, "load_automation_state", return_value=state),
-            patch.object(collector, "aps_source_version", return_value="v2"),
+            patch.object(collector, "aps_outbound_run_status", return_value={"runState": "D", "runKey": "v2", "lastUpdated": "t2"}),
             patch.object(collector, "collect_scope", return_value=["dashboard-snapshot.json"]) as collect_scope,
             patch.object(collector, "finish_regular_collection") as finish,
         ):
@@ -50,7 +50,7 @@ class AutomaticCollectionTests(unittest.TestCase):
         state = self.state(hours_ago=17)
         with (
             patch.object(collector, "load_automation_state", return_value=state),
-            patch.object(collector, "aps_source_version", return_value="v1"),
+            patch.object(collector, "aps_outbound_run_status", return_value={"runState": "D", "runKey": "v1", "lastUpdated": "t1"}),
             patch.object(collector, "collect_scope", return_value=["dashboard-snapshot.json"]) as collect_scope,
             patch.object(collector, "finish_regular_collection") as finish,
         ):
@@ -63,7 +63,7 @@ class AutomaticCollectionTests(unittest.TestCase):
         error = RuntimeError("APS unavailable")
         with (
             patch.object(collector, "load_automation_state", return_value=state),
-            patch.object(collector, "aps_source_version", side_effect=error),
+            patch.object(collector, "aps_outbound_run_status", side_effect=error),
             patch.object(collector, "collect_scope", return_value=["dashboard-snapshot.json"]) as collect_scope,
             patch.object(collector, "finish_regular_collection") as finish,
         ):
@@ -77,6 +77,28 @@ class AutomaticCollectionTests(unittest.TestCase):
                 ["dashboard-snapshot.json"],
                 aps_error="RuntimeError: APS unavailable",
             )
+
+    def test_loading_outbound_does_not_replace_aps(self) -> None:
+        state = self.state(hours_ago=1)
+        with (
+            patch.object(collector, "load_automation_state", return_value=state),
+            patch.object(collector, "aps_outbound_run_status", return_value={"runState": "L", "runKey": "v2", "lastUpdated": "t2"}),
+            patch.object(collector, "collect_scope") as collect_scope,
+        ):
+            self.assertFalse(collector.run_automatic())
+            collect_scope.assert_not_called()
+
+    def test_loading_outbound_after_16_hours_refreshes_support_only(self) -> None:
+        state = self.state(hours_ago=17)
+        with (
+            patch.object(collector, "load_automation_state", return_value=state),
+            patch.object(collector, "aps_outbound_run_status", return_value={"runState": "L", "runKey": "v2", "lastUpdated": "t2"}),
+            patch.object(collector, "collect_scope", return_value=["dashboard-snapshot.json"]) as collect_scope,
+            patch.object(collector, "finish_regular_collection") as finish,
+        ):
+            self.assertTrue(collector.run_automatic())
+            collect_scope.assert_called_once_with("support", "regular", "regular_16h_aps_not_complete")
+            finish.assert_called_once_with(state, "regular_16h_aps_not_complete", ["dashboard-snapshot.json"])
 
     def test_manual_collection_does_not_touch_automatic_state(self) -> None:
         with (
@@ -453,7 +475,7 @@ class SupplyRefreshRegressionTests(unittest.TestCase):
             publish.assert_not_called()
             status.assert_not_called()
 
-    def test_draft_requests_are_visible_but_not_secured_and_closed_are_explained(self):
+    def test_draft_requests_are_purchase_wait_and_closed_are_explained(self):
         base = {"itm_cd": "BS0115", "spec": "BS0115-001", "itm_nm": "리드지",
                 "req_qty": 3000000, "po_tot": 0, "not_inqty": 3000000, "req_sq": 1}
         requests = [{**base, "req_no": "DRAFT", "stat_bc_nm": "의뢰", "gw_stat": "G"},
@@ -463,9 +485,10 @@ class SupplyRefreshRegressionTests(unittest.TestCase):
             return {"rows": rows, "total_count": len(rows), "returned_count": len(rows), "truncated": False}
         with patch.object(collector, "fetch_json", side_effect=fetch):
             result = collector.collect_purchase({"rows": [{"itemCode": "BS0115", "specification": "BS0115-001"}]})
-        self.assertEqual(0, result["purchaseWaitTotal"])
+        self.assertEqual(3000000, result["purchaseWaitTotal"])
         self.assertEqual(3000000, result["pendingApprovalTotal"])
-        self.assertEqual(2, len(result["excludedRows"]))
+        self.assertEqual(3000000, result["items"][0]["requests"][0]["purchaseWaitQty"])
+        self.assertEqual(1, len(result["excludedRows"]))
         self.assertEqual("DRAFT", result["items"][0]["pendingRequests"][0]["requestNo"])
 
 

@@ -211,16 +211,20 @@ function koreaDate(now = new Date()) {
   return new Date(now.getTime() + (9 * 60 * 60 * 1_000)).toISOString().slice(0, 10);
 }
 
-async function fetchApsSourceVersion(env) {
+async function fetchApsOutboundRun(env) {
   const baseUrl = normalizeText(env.LFP_API_BASE_URL || CONFIG.apiBaseUrl, 500).replace(/\/$/, "");
-  const response = await fetch(`${baseUrl}/api/aps-backward-plan?oper=55&limit=1`, {
+  const response = await fetch(`${baseUrl}/api/aps-outbound-status?limit=0`, {
     headers: { Accept: "application/json", "User-Agent": "LFP-Cloudflare-Monitor/1.0" },
   });
   const payload = await response.json().catch(() => ({}));
   if (!response.ok) throw new Error(`APS check failed (${response.status})`);
-  const version = normalizeText(payload.source_refreshed_at, 100);
-  if (!version) throw new Error("APS source_refreshed_at is missing.");
-  return version;
+  const rows = Array.isArray(payload.rows) ? payload.rows : [];
+  const run = rows.find((row) => normalizeText(row.tbl, 20) === "RUN");
+  if (!run) throw new Error("APS outbound RUN row is missing.");
+  const runState = normalizeText(run.run_state, 10).toUpperCase();
+  const runKey = normalizeText(run.run_key, 100);
+  if (runState === "D" && !runKey) throw new Error("Completed APS outbound run_key is missing.");
+  return { runState, runKey, lastUpdated: normalizeText(run.last_upd, 100) };
 }
 
 async function acquireAutoDispatch(env, signature, now) {
@@ -248,9 +252,9 @@ async function acquireProductionDispatch(env, dateKey, now) {
 
 async function runAutomaticMonitor(env, now = new Date()) {
   if (!env.GITHUB_TOKEN) throw new Error("missing_worker_secrets");
-  const [automationResult, apsResult] = await Promise.allSettled([
+  const [automationResult, outboundResult] = await Promise.allSettled([
     readRepositoryJson(env, CONFIG.automationStatePath),
-    fetchApsSourceVersion(env),
+    fetchApsOutboundRun(env),
   ]);
   if (automationResult.status !== "fulfilled") throw automationResult.reason;
   const state = automationResult.value || {};
@@ -258,18 +262,27 @@ async function runAutomaticMonitor(env, now = new Date()) {
   const regularDue = lastRegularAt === null || now.getTime() - lastRegularAt >= CONFIG.regularIntervalMs;
   let reason = "";
   let observedVersion = "";
+  let runState = "";
 
-  if (apsResult.status === "fulfilled") {
-    observedVersion = apsResult.value;
-    if (observedVersion !== normalizeText(state.lastHandledApsVersion, 100)) reason = "aps_changed";
+  if (outboundResult.status === "fulfilled") {
+    runState = outboundResult.value.runState;
+    observedVersion = outboundResult.value.runKey;
+    if (runState !== "D") {
+      if (regularDue) reason = "regular_16h_aps_not_complete";
+    } else if (observedVersion !== normalizeText(state.lastHandledApsVersion, 100)) reason = "aps_changed";
     else if (regularDue) reason = "regular_16h";
   } else if (regularDue) {
     reason = "regular_16h_aps_check_failed";
   }
 
   if (!reason) {
-    if (apsResult.status === "rejected") throw apsResult.reason;
-    return { dispatched: false, reason: "aps_unchanged", observedVersion };
+    if (outboundResult.status === "rejected") throw outboundResult.reason;
+    return {
+      dispatched: false,
+      reason: runState === "D" ? "aps_unchanged" : "aps_outbound_not_complete",
+      observedVersion,
+      runState,
+    };
   }
 
   const signature = `${reason}:${observedVersion || state.lastRegularCollectionAt || "unknown"}`;
@@ -279,9 +292,10 @@ async function runAutomaticMonitor(env, now = new Date()) {
   await dispatchRepositoryEvent(env, CONFIG.automaticEventType, {
     reason,
     observedVersion,
+    runState,
     checkedAt: now.toISOString(),
   });
-  return { dispatched: true, reason, observedVersion };
+  return { dispatched: true, reason, observedVersion, runState };
 }
 
 async function runProductionSchedule(env, now = new Date()) {

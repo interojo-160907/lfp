@@ -12,7 +12,7 @@ function repositoryDocument(payload, sha = "abc123") {
   }), { status: 200, headers: { "Content-Type": "application/json" } });
 }
 
-function mockFetch({ automation, apsVersion = "v1", apsStatus = 200, dispatchState = {} }) {
+function mockFetch({ automation, apsVersion = "v1", apsRunState = "D", apsStatus = 200, dispatchState = {} }) {
   const calls = [];
   global.fetch = async (input, init = {}) => {
     const url = String(input);
@@ -20,8 +20,10 @@ function mockFetch({ automation, apsVersion = "v1", apsStatus = 200, dispatchSta
     calls.push({ url, method, body: init.body ? JSON.parse(init.body) : null });
 
     if (url.includes("web/data/automation-state.json")) return repositoryDocument(automation);
-    if (url.includes("/api/aps-backward-plan")) {
-      return new Response(JSON.stringify({ source_refreshed_at: apsVersion }), {
+    if (url.includes("/api/aps-outbound-status")) {
+      return new Response(JSON.stringify({
+        rows: [{ tbl: "RUN", run_state: apsRunState, run_key: apsVersion, last_upd: "2026-09-01 08:59:00" }],
+      }), {
         status: apsStatus,
         headers: { "Content-Type": "application/json" },
       });
@@ -83,6 +85,25 @@ test("changed APS acquires a lock and dispatches automatic collection", async ()
   const dispatch = calls.find((call) => call.url.endsWith("/dispatches"));
   assert.equal(dispatch.body.event_type, "lfp-auto-collect");
   assert.equal(dispatch.body.client_payload.observedVersion, "v2");
+  assert.equal(dispatch.body.client_payload.runState, "D");
+});
+
+test("loading APS outbound does not dispatch", async () => {
+  const calls = mockFetch({
+    automation: {
+      lastHandledApsVersion: "v1",
+      lastRegularCollectionAt: "2026-09-01T08:30:00+09:00",
+    },
+    apsVersion: "v2",
+    apsRunState: "L",
+  });
+  const result = await __test.runAutomaticMonitor(
+    { GITHUB_TOKEN: "test" },
+    new Date("2026-09-01T00:00:00Z"),
+  );
+  assert.equal(result.dispatched, false);
+  assert.equal(result.reason, "aps_outbound_not_complete");
+  assert.equal(calls.some((call) => call.url.endsWith("/dispatches")), false);
 });
 
 test("failed APS check after 16 hours still dispatches fallback collection", async () => {
