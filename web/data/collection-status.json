@@ -1,9 +1,9 @@
 {
   "lastCollection": {
-    "at": "2026-10-08T14:24:07+09:00",
-    "scope": "aps",
-    "mode": "manual",
-    "reason": "manual_aps",
+    "at": "2026-10-08T14:28:16+09:00",
+    "scope": "all",
+    "mode": "regular",
+    "reason": "aps_changed",
     "status": "success",
     "files": [
       "aps-lidding-requirement.json",
@@ -14,7 +14,7 @@
     ]
   },
   "lastRegularCollection": {
-    "at": "2026-10-08T12:12:52+09:00",
+    "at": "2026-10-08T14:28:16+09:00",
     "scope": "all",
     "mode": "regular",
     "reason": "aps_changed",
@@ -724,6 +724,20 @@
       "scope": "aps",
       "mode": "manual",
       "reason": "manual_aps",
+      "status": "success",
+      "files": [
+        "aps-lidding-requirement.json",
+        "bom-product-lidding.json",
+        "dashboard-snapshot.json",
+        "lidding-inventory.json",
+        "lidding-purchase-inbound.json"
+      ]
+    },
+    {
+      "at": "2026-10-08T14:28:16+09:00",
+      "scope": "all",
+      "mode": "regular",
+      "reason": "aps_changed",
       "status": "success",
       "files": [
         "aps-lidding-requirement.json",

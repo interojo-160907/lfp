@@ -1,10 +1,10 @@
 {
-  "snapshotAt": "2026-10-08T14:24:06+09:00",
-  "scope": "aps",
-  "reason": "manual_aps",
+  "snapshotAt": "2026-10-08T14:28:16+09:00",
+  "scope": "all",
+  "reason": "aps_changed",
   "channels": {
     "aps": {
-      "generatedAt": "2026-10-08T14:24:06+09:00",
+      "generatedAt": "2026-10-08T14:28:16+09:00",
       "sourceRefreshedAt": "2026-10-08 12:06:01",
       "apiFilters": {
         "oper": "55"
@@ -115516,7 +115516,7 @@
       ]
     },
     "inventory": {
-      "generatedAt": "2026-10-08T14:24:02+09:00",
+      "generatedAt": "2026-10-08T14:28:13+09:00",
       "snapshotDate": "2026-10-08",
       "warehouseOptions": [
         {
@@ -115539,7 +115539,7 @@
       "itemCount": 243,
       "sourceRowCount": 474,
       "rawLiddingSourceRowCount": 476,
-      "stockTotal": 93128332,
+      "stockTotal": 93125592,
       "inspectionWaitTotal": 0,
       "inspectionAggregation": "max-per-item",
       "formula": {
@@ -117310,7 +117310,7 @@
           "itemCode": "BS0073",
           "itemName": "알루미늄리드지 (일본 PIA 1day 55%)_유광 코팅",
           "specification": "BS0073-002",
-          "stockQty": 4246785,
+          "stockQty": 4244045,
           "inspectionWaitQty": 0,
           "warehouses": [
             {
@@ -117330,7 +117330,7 @@
             {
               "warehouseCode": "P030",
               "warehouseName": "C관 공정부자재",
-              "stockQty": 971076,
+              "stockQty": 968336,
               "inspectionWaitQty": 0,
               "hasSourceRow": true
             },
@@ -124833,8 +124833,8 @@
       ]
     },
     "purchase": {
-      "collectedAt": "2026-10-08T14:24:03+09:00",
-      "queryDate": "2026-10-08 14:24",
+      "collectedAt": "2026-10-08T14:28:13+09:00",
+      "queryDate": "2026-10-08 14:28",
       "dateFrom": "2026-08-08",
       "dateTo": "2026-10-08",
       "historyWindow": "recent two months",
@@ -125388,7 +125388,7 @@
       ]
     },
     "bom": {
-      "generatedAt": "2026-10-08T14:23:57+09:00",
+      "generatedAt": "2026-10-08T14:28:10+09:00",
       "sourceSignature": "99e8a8f8be0b6d0a8e6782ad87539d741f8b097e6870c5a19cac45271f45a16e",
       "productSourceCount": 1738,
       "bomSourceCount": 28920,
