@@ -1,6 +1,6 @@
 {
-  "collectedAt": "2026-10-12T07:40:04+09:00",
-  "queryDate": "2026-10-12 07:40",
+  "collectedAt": "2026-10-12T15:19:03+09:00",
+  "queryDate": "2026-10-12 15:18",
   "dateFrom": "2026-08-12",
   "dateTo": "2026-10-12",
   "historyWindow": "recent two months",
@@ -31,20 +31,20 @@
       "reason": "유효 미납 발주 아님"
     }
   ],
-  "pendingApprovalTotal": 0,
+  "pendingApprovalTotal": 2000000,
   "apiFilters": {
     "requests": "itm_cd=BS, not_ordered=1",
     "orders": "itm_cd=BS, open_only=1"
   },
-  "requestSourceRowCount": 5,
+  "requestSourceRowCount": 6,
   "purchaseOrderSourceRowCount": 25,
-  "matchedLiddingRequestRows": 4,
+  "matchedLiddingRequestRows": 5,
   "matchedLiddingPurchaseOrderRows": 14,
-  "openLiddingItemCount": 10,
+  "openLiddingItemCount": 11,
   "inboundWaitItemCount": 8,
-  "purchaseWaitItemCount": 3,
+  "purchaseWaitItemCount": 4,
   "inboundWaitTotal": 13558339,
-  "purchaseWaitTotal": 4700000,
+  "purchaseWaitTotal": 6700000,
   "excludedMissingRequestNoRows": 0,
   "excludedMissingRequestNoQty": 0,
   "includedMissingRequestNoRows": 4,
@@ -384,6 +384,44 @@
           "supplierName": "피앤피 주식회사"
         }
       ]
+    },
+    {
+      "requestQty": 2000000,
+      "requestPurchaseOrderQty": 0,
+      "purchaseWaitQty": 2000000,
+      "purchaseOrderQty": 0,
+      "provisionalReceiptQty": 0,
+      "receivedQty": 0,
+      "inboundWaitQty": 0,
+      "pendingApprovalQty": 2000000,
+      "pendingRequests": [
+        {
+          "requestNo": "PR-2610120001",
+          "requestSeq": 1,
+          "quantity": 2000000,
+          "status": "기안"
+        }
+      ],
+      "itemCode": "BS0333",
+      "itemName": "알루미늄리드지 (Monthly_무지) (80mm)",
+      "specification": "BS0333-001",
+      "openRequestCount": 1,
+      "openPurchaseOrderCount": 0,
+      "nextRequestedDeliveryDate": "2026-10-30",
+      "nextOrderDeliveryDate": null,
+      "nextDeliveryDate": "2026-10-30",
+      "requests": [
+        {
+          "requestNo": "PR-2610120001",
+          "requestSeq": 1,
+          "requestDate": "2026-10-12",
+          "requestedDeliveryDate": "2026-10-30",
+          "requestQty": 2000000,
+          "purchaseOrderQty": 0,
+          "purchaseWaitQty": 2000000
+        }
+      ],
+      "purchaseOrders": []
     },
     {
       "requestQty": 500000,
