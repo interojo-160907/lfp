@@ -1,18 +1,18 @@
 {
-  "generatedAt": "2026-10-13T15:08:10+09:00",
-  "sourceSignature": "d01f1ad1df51da686005d63c3492e4df7c871ea7226092164e67810be6147bcc",
+  "generatedAt": "2026-10-14T07:08:59+09:00",
+  "sourceSignature": "d18db90df7c2f4ed2055454b9b88671d6541394a11eec801a13d199992f1e7be",
   "productSourceCount": 1751,
-  "bomSourceCount": 28959,
+  "bomSourceCount": 28986,
   "activePProductCount": 1751,
   "productApiFilterApplied": true,
   "bomApiFilterApplied": false,
   "bomApiFilterReason": "BOM API supports exact gd_cd only; P-prefix + level-1 BS lidding filters are applied locally",
   "storageScope": "active P-code + level-1 active BS lidding only",
-  "mappingCount": 1667,
-  "mappedProductCount": 1667,
+  "mappingCount": 1671,
+  "mappedProductCount": 1671,
   "liddingCodeCount": 240,
   "specificationVersionCount": 240,
-  "unmappedProductCount": 84,
+  "unmappedProductCount": 80,
   "rows": [
     {
       "productCode": "P0001",
@@ -6873,6 +6873,50 @@
       "liddingCode": "BS0036",
       "liddingName": "알루미늄리드지 (PIA 1Day)_유광 코팅",
       "liddingSpecification": "BS0036-001",
+      "requirementQty": 1,
+      "bomLevel": 1,
+      "statusCode": "S",
+      "useYn": "Y"
+    },
+    {
+      "productCode": "P1323",
+      "productName": "PIA D_Black Macchiato_55% UV 14.2",
+      "liddingCode": "BS0073",
+      "liddingName": "알루미늄리드지 (일본 PIA 1day 55%)_유광 코팅",
+      "liddingSpecification": "BS0073-002",
+      "requirementQty": 1,
+      "bomLevel": 1,
+      "statusCode": "S",
+      "useYn": "Y"
+    },
+    {
+      "productCode": "P1324",
+      "productName": "PIA D_Brown Macchiato_55% UV 14.2",
+      "liddingCode": "BS0073",
+      "liddingName": "알루미늄리드지 (일본 PIA 1day 55%)_유광 코팅",
+      "liddingSpecification": "BS0073-002",
+      "requirementQty": 1,
+      "bomLevel": 1,
+      "statusCode": "S",
+      "useYn": "Y"
+    },
+    {
+      "productCode": "P1325",
+      "productName": "PIA D_Pure Quartz_55% UV 14.2",
+      "liddingCode": "BS0073",
+      "liddingName": "알루미늄리드지 (일본 PIA 1day 55%)_유광 코팅",
+      "liddingSpecification": "BS0073-002",
+      "requirementQty": 1,
+      "bomLevel": 1,
+      "statusCode": "S",
+      "useYn": "Y"
+    },
+    {
+      "productCode": "P1326",
+      "productName": "PIA D_Moon Quartz_55% UV 14.2",
+      "liddingCode": "BS0073",
+      "liddingName": "알루미늄리드지 (일본 PIA 1day 55%)_유광 코팅",
+      "liddingSpecification": "BS0073-002",
       "requirementQty": 1,
       "bomLevel": 1,
       "statusCode": "S",
@@ -18352,5 +18396,5 @@
       "useYn": "Y"
     }
   ],
-  "changed": false
+  "changed": true
 }
