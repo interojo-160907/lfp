@@ -1,8 +1,8 @@
 {
-  "collectedAt": "2026-10-18T15:17:58+09:00",
-  "queryDate": "2026-10-18 15:17",
-  "dateFrom": "2026-08-18",
-  "dateTo": "2026-10-18",
+  "collectedAt": "2026-10-19T07:18:59+09:00",
+  "queryDate": "2026-10-19 07:18",
+  "dateFrom": "2026-08-19",
+  "dateTo": "2026-10-19",
   "historyWindow": "recent two months",
   "excludedRows": [
     {
@@ -12,14 +12,6 @@
       "status": "강제완결",
       "quantity": 200000,
       "reason": "유효 미납 발주 아님"
-    },
-    {
-      "itemCode": "BS0086",
-      "specification": "BS0086-001",
-      "documentNo": "PO-2608180023",
-      "status": "강제완결",
-      "quantity": 104000,
-      "reason": "유효 미납 발주 아님"
     }
   ],
   "pendingApprovalTotal": 0,
@@ -28,9 +20,9 @@
     "orders": "itm_cd=BS, open_only=1"
   },
   "requestSourceRowCount": 3,
-  "purchaseOrderSourceRowCount": 35,
+  "purchaseOrderSourceRowCount": 34,
   "matchedLiddingRequestRows": 0,
-  "matchedLiddingPurchaseOrderRows": 20,
+  "matchedLiddingPurchaseOrderRows": 19,
   "openLiddingItemCount": 13,
   "inboundWaitItemCount": 13,
   "purchaseWaitItemCount": 0,
