@@ -1,8 +1,8 @@
 {
-  "collectedAt": "2026-10-19T15:19:00+09:00",
-  "queryDate": "2026-10-19 15:19",
-  "dateFrom": "2026-08-19",
-  "dateTo": "2026-10-19",
+  "collectedAt": "2026-10-20T07:19:59+09:00",
+  "queryDate": "2026-10-20 07:19",
+  "dateFrom": "2026-08-20",
+  "dateTo": "2026-10-20",
   "historyWindow": "recent two months",
   "excludedRows": [
     {
@@ -14,24 +14,24 @@
       "reason": "유효 미납 발주 아님"
     }
   ],
-  "pendingApprovalTotal": 0,
+  "pendingApprovalTotal": 4000000,
   "apiFilters": {
     "requests": "itm_cd=BS, not_ordered=1",
     "orders": "itm_cd=BS, open_only=1"
   },
-  "requestSourceRowCount": 3,
-  "purchaseOrderSourceRowCount": 33,
-  "matchedLiddingRequestRows": 0,
-  "matchedLiddingPurchaseOrderRows": 19,
+  "requestSourceRowCount": 6,
+  "purchaseOrderSourceRowCount": 32,
+  "matchedLiddingRequestRows": 2,
+  "matchedLiddingPurchaseOrderRows": 18,
   "openLiddingItemCount": 13,
   "inboundWaitItemCount": 13,
-  "purchaseWaitItemCount": 0,
-  "inboundWaitTotal": 21660185,
-  "purchaseWaitTotal": 0,
+  "purchaseWaitItemCount": 1,
+  "inboundWaitTotal": 20340185,
+  "purchaseWaitTotal": 4000000,
   "excludedMissingRequestNoRows": 0,
   "excludedMissingRequestNoQty": 0,
-  "includedMissingRequestNoRows": 4,
-  "includedMissingRequestNoQty": 11324000,
+  "includedMissingRequestNoRows": 3,
+  "includedMissingRequestNoQty": 10004000,
   "formula": {
     "inboundWait": "sum(rem_qty) where stat_bc_nm in (발주, 납품진행), regardless of req_no or rmks",
     "purchaseWait": "sum(not_inqty) where stat_bc_nm in (의뢰, 완료)",
@@ -281,39 +281,57 @@
       ]
     },
     {
-      "requestQty": 0,
+      "requestQty": 4000000,
       "requestPurchaseOrderQty": 0,
-      "purchaseWaitQty": 0,
-      "purchaseOrderQty": 3320000,
+      "purchaseWaitQty": 4000000,
+      "purchaseOrderQty": 2000000,
       "provisionalReceiptQty": 175000,
       "receivedQty": 175000,
-      "inboundWaitQty": 3145000,
-      "pendingApprovalQty": 0,
-      "pendingRequests": [],
+      "inboundWaitQty": 1825000,
+      "pendingApprovalQty": 4000000,
+      "pendingRequests": [
+        {
+          "requestNo": "PR-2610190014",
+          "requestSeq": 1,
+          "quantity": 2000000,
+          "status": "기안"
+        },
+        {
+          "requestNo": "PR-2610190014",
+          "requestSeq": 2,
+          "quantity": 2000000,
+          "status": "기안"
+        }
+      ],
       "itemCode": "BS0073",
       "itemName": "알루미늄리드지 (일본 PIA 1day 55%)_유광 코팅",
       "specification": "BS0073-002",
-      "openRequestCount": 0,
-      "openPurchaseOrderCount": 2,
-      "nextRequestedDeliveryDate": null,
-      "nextOrderDeliveryDate": "2026-09-16",
-      "nextDeliveryDate": "2026-09-16",
-      "requests": [],
-      "purchaseOrders": [
+      "openRequestCount": 2,
+      "openPurchaseOrderCount": 1,
+      "nextRequestedDeliveryDate": "2026-11-04",
+      "nextOrderDeliveryDate": "2026-10-06",
+      "nextDeliveryDate": "2026-10-06",
+      "requests": [
         {
-          "purchaseOrderNo": "PO-2609160002",
-          "purchaseOrderSeq": 1,
-          "purchaseOrderDate": "2026-09-16",
-          "requestNo": "",
-          "requestSeq": null,
-          "deliveryDate": "2026-09-16",
-          "purchaseOrderQty": 1320000,
-          "provisionalReceiptQty": 0,
-          "receivedQty": 0,
-          "inboundWaitQty": 1320000,
-          "orderStatus": "발주",
-          "supplierName": "피앤피 주식회사"
+          "requestNo": "PR-2610190014",
+          "requestSeq": 1,
+          "requestDate": "2026-10-19",
+          "requestedDeliveryDate": "2026-11-04",
+          "requestQty": 2000000,
+          "purchaseOrderQty": 0,
+          "purchaseWaitQty": 2000000
         },
+        {
+          "requestNo": "PR-2610190014",
+          "requestSeq": 2,
+          "requestDate": "2026-10-19",
+          "requestedDeliveryDate": "2026-11-11",
+          "requestQty": 2000000,
+          "purchaseOrderQty": 0,
+          "purchaseWaitQty": 2000000
+        }
+      ],
+      "purchaseOrders": [
         {
           "purchaseOrderNo": "PO-2609290001",
           "purchaseOrderSeq": 2,
