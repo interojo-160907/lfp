@@ -1,18 +1,18 @@
 {
-  "generatedAt": "2026-10-19T07:48:53+09:00",
-  "sourceSignature": "cabaec4a24b8de9bfb81c11451e64b49cccbaf3f5f7fb76e16754778ce7d83aa",
+  "generatedAt": "2026-10-19T15:18:55+09:00",
+  "sourceSignature": "2a742b7e6dd7379da9ab3556759c7a07455765b814e73b3a40136bb97d24bbc3",
   "productSourceCount": 1755,
-  "bomSourceCount": 29046,
+  "bomSourceCount": 29109,
   "activePProductCount": 1755,
   "productApiFilterApplied": true,
   "bomApiFilterApplied": false,
   "bomApiFilterReason": "BOM API supports exact gd_cd only; P-prefix + level-1 BS lidding filters are applied locally",
   "storageScope": "active P-code + level-1 active BS lidding only",
-  "mappingCount": 1671,
-  "mappedProductCount": 1671,
+  "mappingCount": 1675,
+  "mappedProductCount": 1675,
   "liddingCodeCount": 240,
   "specificationVersionCount": 240,
-  "unmappedProductCount": 84,
+  "unmappedProductCount": 80,
   "rows": [
     {
       "productCode": "P0001",
@@ -6917,6 +6917,50 @@
       "liddingCode": "BS0073",
       "liddingName": "알루미늄리드지 (일본 PIA 1day 55%)_유광 코팅",
       "liddingSpecification": "BS0073-002",
+      "requirementQty": 1,
+      "bomLevel": 1,
+      "statusCode": "S",
+      "useYn": "Y"
+    },
+    {
+      "productCode": "P1327",
+      "productName": "PIA(CoFANCY) D_Hazel Puppy_55% UV 14.5",
+      "liddingCode": "BS0354",
+      "liddingName": "알루미늄리드지 (PIA_1D 55% CoFANCY 리드지)",
+      "liddingSpecification": "BS0354-001",
+      "requirementQty": 1,
+      "bomLevel": 1,
+      "statusCode": "S",
+      "useYn": "Y"
+    },
+    {
+      "productCode": "P1328",
+      "productName": "PIA(CoFANCY) D_Tear Puppy_55% UV 14.5",
+      "liddingCode": "BS0354",
+      "liddingName": "알루미늄리드지 (PIA_1D 55% CoFANCY 리드지)",
+      "liddingSpecification": "BS0354-001",
+      "requirementQty": 1,
+      "bomLevel": 1,
+      "statusCode": "S",
+      "useYn": "Y"
+    },
+    {
+      "productCode": "P1329",
+      "productName": "PIA(CoFANCY) D_Cocoa Kitty_55% UV 14.5",
+      "liddingCode": "BS0354",
+      "liddingName": "알루미늄리드지 (PIA_1D 55% CoFANCY 리드지)",
+      "liddingSpecification": "BS0354-001",
+      "requirementQty": 1,
+      "bomLevel": 1,
+      "statusCode": "S",
+      "useYn": "Y"
+    },
+    {
+      "productCode": "P1330",
+      "productName": "PIA(CoFANCY) D_Emo Kitty _55% UV 14.5",
+      "liddingCode": "BS0354",
+      "liddingName": "알루미늄리드지 (PIA_1D 55% CoFANCY 리드지)",
+      "liddingSpecification": "BS0354-001",
       "requirementQty": 1,
       "bomLevel": 1,
       "statusCode": "S",
@@ -18396,5 +18440,5 @@
       "useYn": "Y"
     }
   ],
-  "changed": false
+  "changed": true
 }
