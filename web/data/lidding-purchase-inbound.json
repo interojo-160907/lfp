@@ -1,6 +1,6 @@
 {
-  "collectedAt": "2026-10-20T07:54:59+09:00",
-  "queryDate": "2026-10-20 07:54",
+  "collectedAt": "2026-10-20T15:35:02+09:00",
+  "queryDate": "2026-10-20 15:35",
   "dateFrom": "2026-08-20",
   "dateTo": "2026-10-20",
   "historyWindow": "recent two months",
@@ -14,20 +14,20 @@
       "reason": "유효 미납 발주 아님"
     }
   ],
-  "pendingApprovalTotal": 4000000,
+  "pendingApprovalTotal": 100000,
   "apiFilters": {
     "requests": "itm_cd=BS, not_ordered=1",
     "orders": "itm_cd=BS, open_only=1"
   },
-  "requestSourceRowCount": 6,
-  "purchaseOrderSourceRowCount": 32,
-  "matchedLiddingRequestRows": 2,
-  "matchedLiddingPurchaseOrderRows": 18,
-  "openLiddingItemCount": 13,
+  "requestSourceRowCount": 5,
+  "purchaseOrderSourceRowCount": 34,
+  "matchedLiddingRequestRows": 1,
+  "matchedLiddingPurchaseOrderRows": 20,
+  "openLiddingItemCount": 14,
   "inboundWaitItemCount": 13,
   "purchaseWaitItemCount": 1,
-  "inboundWaitTotal": 20340185,
-  "purchaseWaitTotal": 4000000,
+  "inboundWaitTotal": 24340185,
+  "purchaseWaitTotal": 100000,
   "excludedMissingRequestNoRows": 0,
   "excludedMissingRequestNoQty": 0,
   "includedMissingRequestNoRows": 3,
@@ -214,7 +214,7 @@
       "purchaseWaitQty": 0,
       "purchaseOrderQty": 2000000,
       "provisionalReceiptQty": 1696055,
-      "receivedQty": 0,
+      "receivedQty": 1647055,
       "inboundWaitQty": 303945,
       "pendingApprovalQty": 0,
       "pendingRequests": [],
@@ -237,7 +237,7 @@
           "deliveryDate": "2026-10-23",
           "purchaseOrderQty": 2000000,
           "provisionalReceiptQty": 1696055,
-          "receivedQty": 0,
+          "receivedQty": 1647055,
           "inboundWaitQty": 303945,
           "orderStatus": "납품진행",
           "supplierName": "피앤피 주식회사"
@@ -281,56 +281,24 @@
       ]
     },
     {
-      "requestQty": 4000000,
+      "requestQty": 0,
       "requestPurchaseOrderQty": 0,
-      "purchaseWaitQty": 4000000,
-      "purchaseOrderQty": 2000000,
+      "purchaseWaitQty": 0,
+      "purchaseOrderQty": 6000000,
       "provisionalReceiptQty": 175000,
       "receivedQty": 175000,
-      "inboundWaitQty": 1825000,
-      "pendingApprovalQty": 4000000,
-      "pendingRequests": [
-        {
-          "requestNo": "PR-2610190014",
-          "requestSeq": 1,
-          "quantity": 2000000,
-          "status": "기안"
-        },
-        {
-          "requestNo": "PR-2610190014",
-          "requestSeq": 2,
-          "quantity": 2000000,
-          "status": "기안"
-        }
-      ],
+      "inboundWaitQty": 5825000,
+      "pendingApprovalQty": 0,
+      "pendingRequests": [],
       "itemCode": "BS0073",
       "itemName": "알루미늄리드지 (일본 PIA 1day 55%)_유광 코팅",
       "specification": "BS0073-002",
-      "openRequestCount": 2,
-      "openPurchaseOrderCount": 1,
-      "nextRequestedDeliveryDate": "2026-11-04",
+      "openRequestCount": 0,
+      "openPurchaseOrderCount": 3,
+      "nextRequestedDeliveryDate": null,
       "nextOrderDeliveryDate": "2026-10-06",
       "nextDeliveryDate": "2026-10-06",
-      "requests": [
-        {
-          "requestNo": "PR-2610190014",
-          "requestSeq": 1,
-          "requestDate": "2026-10-19",
-          "requestedDeliveryDate": "2026-11-04",
-          "requestQty": 2000000,
-          "purchaseOrderQty": 0,
-          "purchaseWaitQty": 2000000
-        },
-        {
-          "requestNo": "PR-2610190014",
-          "requestSeq": 2,
-          "requestDate": "2026-10-19",
-          "requestedDeliveryDate": "2026-11-11",
-          "requestQty": 2000000,
-          "purchaseOrderQty": 0,
-          "purchaseWaitQty": 2000000
-        }
-      ],
+      "requests": [],
       "purchaseOrders": [
         {
           "purchaseOrderNo": "PO-2609290001",
@@ -344,6 +312,34 @@
           "receivedQty": 175000,
           "inboundWaitQty": 1825000,
           "orderStatus": "납품진행",
+          "supplierName": "피앤피 주식회사"
+        },
+        {
+          "purchaseOrderNo": "PO-2610200001",
+          "purchaseOrderSeq": 1,
+          "purchaseOrderDate": "2026-10-20",
+          "requestNo": "PR-2610190014",
+          "requestSeq": 1,
+          "deliveryDate": "2026-11-04",
+          "purchaseOrderQty": 2000000,
+          "provisionalReceiptQty": 0,
+          "receivedQty": 0,
+          "inboundWaitQty": 2000000,
+          "orderStatus": "발주",
+          "supplierName": "피앤피 주식회사"
+        },
+        {
+          "purchaseOrderNo": "PO-2610200001",
+          "purchaseOrderSeq": 2,
+          "purchaseOrderDate": "2026-10-20",
+          "requestNo": "PR-2610190014",
+          "requestSeq": 2,
+          "deliveryDate": "2026-11-11",
+          "purchaseOrderQty": 2000000,
+          "provisionalReceiptQty": 0,
+          "receivedQty": 0,
+          "inboundWaitQty": 2000000,
+          "orderStatus": "발주",
           "supplierName": "피앤피 주식회사"
         }
       ]
@@ -555,6 +551,44 @@
           "supplierName": "주식회사 삼영특수인쇄"
         }
       ]
+    },
+    {
+      "requestQty": 100000,
+      "requestPurchaseOrderQty": 0,
+      "purchaseWaitQty": 100000,
+      "purchaseOrderQty": 0,
+      "provisionalReceiptQty": 0,
+      "receivedQty": 0,
+      "inboundWaitQty": 0,
+      "pendingApprovalQty": 100000,
+      "pendingRequests": [
+        {
+          "requestNo": "PR-2610200004",
+          "requestSeq": 1,
+          "quantity": 100000,
+          "status": "기안"
+        }
+      ],
+      "itemCode": "BS0354",
+      "itemName": "알루미늄리드지 (PIA_1D 55% CoFANCY 리드지)",
+      "specification": "BS0354-001",
+      "openRequestCount": 1,
+      "openPurchaseOrderCount": 0,
+      "nextRequestedDeliveryDate": "2026-10-29",
+      "nextOrderDeliveryDate": null,
+      "nextDeliveryDate": "2026-10-29",
+      "requests": [
+        {
+          "requestNo": "PR-2610200004",
+          "requestSeq": 1,
+          "requestDate": "2026-10-20",
+          "requestedDeliveryDate": "2026-10-29",
+          "requestQty": 100000,
+          "purchaseOrderQty": 0,
+          "purchaseWaitQty": 100000
+        }
+      ],
+      "purchaseOrders": []
     },
     {
       "requestQty": 0,
