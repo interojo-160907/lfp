@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-10-22T07:33:02+09:00",
+  "generatedAt": "2026-10-22T07:50:02+09:00",
   "snapshotDate": "2026-10-22",
   "warehouseOptions": [
     {
@@ -22,7 +22,7 @@
   "itemCount": 243,
   "sourceRowCount": 475,
   "rawLiddingSourceRowCount": 477,
-  "stockTotal": 87256021,
+  "stockTotal": 87240662,
   "inspectionWaitTotal": 1390000,
   "inspectionAggregation": "max-per-item",
   "formula": {
@@ -83,7 +83,7 @@
       "itemCode": "BS0005",
       "itemName": "알루미늄리드지 (Monthly_무지)",
       "specification": "BS0005-002",
-      "stockQty": 8847409,
+      "stockQty": 8847225,
       "inspectionWaitQty": 0,
       "warehouses": [
         {
@@ -96,7 +96,7 @@
         {
           "warehouseCode": "P010",
           "warehouseName": "A관 공정부자재",
-          "stockQty": 391813,
+          "stockQty": 391629,
           "inspectionWaitQty": 0,
           "hasSourceRow": true
         },
@@ -1147,7 +1147,7 @@
       "itemCode": "BS0053",
       "itemName": "알루미늄리드지 (국내/중국 1-Day Soft)_무광 코팅",
       "specification": "BS0053-002",
-      "stockQty": 1309585,
+      "stockQty": 1307395,
       "inspectionWaitQty": 1051000,
       "warehouses": [
         {
@@ -1167,7 +1167,7 @@
         {
           "warehouseCode": "P030",
           "warehouseName": "C관 공정부자재",
-          "stockQty": 541700,
+          "stockQty": 539510,
           "inspectionWaitQty": 1051000,
           "hasSourceRow": true
         },
@@ -1793,7 +1793,7 @@
       "itemCode": "BS0073",
       "itemName": "알루미늄리드지 (일본 PIA 1day 55%)_유광 코팅",
       "specification": "BS0073-002",
-      "stockQty": 3904157,
+      "stockQty": 3896107,
       "inspectionWaitQty": 0,
       "warehouses": [
         {
@@ -1813,7 +1813,7 @@
         {
           "warehouseCode": "P030",
           "warehouseName": "C관 공정부자재",
-          "stockQty": 577948,
+          "stockQty": 569898,
           "inspectionWaitQty": 0,
           "hasSourceRow": true
         },
@@ -8519,7 +8519,7 @@
       "itemCode": "BS0336",
       "itemName": "알루미늄리드지 (폴란드 FML Oviso Hioxi D 리드지)",
       "specification": "BS0336-001",
-      "stockQty": 516545,
+      "stockQty": 513880,
       "inspectionWaitQty": 0,
       "warehouses": [
         {
@@ -8539,7 +8539,7 @@
         {
           "warehouseCode": "P030",
           "warehouseName": "C관 공정부자재",
-          "stockQty": 180545,
+          "stockQty": 177880,
           "inspectionWaitQty": 0,
           "hasSourceRow": true
         },
@@ -8861,7 +8861,7 @@
       "itemCode": "BS0353",
       "itemName": "알루미늄리드지 (PIA_1D 55% Chapun 리드지)",
       "specification": "BS0353-001",
-      "stockQty": 1160875,
+      "stockQty": 1158605,
       "inspectionWaitQty": 0,
       "warehouses": [
         {
@@ -8881,7 +8881,7 @@
         {
           "warehouseCode": "P030",
           "warehouseName": "C관 공정부자재",
-          "stockQty": 393875,
+          "stockQty": 391605,
           "inspectionWaitQty": 0,
           "hasSourceRow": true
         },
