@@ -1,6 +1,6 @@
 {
-  "collectedAt": "2026-10-22T07:50:02+09:00",
-  "queryDate": "2026-10-22 07:50",
+  "collectedAt": "2026-10-22T15:09:09+09:00",
+  "queryDate": "2026-10-22 15:09",
   "dateFrom": "2026-08-22",
   "dateTo": "2026-10-22",
   "historyWindow": "recent two months",
@@ -14,24 +14,24 @@
       "reason": "유효 미납 발주 아님"
     }
   ],
-  "pendingApprovalTotal": 0,
+  "pendingApprovalTotal": 2700000,
   "apiFilters": {
     "requests": "itm_cd=BS, not_ordered=1",
     "orders": "itm_cd=BS, open_only=1"
   },
-  "requestSourceRowCount": 5,
-  "purchaseOrderSourceRowCount": 32,
-  "matchedLiddingRequestRows": 1,
-  "matchedLiddingPurchaseOrderRows": 18,
-  "openLiddingItemCount": 12,
+  "requestSourceRowCount": 8,
+  "purchaseOrderSourceRowCount": 31,
+  "matchedLiddingRequestRows": 4,
+  "matchedLiddingPurchaseOrderRows": 17,
+  "openLiddingItemCount": 13,
   "inboundWaitItemCount": 12,
-  "purchaseWaitItemCount": 1,
-  "inboundWaitTotal": 22199685,
-  "purchaseWaitTotal": 100000,
+  "purchaseWaitItemCount": 3,
+  "inboundWaitTotal": 20722725,
+  "purchaseWaitTotal": 2800000,
   "excludedMissingRequestNoRows": 0,
   "excludedMissingRequestNoQty": 0,
   "includedMissingRequestNoRows": 3,
-  "includedMissingRequestNoQty": 10004000,
+  "includedMissingRequestNoQty": 8665280,
   "formula": {
     "inboundWait": "sum(rem_qty) where stat_bc_nm in (발주, 납품진행), regardless of req_no or rmks",
     "purchaseWait": "sum(not_inqty) where stat_bc_nm in (의뢰, 완료)",
@@ -54,36 +54,22 @@
       "requestQty": 0,
       "requestPurchaseOrderQty": 0,
       "purchaseWaitQty": 0,
-      "purchaseOrderQty": 12000000,
-      "provisionalReceiptQty": 2861760,
-      "receivedQty": 2861760,
-      "inboundWaitQty": 9138240,
+      "purchaseOrderQty": 9000000,
+      "provisionalReceiptQty": 1338720,
+      "receivedQty": 0,
+      "inboundWaitQty": 7661280,
       "pendingApprovalQty": 0,
       "pendingRequests": [],
       "itemCode": "BS0005",
       "itemName": "알루미늄리드지 (Monthly_무지)",
       "specification": "BS0005-002",
       "openRequestCount": 0,
-      "openPurchaseOrderCount": 2,
+      "openPurchaseOrderCount": 1,
       "nextRequestedDeliveryDate": null,
-      "nextOrderDeliveryDate": "2026-09-30",
-      "nextDeliveryDate": "2026-09-30",
+      "nextOrderDeliveryDate": "2026-10-30",
+      "nextDeliveryDate": "2026-10-30",
       "requests": [],
       "purchaseOrders": [
-        {
-          "purchaseOrderNo": "PO-2609070023",
-          "purchaseOrderSeq": 1,
-          "purchaseOrderDate": "2026-09-07",
-          "requestNo": "PR-2609020004",
-          "requestSeq": 1,
-          "deliveryDate": "2026-09-30",
-          "purchaseOrderQty": 3000000,
-          "provisionalReceiptQty": 2861760,
-          "receivedQty": 2861760,
-          "inboundWaitQty": 138240,
-          "orderStatus": "납품진행",
-          "supplierName": "주식회사 에이치앤케이"
-        },
         {
           "purchaseOrderNo": "PO-2610010002",
           "purchaseOrderSeq": 1,
@@ -92,10 +78,10 @@
           "requestSeq": null,
           "deliveryDate": "2026-10-30",
           "purchaseOrderQty": 9000000,
-          "provisionalReceiptQty": 0,
+          "provisionalReceiptQty": 1338720,
           "receivedQty": 0,
-          "inboundWaitQty": 9000000,
-          "orderStatus": "발주",
+          "inboundWaitQty": 7661280,
+          "orderStatus": "납품진행",
           "supplierName": "주식회사 에이치앤케이"
         }
       ]
@@ -209,24 +195,41 @@
       ]
     },
     {
-      "requestQty": 0,
+      "requestQty": 2000000,
       "requestPurchaseOrderQty": 0,
-      "purchaseWaitQty": 0,
+      "purchaseWaitQty": 2000000,
       "purchaseOrderQty": 4000000,
       "provisionalReceiptQty": 15500,
       "receivedQty": 15500,
       "inboundWaitQty": 3984500,
-      "pendingApprovalQty": 0,
-      "pendingRequests": [],
+      "pendingApprovalQty": 2000000,
+      "pendingRequests": [
+        {
+          "requestNo": "PR-2610220001",
+          "requestSeq": 2,
+          "quantity": 2000000,
+          "status": "기안"
+        }
+      ],
       "itemCode": "BS0073",
       "itemName": "알루미늄리드지 (일본 PIA 1day 55%)_유광 코팅",
       "specification": "BS0073-002",
-      "openRequestCount": 0,
+      "openRequestCount": 1,
       "openPurchaseOrderCount": 2,
-      "nextRequestedDeliveryDate": null,
+      "nextRequestedDeliveryDate": "2026-11-13",
       "nextOrderDeliveryDate": "2026-11-04",
       "nextDeliveryDate": "2026-11-04",
-      "requests": [],
+      "requests": [
+        {
+          "requestNo": "PR-2610220001",
+          "requestSeq": 2,
+          "requestDate": "2026-10-22",
+          "requestedDeliveryDate": "2026-11-13",
+          "requestQty": 2000000,
+          "purchaseOrderQty": 0,
+          "purchaseWaitQty": 2000000
+        }
+      ],
       "purchaseOrders": [
         {
           "purchaseOrderNo": "PO-2610200001",
@@ -343,6 +346,44 @@
           "supplierName": "피앤피 주식회사"
         }
       ]
+    },
+    {
+      "requestQty": 200000,
+      "requestPurchaseOrderQty": 0,
+      "purchaseWaitQty": 200000,
+      "purchaseOrderQty": 0,
+      "provisionalReceiptQty": 0,
+      "receivedQty": 0,
+      "inboundWaitQty": 0,
+      "pendingApprovalQty": 200000,
+      "pendingRequests": [
+        {
+          "requestNo": "PR-2610220001",
+          "requestSeq": 1,
+          "quantity": 200000,
+          "status": "기안"
+        }
+      ],
+      "itemCode": "BS0154",
+      "itemName": "알루미늄리드지 (공용 Alcon Freshlook)_유광 코팅",
+      "specification": "BS0154-001",
+      "openRequestCount": 1,
+      "openPurchaseOrderCount": 0,
+      "nextRequestedDeliveryDate": "2026-11-06",
+      "nextOrderDeliveryDate": null,
+      "nextDeliveryDate": "2026-11-06",
+      "requests": [
+        {
+          "requestNo": "PR-2610220001",
+          "requestSeq": 1,
+          "requestDate": "2026-10-22",
+          "requestedDeliveryDate": "2026-11-06",
+          "requestQty": 200000,
+          "purchaseOrderQty": 0,
+          "purchaseWaitQty": 200000
+        }
+      ],
+      "purchaseOrders": []
     },
     {
       "requestQty": 0,
@@ -467,19 +508,26 @@
       ]
     },
     {
-      "requestQty": 100000,
+      "requestQty": 600000,
       "requestPurchaseOrderQty": 0,
-      "purchaseWaitQty": 100000,
+      "purchaseWaitQty": 600000,
       "purchaseOrderQty": 1000000,
       "provisionalReceiptQty": 0,
       "receivedQty": 0,
       "inboundWaitQty": 1000000,
-      "pendingApprovalQty": 0,
-      "pendingRequests": [],
+      "pendingApprovalQty": 500000,
+      "pendingRequests": [
+        {
+          "requestNo": "PR-2610220001",
+          "requestSeq": 3,
+          "quantity": 500000,
+          "status": "기안"
+        }
+      ],
       "itemCode": "BS0354",
       "itemName": "알루미늄리드지 (PIA_1D 55% CoFANCY 리드지)",
       "specification": "BS0354-001",
-      "openRequestCount": 1,
+      "openRequestCount": 2,
       "openPurchaseOrderCount": 1,
       "nextRequestedDeliveryDate": "2026-10-29",
       "nextOrderDeliveryDate": "2026-10-29",
@@ -493,6 +541,15 @@
           "requestQty": 100000,
           "purchaseOrderQty": 0,
           "purchaseWaitQty": 100000
+        },
+        {
+          "requestNo": "PR-2610220001",
+          "requestSeq": 3,
+          "requestDate": "2026-10-22",
+          "requestedDeliveryDate": "2026-11-13",
+          "requestQty": 500000,
+          "purchaseOrderQty": 0,
+          "purchaseWaitQty": 500000
         }
       ],
       "purchaseOrders": [
