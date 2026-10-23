@@ -1,6 +1,6 @@
 {
-  "collectedAt": "2026-10-23T07:38:04+09:00",
-  "queryDate": "2026-10-23 07:37",
+  "collectedAt": "2026-10-23T15:02:05+09:00",
+  "queryDate": "2026-10-23 15:02",
   "dateFrom": "2026-08-23",
   "dateTo": "2026-10-23",
   "historyWindow": "recent two months",
@@ -14,7 +14,7 @@
       "reason": "유효 미납 발주 아님"
     }
   ],
-  "pendingApprovalTotal": 2700000,
+  "pendingApprovalTotal": 0,
   "apiFilters": {
     "requests": "itm_cd=BS, not_ordered=1",
     "orders": "itm_cd=BS, open_only=1"
@@ -202,15 +202,8 @@
       "provisionalReceiptQty": 15500,
       "receivedQty": 15500,
       "inboundWaitQty": 3984500,
-      "pendingApprovalQty": 2000000,
-      "pendingRequests": [
-        {
-          "requestNo": "PR-2610220001",
-          "requestSeq": 2,
-          "quantity": 2000000,
-          "status": "기안"
-        }
-      ],
+      "pendingApprovalQty": 0,
+      "pendingRequests": [],
       "itemCode": "BS0073",
       "itemName": "알루미늄리드지 (일본 PIA 1day 55%)_유광 코팅",
       "specification": "BS0073-002",
@@ -355,15 +348,8 @@
       "provisionalReceiptQty": 0,
       "receivedQty": 0,
       "inboundWaitQty": 0,
-      "pendingApprovalQty": 200000,
-      "pendingRequests": [
-        {
-          "requestNo": "PR-2610220001",
-          "requestSeq": 1,
-          "quantity": 200000,
-          "status": "기안"
-        }
-      ],
+      "pendingApprovalQty": 0,
+      "pendingRequests": [],
       "itemCode": "BS0154",
       "itemName": "알루미늄리드지 (공용 Alcon Freshlook)_유광 코팅",
       "specification": "BS0154-001",
@@ -515,15 +501,8 @@
       "provisionalReceiptQty": 0,
       "receivedQty": 0,
       "inboundWaitQty": 1000000,
-      "pendingApprovalQty": 500000,
-      "pendingRequests": [
-        {
-          "requestNo": "PR-2610220001",
-          "requestSeq": 3,
-          "quantity": 500000,
-          "status": "기안"
-        }
-      ],
+      "pendingApprovalQty": 0,
+      "pendingRequests": [],
       "itemCode": "BS0354",
       "itemName": "알루미늄리드지 (PIA_1D 55% CoFANCY 리드지)",
       "specification": "BS0354-001",
