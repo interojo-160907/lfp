@@ -1,28 +1,19 @@
 {
-  "collectedAt": "2026-10-24T15:01:53+09:00",
-  "queryDate": "2026-10-24 15:01",
-  "dateFrom": "2026-08-24",
-  "dateTo": "2026-10-24",
+  "collectedAt": "2026-10-25T07:02:53+09:00",
+  "queryDate": "2026-10-25 07:02",
+  "dateFrom": "2026-08-25",
+  "dateTo": "2026-10-25",
   "historyWindow": "recent two months",
-  "excludedRows": [
-    {
-      "itemCode": "BS0362",
-      "specification": "BS0362-001",
-      "documentNo": "PO-2608240001",
-      "status": "강제완결",
-      "quantity": 200000,
-      "reason": "유효 미납 발주 아님"
-    }
-  ],
+  "excludedRows": [],
   "pendingApprovalTotal": 0,
   "apiFilters": {
     "requests": "itm_cd=BS, not_ordered=1",
     "orders": "itm_cd=BS, open_only=1"
   },
   "requestSourceRowCount": 5,
-  "purchaseOrderSourceRowCount": 34,
+  "purchaseOrderSourceRowCount": 33,
   "matchedLiddingRequestRows": 1,
-  "matchedLiddingPurchaseOrderRows": 20,
+  "matchedLiddingPurchaseOrderRows": 19,
   "openLiddingItemCount": 12,
   "inboundWaitItemCount": 12,
   "purchaseWaitItemCount": 1,
