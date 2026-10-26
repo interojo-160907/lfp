@@ -1,18 +1,18 @@
 {
-  "generatedAt": "2026-10-26T15:01:50+09:00",
-  "sourceSignature": "2a742b7e6dd7379da9ab3556759c7a07455765b814e73b3a40136bb97d24bbc3",
-  "productSourceCount": 1757,
-  "bomSourceCount": 29196,
-  "activePProductCount": 1757,
+  "generatedAt": "2026-10-27T07:02:50+09:00",
+  "sourceSignature": "0895c5503e5cd3b8d000aca813bb419f4daccb64d159d7b48be0e2f16fa86c35",
+  "productSourceCount": 1761,
+  "bomSourceCount": 29212,
+  "activePProductCount": 1761,
   "productApiFilterApplied": true,
   "bomApiFilterApplied": false,
   "bomApiFilterReason": "BOM API supports exact gd_cd only; P-prefix + level-1 BS lidding filters are applied locally",
   "storageScope": "active P-code + level-1 active BS lidding only",
-  "mappingCount": 1675,
-  "mappedProductCount": 1675,
+  "mappingCount": 1677,
+  "mappedProductCount": 1677,
   "liddingCodeCount": 240,
   "specificationVersionCount": 240,
-  "unmappedProductCount": 82,
+  "unmappedProductCount": 84,
   "rows": [
     {
       "productCode": "P0001",
@@ -2440,6 +2440,28 @@
       "liddingCode": "BS0358",
       "liddingName": "알루미늄리드지 (Clalen Iris Color M)",
       "liddingSpecification": "BS0358-001",
+      "requirementQty": 1,
+      "bomLevel": 1,
+      "statusCode": "S",
+      "useYn": "Y"
+    },
+    {
+      "productCode": "P0449",
+      "productName": "Hapakristin D_Quiet Kristin Glow Choco",
+      "liddingCode": "BS0286",
+      "liddingName": "알루미늄리드지 (하파크리스틴_1Day Color)_14.5 유광 코팅",
+      "liddingSpecification": "BS0286-001",
+      "requirementQty": 1,
+      "bomLevel": 1,
+      "statusCode": "S",
+      "useYn": "Y"
+    },
+    {
+      "productCode": "P0450",
+      "productName": "Hapakristin D_Quiet Kristin Glow Rosy",
+      "liddingCode": "BS0286",
+      "liddingName": "알루미늄리드지 (하파크리스틴_1Day Color)_14.5 유광 코팅",
+      "liddingSpecification": "BS0286-001",
       "requirementQty": 1,
       "bomLevel": 1,
       "statusCode": "S",
@@ -18440,5 +18462,5 @@
       "useYn": "Y"
     }
   ],
-  "changed": false
+  "changed": true
 }
