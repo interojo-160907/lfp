@@ -1,6 +1,6 @@
 {
-  "generatedAt": "2026-10-27T07:36:56+09:00",
-  "sourceRefreshedAt": "2026-10-27 07:23:31",
+  "generatedAt": "2026-10-27T15:11:00+09:00",
+  "sourceRefreshedAt": "2026-10-27 14:58:32",
   "apiFilters": {
     "oper": "55"
   },
@@ -9,13 +9,13 @@
   "processName": "접착/멸균",
   "pCodeFilter": "item_id P + 4 digits",
   "sourceRowCount": 9166,
-  "sourceTotalQty": 31032111.0,
-  "pCodeDemandRows": 277,
+  "sourceTotalQty": 30754768.0,
+  "pCodeDemandRows": 278,
   "categoryTotals": {
-    "해외": 13533392,
-    "PB": 686779,
-    "국내": 1839691,
-    "안전재고": 14972249
+    "해외": 13355079,
+    "PB": 686778,
+    "국내": 1797900,
+    "안전재고": 14915011
   },
   "liddingRequirementCount": 60,
   "unmatchedPCodes": [
@@ -41,66 +41,18 @@
       "liddingCode": "BS0005",
       "liddingSpecification": "BS0005-002",
       "liddingName": "알루미늄리드지 (Monthly_무지)",
-      "productionRequiredQty": 4799232,
-      "sourceRefreshedAt": "2026-10-27 07:23:31",
+      "productionRequiredQty": 4778161,
+      "sourceRefreshedAt": "2026-10-27 14:58:32",
       "linkedPCodeCount": 30,
-      "dueDateFrom": "2026-10-25",
+      "dueDateFrom": "2026-10-28",
       "dueDateTo": "2026-12-02",
       "categoryQuantities": {
-        "해외": 163119,
+        "해외": 160349,
         "PB": 0,
         "국내": 4386,
-        "안전재고": 4631727
+        "안전재고": 4613426
       },
       "salesOrders": [
-        {
-          "pCode": "P4202",
-          "demandType": "이니셜",
-          "demandCategory": "해외",
-          "demandId": "D1956_202609280785_8_11",
-          "salesOrderNo": "202609280785",
-          "sequence": 8,
-          "initial": "D1956",
-          "customerName": "Isupply",
-          "dueDate": "2026-10-25",
-          "productionRequiredQty": 2
-        },
-        {
-          "pCode": "P4202",
-          "demandType": "이니셜",
-          "demandCategory": "해외",
-          "demandId": "D1956_202609280785_8_12",
-          "salesOrderNo": "202609280785",
-          "sequence": 8,
-          "initial": "D1956",
-          "customerName": "Isupply",
-          "dueDate": "2026-10-25",
-          "productionRequiredQty": 113
-        },
-        {
-          "pCode": "P4202",
-          "demandType": "이니셜",
-          "demandCategory": "해외",
-          "demandId": "D1956_202609280785_8_13",
-          "salesOrderNo": "202609280785",
-          "sequence": 8,
-          "initial": "D1956",
-          "customerName": "Isupply",
-          "dueDate": "2026-10-25",
-          "productionRequiredQty": 80
-        },
-        {
-          "pCode": "P4202",
-          "demandType": "이니셜",
-          "demandCategory": "해외",
-          "demandId": "D1956_202609280785_8_14",
-          "salesOrderNo": "202609280785",
-          "sequence": 8,
-          "initial": "D1956",
-          "customerName": "Isupply",
-          "dueDate": "2026-10-25",
-          "productionRequiredQty": 10
-        },
         {
           "pCode": "P1230",
           "demandType": "이니셜",
@@ -147,7 +99,7 @@
           "initial": "C3412",
           "customerName": "Rose Holding",
           "dueDate": "2026-10-30",
-          "productionRequiredQty": 2634
+          "productionRequiredQty": 1682
         },
         {
           "pCode": "P4765",
@@ -183,7 +135,7 @@
           "initial": "C3412",
           "customerName": "Rose Holding",
           "dueDate": "2026-10-30",
-          "productionRequiredQty": 4381
+          "productionRequiredQty": 2827
         },
         {
           "pCode": "P4765",
@@ -219,7 +171,7 @@
           "initial": "C3412",
           "customerName": "Rose Holding",
           "dueDate": "2026-10-30",
-          "productionRequiredQty": 30578
+          "productionRequiredQty": 30579
         },
         {
           "pCode": "P4420",
@@ -1290,6 +1242,54 @@
           "productionRequiredQty": 1
         },
         {
+          "pCode": "P4202",
+          "demandType": "이니셜",
+          "demandCategory": "해외",
+          "demandId": "D1956_202609280785_8_11",
+          "salesOrderNo": "202609280785",
+          "sequence": 8,
+          "initial": "D1956",
+          "customerName": "Isupply",
+          "dueDate": "2026-10-30",
+          "productionRequiredQty": 2
+        },
+        {
+          "pCode": "P4202",
+          "demandType": "이니셜",
+          "demandCategory": "해외",
+          "demandId": "D1956_202609280785_8_12",
+          "salesOrderNo": "202609280785",
+          "sequence": 8,
+          "initial": "D1956",
+          "customerName": "Isupply",
+          "dueDate": "2026-10-30",
+          "productionRequiredQty": 113
+        },
+        {
+          "pCode": "P4202",
+          "demandType": "이니셜",
+          "demandCategory": "해외",
+          "demandId": "D1956_202609280785_8_13",
+          "salesOrderNo": "202609280785",
+          "sequence": 8,
+          "initial": "D1956",
+          "customerName": "Isupply",
+          "dueDate": "2026-10-30",
+          "productionRequiredQty": 80
+        },
+        {
+          "pCode": "P4202",
+          "demandType": "이니셜",
+          "demandCategory": "해외",
+          "demandId": "D1956_202609280785_8_14",
+          "salesOrderNo": "202609280785",
+          "sequence": 8,
+          "initial": "D1956",
+          "customerName": "Isupply",
+          "dueDate": "2026-10-30",
+          "productionRequiredQty": 10
+        },
+        {
           "pCode": "P4001",
           "demandType": "이니셜",
           "demandCategory": "해외",
@@ -1353,102 +1353,6 @@
           "pCode": "P4001",
           "demandType": "이니셜",
           "demandCategory": "해외",
-          "demandId": "MK0329_202610120640_10_33",
-          "salesOrderNo": "202610120640",
-          "sequence": 10,
-          "initial": "MK0329",
-          "customerName": "Coastal Contacts (Clearly)",
-          "dueDate": "2026-10-30",
-          "productionRequiredQty": 31
-        },
-        {
-          "pCode": "P4001",
-          "demandType": "이니셜",
-          "demandCategory": "해외",
-          "demandId": "MK0329_202610120640_10_40",
-          "salesOrderNo": "202610120640",
-          "sequence": 10,
-          "initial": "MK0329",
-          "customerName": "Coastal Contacts (Clearly)",
-          "dueDate": "2026-10-30",
-          "productionRequiredQty": 6
-        },
-        {
-          "pCode": "P4001",
-          "demandType": "이니셜",
-          "demandCategory": "해외",
-          "demandId": "MK0329_202610120640_10_56",
-          "salesOrderNo": "202610120640",
-          "sequence": 10,
-          "initial": "MK0329",
-          "customerName": "Coastal Contacts (Clearly)",
-          "dueDate": "2026-10-30",
-          "productionRequiredQty": 18
-        },
-        {
-          "pCode": "P4001",
-          "demandType": "이니셜",
-          "demandCategory": "해외",
-          "demandId": "MK0329_202610120640_10_61",
-          "salesOrderNo": "202610120640",
-          "sequence": 10,
-          "initial": "MK0329",
-          "customerName": "Coastal Contacts (Clearly)",
-          "dueDate": "2026-10-30",
-          "productionRequiredQty": 31
-        },
-        {
-          "pCode": "P4001",
-          "demandType": "이니셜",
-          "demandCategory": "해외",
-          "demandId": "MK0329_202610120640_10_62",
-          "salesOrderNo": "202610120640",
-          "sequence": 10,
-          "initial": "MK0329",
-          "customerName": "Coastal Contacts (Clearly)",
-          "dueDate": "2026-10-30",
-          "productionRequiredQty": 25
-        },
-        {
-          "pCode": "P4001",
-          "demandType": "이니셜",
-          "demandCategory": "해외",
-          "demandId": "MK0329_202610120640_10_69",
-          "salesOrderNo": "202610120640",
-          "sequence": 10,
-          "initial": "MK0329",
-          "customerName": "Coastal Contacts (Clearly)",
-          "dueDate": "2026-10-30",
-          "productionRequiredQty": 18
-        },
-        {
-          "pCode": "P4001",
-          "demandType": "이니셜",
-          "demandCategory": "해외",
-          "demandId": "MK0329_202610120640_10_87",
-          "salesOrderNo": "202610120640",
-          "sequence": 10,
-          "initial": "MK0329",
-          "customerName": "Coastal Contacts (Clearly)",
-          "dueDate": "2026-10-30",
-          "productionRequiredQty": 49
-        },
-        {
-          "pCode": "P4001",
-          "demandType": "이니셜",
-          "demandCategory": "해외",
-          "demandId": "MK0329_202610120640_10_88",
-          "salesOrderNo": "202610120640",
-          "sequence": 10,
-          "initial": "MK0329",
-          "customerName": "Coastal Contacts (Clearly)",
-          "dueDate": "2026-10-30",
-          "productionRequiredQty": 12
-        },
-        {
-          "pCode": "P4001",
-          "demandType": "이니셜",
-          "demandCategory": "해외",
           "demandId": "MK0330_202610120667_10_168",
           "salesOrderNo": "202610120667",
           "sequence": 10,
@@ -1473,18 +1377,6 @@
           "pCode": "P4001",
           "demandType": "이니셜",
           "demandCategory": "해외",
-          "demandId": "MK0330_202610120667_10_33",
-          "salesOrderNo": "202610120667",
-          "sequence": 10,
-          "initial": "MK0330",
-          "customerName": "Coastal Contacts (Clearly)",
-          "dueDate": "2026-10-30",
-          "productionRequiredQty": 6
-        },
-        {
-          "pCode": "P4001",
-          "demandType": "이니셜",
-          "demandCategory": "해외",
           "demandId": "MK0330_202610120667_10_80",
           "salesOrderNo": "202610120667",
           "sequence": 10,
@@ -1492,30 +1384,6 @@
           "customerName": "Coastal Contacts (Clearly)",
           "dueDate": "2026-10-30",
           "productionRequiredQty": 6
-        },
-        {
-          "pCode": "P4001",
-          "demandType": "이니셜",
-          "demandCategory": "해외",
-          "demandId": "MK0330_202610120667_10_87",
-          "salesOrderNo": "202610120667",
-          "sequence": 10,
-          "initial": "MK0330",
-          "customerName": "Coastal Contacts (Clearly)",
-          "dueDate": "2026-10-30",
-          "productionRequiredQty": 37
-        },
-        {
-          "pCode": "P4001",
-          "demandType": "이니셜",
-          "demandCategory": "해외",
-          "demandId": "MK0330_202610120667_10_88",
-          "salesOrderNo": "202610120667",
-          "sequence": 10,
-          "initial": "MK0330",
-          "customerName": "Coastal Contacts (Clearly)",
-          "dueDate": "2026-10-30",
-          "productionRequiredQty": 12
         },
         {
           "pCode": "P4202",
@@ -2463,7 +2331,7 @@
           "initial": "안전(해외)",
           "customerName": "",
           "dueDate": "2026-10-31",
-          "productionRequiredQty": 2914
+          "productionRequiredQty": 2915
         },
         {
           "pCode": "P4765",
@@ -2547,7 +2415,7 @@
           "initial": "안전(해외)",
           "customerName": "",
           "dueDate": "2026-10-31",
-          "productionRequiredQty": 2984
+          "productionRequiredQty": 2812
         },
         {
           "pCode": "P4765",
@@ -2673,6 +2541,18 @@
           "pCode": "P1230",
           "demandType": "이니셜",
           "demandCategory": "해외",
+          "demandId": "AR0051_202610200306_7_174",
+          "salesOrderNo": "202610200306",
+          "sequence": 7,
+          "initial": "AR0051",
+          "customerName": "OPHTALMIC France",
+          "dueDate": "2026-11-02",
+          "productionRequiredQty": 6
+        },
+        {
+          "pCode": "P1230",
+          "demandType": "이니셜",
+          "demandCategory": "해외",
           "demandId": "AR0051_202610200306_7_18",
           "salesOrderNo": "202610200306",
           "sequence": 7,
@@ -2733,30 +2613,6 @@
           "pCode": "P4001",
           "demandType": "이니셜",
           "demandCategory": "해외",
-          "demandId": "MK0333_202610130392_10_61",
-          "salesOrderNo": "202610130392",
-          "sequence": 10,
-          "initial": "MK0333",
-          "customerName": "Coastal Contacts (Clearly)",
-          "dueDate": "2026-11-03",
-          "productionRequiredQty": 18
-        },
-        {
-          "pCode": "P4001",
-          "demandType": "이니셜",
-          "demandCategory": "해외",
-          "demandId": "MK0333_202610130392_10_87",
-          "salesOrderNo": "202610130392",
-          "sequence": 10,
-          "initial": "MK0333",
-          "customerName": "Coastal Contacts (Clearly)",
-          "dueDate": "2026-11-03",
-          "productionRequiredQty": 6
-        },
-        {
-          "pCode": "P4001",
-          "demandType": "이니셜",
-          "demandCategory": "해외",
           "demandId": "MK0333_202610130392_11_20",
           "salesOrderNo": "202610130392",
           "sequence": 11,
@@ -2764,18 +2620,6 @@
           "customerName": "Coastal Contacts (Clearly)",
           "dueDate": "2026-11-03",
           "productionRequiredQty": 18
-        },
-        {
-          "pCode": "P1230",
-          "demandType": "이니셜",
-          "demandCategory": "해외",
-          "demandId": "HW0557_202610200095_11_187",
-          "salesOrderNo": "202610200095",
-          "sequence": 11,
-          "initial": "HW0557",
-          "customerName": "KODANO S.A.",
-          "dueDate": "2026-11-03",
-          "productionRequiredQty": 3
         },
         {
           "pCode": "P0575",
@@ -3291,7 +3135,7 @@
           "initial": "AR0068",
           "customerName": "MPG / E Kontaktlinse",
           "dueDate": "2026-11-06",
-          "productionRequiredQty": 103
+          "productionRequiredQty": 109
         },
         {
           "pCode": "P5418",
@@ -5250,18 +5094,6 @@
           "productionRequiredQty": 9
         },
         {
-          "pCode": "P1230",
-          "demandType": "이니셜",
-          "demandCategory": "해외",
-          "demandId": "C3432_202610200093_6_717",
-          "salesOrderNo": "202610200093",
-          "sequence": 6,
-          "initial": "C3432",
-          "customerName": "Ultra-Lens",
-          "dueDate": "2026-11-20",
-          "productionRequiredQty": 3
-        },
-        {
           "pCode": "P1145",
           "demandType": "이니셜",
           "demandCategory": "해외",
@@ -7041,18 +6873,6 @@
           "pCode": "P1230",
           "demandType": "이니셜",
           "demandCategory": "해외",
-          "demandId": "MK0348_202610260540_20_861",
-          "salesOrderNo": "202610260540",
-          "sequence": 20,
-          "initial": "MK0348",
-          "customerName": "Central Oftalmica Com Ind e Serv Ltda.",
-          "dueDate": "2026-11-23",
-          "productionRequiredQty": 3
-        },
-        {
-          "pCode": "P1230",
-          "demandType": "이니셜",
-          "demandCategory": "해외",
           "demandId": "MK0348_202610260540_20_89",
           "salesOrderNo": "202610260540",
           "sequence": 20,
@@ -7155,7 +6975,7 @@
           "initial": "MK0348",
           "customerName": "Central Oftalmica Com Ind e Serv Ltda.",
           "dueDate": "2026-11-23",
-          "productionRequiredQty": 91
+          "productionRequiredQty": 85
         },
         {
           "pCode": "P1206",
@@ -7167,7 +6987,7 @@
           "initial": "MK0348",
           "customerName": "Central Oftalmica Com Ind e Serv Ltda.",
           "dueDate": "2026-11-23",
-          "productionRequiredQty": 260
+          "productionRequiredQty": 266
         },
         {
           "pCode": "P1206",
@@ -7515,7 +7335,7 @@
           "initial": "MK0348",
           "customerName": "Central Oftalmica Com Ind e Serv Ltda.",
           "dueDate": "2026-11-23",
-          "productionRequiredQty": 25
+          "productionRequiredQty": 31
         },
         {
           "pCode": "P1230",
@@ -7575,7 +7395,7 @@
           "initial": "MK0348",
           "customerName": "Central Oftalmica Com Ind e Serv Ltda.",
           "dueDate": "2026-11-23",
-          "productionRequiredQty": 43
+          "productionRequiredQty": 37
         },
         {
           "pCode": "P1230",
@@ -7647,7 +7467,7 @@
           "initial": "MK0348",
           "customerName": "Central Oftalmica Com Ind e Serv Ltda.",
           "dueDate": "2026-11-23",
-          "productionRequiredQty": 56
+          "productionRequiredQty": 62
         },
         {
           "pCode": "P1230",
@@ -7671,7 +7491,7 @@
           "initial": "MK0348",
           "customerName": "Central Oftalmica Com Ind e Serv Ltda.",
           "dueDate": "2026-11-23",
-          "productionRequiredQty": 74
+          "productionRequiredQty": 75
         },
         {
           "pCode": "P1230",
@@ -7707,7 +7527,7 @@
           "initial": "MK0348",
           "customerName": "Central Oftalmica Com Ind e Serv Ltda.",
           "dueDate": "2026-11-23",
-          "productionRequiredQty": 74
+          "productionRequiredQty": 68
         },
         {
           "pCode": "P1230",
@@ -7755,7 +7575,7 @@
           "initial": "MK0348",
           "customerName": "Central Oftalmica Com Ind e Serv Ltda.",
           "dueDate": "2026-11-23",
-          "productionRequiredQty": 74
+          "productionRequiredQty": 75
         },
         {
           "pCode": "P1230",
@@ -7815,7 +7635,7 @@
           "initial": "MK0348",
           "customerName": "Central Oftalmica Com Ind e Serv Ltda.",
           "dueDate": "2026-11-23",
-          "productionRequiredQty": 199
+          "productionRequiredQty": 192
         },
         {
           "pCode": "P1230",
@@ -7863,7 +7683,7 @@
           "initial": "MK0348",
           "customerName": "Central Oftalmica Com Ind e Serv Ltda.",
           "dueDate": "2026-11-23",
-          "productionRequiredQty": 87
+          "productionRequiredQty": 93
         },
         {
           "pCode": "P1230",
@@ -7935,7 +7755,7 @@
           "initial": "MK0348",
           "customerName": "Central Oftalmica Com Ind e Serv Ltda.",
           "dueDate": "2026-11-23",
-          "productionRequiredQty": 223
+          "productionRequiredQty": 224
         },
         {
           "pCode": "P1230",
@@ -7959,7 +7779,7 @@
           "initial": "MK0348",
           "customerName": "Central Oftalmica Com Ind e Serv Ltda.",
           "dueDate": "2026-11-23",
-          "productionRequiredQty": 74
+          "productionRequiredQty": 75
         },
         {
           "pCode": "P1230",
@@ -8091,7 +7911,7 @@
           "initial": "MK0348",
           "customerName": "Central Oftalmica Com Ind e Serv Ltda.",
           "dueDate": "2026-11-23",
-          "productionRequiredQty": 19
+          "productionRequiredQty": 12
         },
         {
           "pCode": "P1230",
@@ -8139,7 +7959,7 @@
           "initial": "MK0348",
           "customerName": "Central Oftalmica Com Ind e Serv Ltda.",
           "dueDate": "2026-11-23",
-          "productionRequiredQty": 19
+          "productionRequiredQty": 25
         },
         {
           "pCode": "P1230",
@@ -8271,7 +8091,7 @@
           "initial": "MK0348",
           "customerName": "Central Oftalmica Com Ind e Serv Ltda.",
           "dueDate": "2026-11-23",
-          "productionRequiredQty": 223
+          "productionRequiredQty": 224
         },
         {
           "pCode": "P1230",
@@ -8427,7 +8247,7 @@
           "initial": "MK0348",
           "customerName": "Central Oftalmica Com Ind e Serv Ltda.",
           "dueDate": "2026-11-23",
-          "productionRequiredQty": 68
+          "productionRequiredQty": 62
         },
         {
           "pCode": "P1230",
@@ -8571,7 +8391,7 @@
           "initial": "MK0348",
           "customerName": "Central Oftalmica Com Ind e Serv Ltda.",
           "dueDate": "2026-11-23",
-          "productionRequiredQty": 223
+          "productionRequiredQty": 224
         },
         {
           "pCode": "P1230",
@@ -8583,7 +8403,7 @@
           "initial": "MK0348",
           "customerName": "Central Oftalmica Com Ind e Serv Ltda.",
           "dueDate": "2026-11-23",
-          "productionRequiredQty": 43
+          "productionRequiredQty": 50
         },
         {
           "pCode": "P1230",
@@ -8643,7 +8463,7 @@
           "initial": "MK0348",
           "customerName": "Central Oftalmica Com Ind e Serv Ltda.",
           "dueDate": "2026-11-23",
-          "productionRequiredQty": 25
+          "productionRequiredQty": 19
         },
         {
           "pCode": "P1230",
@@ -8883,7 +8703,7 @@
           "initial": "MK0348",
           "customerName": "Central Oftalmica Com Ind e Serv Ltda.",
           "dueDate": "2026-11-23",
-          "productionRequiredQty": 6
+          "productionRequiredQty": 12
         },
         {
           "pCode": "P1230",
@@ -8955,7 +8775,7 @@
           "initial": "MK0348",
           "customerName": "Central Oftalmica Com Ind e Serv Ltda.",
           "dueDate": "2026-11-23",
-          "productionRequiredQty": 25
+          "productionRequiredQty": 19
         },
         {
           "pCode": "P1230",
@@ -9027,7 +8847,7 @@
           "initial": "MK0348",
           "customerName": "Central Oftalmica Com Ind e Serv Ltda.",
           "dueDate": "2026-11-23",
-          "productionRequiredQty": 453
+          "productionRequiredQty": 447
         },
         {
           "pCode": "P1230",
@@ -9063,7 +8883,7 @@
           "initial": "MK0348",
           "customerName": "Central Oftalmica Com Ind e Serv Ltda.",
           "dueDate": "2026-11-23",
-          "productionRequiredQty": 236
+          "productionRequiredQty": 230
         },
         {
           "pCode": "P1230",
@@ -9075,7 +8895,7 @@
           "initial": "MK0348",
           "customerName": "Central Oftalmica Com Ind e Serv Ltda.",
           "dueDate": "2026-11-23",
-          "productionRequiredQty": 43
+          "productionRequiredQty": 50
         },
         {
           "pCode": "P1230",
@@ -9723,7 +9543,7 @@
           "initial": "MK0348",
           "customerName": "Central Oftalmica Com Ind e Serv Ltda.",
           "dueDate": "2026-11-23",
-          "productionRequiredQty": 74
+          "productionRequiredQty": 75
         },
         {
           "pCode": "P1230",
@@ -10035,7 +9855,7 @@
           "initial": "안전(해외)",
           "customerName": "",
           "dueDate": "2026-11-30",
-          "productionRequiredQty": 56557
+          "productionRequiredQty": 50606
         },
         {
           "pCode": "P1201",
@@ -10071,7 +9891,7 @@
           "initial": "안전(해외)",
           "customerName": "",
           "dueDate": "2026-11-30",
-          "productionRequiredQty": 22181
+          "productionRequiredQty": 20416
         },
         {
           "pCode": "P1201",
@@ -10083,19 +9903,7 @@
           "initial": "안전(해외)",
           "customerName": "",
           "dueDate": "2026-11-30",
-          "productionRequiredQty": 41151
-        },
-        {
-          "pCode": "P1201",
-          "demandType": "안전(해외)",
-          "demandCategory": "안전재고",
-          "demandId": "안전(해외)_R202610020001_2_20",
-          "salesOrderNo": "R202610020001",
-          "sequence": 2,
-          "initial": "안전(해외)",
-          "customerName": "",
-          "dueDate": "2026-11-30",
-          "productionRequiredQty": 1347
+          "productionRequiredQty": 41139
         },
         {
           "pCode": "P1201",
@@ -10119,7 +9927,7 @@
           "initial": "안전(해외)",
           "customerName": "",
           "dueDate": "2026-11-30",
-          "productionRequiredQty": 14028
+          "productionRequiredQty": 10536
         },
         {
           "pCode": "P1201",
@@ -10275,7 +10083,7 @@
           "initial": "안전(해외)",
           "customerName": "",
           "dueDate": "2026-11-30",
-          "productionRequiredQty": 584
+          "productionRequiredQty": 574
         },
         {
           "pCode": "P1203",
@@ -10455,7 +10263,7 @@
           "initial": "안전(해외)",
           "customerName": "",
           "dueDate": "2026-11-30",
-          "productionRequiredQty": 20654
+          "productionRequiredQty": 20653
         },
         {
           "pCode": "P1206",
@@ -10539,7 +10347,7 @@
           "initial": "안전(해외)",
           "customerName": "",
           "dueDate": "2026-11-30",
-          "productionRequiredQty": 32251
+          "productionRequiredQty": 32250
         },
         {
           "pCode": "P1206",
@@ -10647,7 +10455,7 @@
           "initial": "안전(해외)",
           "customerName": "",
           "dueDate": "2026-11-30",
-          "productionRequiredQty": 3412
+          "productionRequiredQty": 3411
         },
         {
           "pCode": "P1206",
@@ -10683,7 +10491,7 @@
           "initial": "안전(해외)",
           "customerName": "",
           "dueDate": "2026-11-30",
-          "productionRequiredQty": 3024
+          "productionRequiredQty": 3023
         },
         {
           "pCode": "P1206",
@@ -10707,7 +10515,7 @@
           "initial": "안전(해외)",
           "customerName": "",
           "dueDate": "2026-11-30",
-          "productionRequiredQty": 5038
+          "productionRequiredQty": 5032
         },
         {
           "pCode": "P1206",
@@ -10983,7 +10791,7 @@
           "initial": "안전(해외)",
           "customerName": "",
           "dueDate": "2026-11-30",
-          "productionRequiredQty": 4442
+          "productionRequiredQty": 4441
         },
         {
           "pCode": "P1208",
@@ -11271,7 +11079,7 @@
           "initial": "안전(해외)",
           "customerName": "",
           "dueDate": "2026-11-30",
-          "productionRequiredQty": 510
+          "productionRequiredQty": 516
         },
         {
           "pCode": "P1230",
@@ -11403,7 +11211,7 @@
           "initial": "안전(해외)",
           "customerName": "",
           "dueDate": "2026-11-30",
-          "productionRequiredQty": 517
+          "productionRequiredQty": 511
         },
         {
           "pCode": "P1230",
@@ -11487,7 +11295,7 @@
           "initial": "안전(해외)",
           "customerName": "",
           "dueDate": "2026-11-30",
-          "productionRequiredQty": 506
+          "productionRequiredQty": 512
         },
         {
           "pCode": "P1230",
@@ -11535,7 +11343,7 @@
           "initial": "안전(해외)",
           "customerName": "",
           "dueDate": "2026-11-30",
-          "productionRequiredQty": 344
+          "productionRequiredQty": 331
         },
         {
           "pCode": "P1230",
@@ -11595,7 +11403,7 @@
           "initial": "안전(해외)",
           "customerName": "",
           "dueDate": "2026-11-30",
-          "productionRequiredQty": 465
+          "productionRequiredQty": 455
         },
         {
           "pCode": "P1230",
@@ -11727,7 +11535,7 @@
           "initial": "안전(해외)",
           "customerName": "",
           "dueDate": "2026-11-30",
-          "productionRequiredQty": 511
+          "productionRequiredQty": 517
         },
         {
           "pCode": "P1230",
@@ -11835,7 +11643,7 @@
           "initial": "안전(해외)",
           "customerName": "",
           "dueDate": "2026-11-30",
-          "productionRequiredQty": 517
+          "productionRequiredQty": 511
         },
         {
           "pCode": "P1230",
@@ -11992,18 +11800,6 @@
           "customerName": "",
           "dueDate": "2026-11-30",
           "productionRequiredQty": 517
-        },
-        {
-          "pCode": "P1230",
-          "demandType": "안전(해외)",
-          "demandCategory": "안전재고",
-          "demandId": "안전(해외)_R202610020001_7_172",
-          "salesOrderNo": "R202610020001",
-          "sequence": 7,
-          "initial": "안전(해외)",
-          "customerName": "",
-          "dueDate": "2026-11-30",
-          "productionRequiredQty": 202
         },
         {
           "pCode": "P1230",
@@ -12591,7 +12387,7 @@
           "initial": "안전(해외)",
           "customerName": "",
           "dueDate": "2026-11-30",
-          "productionRequiredQty": 1024
+          "productionRequiredQty": 1031
         },
         {
           "pCode": "P1230",
@@ -12855,7 +12651,7 @@
           "initial": "안전(해외)",
           "customerName": "",
           "dueDate": "2026-11-30",
-          "productionRequiredQty": 3
+          "productionRequiredQty": 9
         },
         {
           "pCode": "P1230",
@@ -13095,7 +12891,7 @@
           "initial": "안전(해외)",
           "customerName": "",
           "dueDate": "2026-11-30",
-          "productionRequiredQty": 515
+          "productionRequiredQty": 512
         },
         {
           "pCode": "P1230",
@@ -13227,7 +13023,7 @@
           "initial": "안전(해외)",
           "customerName": "",
           "dueDate": "2026-11-30",
-          "productionRequiredQty": 3670
+          "productionRequiredQty": 3669
         },
         {
           "pCode": "P1245",
@@ -13311,7 +13107,7 @@
           "initial": "안전(해외)",
           "customerName": "",
           "dueDate": "2026-11-30",
-          "productionRequiredQty": 7271
+          "productionRequiredQty": 7270
         },
         {
           "pCode": "P1245",
@@ -13515,7 +13311,7 @@
           "initial": "안전(해외)",
           "customerName": "",
           "dueDate": "2026-11-30",
-          "productionRequiredQty": 13833
+          "productionRequiredQty": 13832
         },
         {
           "pCode": "P1301",
@@ -13527,7 +13323,7 @@
           "initial": "안전(해외)",
           "customerName": "",
           "dueDate": "2026-11-30",
-          "productionRequiredQty": 14736
+          "productionRequiredQty": 14735
         },
         {
           "pCode": "P1301",
@@ -16419,7 +16215,7 @@
           "initial": "안전(국내)",
           "customerName": "",
           "dueDate": "2026-11-30",
-          "productionRequiredQty": 10974
+          "productionRequiredQty": 8360
         },
         {
           "pCode": "P1201",
@@ -16443,7 +16239,7 @@
           "initial": "안전(해외)",
           "customerName": "",
           "dueDate": "2026-11-30",
-          "productionRequiredQty": 121948
+          "productionRequiredQty": 121947
         },
         {
           "pCode": "P1201",
@@ -16455,7 +16251,7 @@
           "initial": "안전(해외)",
           "customerName": "",
           "dueDate": "2026-11-30",
-          "productionRequiredQty": 129003
+          "productionRequiredQty": 129002
         },
         {
           "pCode": "P1201",
@@ -16467,7 +16263,7 @@
           "initial": "안전(해외)",
           "customerName": "",
           "dueDate": "2026-11-30",
-          "productionRequiredQty": 137065
+          "productionRequiredQty": 137064
         },
         {
           "pCode": "P1201",
@@ -16479,7 +16275,7 @@
           "initial": "안전(해외)",
           "customerName": "",
           "dueDate": "2026-11-30",
-          "productionRequiredQty": 84137
+          "productionRequiredQty": 82372
         },
         {
           "pCode": "P1201",
@@ -16491,7 +16287,7 @@
           "initial": "안전(해외)",
           "customerName": "",
           "dueDate": "2026-11-30",
-          "productionRequiredQty": 106706
+          "productionRequiredQty": 106695
         },
         {
           "pCode": "P1201",
@@ -16503,7 +16299,7 @@
           "initial": "안전(해외)",
           "customerName": "",
           "dueDate": "2026-11-30",
-          "productionRequiredQty": 135050
+          "productionRequiredQty": 135049
         },
         {
           "pCode": "P1201",
@@ -16527,7 +16323,7 @@
           "initial": "안전(해외)",
           "customerName": "",
           "dueDate": "2026-11-30",
-          "productionRequiredQty": 119932
+          "productionRequiredQty": 119931
         },
         {
           "pCode": "P1201",
@@ -16539,7 +16335,7 @@
           "initial": "안전(해외)",
           "customerName": "",
           "dueDate": "2026-11-30",
-          "productionRequiredQty": 105823
+          "productionRequiredQty": 105822
         },
         {
           "pCode": "P1201",
@@ -16551,7 +16347,7 @@
           "initial": "안전(해외)",
           "customerName": "",
           "dueDate": "2026-11-30",
-          "productionRequiredQty": 84658
+          "productionRequiredQty": 83715
         },
         {
           "pCode": "P1201",
@@ -16563,7 +16359,7 @@
           "initial": "안전(해외)",
           "customerName": "",
           "dueDate": "2026-11-30",
-          "productionRequiredQty": 53086
+          "productionRequiredQty": 53085
         },
         {
           "pCode": "P1201",
@@ -16575,7 +16371,7 @@
           "initial": "안전(해외)",
           "customerName": "",
           "dueDate": "2026-11-30",
-          "productionRequiredQty": 62486
+          "productionRequiredQty": 62485
         },
         {
           "pCode": "P1201",
@@ -16587,7 +16383,7 @@
           "initial": "안전(해외)",
           "customerName": "",
           "dueDate": "2026-11-30",
-          "productionRequiredQty": 56439
+          "productionRequiredQty": 56438
         },
         {
           "pCode": "P1201",
@@ -16623,7 +16419,7 @@
           "initial": "안전(해외)",
           "customerName": "",
           "dueDate": "2026-11-30",
-          "productionRequiredQty": 68533
+          "productionRequiredQty": 68532
         },
         {
           "pCode": "P1201",
@@ -16767,7 +16563,7 @@
           "initial": "안전(해외)",
           "customerName": "",
           "dueDate": "2026-11-30",
-          "productionRequiredQty": 68165
+          "productionRequiredQty": 68164
         },
         {
           "pCode": "P1206",
@@ -16779,7 +16575,7 @@
           "initial": "안전(해외)",
           "customerName": "",
           "dueDate": "2026-11-30",
-          "productionRequiredQty": 15118
+          "productionRequiredQty": 15117
         },
         {
           "pCode": "P1206",
@@ -16839,7 +16635,7 @@
           "initial": "안전(해외)",
           "customerName": "",
           "dueDate": "2026-11-30",
-          "productionRequiredQty": 3024
+          "productionRequiredQty": 3023
         },
         {
           "pCode": "P1206",
@@ -16851,7 +16647,7 @@
           "initial": "안전(해외)",
           "customerName": "",
           "dueDate": "2026-11-30",
-          "productionRequiredQty": 3024
+          "productionRequiredQty": 3023
         },
         {
           "pCode": "P1206",
@@ -16959,7 +16755,7 @@
           "initial": "안전(해외)",
           "customerName": "",
           "dueDate": "2026-11-30",
-          "productionRequiredQty": 44345
+          "productionRequiredQty": 44344
         },
         {
           "pCode": "P1206",
@@ -16971,7 +16767,7 @@
           "initial": "안전(해외)",
           "customerName": "",
           "dueDate": "2026-11-30",
-          "productionRequiredQty": 55431
+          "productionRequiredQty": 55430
         },
         {
           "pCode": "P1206",
@@ -17007,7 +16803,7 @@
           "initial": "안전(해외)",
           "customerName": "",
           "dueDate": "2026-11-30",
-          "productionRequiredQty": 33259
+          "productionRequiredQty": 33258
         },
         {
           "pCode": "P1206",
@@ -17067,7 +16863,7 @@
           "initial": "안전(해외)",
           "customerName": "",
           "dueDate": "2026-11-30",
-          "productionRequiredQty": 27212
+          "productionRequiredQty": 27211
         },
         {
           "pCode": "P1206",
@@ -17139,7 +16935,7 @@
           "initial": "안전(해외)",
           "customerName": "",
           "dueDate": "2026-11-30",
-          "productionRequiredQty": 9071
+          "productionRequiredQty": 9070
         },
         {
           "pCode": "P1206",
@@ -17235,7 +17031,7 @@
           "initial": "안전(해외)",
           "customerName": "",
           "dueDate": "2026-11-30",
-          "productionRequiredQty": 9071
+          "productionRequiredQty": 9070
         },
         {
           "pCode": "P1206",
@@ -17307,7 +17103,7 @@
           "initial": "안전(해외)",
           "customerName": "",
           "dueDate": "2026-11-30",
-          "productionRequiredQty": 2832
+          "productionRequiredQty": 2847
         },
         {
           "pCode": "P1206",
@@ -17343,7 +17139,7 @@
           "initial": "안전(해외)",
           "customerName": "",
           "dueDate": "2026-11-30",
-          "productionRequiredQty": 2045
+          "productionRequiredQty": 2060
         },
         {
           "pCode": "P1245",
@@ -17355,7 +17151,7 @@
           "initial": "안전(해외)",
           "customerName": "",
           "dueDate": "2026-11-30",
-          "productionRequiredQty": 3024
+          "productionRequiredQty": 3023
         },
         {
           "pCode": "P1245",
@@ -17427,7 +17223,7 @@
           "initial": "안전(해외)",
           "customerName": "",
           "dueDate": "2026-11-30",
-          "productionRequiredQty": 38298
+          "productionRequiredQty": 38297
         },
         {
           "pCode": "P1245",
@@ -17439,7 +17235,7 @@
           "initial": "안전(해외)",
           "customerName": "",
           "dueDate": "2026-11-30",
-          "productionRequiredQty": 18346
+          "productionRequiredQty": 18345
         },
         {
           "pCode": "P1245",
@@ -17463,7 +17259,7 @@
           "initial": "안전(해외)",
           "customerName": "",
           "dueDate": "2026-11-30",
-          "productionRequiredQty": 21165
+          "productionRequiredQty": 21164
         },
         {
           "pCode": "P1245",
@@ -17475,7 +17271,7 @@
           "initial": "안전(해외)",
           "customerName": "",
           "dueDate": "2026-11-30",
-          "productionRequiredQty": 27212
+          "productionRequiredQty": 27211
         },
         {
           "pCode": "P1245",
@@ -17487,7 +17283,7 @@
           "initial": "안전(해외)",
           "customerName": "",
           "dueDate": "2026-11-30",
-          "productionRequiredQty": 3024
+          "productionRequiredQty": 3023
         },
         {
           "pCode": "P1245",
@@ -18507,7 +18303,7 @@
           "initial": "AR0079",
           "customerName": "MPG / E Kontaktlinse",
           "dueDate": "2026-12-02",
-          "productionRequiredQty": 43
+          "productionRequiredQty": 49
         },
         {
           "pCode": "P5418",
@@ -18611,18 +18407,150 @@
       "liddingCode": "BS0011",
       "liddingSpecification": "BS0011-001",
       "liddingName": "알루미늄리드지 (원데이-스플레쉬)_유광 코팅",
-      "productionRequiredQty": 3369,
-      "sourceRefreshedAt": "2026-10-27 07:23:31",
-      "linkedPCodeCount": 2,
-      "dueDateFrom": "2026-11-04",
+      "productionRequiredQty": 16954,
+      "sourceRefreshedAt": "2026-10-27 14:58:32",
+      "linkedPCodeCount": 3,
+      "dueDateFrom": "2026-10-30",
       "dueDateTo": "2026-11-22",
       "categoryQuantities": {
-        "해외": 3107,
+        "해외": 16322,
         "PB": 0,
         "국내": 0,
-        "안전재고": 262
+        "안전재고": 632
       },
       "salesOrders": [
+        {
+          "pCode": "P0006",
+          "demandType": "이니셜",
+          "demandCategory": "해외",
+          "demandId": "MK0327_202610120629_1_20",
+          "salesOrderNo": "202610120629",
+          "sequence": 1,
+          "initial": "MK0327",
+          "customerName": "Coastal Contacts (Clearly)",
+          "dueDate": "2026-10-30",
+          "productionRequiredQty": 60
+        },
+        {
+          "pCode": "P0006",
+          "demandType": "이니셜",
+          "demandCategory": "해외",
+          "demandId": "MK0327_202610120629_2_10",
+          "salesOrderNo": "202610120629",
+          "sequence": 2,
+          "initial": "MK0327",
+          "customerName": "Coastal Contacts (Clearly)",
+          "dueDate": "2026-10-30",
+          "productionRequiredQty": 1780
+        },
+        {
+          "pCode": "P0035",
+          "demandType": "이니셜",
+          "demandCategory": "해외",
+          "demandId": "MK0327_202610120629_5_3",
+          "salesOrderNo": "202610120629",
+          "sequence": 5,
+          "initial": "MK0327",
+          "customerName": "Coastal Contacts (Clearly)",
+          "dueDate": "2026-10-30",
+          "productionRequiredQty": 152
+        },
+        {
+          "pCode": "P0034",
+          "demandType": "이니셜",
+          "demandCategory": "해외",
+          "demandId": "MK0328_202610120638_3_14",
+          "salesOrderNo": "202610120638",
+          "sequence": 3,
+          "initial": "MK0328",
+          "customerName": "Coastal Contacts (Clearly)",
+          "dueDate": "2026-10-30",
+          "productionRequiredQty": 91
+        },
+        {
+          "pCode": "P0006",
+          "demandType": "이니셜",
+          "demandCategory": "해외",
+          "demandId": "MK0331_202610130365_1_10",
+          "salesOrderNo": "202610130365",
+          "sequence": 1,
+          "initial": "MK0331",
+          "customerName": "Coastal Contacts (Clearly)",
+          "dueDate": "2026-10-30",
+          "productionRequiredQty": 784
+        },
+        {
+          "pCode": "P0006",
+          "demandType": "이니셜",
+          "demandCategory": "해외",
+          "demandId": "MK0331_202610130365_1_13",
+          "salesOrderNo": "202610130365",
+          "sequence": 1,
+          "initial": "MK0331",
+          "customerName": "Coastal Contacts (Clearly)",
+          "dueDate": "2026-10-30",
+          "productionRequiredQty": 392
+        },
+        {
+          "pCode": "P0006",
+          "demandType": "이니셜",
+          "demandCategory": "해외",
+          "demandId": "MK0331_202610130365_1_16",
+          "salesOrderNo": "202610130365",
+          "sequence": 1,
+          "initial": "MK0331",
+          "customerName": "Coastal Contacts (Clearly)",
+          "dueDate": "2026-10-30",
+          "productionRequiredQty": 543
+        },
+        {
+          "pCode": "P0006",
+          "demandType": "이니셜",
+          "demandCategory": "해외",
+          "demandId": "MK0331_202610130365_1_20",
+          "salesOrderNo": "202610130365",
+          "sequence": 1,
+          "initial": "MK0331",
+          "customerName": "Coastal Contacts (Clearly)",
+          "dueDate": "2026-10-30",
+          "productionRequiredQty": 905
+        },
+        {
+          "pCode": "P0035",
+          "demandType": "이니셜",
+          "demandCategory": "해외",
+          "demandId": "MK0331_202610130365_5_15",
+          "salesOrderNo": "202610130365",
+          "sequence": 5,
+          "initial": "MK0331",
+          "customerName": "Coastal Contacts (Clearly)",
+          "dueDate": "2026-10-30",
+          "productionRequiredQty": 61
+        },
+        {
+          "pCode": "P0006",
+          "demandType": "이니셜",
+          "demandCategory": "해외",
+          "demandId": "MK0332_202610130369_1_8",
+          "salesOrderNo": "202610130369",
+          "sequence": 1,
+          "initial": "MK0332",
+          "customerName": "Coastal Contacts (Clearly)",
+          "dueDate": "2026-10-30",
+          "productionRequiredQty": 422
+        },
+        {
+          "pCode": "P0006",
+          "demandType": "이니셜",
+          "demandCategory": "해외",
+          "demandId": "MK0332_202610130369_2_8",
+          "salesOrderNo": "202610130369",
+          "sequence": 2,
+          "initial": "MK0332",
+          "customerName": "Coastal Contacts (Clearly)",
+          "dueDate": "2026-10-30",
+          "productionRequiredQty": 60
+        },
         {
           "pCode": "P0006",
           "demandType": "이니셜",
@@ -18633,7 +18561,7 @@
           "initial": "MK0334",
           "customerName": "Coastal Contacts (Clearly)",
           "dueDate": "2026-11-04",
-          "productionRequiredQty": 1358
+          "productionRequiredQty": 1509
         },
         {
           "pCode": "P0006",
@@ -18645,7 +18573,43 @@
           "initial": "MK0334",
           "customerName": "Coastal Contacts (Clearly)",
           "dueDate": "2026-11-04",
-          "productionRequiredQty": 30
+          "productionRequiredQty": 1659
+        },
+        {
+          "pCode": "P0006",
+          "demandType": "이니셜",
+          "demandCategory": "해외",
+          "demandId": "MK0334_202610130393_1_16",
+          "salesOrderNo": "202610130393",
+          "sequence": 1,
+          "initial": "MK0334",
+          "customerName": "Coastal Contacts (Clearly)",
+          "dueDate": "2026-11-04",
+          "productionRequiredQty": 724
+        },
+        {
+          "pCode": "P0006",
+          "demandType": "이니셜",
+          "demandCategory": "해외",
+          "demandId": "MK0334_202610130393_1_17",
+          "salesOrderNo": "202610130393",
+          "sequence": 1,
+          "initial": "MK0334",
+          "customerName": "Coastal Contacts (Clearly)",
+          "dueDate": "2026-11-04",
+          "productionRequiredQty": 91
+        },
+        {
+          "pCode": "P0006",
+          "demandType": "이니셜",
+          "demandCategory": "해외",
+          "demandId": "MK0334_202610130393_1_18",
+          "salesOrderNo": "202610130393",
+          "sequence": 1,
+          "initial": "MK0334",
+          "customerName": "Coastal Contacts (Clearly)",
+          "dueDate": "2026-11-04",
+          "productionRequiredQty": 513
         },
         {
           "pCode": "P0006",
@@ -18663,6 +18627,30 @@
           "pCode": "P0006",
           "demandType": "이니셜",
           "demandCategory": "해외",
+          "demandId": "MK0334_202610130393_1_31",
+          "salesOrderNo": "202610130393",
+          "sequence": 1,
+          "initial": "MK0334",
+          "customerName": "Coastal Contacts (Clearly)",
+          "dueDate": "2026-11-04",
+          "productionRequiredQty": 30
+        },
+        {
+          "pCode": "P0006",
+          "demandType": "이니셜",
+          "demandCategory": "해외",
+          "demandId": "MK0334_202610130393_1_5",
+          "salesOrderNo": "202610130393",
+          "sequence": 1,
+          "initial": "MK0334",
+          "customerName": "Coastal Contacts (Clearly)",
+          "dueDate": "2026-11-04",
+          "productionRequiredQty": 272
+        },
+        {
+          "pCode": "P0006",
+          "demandType": "이니셜",
+          "demandCategory": "해외",
           "demandId": "MK0334_202610130393_1_6",
           "salesOrderNo": "202610130393",
           "sequence": 1,
@@ -18670,6 +18658,30 @@
           "customerName": "Coastal Contacts (Clearly)",
           "dueDate": "2026-11-04",
           "productionRequiredQty": 362
+        },
+        {
+          "pCode": "P0006",
+          "demandType": "이니셜",
+          "demandCategory": "해외",
+          "demandId": "MK0334_202610130393_1_7",
+          "salesOrderNo": "202610130393",
+          "sequence": 1,
+          "initial": "MK0334",
+          "customerName": "Coastal Contacts (Clearly)",
+          "dueDate": "2026-11-04",
+          "productionRequiredQty": 905
+        },
+        {
+          "pCode": "P0006",
+          "demandType": "이니셜",
+          "demandCategory": "해외",
+          "demandId": "MK0334_202610130393_1_8",
+          "salesOrderNo": "202610130393",
+          "sequence": 1,
+          "initial": "MK0334",
+          "customerName": "Coastal Contacts (Clearly)",
+          "dueDate": "2026-11-04",
+          "productionRequiredQty": 1388
         },
         {
           "pCode": "P0006",
@@ -18693,7 +18705,67 @@
           "initial": "MK0335",
           "customerName": "Coastal Contacts (Clearly)",
           "dueDate": "2026-11-04",
-          "productionRequiredQty": 513
+          "productionRequiredQty": 1388
+        },
+        {
+          "pCode": "P0006",
+          "demandType": "이니셜",
+          "demandCategory": "해외",
+          "demandId": "MK0335_202610130394_1_17",
+          "salesOrderNo": "202610130394",
+          "sequence": 1,
+          "initial": "MK0335",
+          "customerName": "Coastal Contacts (Clearly)",
+          "dueDate": "2026-11-04",
+          "productionRequiredQty": 60
+        },
+        {
+          "pCode": "P0006",
+          "demandType": "이니셜",
+          "demandCategory": "해외",
+          "demandId": "MK0335_202610130394_1_31",
+          "salesOrderNo": "202610130394",
+          "sequence": 1,
+          "initial": "MK0335",
+          "customerName": "Coastal Contacts (Clearly)",
+          "dueDate": "2026-11-04",
+          "productionRequiredQty": 60
+        },
+        {
+          "pCode": "P0006",
+          "demandType": "이니셜",
+          "demandCategory": "해외",
+          "demandId": "MK0335_202610130394_1_7",
+          "salesOrderNo": "202610130394",
+          "sequence": 1,
+          "initial": "MK0335",
+          "customerName": "Coastal Contacts (Clearly)",
+          "dueDate": "2026-11-04",
+          "productionRequiredQty": 1056
+        },
+        {
+          "pCode": "P0006",
+          "demandType": "이니셜",
+          "demandCategory": "해외",
+          "demandId": "MK0335_202610130394_1_8",
+          "salesOrderNo": "202610130394",
+          "sequence": 1,
+          "initial": "MK0335",
+          "customerName": "Coastal Contacts (Clearly)",
+          "dueDate": "2026-11-04",
+          "productionRequiredQty": 181
+        },
+        {
+          "pCode": "P0006",
+          "demandType": "이니셜",
+          "demandCategory": "해외",
+          "demandId": "MK0335_202610130394_2_15",
+          "salesOrderNo": "202610130394",
+          "sequence": 2,
+          "initial": "MK0335",
+          "customerName": "Coastal Contacts (Clearly)",
+          "dueDate": "2026-11-04",
+          "productionRequiredQty": 30
         },
         {
           "pCode": "P0035",
@@ -18705,7 +18777,19 @@
           "initial": "안전(해외)",
           "customerName": "",
           "dueDate": "2026-11-22",
-          "productionRequiredQty": 142
+          "productionRequiredQty": 233
+        },
+        {
+          "pCode": "P0035",
+          "demandType": "안전(해외)",
+          "demandCategory": "안전재고",
+          "demandId": "안전(해외)_R202610130004_1_12",
+          "salesOrderNo": "R202610130004",
+          "sequence": 1,
+          "initial": "안전(해외)",
+          "customerName": "",
+          "dueDate": "2026-11-22",
+          "productionRequiredQty": 279
         },
         {
           "pCode": "P0035",
@@ -18726,7 +18810,7 @@
       "liddingSpecification": "BS0031-004",
       "liddingName": "알루미늄리드지 (원데이-MPG&E)_유광 코팅",
       "productionRequiredQty": 102281,
-      "sourceRefreshedAt": "2026-10-27 07:23:31",
+      "sourceRefreshedAt": "2026-10-27 14:58:32",
       "linkedPCodeCount": 1,
       "dueDateFrom": "2026-12-02",
       "dueDateTo": "2026-12-02",
@@ -19451,8 +19535,8 @@
       "liddingCode": "BS0036",
       "liddingSpecification": "BS0036-001",
       "liddingName": "알루미늄리드지 (PIA 1Day)_유광 코팅",
-      "productionRequiredQty": 544789,
-      "sourceRefreshedAt": "2026-10-27 07:23:31",
+      "productionRequiredQty": 529796,
+      "sourceRefreshedAt": "2026-10-27 14:58:32",
       "linkedPCodeCount": 7,
       "dueDateFrom": "2026-11-30",
       "dueDateTo": "2026-11-30",
@@ -19460,7 +19544,7 @@
         "해외": 0,
         "PB": 0,
         "국내": 0,
-        "안전재고": 544789
+        "안전재고": 529796
       },
       "salesOrders": [
         {
@@ -19473,7 +19557,7 @@
           "initial": "안전(해외)",
           "customerName": "",
           "dueDate": "2026-11-30",
-          "productionRequiredQty": 71596
+          "productionRequiredQty": 71595
         },
         {
           "pCode": "P7003",
@@ -19509,7 +19593,7 @@
           "initial": "안전(해외)",
           "customerName": "",
           "dueDate": "2026-11-30",
-          "productionRequiredQty": 4902
+          "productionRequiredQty": 4907
         },
         {
           "pCode": "P7003",
@@ -19557,7 +19641,7 @@
           "initial": "안전(해외)",
           "customerName": "",
           "dueDate": "2026-11-30",
-          "productionRequiredQty": 2243
+          "productionRequiredQty": 2259
         },
         {
           "pCode": "P7008",
@@ -19569,7 +19653,7 @@
           "initial": "안전(해외)",
           "customerName": "",
           "dueDate": "2026-11-30",
-          "productionRequiredQty": 3847
+          "productionRequiredQty": 1155
         },
         {
           "pCode": "P7008",
@@ -19581,7 +19665,7 @@
           "initial": "안전(해외)",
           "customerName": "",
           "dueDate": "2026-11-30",
-          "productionRequiredQty": 12756
+          "productionRequiredQty": 10652
         },
         {
           "pCode": "P7008",
@@ -19773,7 +19857,7 @@
           "initial": "안전(해외)",
           "customerName": "",
           "dueDate": "2026-11-30",
-          "productionRequiredQty": 5814
+          "productionRequiredQty": 5813
         },
         {
           "pCode": "P7008",
@@ -19785,7 +19869,7 @@
           "initial": "안전(해외)",
           "customerName": "",
           "dueDate": "2026-11-30",
-          "productionRequiredQty": 3972
+          "productionRequiredQty": 1132
         },
         {
           "pCode": "P7008",
@@ -19797,7 +19881,7 @@
           "initial": "안전(해외)",
           "customerName": "",
           "dueDate": "2026-11-30",
-          "productionRequiredQty": 18327
+          "productionRequiredQty": 16117
         },
         {
           "pCode": "P7008",
@@ -19821,7 +19905,7 @@
           "initial": "안전(해외)",
           "customerName": "",
           "dueDate": "2026-11-30",
-          "productionRequiredQty": 11273
+          "productionRequiredQty": 5875
         },
         {
           "pCode": "P7009",
@@ -19845,7 +19929,7 @@
           "initial": "안전(해외)",
           "customerName": "",
           "dueDate": "2026-11-30",
-          "productionRequiredQty": 34805
+          "productionRequiredQty": 34815
         },
         {
           "pCode": "P7016",
@@ -19857,7 +19941,7 @@
           "initial": "안전(해외)",
           "customerName": "",
           "dueDate": "2026-11-30",
-          "productionRequiredQty": 2157
+          "productionRequiredQty": 2162
         },
         {
           "pCode": "P7016",
@@ -19881,7 +19965,7 @@
           "initial": "안전(해외)",
           "customerName": "",
           "dueDate": "2026-11-30",
-          "productionRequiredQty": 760
+          "productionRequiredQty": 775
         },
         {
           "pCode": "P7016",
@@ -20181,7 +20265,7 @@
           "initial": "안전(해외)",
           "customerName": "",
           "dueDate": "2026-11-30",
-          "productionRequiredQty": 6862
+          "productionRequiredQty": 6867
         },
         {
           "pCode": "P7017",
@@ -20265,7 +20349,7 @@
           "initial": "안전(해외)",
           "customerName": "",
           "dueDate": "2026-11-30",
-          "productionRequiredQty": 33028
+          "productionRequiredQty": 33139
         },
         {
           "pCode": "P7024",
@@ -20289,7 +20373,7 @@
           "initial": "안전(해외)",
           "customerName": "",
           "dueDate": "2026-11-30",
-          "productionRequiredQty": 3423
+          "productionRequiredQty": 3428
         },
         {
           "pCode": "P7024",
@@ -20301,7 +20385,7 @@
           "initial": "안전(해외)",
           "customerName": "",
           "dueDate": "2026-11-30",
-          "productionRequiredQty": 3013
+          "productionRequiredQty": 3089
         },
         {
           "pCode": "P7024",
@@ -20313,7 +20397,7 @@
           "initial": "안전(해외)",
           "customerName": "",
           "dueDate": "2026-11-30",
-          "productionRequiredQty": 2785
+          "productionRequiredQty": 2790
         },
         {
           "pCode": "P7024",
@@ -20381,8 +20465,8 @@
       "liddingCode": "BS0039",
       "liddingSpecification": "BS0039-002",
       "liddingName": "알루미늄리드지 (신시아 2week UV)_유광 코팅",
-      "productionRequiredQty": 70963,
-      "sourceRefreshedAt": "2026-10-27 07:23:31",
+      "productionRequiredQty": 70962,
+      "sourceRefreshedAt": "2026-10-27 14:58:32",
       "linkedPCodeCount": 1,
       "dueDateFrom": "2026-11-11",
       "dueDateTo": "2026-11-30",
@@ -20390,7 +20474,7 @@
         "해외": 2327,
         "PB": 0,
         "국내": 0,
-        "안전재고": 68636
+        "안전재고": 68635
       },
       "salesOrders": [
         {
@@ -20487,7 +20571,7 @@
           "initial": "안전(해외)",
           "customerName": "",
           "dueDate": "2026-11-30",
-          "productionRequiredQty": 1738
+          "productionRequiredQty": 1737
         },
         {
           "pCode": "P1256",
@@ -20723,13 +20807,13 @@
       "liddingCode": "BS0048",
       "liddingSpecification": "BS0048-001",
       "liddingName": "알루미늄리드지 (Metha Daily)_유광 코팅",
-      "productionRequiredQty": 4704,
-      "sourceRefreshedAt": "2026-10-27 07:23:31",
+      "productionRequiredQty": 4644,
+      "sourceRefreshedAt": "2026-10-27 14:58:32",
       "linkedPCodeCount": 1,
       "dueDateFrom": "2026-11-01",
       "dueDateTo": "2026-11-13",
       "categoryQuantities": {
-        "해외": 4704,
+        "해외": 4644,
         "PB": 0,
         "국내": 0,
         "안전재고": 0
@@ -20757,7 +20841,7 @@
           "initial": "HW0549",
           "customerName": "KODANO S.A.",
           "dueDate": "2026-11-01",
-          "productionRequiredQty": 422
+          "productionRequiredQty": 392
         },
         {
           "pCode": "P0009",
@@ -20817,7 +20901,7 @@
           "initial": "AR0039",
           "customerName": "Optical IMOP S.L",
           "dueDate": "2026-11-13",
-          "productionRequiredQty": 392
+          "productionRequiredQty": 362
         },
         {
           "pCode": "P0009",
@@ -20861,30 +20945,18 @@
       "liddingCode": "BS0049",
       "liddingSpecification": "BS0049-002",
       "liddingName": "알루미늄리드지 (신시아_원데이UV모이스쳐)_무광 코팅",
-      "productionRequiredQty": 39941,
-      "sourceRefreshedAt": "2026-10-27 07:23:31",
+      "productionRequiredQty": 33873,
+      "sourceRefreshedAt": "2026-10-27 14:58:32",
       "linkedPCodeCount": 1,
       "dueDateFrom": "2026-11-11",
       "dueDateTo": "2026-11-22",
       "categoryQuantities": {
-        "해외": 25464,
+        "해외": 20184,
         "PB": 0,
         "국내": 0,
-        "안전재고": 14477
+        "안전재고": 13689
       },
       "salesOrders": [
-        {
-          "pCode": "P0588",
-          "demandType": "이니셜",
-          "demandCategory": "해외",
-          "demandId": "GG0277_202610120639_1_14",
-          "salesOrderNo": "202610120639",
-          "sequence": 1,
-          "initial": "GG0277",
-          "customerName": "SINCERE Co.,Ltd",
-          "dueDate": "2026-11-11",
-          "productionRequiredQty": 573
-        },
         {
           "pCode": "P0588",
           "demandType": "이니셜",
@@ -20907,7 +20979,7 @@
           "initial": "GG0277",
           "customerName": "SINCERE Co.,Ltd",
           "dueDate": "2026-11-11",
-          "productionRequiredQty": 7935
+          "productionRequiredQty": 6366
         },
         {
           "pCode": "P0588",
@@ -20955,7 +21027,7 @@
           "initial": "GG0277",
           "customerName": "SINCERE Co.,Ltd",
           "dueDate": "2026-11-11",
-          "productionRequiredQty": 8388
+          "productionRequiredQty": 5250
         },
         {
           "pCode": "P0588",
@@ -20979,7 +21051,7 @@
           "initial": "안전(해외)",
           "customerName": "",
           "dueDate": "2026-11-22",
-          "productionRequiredQty": 1646
+          "productionRequiredQty": 907
         },
         {
           "pCode": "P0588",
@@ -21051,7 +21123,7 @@
           "initial": "안전(해외)",
           "customerName": "",
           "dueDate": "2026-11-22",
-          "productionRequiredQty": 2085
+          "productionRequiredQty": 2074
         },
         {
           "pCode": "P0588",
@@ -21111,7 +21183,7 @@
           "initial": "안전(해외)",
           "customerName": "",
           "dueDate": "2026-11-22",
-          "productionRequiredQty": 1380
+          "productionRequiredQty": 1344
         },
         {
           "pCode": "P0588",
@@ -21123,7 +21195,7 @@
           "initial": "안전(해외)",
           "customerName": "",
           "dueDate": "2026-11-22",
-          "productionRequiredQty": 1075
+          "productionRequiredQty": 1073
         }
       ]
     },
@@ -21131,16 +21203,16 @@
       "liddingCode": "BS0050",
       "liddingSpecification": "BS0050-002",
       "liddingName": "알루미늄리드지 (Iris_수지그레이)_무광 코팅",
-      "productionRequiredQty": 360682,
-      "sourceRefreshedAt": "2026-10-27 07:23:31",
+      "productionRequiredQty": 350774,
+      "sourceRefreshedAt": "2026-10-27 14:58:32",
       "linkedPCodeCount": 2,
       "dueDateFrom": "2026-11-16",
       "dueDateTo": "2026-12-12",
       "categoryQuantities": {
         "해외": 9055,
         "PB": 0,
-        "국내": 35913,
-        "안전재고": 315714
+        "국내": 29562,
+        "안전재고": 312157
       },
       "salesOrders": [
         {
@@ -21243,18 +21315,6 @@
           "pCode": "P0019",
           "demandType": "국내",
           "demandCategory": "국내",
-          "demandId": "국내_R202610060001_6_1",
-          "salesOrderNo": "R202610060001",
-          "sequence": 6,
-          "initial": "국내",
-          "customerName": "",
-          "dueDate": "2026-12-12",
-          "productionRequiredQty": 1428
-        },
-        {
-          "pCode": "P0019",
-          "demandType": "국내",
-          "demandCategory": "국내",
           "demandId": "국내_R202610060001_6_2",
           "salesOrderNo": "R202610060001",
           "sequence": 6,
@@ -21291,25 +21351,13 @@
           "pCode": "P0019",
           "demandType": "국내",
           "demandCategory": "국내",
-          "demandId": "국내_R202610060001_10_2",
-          "salesOrderNo": "R202610060001",
-          "sequence": 10,
-          "initial": "국내",
-          "customerName": "",
-          "dueDate": "2026-12-12",
-          "productionRequiredQty": 1914
-        },
-        {
-          "pCode": "P0019",
-          "demandType": "국내",
-          "demandCategory": "국내",
           "demandId": "국내_R202610060001_10_20",
           "salesOrderNo": "R202610060001",
           "sequence": 10,
           "initial": "국내",
           "customerName": "",
           "dueDate": "2026-12-12",
-          "productionRequiredQty": 7475
+          "productionRequiredQty": 7474
         },
         {
           "pCode": "P0019",
@@ -21345,19 +21393,7 @@
           "initial": "국내",
           "customerName": "",
           "dueDate": "2026-12-12",
-          "productionRequiredQty": 15496
-        },
-        {
-          "pCode": "P0019",
-          "demandType": "국내",
-          "demandCategory": "국내",
-          "demandId": "국내_R202610060001_10_4",
-          "salesOrderNo": "R202610060001",
-          "sequence": 10,
-          "initial": "국내",
-          "customerName": "",
-          "dueDate": "2026-12-12",
-          "productionRequiredQty": 729
+          "productionRequiredQty": 13217
         },
         {
           "pCode": "P0019",
@@ -21417,7 +21453,7 @@
           "initial": "안전(국내)",
           "customerName": "",
           "dueDate": "2026-12-12",
-          "productionRequiredQty": 4588
+          "productionRequiredQty": 4497
         },
         {
           "pCode": "P0019",
@@ -21513,7 +21549,7 @@
           "initial": "안전(국내)",
           "customerName": "",
           "dueDate": "2026-12-12",
-          "productionRequiredQty": 21239
+          "productionRequiredQty": 21238
         },
         {
           "pCode": "P0019",
@@ -21537,7 +21573,7 @@
           "initial": "안전(국내)",
           "customerName": "",
           "dueDate": "2026-12-12",
-          "productionRequiredQty": 14585
+          "productionRequiredQty": 14584
         },
         {
           "pCode": "P0019",
@@ -21621,7 +21657,7 @@
           "initial": "안전(국내)",
           "customerName": "",
           "dueDate": "2026-12-12",
-          "productionRequiredQty": 7383
+          "productionRequiredQty": 5378
         },
         {
           "pCode": "P0019",
@@ -21669,7 +21705,7 @@
           "initial": "안전(국내)",
           "customerName": "",
           "dueDate": "2026-12-12",
-          "productionRequiredQty": 13126
+          "productionRequiredQty": 11667
         },
         {
           "pCode": "P0019",
@@ -21701,15 +21737,15 @@
       "liddingCode": "BS0053",
       "liddingSpecification": "BS0053-002",
       "liddingName": "알루미늄리드지 (국내/중국 1-Day Soft)_무광 코팅",
-      "productionRequiredQty": 1286780,
-      "sourceRefreshedAt": "2026-10-27 07:23:31",
+      "productionRequiredQty": 1252150,
+      "sourceRefreshedAt": "2026-10-27 14:58:32",
       "linkedPCodeCount": 2,
       "dueDateFrom": "2026-11-01",
       "dueDateTo": "2026-12-12",
       "categoryQuantities": {
         "해외": 5852,
         "PB": 3913,
-        "국내": 728604,
+        "국내": 693974,
         "안전재고": 548411
       },
       "salesOrders": [
@@ -21723,7 +21759,7 @@
           "initial": "국내",
           "customerName": "",
           "dueDate": "2026-11-01",
-          "productionRequiredQty": 16655
+          "productionRequiredQty": 14543
         },
         {
           "pCode": "P3015",
@@ -21735,7 +21771,7 @@
           "initial": "국내",
           "customerName": "",
           "dueDate": "2026-11-01",
-          "productionRequiredQty": 13125
+          "productionRequiredQty": 11134
         },
         {
           "pCode": "P3015",
@@ -21747,7 +21783,7 @@
           "initial": "국내",
           "customerName": "",
           "dueDate": "2026-11-01",
-          "productionRequiredQty": 8177
+          "productionRequiredQty": 6517
         },
         {
           "pCode": "P3015",
@@ -21759,7 +21795,7 @@
           "initial": "국내",
           "customerName": "",
           "dueDate": "2026-11-01",
-          "productionRequiredQty": 10259
+          "productionRequiredQty": 7332
         },
         {
           "pCode": "P3015",
@@ -21771,7 +21807,7 @@
           "initial": "국내",
           "customerName": "",
           "dueDate": "2026-11-01",
-          "productionRequiredQty": 7634
+          "productionRequiredQty": 5401
         },
         {
           "pCode": "P3015",
@@ -21783,7 +21819,7 @@
           "initial": "국내",
           "customerName": "",
           "dueDate": "2026-11-01",
-          "productionRequiredQty": 19552
+          "productionRequiredQty": 17500
         },
         {
           "pCode": "P3015",
@@ -21807,7 +21843,7 @@
           "initial": "국내",
           "customerName": "",
           "dueDate": "2026-11-01",
-          "productionRequiredQty": 4737
+          "productionRequiredQty": 2595
         },
         {
           "pCode": "P3015",
@@ -21831,7 +21867,7 @@
           "initial": "국내",
           "customerName": "",
           "dueDate": "2026-11-01",
-          "productionRequiredQty": 5491
+          "productionRequiredQty": 4556
         },
         {
           "pCode": "P3015",
@@ -21963,7 +21999,7 @@
           "initial": "국내",
           "customerName": "",
           "dueDate": "2026-11-01",
-          "productionRequiredQty": 322
+          "productionRequiredQty": 302
         },
         {
           "pCode": "P3015",
@@ -21975,7 +22011,7 @@
           "initial": "국내",
           "customerName": "",
           "dueDate": "2026-11-01",
-          "productionRequiredQty": 322
+          "productionRequiredQty": 302
         },
         {
           "pCode": "P3015",
@@ -22023,7 +22059,7 @@
           "initial": "국내",
           "customerName": "",
           "dueDate": "2026-11-01",
-          "productionRequiredQty": 35080
+          "productionRequiredQty": 30575
         },
         {
           "pCode": "P3015",
@@ -22035,7 +22071,7 @@
           "initial": "국내",
           "customerName": "",
           "dueDate": "2026-11-01",
-          "productionRequiredQty": 34437
+          "productionRequiredQty": 28563
         },
         {
           "pCode": "P3015",
@@ -22047,7 +22083,7 @@
           "initial": "국내",
           "customerName": "",
           "dueDate": "2026-11-01",
-          "productionRequiredQty": 17942
+          "productionRequiredQty": 16172
         },
         {
           "pCode": "P3015",
@@ -22059,7 +22095,7 @@
           "initial": "국내",
           "customerName": "",
           "dueDate": "2026-11-01",
-          "productionRequiredQty": 17379
+          "productionRequiredQty": 14885
         },
         {
           "pCode": "P3015",
@@ -22071,7 +22107,7 @@
           "initial": "국내",
           "customerName": "",
           "dueDate": "2026-11-01",
-          "productionRequiredQty": 35724
+          "productionRequiredQty": 33310
         },
         {
           "pCode": "P3015",
@@ -22155,7 +22191,7 @@
           "initial": "국내",
           "customerName": "",
           "dueDate": "2026-11-01",
-          "productionRequiredQty": 6437
+          "productionRequiredQty": 5069
         },
         {
           "pCode": "P3015",
@@ -22287,7 +22323,7 @@
           "initial": "국내",
           "customerName": "",
           "dueDate": "2026-11-01",
-          "productionRequiredQty": 17781
+          "productionRequiredQty": 17782
         },
         {
           "pCode": "P3015",
@@ -22335,7 +22371,7 @@
           "initial": "국내",
           "customerName": "",
           "dueDate": "2026-11-01",
-          "productionRequiredQty": 729
+          "productionRequiredQty": 709
         },
         {
           "pCode": "P3015",
@@ -22347,7 +22383,7 @@
           "initial": "국내",
           "customerName": "",
           "dueDate": "2026-11-01",
-          "productionRequiredQty": 1805
+          "productionRequiredQty": 1785
         },
         {
           "pCode": "P3015",
@@ -22359,7 +22395,7 @@
           "initial": "국내",
           "customerName": "",
           "dueDate": "2026-11-01",
-          "productionRequiredQty": 910
+          "productionRequiredQty": 920
         },
         {
           "pCode": "P3015",
@@ -22383,7 +22419,7 @@
           "initial": "국내",
           "customerName": "",
           "dueDate": "2026-11-01",
-          "productionRequiredQty": 3877
+          "productionRequiredQty": 3852
         },
         {
           "pCode": "P3015",
@@ -22395,7 +22431,7 @@
           "initial": "국내",
           "customerName": "",
           "dueDate": "2026-11-01",
-          "productionRequiredQty": 2756
+          "productionRequiredQty": 2741
         },
         {
           "pCode": "P3015",
@@ -22407,7 +22443,7 @@
           "initial": "국내",
           "customerName": "",
           "dueDate": "2026-11-01",
-          "productionRequiredQty": 1851
+          "productionRequiredQty": 1841
         },
         {
           "pCode": "P3015",
@@ -22419,7 +22455,7 @@
           "initial": "국내",
           "customerName": "",
           "dueDate": "2026-11-01",
-          "productionRequiredQty": 1735
+          "productionRequiredQty": 1695
         },
         {
           "pCode": "P3015",
@@ -22431,7 +22467,19 @@
           "initial": "국내",
           "customerName": "",
           "dueDate": "2026-11-01",
-          "productionRequiredQty": 880
+          "productionRequiredQty": 795
+        },
+        {
+          "pCode": "P3015",
+          "demandType": "국내",
+          "demandCategory": "국내",
+          "demandId": "국내_R202610010002_15_8",
+          "salesOrderNo": "R202610010002",
+          "sequence": 15,
+          "initial": "국내",
+          "customerName": "",
+          "dueDate": "2026-11-01",
+          "productionRequiredQty": 85
         },
         {
           "pCode": "P3015",
@@ -22443,7 +22491,7 @@
           "initial": "국내",
           "customerName": "",
           "dueDate": "2026-11-01",
-          "productionRequiredQty": 714
+          "productionRequiredQty": 709
         },
         {
           "pCode": "P0036",
@@ -22575,7 +22623,7 @@
           "initial": "국내",
           "customerName": "",
           "dueDate": "2026-11-20",
-          "productionRequiredQty": 60
+          "productionRequiredQty": 101
         },
         {
           "pCode": "P3015",
@@ -22623,7 +22671,7 @@
           "initial": "국내",
           "customerName": "",
           "dueDate": "2026-11-20",
-          "productionRequiredQty": 75
+          "productionRequiredQty": 70
         },
         {
           "pCode": "P3015",
@@ -22671,7 +22719,7 @@
           "initial": "국내",
           "customerName": "",
           "dueDate": "2026-11-20",
-          "productionRequiredQty": 30
+          "productionRequiredQty": 5
         },
         {
           "pCode": "P3015",
@@ -23723,16 +23771,16 @@
       "liddingCode": "BS0054",
       "liddingSpecification": "BS0054-003",
       "liddingName": "알루미늄리드지 (국내/중국 원데이_아이리스)_무광 코팅",
-      "productionRequiredQty": 4607293,
-      "sourceRefreshedAt": "2026-10-27 07:23:31",
+      "productionRequiredQty": 4605890,
+      "sourceRefreshedAt": "2026-10-27 14:58:32",
       "linkedPCodeCount": 16,
       "dueDateFrom": "2026-10-20",
       "dueDateTo": "2026-12-12",
       "categoryQuantities": {
-        "해외": 395760,
-        "PB": 34515,
-        "국내": 174564,
-        "안전재고": 4002454
+        "해외": 395752,
+        "PB": 34514,
+        "국내": 174562,
+        "안전재고": 4001062
       },
       "salesOrders": [
         {
@@ -23877,7 +23925,7 @@
           "initial": "국내",
           "customerName": "",
           "dueDate": "2026-10-26",
-          "productionRequiredQty": 4467
+          "productionRequiredQty": 4466
         },
         {
           "pCode": "P0007",
@@ -23985,7 +24033,7 @@
           "initial": "국내",
           "customerName": "",
           "dueDate": "2026-10-28",
-          "productionRequiredQty": 12853
+          "productionRequiredQty": 12852
         },
         {
           "pCode": "P0010",
@@ -24201,7 +24249,7 @@
           "initial": "DD1983",
           "customerName": "INTEROJO CHINA CO., LTD",
           "dueDate": "2026-11-03",
-          "productionRequiredQty": 8103
+          "productionRequiredQty": 8102
         },
         {
           "pCode": "P1297",
@@ -24465,7 +24513,7 @@
           "initial": "DD1983",
           "customerName": "INTEROJO CHINA CO., LTD",
           "dueDate": "2026-11-03",
-          "productionRequiredQty": 8103
+          "productionRequiredQty": 8102
         },
         {
           "pCode": "P1298",
@@ -24729,7 +24777,7 @@
           "initial": "DD1983",
           "customerName": "INTEROJO CHINA CO., LTD",
           "dueDate": "2026-11-03",
-          "productionRequiredQty": 8103
+          "productionRequiredQty": 8102
         },
         {
           "pCode": "P1299",
@@ -24993,7 +25041,7 @@
           "initial": "DD1983",
           "customerName": "INTEROJO CHINA CO., LTD",
           "dueDate": "2026-11-03",
-          "productionRequiredQty": 8103
+          "productionRequiredQty": 8102
         },
         {
           "pCode": "P1308",
@@ -25257,7 +25305,7 @@
           "initial": "DD1983",
           "customerName": "INTEROJO CHINA CO., LTD",
           "dueDate": "2026-11-03",
-          "productionRequiredQty": 8103
+          "productionRequiredQty": 8102
         },
         {
           "pCode": "P1309",
@@ -25557,7 +25605,7 @@
           "initial": "DD2092",
           "customerName": "INTEROJO CHINA CO., LTD",
           "dueDate": "2026-11-16",
-          "productionRequiredQty": 4862
+          "productionRequiredQty": 4861
         },
         {
           "pCode": "P0038",
@@ -25665,7 +25713,7 @@
           "initial": "DD2092",
           "customerName": "INTEROJO CHINA CO., LTD",
           "dueDate": "2026-11-16",
-          "productionRequiredQty": 3677
+          "productionRequiredQty": 3676
         },
         {
           "pCode": "P0039",
@@ -25725,7 +25773,7 @@
           "initial": "DD2092",
           "customerName": "INTEROJO CHINA CO., LTD",
           "dueDate": "2026-11-16",
-          "productionRequiredQty": 4072
+          "productionRequiredQty": 4071
         },
         {
           "pCode": "P0039",
@@ -25989,7 +26037,7 @@
           "initial": "안전(해외)",
           "customerName": "",
           "dueDate": "2026-11-22",
-          "productionRequiredQty": 119698
+          "productionRequiredQty": 119697
         },
         {
           "pCode": "P0038",
@@ -26049,7 +26097,7 @@
           "initial": "안전(해외)",
           "customerName": "",
           "dueDate": "2026-11-22",
-          "productionRequiredQty": 5099
+          "productionRequiredQty": 5098
         },
         {
           "pCode": "P0038",
@@ -26073,7 +26121,7 @@
           "initial": "안전(해외)",
           "customerName": "",
           "dueDate": "2026-11-22",
-          "productionRequiredQty": 113105
+          "productionRequiredQty": 113104
         },
         {
           "pCode": "P0038",
@@ -26097,7 +26145,7 @@
           "initial": "안전(해외)",
           "customerName": "",
           "dueDate": "2026-11-22",
-          "productionRequiredQty": 39907
+          "productionRequiredQty": 39906
         },
         {
           "pCode": "P0038",
@@ -26145,7 +26193,7 @@
           "initial": "안전(해외)",
           "customerName": "",
           "dueDate": "2026-11-22",
-          "productionRequiredQty": 6681
+          "productionRequiredQty": 6680
         },
         {
           "pCode": "P0038",
@@ -26169,7 +26217,7 @@
           "initial": "안전(해외)",
           "customerName": "",
           "dueDate": "2026-11-22",
-          "productionRequiredQty": 31199
+          "productionRequiredQty": 31198
         },
         {
           "pCode": "P0038",
@@ -26241,7 +26289,7 @@
           "initial": "안전(해외)",
           "customerName": "",
           "dueDate": "2026-11-22",
-          "productionRequiredQty": 82624
+          "productionRequiredQty": 82623
         },
         {
           "pCode": "P0038",
@@ -26265,7 +26313,7 @@
           "initial": "안전(해외)",
           "customerName": "",
           "dueDate": "2026-11-22",
-          "productionRequiredQty": 75401
+          "productionRequiredQty": 75400
         },
         {
           "pCode": "P0038",
@@ -26505,7 +26553,7 @@
           "initial": "안전(해외)",
           "customerName": "",
           "dueDate": "2026-11-22",
-          "productionRequiredQty": 3598
+          "productionRequiredQty": 3597
         },
         {
           "pCode": "P0039",
@@ -26541,7 +26589,7 @@
           "initial": "안전(해외)",
           "customerName": "",
           "dueDate": "2026-11-22",
-          "productionRequiredQty": 86768
+          "productionRequiredQty": 86767
         },
         {
           "pCode": "P0039",
@@ -26565,7 +26613,7 @@
           "initial": "안전(해외)",
           "customerName": "",
           "dueDate": "2026-11-22",
-          "productionRequiredQty": 44939
+          "productionRequiredQty": 44938
         },
         {
           "pCode": "P5291",
@@ -26685,7 +26733,7 @@
           "initial": "안전(해외)",
           "customerName": "",
           "dueDate": "2026-11-22",
-          "productionRequiredQty": 19096
+          "productionRequiredQty": 19095
         },
         {
           "pCode": "P5291",
@@ -27033,19 +27081,7 @@
           "initial": "PB",
           "customerName": "",
           "dueDate": "2026-11-26",
-          "productionRequiredQty": 1464
-        },
-        {
-          "pCode": "P0037",
-          "demandType": "안전(해외)",
-          "demandCategory": "안전재고",
-          "demandId": "안전(해외)_R202609150001_20_10",
-          "salesOrderNo": "R202609150001",
-          "sequence": 20,
-          "initial": "안전(해외)",
-          "customerName": "",
-          "dueDate": "2026-11-30",
-          "productionRequiredQty": 1352
+          "productionRequiredQty": 1463
         },
         {
           "pCode": "P0037",
@@ -27069,7 +27105,7 @@
           "initial": "안전(해외)",
           "customerName": "",
           "dueDate": "2026-11-30",
-          "productionRequiredQty": 2649
+          "productionRequiredQty": 2648
         },
         {
           "pCode": "P0037",
@@ -27225,7 +27261,7 @@
           "initial": "안전(국내)",
           "customerName": "",
           "dueDate": "2026-12-12",
-          "productionRequiredQty": 18231
+          "productionRequiredQty": 18230
         },
         {
           "pCode": "P0007",
@@ -27321,7 +27357,7 @@
           "initial": "안전(국내)",
           "customerName": "",
           "dueDate": "2026-12-12",
-          "productionRequiredQty": 16651
+          "productionRequiredQty": 16650
         },
         {
           "pCode": "P0007",
@@ -27441,7 +27477,7 @@
           "initial": "안전(국내)",
           "customerName": "",
           "dueDate": "2026-12-12",
-          "productionRequiredQty": 11668
+          "productionRequiredQty": 11667
         },
         {
           "pCode": "P0007",
@@ -27525,7 +27561,7 @@
           "initial": "안전(국내)",
           "customerName": "",
           "dueDate": "2026-12-12",
-          "productionRequiredQty": 44159
+          "productionRequiredQty": 44158
         },
         {
           "pCode": "P0010",
@@ -27549,7 +27585,7 @@
           "initial": "안전(국내)",
           "customerName": "",
           "dueDate": "2026-12-12",
-          "productionRequiredQty": 45658
+          "productionRequiredQty": 45657
         },
         {
           "pCode": "P0010",
@@ -27573,7 +27609,7 @@
           "initial": "안전(국내)",
           "customerName": "",
           "dueDate": "2026-12-12",
-          "productionRequiredQty": 11668
+          "productionRequiredQty": 11667
         },
         {
           "pCode": "P0010",
@@ -27645,7 +27681,7 @@
           "initial": "안전(국내)",
           "customerName": "",
           "dueDate": "2026-12-12",
-          "productionRequiredQty": 27711
+          "productionRequiredQty": 27710
         },
         {
           "pCode": "P0010",
@@ -27657,7 +27693,7 @@
           "initial": "안전(국내)",
           "customerName": "",
           "dueDate": "2026-12-12",
-          "productionRequiredQty": 34112
+          "productionRequiredQty": 34111
         },
         {
           "pCode": "P0010",
@@ -27717,7 +27753,7 @@
           "initial": "안전(국내)",
           "customerName": "",
           "dueDate": "2026-12-12",
-          "productionRequiredQty": 74746
+          "productionRequiredQty": 74745
         },
         {
           "pCode": "P0010",
@@ -27741,7 +27777,7 @@
           "initial": "안전(국내)",
           "customerName": "",
           "dueDate": "2026-12-12",
-          "productionRequiredQty": 67818
+          "productionRequiredQty": 67817
         },
         {
           "pCode": "P0010",
@@ -27765,7 +27801,7 @@
           "initial": "안전(국내)",
           "customerName": "",
           "dueDate": "2026-12-12",
-          "productionRequiredQty": 59979
+          "productionRequiredQty": 59978
         },
         {
           "pCode": "P0010",
@@ -27789,7 +27825,7 @@
           "initial": "안전(국내)",
           "customerName": "",
           "dueDate": "2026-12-12",
-          "productionRequiredQty": 46397
+          "productionRequiredQty": 46396
         },
         {
           "pCode": "P0010",
@@ -27801,7 +27837,7 @@
           "initial": "안전(국내)",
           "customerName": "",
           "dueDate": "2026-12-12",
-          "productionRequiredQty": 66451
+          "productionRequiredQty": 66450
         },
         {
           "pCode": "P0010",
@@ -27813,7 +27849,7 @@
           "initial": "안전(국내)",
           "customerName": "",
           "dueDate": "2026-12-12",
-          "productionRequiredQty": 56971
+          "productionRequiredQty": 56970
         },
         {
           "pCode": "P0010",
@@ -27837,7 +27873,7 @@
           "initial": "안전(국내)",
           "customerName": "",
           "dueDate": "2026-12-12",
-          "productionRequiredQty": 68912
+          "productionRequiredQty": 68911
         },
         {
           "pCode": "P0010",
@@ -27885,7 +27921,7 @@
           "initial": "안전(국내)",
           "customerName": "",
           "dueDate": "2026-12-12",
-          "productionRequiredQty": 30810
+          "productionRequiredQty": 30809
         },
         {
           "pCode": "P0010",
@@ -27969,7 +28005,7 @@
           "initial": "안전(국내)",
           "customerName": "",
           "dueDate": "2026-12-12",
-          "productionRequiredQty": 42204
+          "productionRequiredQty": 42203
         },
         {
           "pCode": "P0010",
@@ -28017,7 +28053,7 @@
           "initial": "안전(국내)",
           "customerName": "",
           "dueDate": "2026-12-12",
-          "productionRequiredQty": 39652
+          "productionRequiredQty": 39651
         },
         {
           "pCode": "P0007",
@@ -28029,7 +28065,7 @@
           "initial": "안전(국내)",
           "customerName": "",
           "dueDate": "2026-12-12",
-          "productionRequiredQty": 54145
+          "productionRequiredQty": 54144
         },
         {
           "pCode": "P0007",
@@ -28053,7 +28089,7 @@
           "initial": "안전(국내)",
           "customerName": "",
           "dueDate": "2026-12-12",
-          "productionRequiredQty": 44939
+          "productionRequiredQty": 44938
         },
         {
           "pCode": "P0007",
@@ -28101,7 +28137,7 @@
           "initial": "안전(국내)",
           "customerName": "",
           "dueDate": "2026-12-12",
-          "productionRequiredQty": 25979
+          "productionRequiredQty": 25978
         },
         {
           "pCode": "P0007",
@@ -28137,7 +28173,7 @@
           "initial": "안전(국내)",
           "customerName": "",
           "dueDate": "2026-12-12",
-          "productionRequiredQty": 46944
+          "productionRequiredQty": 46943
         },
         {
           "pCode": "P0007",
@@ -28233,7 +28269,7 @@
           "initial": "안전(국내)",
           "customerName": "",
           "dueDate": "2026-12-12",
-          "productionRequiredQty": 36826
+          "productionRequiredQty": 36825
         },
         {
           "pCode": "P0007",
@@ -28317,7 +28353,7 @@
           "initial": "안전(국내)",
           "customerName": "",
           "dueDate": "2026-12-12",
-          "productionRequiredQty": 37829
+          "productionRequiredQty": 37828
         },
         {
           "pCode": "P0007",
@@ -28353,7 +28389,7 @@
           "initial": "안전(국내)",
           "customerName": "",
           "dueDate": "2026-12-12",
-          "productionRequiredQty": 40199
+          "productionRequiredQty": 40198
         },
         {
           "pCode": "P0007",
@@ -28365,7 +28401,7 @@
           "initial": "안전(국내)",
           "customerName": "",
           "dueDate": "2026-12-12",
-          "productionRequiredQty": 45121
+          "productionRequiredQty": 45120
         },
         {
           "pCode": "P0007",
@@ -28377,7 +28413,7 @@
           "initial": "안전(국내)",
           "customerName": "",
           "dueDate": "2026-12-12",
-          "productionRequiredQty": 41019
+          "productionRequiredQty": 41018
         }
       ]
     },
@@ -28386,7 +28422,7 @@
       "liddingSpecification": "BS0057-002",
       "liddingName": "알루미늄리드지 (Iris-알리샤브라운)_무광 코팅",
       "productionRequiredQty": 243,
-      "sourceRefreshedAt": "2026-10-27 07:23:31",
+      "sourceRefreshedAt": "2026-10-27 14:58:32",
       "linkedPCodeCount": 1,
       "dueDateFrom": "2026-12-12",
       "dueDateTo": "2026-12-12",
@@ -28415,8 +28451,8 @@
       "liddingCode": "BS0059",
       "liddingSpecification": "BS0059-001",
       "liddingName": "알루미늄리드지 (Bella_1Day_컬러 리드지)_유광 코팅",
-      "productionRequiredQty": 278956,
-      "sourceRefreshedAt": "2026-10-27 07:23:31",
+      "productionRequiredQty": 278953,
+      "sourceRefreshedAt": "2026-10-27 14:58:32",
       "linkedPCodeCount": 2,
       "dueDateFrom": "2026-11-17",
       "dueDateTo": "2026-11-22",
@@ -28424,7 +28460,7 @@
         "해외": 1762,
         "PB": 0,
         "국내": 0,
-        "안전재고": 277194
+        "안전재고": 277191
       },
       "salesOrders": [
         {
@@ -28461,7 +28497,7 @@
           "initial": "안전(해외)",
           "customerName": "",
           "dueDate": "2026-11-22",
-          "productionRequiredQty": 114441
+          "productionRequiredQty": 114440
         },
         {
           "pCode": "P5317",
@@ -28473,7 +28509,7 @@
           "initial": "안전(해외)",
           "customerName": "",
           "dueDate": "2026-11-22",
-          "productionRequiredQty": 131905
+          "productionRequiredQty": 131903
         },
         {
           "pCode": "P5317",
@@ -28602,7 +28638,7 @@
       "liddingSpecification": "BS0062-002",
       "liddingName": "알루미늄리드지 (일본 sincere Natural 1day Moisture)_유광 코팅",
       "productionRequiredQty": 271169,
-      "sourceRefreshedAt": "2026-10-27 07:23:31",
+      "sourceRefreshedAt": "2026-10-27 14:58:32",
       "linkedPCodeCount": 1,
       "dueDateFrom": "2026-11-22",
       "dueDateTo": "2026-12-01",
@@ -28968,7 +29004,7 @@
       "liddingSpecification": "BS0066-001",
       "liddingName": "알루미늄리드지 (이태리 Soleko – Queen’s one 원데이 컬러)_유광 코팅",
       "productionRequiredQty": 4335,
-      "sourceRefreshedAt": "2026-10-27 07:23:31",
+      "sourceRefreshedAt": "2026-10-27 14:58:32",
       "linkedPCodeCount": 1,
       "dueDateFrom": "2026-11-19",
       "dueDateTo": "2026-11-19",
@@ -28997,16 +29033,16 @@
       "liddingCode": "BS0073",
       "liddingSpecification": "BS0073-002",
       "liddingName": "알루미늄리드지 (일본 PIA 1day 55%)_유광 코팅",
-      "productionRequiredQty": 6504475,
-      "sourceRefreshedAt": "2026-10-27 07:23:31",
+      "productionRequiredQty": 6347154,
+      "sourceRefreshedAt": "2026-10-27 14:58:32",
       "linkedPCodeCount": 31,
       "dueDateFrom": "2026-11-18",
       "dueDateTo": "2026-11-30",
       "categoryQuantities": {
-        "해외": 5520972,
+        "해외": 5382174,
         "PB": 0,
         "국내": 0,
-        "안전재고": 983503
+        "안전재고": 964980
       },
       "salesOrders": [
         {
@@ -29019,7 +29055,7 @@
           "initial": "AA1584",
           "customerName": "PIA Co.,Ltd.",
           "dueDate": "2026-11-18",
-          "productionRequiredQty": 73129
+          "productionRequiredQty": 71421
         },
         {
           "pCode": "P1188",
@@ -29031,7 +29067,7 @@
           "initial": "AA1584",
           "customerName": "PIA Co.,Ltd.",
           "dueDate": "2026-11-18",
-          "productionRequiredQty": 1830
+          "productionRequiredQty": 1828
         },
         {
           "pCode": "P1188",
@@ -29043,7 +29079,7 @@
           "initial": "AA1584",
           "customerName": "PIA Co.,Ltd.",
           "dueDate": "2026-11-18",
-          "productionRequiredQty": 12200
+          "productionRequiredQty": 12186
         },
         {
           "pCode": "P1188",
@@ -29055,7 +29091,7 @@
           "initial": "AA1584",
           "customerName": "PIA Co.,Ltd.",
           "dueDate": "2026-11-18",
-          "productionRequiredQty": 12200
+          "productionRequiredQty": 9008
         },
         {
           "pCode": "P1188",
@@ -29067,31 +29103,7 @@
           "initial": "AA1584",
           "customerName": "PIA Co.,Ltd.",
           "dueDate": "2026-11-18",
-          "productionRequiredQty": 6100
-        },
-        {
-          "pCode": "P1188",
-          "demandType": "이니셜",
-          "demandCategory": "해외",
-          "demandId": "AA1584_202610020012_35_23",
-          "salesOrderNo": "202610020012",
-          "sequence": 35,
-          "initial": "AA1584",
-          "customerName": "PIA Co.,Ltd.",
-          "dueDate": "2026-11-18",
-          "productionRequiredQty": 346
-        },
-        {
-          "pCode": "P1188",
-          "demandType": "이니셜",
-          "demandCategory": "해외",
-          "demandId": "AA1584_202610020012_35_24",
-          "salesOrderNo": "202610020012",
-          "sequence": 35,
-          "initial": "AA1584",
-          "customerName": "PIA Co.,Ltd.",
-          "dueDate": "2026-11-18",
-          "productionRequiredQty": 2084
+          "productionRequiredQty": 6093
         },
         {
           "pCode": "P1188",
@@ -29103,7 +29115,7 @@
           "initial": "AA1584",
           "customerName": "PIA Co.,Ltd.",
           "dueDate": "2026-11-18",
-          "productionRequiredQty": 2104
+          "productionRequiredQty": 2102
         },
         {
           "pCode": "P1188",
@@ -29127,7 +29139,7 @@
           "initial": "AA1584",
           "customerName": "PIA Co.,Ltd.",
           "dueDate": "2026-11-18",
-          "productionRequiredQty": 9150
+          "productionRequiredQty": 9140
         },
         {
           "pCode": "P1189",
@@ -29139,7 +29151,7 @@
           "initial": "AA1584",
           "customerName": "PIA Co.,Ltd.",
           "dueDate": "2026-11-18",
-          "productionRequiredQty": 5917
+          "productionRequiredQty": 5910
         },
         {
           "pCode": "P1189",
@@ -29151,7 +29163,7 @@
           "initial": "AA1584",
           "customerName": "PIA Co.,Ltd.",
           "dueDate": "2026-11-18",
-          "productionRequiredQty": 3335
+          "productionRequiredQty": 3331
         },
         {
           "pCode": "P1189",
@@ -29163,7 +29175,7 @@
           "initial": "AA1584",
           "customerName": "PIA Co.,Ltd.",
           "dueDate": "2026-11-18",
-          "productionRequiredQty": 9811
+          "productionRequiredQty": 9800
         },
         {
           "pCode": "P1189",
@@ -29175,7 +29187,7 @@
           "initial": "AA1584",
           "customerName": "PIA Co.,Ltd.",
           "dueDate": "2026-11-18",
-          "productionRequiredQty": 2755
+          "productionRequiredQty": 2722
         },
         {
           "pCode": "P1189",
@@ -29187,7 +29199,7 @@
           "initial": "AA1584",
           "customerName": "PIA Co.,Ltd.",
           "dueDate": "2026-11-18",
-          "productionRequiredQty": 13217
+          "productionRequiredQty": 13202
         },
         {
           "pCode": "P1189",
@@ -29199,7 +29211,7 @@
           "initial": "AA1584",
           "customerName": "PIA Co.,Ltd.",
           "dueDate": "2026-11-18",
-          "productionRequiredQty": 6059
+          "productionRequiredQty": 6042
         },
         {
           "pCode": "P1189",
@@ -29211,7 +29223,7 @@
           "initial": "AA1584",
           "customerName": "PIA Co.,Ltd.",
           "dueDate": "2026-11-18",
-          "productionRequiredQty": 10045
+          "productionRequiredQty": 10033
         },
         {
           "pCode": "P1189",
@@ -29223,7 +29235,7 @@
           "initial": "AA1584",
           "customerName": "PIA Co.,Ltd.",
           "dueDate": "2026-11-18",
-          "productionRequiredQty": 4067
+          "productionRequiredQty": 4062
         },
         {
           "pCode": "P1189",
@@ -29247,7 +29259,7 @@
           "initial": "AA1585",
           "customerName": "PIA Co.,Ltd.",
           "dueDate": "2026-11-18",
-          "productionRequiredQty": 425982
+          "productionRequiredQty": 425500
         },
         {
           "pCode": "P1188",
@@ -29259,7 +29271,7 @@
           "initial": "AA1585",
           "customerName": "PIA Co.,Ltd.",
           "dueDate": "2026-11-18",
-          "productionRequiredQty": 31933
+          "productionRequiredQty": 26210
         },
         {
           "pCode": "P1188",
@@ -29271,7 +29283,7 @@
           "initial": "AA1585",
           "customerName": "PIA Co.,Ltd.",
           "dueDate": "2026-11-18",
-          "productionRequiredQty": 31079
+          "productionRequiredQty": 24880
         },
         {
           "pCode": "P1188",
@@ -29283,7 +29295,7 @@
           "initial": "AA1585",
           "customerName": "PIA Co.,Ltd.",
           "dueDate": "2026-11-18",
-          "productionRequiredQty": 56557
+          "productionRequiredQty": 58808
         },
         {
           "pCode": "P1188",
@@ -29295,7 +29307,7 @@
           "initial": "AA1585",
           "customerName": "PIA Co.,Ltd.",
           "dueDate": "2026-11-18",
-          "productionRequiredQty": 56394
+          "productionRequiredQty": 45891
         },
         {
           "pCode": "P1188",
@@ -29307,7 +29319,7 @@
           "initial": "AA1585",
           "customerName": "PIA Co.,Ltd.",
           "dueDate": "2026-11-18",
-          "productionRequiredQty": 56933
+          "productionRequiredQty": 56869
         },
         {
           "pCode": "P1188",
@@ -29319,7 +29331,7 @@
           "initial": "AA1585",
           "customerName": "PIA Co.,Ltd.",
           "dueDate": "2026-11-18",
-          "productionRequiredQty": 50833
+          "productionRequiredQty": 50776
         },
         {
           "pCode": "P1188",
@@ -29331,7 +29343,7 @@
           "initial": "AA1585",
           "customerName": "PIA Co.,Ltd.",
           "dueDate": "2026-11-18",
-          "productionRequiredQty": 42863
+          "productionRequiredQty": 42692
         },
         {
           "pCode": "P1188",
@@ -29343,7 +29355,7 @@
           "initial": "AA1585",
           "customerName": "PIA Co.,Ltd.",
           "dueDate": "2026-11-18",
-          "productionRequiredQty": 31344
+          "productionRequiredQty": 28231
         },
         {
           "pCode": "P1188",
@@ -29355,7 +29367,7 @@
           "initial": "AA1585",
           "customerName": "PIA Co.,Ltd.",
           "dueDate": "2026-11-18",
-          "productionRequiredQty": 42700
+          "productionRequiredQty": 39371
         },
         {
           "pCode": "P1188",
@@ -29367,19 +29379,7 @@
           "initial": "AA1585",
           "customerName": "PIA Co.,Ltd.",
           "dueDate": "2026-11-18",
-          "productionRequiredQty": 38125
-        },
-        {
-          "pCode": "P1188",
-          "demandType": "이니셜",
-          "demandCategory": "해외",
-          "demandId": "AA1585_202610020013_35_2",
-          "salesOrderNo": "202610020013",
-          "sequence": 35,
-          "initial": "AA1585",
-          "customerName": "PIA Co.,Ltd.",
-          "dueDate": "2026-11-18",
-          "productionRequiredQty": 1383
+          "productionRequiredQty": 38082
         },
         {
           "pCode": "P1188",
@@ -29391,7 +29391,7 @@
           "initial": "AA1585",
           "customerName": "PIA Co.,Ltd.",
           "dueDate": "2026-11-18",
-          "productionRequiredQty": 50833
+          "productionRequiredQty": 50776
         },
         {
           "pCode": "P1188",
@@ -29403,7 +29403,7 @@
           "initial": "AA1585",
           "customerName": "PIA Co.,Ltd.",
           "dueDate": "2026-11-18",
-          "productionRequiredQty": 25417
+          "productionRequiredQty": 25388
         },
         {
           "pCode": "P1188",
@@ -29415,7 +29415,7 @@
           "initial": "AA1585",
           "customerName": "PIA Co.,Ltd.",
           "dueDate": "2026-11-18",
-          "productionRequiredQty": 42903
+          "productionRequiredQty": 37909
         },
         {
           "pCode": "P1188",
@@ -29427,7 +29427,7 @@
           "initial": "AA1585",
           "customerName": "PIA Co.,Ltd.",
           "dueDate": "2026-11-18",
-          "productionRequiredQty": 25417
+          "productionRequiredQty": 23672
         },
         {
           "pCode": "P1188",
@@ -29439,19 +29439,7 @@
           "initial": "AA1585",
           "customerName": "PIA Co.,Ltd.",
           "dueDate": "2026-11-18",
-          "productionRequiredQty": 52866
-        },
-        {
-          "pCode": "P1188",
-          "demandType": "이니셜",
-          "demandCategory": "해외",
-          "demandId": "AA1585_202610020013_35_25",
-          "salesOrderNo": "202610020013",
-          "sequence": 35,
-          "initial": "AA1585",
-          "customerName": "PIA Co.,Ltd.",
-          "dueDate": "2026-11-18",
-          "productionRequiredQty": 1067
+          "productionRequiredQty": 48176
         },
         {
           "pCode": "P1188",
@@ -29463,7 +29451,7 @@
           "initial": "AA1585",
           "customerName": "PIA Co.,Ltd.",
           "dueDate": "2026-11-18",
-          "productionRequiredQty": 12169
+          "productionRequiredQty": 9922
         },
         {
           "pCode": "P1188",
@@ -29475,7 +29463,7 @@
           "initial": "AA1585",
           "customerName": "PIA Co.,Ltd.",
           "dueDate": "2026-11-18",
-          "productionRequiredQty": 5897
+          "productionRequiredQty": 4153
         },
         {
           "pCode": "P1188",
@@ -29487,7 +29475,7 @@
           "initial": "AA1585",
           "customerName": "PIA Co.,Ltd.",
           "dueDate": "2026-11-18",
-          "productionRequiredQty": 10167
+          "productionRequiredQty": 10155
         },
         {
           "pCode": "P1188",
@@ -29499,7 +29487,7 @@
           "initial": "AA1585",
           "customerName": "PIA Co.,Ltd.",
           "dueDate": "2026-11-18",
-          "productionRequiredQty": 7015
+          "productionRequiredQty": 7007
         },
         {
           "pCode": "P1188",
@@ -29511,7 +29499,7 @@
           "initial": "AA1585",
           "customerName": "PIA Co.,Ltd.",
           "dueDate": "2026-11-18",
-          "productionRequiredQty": 20343
+          "productionRequiredQty": 18838
         },
         {
           "pCode": "P1188",
@@ -29523,7 +29511,7 @@
           "initial": "AA1585",
           "customerName": "PIA Co.,Ltd.",
           "dueDate": "2026-11-18",
-          "productionRequiredQty": 1688
+          "productionRequiredQty": 1686
         },
         {
           "pCode": "P1188",
@@ -29535,7 +29523,7 @@
           "initial": "AA1585",
           "customerName": "PIA Co.,Ltd.",
           "dueDate": "2026-11-18",
-          "productionRequiredQty": 4067
+          "productionRequiredQty": 4062
         },
         {
           "pCode": "P1188",
@@ -29547,7 +29535,7 @@
           "initial": "AA1585",
           "customerName": "PIA Co.,Ltd.",
           "dueDate": "2026-11-18",
-          "productionRequiredQty": 2298
+          "productionRequiredQty": 2295
         },
         {
           "pCode": "P1188",
@@ -29559,7 +29547,7 @@
           "initial": "AA1585",
           "customerName": "PIA Co.,Ltd.",
           "dueDate": "2026-11-18",
-          "productionRequiredQty": 42802
+          "productionRequiredQty": 42733
         },
         {
           "pCode": "P1188",
@@ -29571,7 +29559,7 @@
           "initial": "AA1585",
           "customerName": "PIA Co.,Ltd.",
           "dueDate": "2026-11-18",
-          "productionRequiredQty": 43717
+          "productionRequiredQty": 43667
         },
         {
           "pCode": "P1188",
@@ -29583,7 +29571,7 @@
           "initial": "AA1585",
           "customerName": "PIA Co.,Ltd.",
           "dueDate": "2026-11-18",
-          "productionRequiredQty": 27470
+          "productionRequiredQty": 24149
         },
         {
           "pCode": "P1188",
@@ -29595,7 +29583,7 @@
           "initial": "AA1585",
           "customerName": "PIA Co.,Ltd.",
           "dueDate": "2026-11-18",
-          "productionRequiredQty": 15596
+          "productionRequiredQty": 12349
         },
         {
           "pCode": "P1188",
@@ -29607,7 +29595,7 @@
           "initial": "AA1585",
           "customerName": "PIA Co.,Ltd.",
           "dueDate": "2026-11-18",
-          "productionRequiredQty": 48464
+          "productionRequiredQty": 36366
         },
         {
           "pCode": "P1188",
@@ -29619,7 +29607,7 @@
           "initial": "AA1585",
           "customerName": "PIA Co.,Ltd.",
           "dueDate": "2026-11-18",
-          "productionRequiredQty": 47753
+          "productionRequiredQty": 47699
         },
         {
           "pCode": "P1189",
@@ -29631,7 +29619,7 @@
           "initial": "AA1585",
           "customerName": "PIA Co.,Ltd.",
           "dueDate": "2026-11-18",
-          "productionRequiredQty": 341538
+          "productionRequiredQty": 324010
         },
         {
           "pCode": "P1189",
@@ -29643,7 +29631,7 @@
           "initial": "AA1585",
           "customerName": "PIA Co.,Ltd.",
           "dueDate": "2026-11-18",
-          "productionRequiredQty": 52927
+          "productionRequiredQty": 47780
         },
         {
           "pCode": "P1189",
@@ -29655,7 +29643,7 @@
           "initial": "AA1585",
           "customerName": "PIA Co.,Ltd.",
           "dueDate": "2026-11-18",
-          "productionRequiredQty": 46919
+          "productionRequiredQty": 46846
         },
         {
           "pCode": "P1189",
@@ -29667,7 +29655,7 @@
           "initial": "AA1585",
           "customerName": "PIA Co.,Ltd.",
           "dueDate": "2026-11-18",
-          "productionRequiredQty": 52114
+          "productionRequiredQty": 50502
         },
         {
           "pCode": "P1189",
@@ -29679,7 +29667,7 @@
           "initial": "AA1585",
           "customerName": "PIA Co.,Ltd.",
           "dueDate": "2026-11-18",
-          "productionRequiredQty": 63033
+          "productionRequiredQty": 62962
         },
         {
           "pCode": "P1189",
@@ -29691,7 +29679,7 @@
           "initial": "AA1585",
           "customerName": "PIA Co.,Ltd.",
           "dueDate": "2026-11-18",
-          "productionRequiredQty": 56150
+          "productionRequiredQty": 56087
         },
         {
           "pCode": "P1189",
@@ -29703,7 +29691,7 @@
           "initial": "AA1585",
           "customerName": "PIA Co.,Ltd.",
           "dueDate": "2026-11-18",
-          "productionRequiredQty": 50833
+          "productionRequiredQty": 50776
         },
         {
           "pCode": "P1189",
@@ -29715,7 +29703,7 @@
           "initial": "AA1585",
           "customerName": "PIA Co.,Ltd.",
           "dueDate": "2026-11-18",
-          "productionRequiredQty": 55916
+          "productionRequiredQty": 55853
         },
         {
           "pCode": "P1189",
@@ -29727,7 +29715,7 @@
           "initial": "AA1585",
           "customerName": "PIA Co.,Ltd.",
           "dueDate": "2026-11-18",
-          "productionRequiredQty": 44733
+          "productionRequiredQty": 44683
         },
         {
           "pCode": "P1189",
@@ -29739,7 +29727,7 @@
           "initial": "AA1585",
           "customerName": "PIA Co.,Ltd.",
           "dueDate": "2026-11-18",
-          "productionRequiredQty": 53883
+          "productionRequiredQty": 53822
         },
         {
           "pCode": "P1189",
@@ -29751,7 +29739,7 @@
           "initial": "AA1585",
           "customerName": "PIA Co.,Ltd.",
           "dueDate": "2026-11-18",
-          "productionRequiredQty": 42700
+          "productionRequiredQty": 42652
         },
         {
           "pCode": "P1189",
@@ -29763,7 +29751,7 @@
           "initial": "AA1585",
           "customerName": "PIA Co.,Ltd.",
           "dueDate": "2026-11-18",
-          "productionRequiredQty": 18625
+          "productionRequiredQty": 15974
         },
         {
           "pCode": "P1189",
@@ -29775,7 +29763,7 @@
           "initial": "AA1585",
           "customerName": "PIA Co.,Ltd.",
           "dueDate": "2026-11-18",
-          "productionRequiredQty": 50833
+          "productionRequiredQty": 50776
         },
         {
           "pCode": "P1189",
@@ -29787,7 +29775,7 @@
           "initial": "AA1585",
           "customerName": "PIA Co.,Ltd.",
           "dueDate": "2026-11-18",
-          "productionRequiredQty": 16633
+          "productionRequiredQty": 11485
         },
         {
           "pCode": "P1189",
@@ -29799,7 +29787,7 @@
           "initial": "AA1585",
           "customerName": "PIA Co.,Ltd.",
           "dueDate": "2026-11-18",
-          "productionRequiredQty": 24583
+          "productionRequiredQty": 22585
         },
         {
           "pCode": "P1189",
@@ -29811,7 +29799,7 @@
           "initial": "AA1585",
           "customerName": "PIA Co.,Ltd.",
           "dueDate": "2026-11-18",
-          "productionRequiredQty": 12383
+          "productionRequiredQty": 12349
         },
         {
           "pCode": "P1189",
@@ -29823,7 +29811,7 @@
           "initial": "AA1585",
           "customerName": "PIA Co.,Ltd.",
           "dueDate": "2026-11-18",
-          "productionRequiredQty": 47661
+          "productionRequiredQty": 45505
         },
         {
           "pCode": "P1189",
@@ -29835,7 +29823,7 @@
           "initial": "AA1585",
           "customerName": "PIA Co.,Ltd.",
           "dueDate": "2026-11-18",
-          "productionRequiredQty": 9994
+          "productionRequiredQty": 9983
         },
         {
           "pCode": "P1189",
@@ -29847,7 +29835,7 @@
           "initial": "AA1585",
           "customerName": "PIA Co.,Ltd.",
           "dueDate": "2026-11-18",
-          "productionRequiredQty": 1403
+          "productionRequiredQty": 1401
         },
         {
           "pCode": "P1189",
@@ -29859,7 +29847,7 @@
           "initial": "AA1585",
           "customerName": "PIA Co.,Ltd.",
           "dueDate": "2026-11-18",
-          "productionRequiredQty": 9150
+          "productionRequiredQty": 9140
         },
         {
           "pCode": "P1189",
@@ -29871,7 +29859,7 @@
           "initial": "AA1585",
           "customerName": "PIA Co.,Ltd.",
           "dueDate": "2026-11-18",
-          "productionRequiredQty": 21604
+          "productionRequiredQty": 18482
         },
         {
           "pCode": "P1189",
@@ -29895,7 +29883,7 @@
           "initial": "AA1585",
           "customerName": "PIA Co.,Ltd.",
           "dueDate": "2026-11-18",
-          "productionRequiredQty": 4067
+          "productionRequiredQty": 4062
         },
         {
           "pCode": "P1189",
@@ -29907,7 +29895,7 @@
           "initial": "AA1585",
           "customerName": "PIA Co.,Ltd.",
           "dueDate": "2026-11-18",
-          "productionRequiredQty": 1484
+          "productionRequiredQty": 1483
         },
         {
           "pCode": "P1189",
@@ -29919,7 +29907,7 @@
           "initial": "AA1585",
           "customerName": "PIA Co.,Ltd.",
           "dueDate": "2026-11-18",
-          "productionRequiredQty": 224
+          "productionRequiredQty": 213
         },
         {
           "pCode": "P1189",
@@ -29931,19 +29919,7 @@
           "initial": "AA1585",
           "customerName": "PIA Co.,Ltd.",
           "dueDate": "2026-11-18",
-          "productionRequiredQty": 25945
-        },
-        {
-          "pCode": "P1189",
-          "demandType": "이니셜",
-          "demandCategory": "해외",
-          "demandId": "AA1585_202610020013_36_6",
-          "salesOrderNo": "202610020013",
-          "sequence": 36,
-          "initial": "AA1585",
-          "customerName": "PIA Co.,Ltd.",
-          "dueDate": "2026-11-18",
-          "productionRequiredQty": 11397
+          "productionRequiredQty": 25906
         },
         {
           "pCode": "P1189",
@@ -29955,7 +29931,7 @@
           "initial": "AA1585",
           "customerName": "PIA Co.,Ltd.",
           "dueDate": "2026-11-18",
-          "productionRequiredQty": 8154
+          "productionRequiredQty": 1594
         },
         {
           "pCode": "P1189",
@@ -29967,7 +29943,7 @@
           "initial": "AA1585",
           "customerName": "PIA Co.,Ltd.",
           "dueDate": "2026-11-18",
-          "productionRequiredQty": 35014
+          "productionRequiredQty": 29897
         },
         {
           "pCode": "P1189",
@@ -29979,7 +29955,7 @@
           "initial": "AA1585",
           "customerName": "PIA Co.,Ltd.",
           "dueDate": "2026-11-18",
-          "productionRequiredQty": 52511
+          "productionRequiredQty": 50075
         },
         {
           "pCode": "P1325",
@@ -29991,7 +29967,7 @@
           "initial": "해외",
           "customerName": "",
           "dueDate": "2026-11-20",
-          "productionRequiredQty": 170153
+          "productionRequiredQty": 170151
         },
         {
           "pCode": "P1325",
@@ -30003,7 +29979,7 @@
           "initial": "해외",
           "customerName": "",
           "dueDate": "2026-11-20",
-          "productionRequiredQty": 24308
+          "productionRequiredQty": 24307
         },
         {
           "pCode": "P1325",
@@ -30015,7 +29991,7 @@
           "initial": "해외",
           "customerName": "",
           "dueDate": "2026-11-20",
-          "productionRequiredQty": 23295
+          "productionRequiredQty": 23294
         },
         {
           "pCode": "P1325",
@@ -30051,7 +30027,7 @@
           "initial": "해외",
           "customerName": "",
           "dueDate": "2026-11-20",
-          "productionRequiredQty": 28359
+          "productionRequiredQty": 28358
         },
         {
           "pCode": "P1325",
@@ -30063,7 +30039,7 @@
           "initial": "해외",
           "customerName": "",
           "dueDate": "2026-11-20",
-          "productionRequiredQty": 24308
+          "productionRequiredQty": 24307
         },
         {
           "pCode": "P1325",
@@ -30075,7 +30051,7 @@
           "initial": "해외",
           "customerName": "",
           "dueDate": "2026-11-20",
-          "productionRequiredQty": 24308
+          "productionRequiredQty": 24307
         },
         {
           "pCode": "P1325",
@@ -30183,7 +30159,7 @@
           "initial": "해외",
           "customerName": "",
           "dueDate": "2026-11-20",
-          "productionRequiredQty": 23295
+          "productionRequiredQty": 23294
         },
         {
           "pCode": "P1325",
@@ -30195,7 +30171,7 @@
           "initial": "해외",
           "customerName": "",
           "dueDate": "2026-11-20",
-          "productionRequiredQty": 8103
+          "productionRequiredQty": 8102
         },
         {
           "pCode": "P1325",
@@ -30327,7 +30303,7 @@
           "initial": "해외",
           "customerName": "",
           "dueDate": "2026-11-20",
-          "productionRequiredQty": 24308
+          "productionRequiredQty": 24307
         },
         {
           "pCode": "P1325",
@@ -30351,7 +30327,7 @@
           "initial": "해외",
           "customerName": "",
           "dueDate": "2026-11-20",
-          "productionRequiredQty": 24308
+          "productionRequiredQty": 24307
         },
         {
           "pCode": "P1325",
@@ -30375,7 +30351,7 @@
           "initial": "해외",
           "customerName": "",
           "dueDate": "2026-11-20",
-          "productionRequiredQty": 170153
+          "productionRequiredQty": 170151
         },
         {
           "pCode": "P1326",
@@ -30387,7 +30363,7 @@
           "initial": "해외",
           "customerName": "",
           "dueDate": "2026-11-20",
-          "productionRequiredQty": 24308
+          "productionRequiredQty": 24307
         },
         {
           "pCode": "P1326",
@@ -30399,7 +30375,7 @@
           "initial": "해외",
           "customerName": "",
           "dueDate": "2026-11-20",
-          "productionRequiredQty": 23295
+          "productionRequiredQty": 23294
         },
         {
           "pCode": "P1326",
@@ -30435,7 +30411,7 @@
           "initial": "해외",
           "customerName": "",
           "dueDate": "2026-11-20",
-          "productionRequiredQty": 28359
+          "productionRequiredQty": 28358
         },
         {
           "pCode": "P1326",
@@ -30447,7 +30423,7 @@
           "initial": "해외",
           "customerName": "",
           "dueDate": "2026-11-20",
-          "productionRequiredQty": 24308
+          "productionRequiredQty": 24307
         },
         {
           "pCode": "P1326",
@@ -30459,7 +30435,7 @@
           "initial": "해외",
           "customerName": "",
           "dueDate": "2026-11-20",
-          "productionRequiredQty": 24308
+          "productionRequiredQty": 24307
         },
         {
           "pCode": "P1326",
@@ -30567,7 +30543,7 @@
           "initial": "해외",
           "customerName": "",
           "dueDate": "2026-11-20",
-          "productionRequiredQty": 23295
+          "productionRequiredQty": 23294
         },
         {
           "pCode": "P1326",
@@ -30579,7 +30555,7 @@
           "initial": "해외",
           "customerName": "",
           "dueDate": "2026-11-20",
-          "productionRequiredQty": 8103
+          "productionRequiredQty": 8102
         },
         {
           "pCode": "P1326",
@@ -30711,7 +30687,7 @@
           "initial": "해외",
           "customerName": "",
           "dueDate": "2026-11-20",
-          "productionRequiredQty": 24308
+          "productionRequiredQty": 24307
         },
         {
           "pCode": "P1326",
@@ -30735,7 +30711,7 @@
           "initial": "해외",
           "customerName": "",
           "dueDate": "2026-11-20",
-          "productionRequiredQty": 24308
+          "productionRequiredQty": 24307
         },
         {
           "pCode": "P1326",
@@ -30759,7 +30735,7 @@
           "initial": "해외",
           "customerName": "",
           "dueDate": "2026-11-20",
-          "productionRequiredQty": 172178
+          "productionRequiredQty": 172176
         },
         {
           "pCode": "P1323",
@@ -30867,7 +30843,7 @@
           "initial": "해외",
           "customerName": "",
           "dueDate": "2026-11-20",
-          "productionRequiredQty": 24308
+          "productionRequiredQty": 24307
         },
         {
           "pCode": "P1323",
@@ -30903,7 +30879,7 @@
           "initial": "해외",
           "customerName": "",
           "dueDate": "2026-11-20",
-          "productionRequiredQty": 24308
+          "productionRequiredQty": 24307
         },
         {
           "pCode": "P1323",
@@ -30927,7 +30903,7 @@
           "initial": "해외",
           "customerName": "",
           "dueDate": "2026-11-20",
-          "productionRequiredQty": 24308
+          "productionRequiredQty": 24307
         },
         {
           "pCode": "P1323",
@@ -30975,7 +30951,7 @@
           "initial": "해외",
           "customerName": "",
           "dueDate": "2026-11-20",
-          "productionRequiredQty": 8103
+          "productionRequiredQty": 8102
         },
         {
           "pCode": "P1323",
@@ -31095,7 +31071,7 @@
           "initial": "해외",
           "customerName": "",
           "dueDate": "2026-11-20",
-          "productionRequiredQty": 23295
+          "productionRequiredQty": 23294
         },
         {
           "pCode": "P1323",
@@ -31107,7 +31083,7 @@
           "initial": "해외",
           "customerName": "",
           "dueDate": "2026-11-20",
-          "productionRequiredQty": 23295
+          "productionRequiredQty": 23294
         },
         {
           "pCode": "P1323",
@@ -31143,7 +31119,7 @@
           "initial": "해외",
           "customerName": "",
           "dueDate": "2026-11-20",
-          "productionRequiredQty": 172178
+          "productionRequiredQty": 172176
         },
         {
           "pCode": "P1324",
@@ -31251,7 +31227,7 @@
           "initial": "해외",
           "customerName": "",
           "dueDate": "2026-11-20",
-          "productionRequiredQty": 24308
+          "productionRequiredQty": 24307
         },
         {
           "pCode": "P1324",
@@ -31287,7 +31263,7 @@
           "initial": "해외",
           "customerName": "",
           "dueDate": "2026-11-20",
-          "productionRequiredQty": 24308
+          "productionRequiredQty": 24307
         },
         {
           "pCode": "P1324",
@@ -31311,7 +31287,7 @@
           "initial": "해외",
           "customerName": "",
           "dueDate": "2026-11-20",
-          "productionRequiredQty": 24308
+          "productionRequiredQty": 24307
         },
         {
           "pCode": "P1324",
@@ -31359,7 +31335,7 @@
           "initial": "해외",
           "customerName": "",
           "dueDate": "2026-11-20",
-          "productionRequiredQty": 8103
+          "productionRequiredQty": 8102
         },
         {
           "pCode": "P1324",
@@ -31479,7 +31455,7 @@
           "initial": "해외",
           "customerName": "",
           "dueDate": "2026-11-20",
-          "productionRequiredQty": 23295
+          "productionRequiredQty": 23294
         },
         {
           "pCode": "P1324",
@@ -31491,7 +31467,7 @@
           "initial": "해외",
           "customerName": "",
           "dueDate": "2026-11-20",
-          "productionRequiredQty": 23295
+          "productionRequiredQty": 23294
         },
         {
           "pCode": "P1324",
@@ -31539,7 +31515,7 @@
           "initial": "안전(해외)",
           "customerName": "",
           "dueDate": "2026-11-30",
-          "productionRequiredQty": 831
+          "productionRequiredQty": 830
         },
         {
           "pCode": "P0519",
@@ -31587,7 +31563,7 @@
           "initial": "안전(해외)",
           "customerName": "",
           "dueDate": "2026-11-30",
-          "productionRequiredQty": 71621
+          "productionRequiredQty": 71620
         },
         {
           "pCode": "P0586",
@@ -31599,7 +31575,7 @@
           "initial": "안전(해외)",
           "customerName": "",
           "dueDate": "2026-11-30",
-          "productionRequiredQty": 89745
+          "productionRequiredQty": 83516
         },
         {
           "pCode": "P0589",
@@ -31611,7 +31587,7 @@
           "initial": "안전(해외)",
           "customerName": "",
           "dueDate": "2026-11-30",
-          "productionRequiredQty": 12934
+          "productionRequiredQty": 12933
         },
         {
           "pCode": "P0589",
@@ -31695,7 +31671,7 @@
           "initial": "안전(해외)",
           "customerName": "",
           "dueDate": "2026-11-30",
-          "productionRequiredQty": 76305
+          "productionRequiredQty": 76304
         },
         {
           "pCode": "P0594",
@@ -31899,7 +31875,7 @@
           "initial": "안전(해외)",
           "customerName": "",
           "dueDate": "2026-11-30",
-          "productionRequiredQty": 81190
+          "productionRequiredQty": 68905
         },
         {
           "pCode": "P5049",
@@ -31959,7 +31935,7 @@
           "initial": "안전(해외)",
           "customerName": "",
           "dueDate": "2026-11-30",
-          "productionRequiredQty": 16403
+          "productionRequiredQty": 16402
         },
         {
           "pCode": "P5049",
@@ -32031,7 +32007,7 @@
           "initial": "안전(해외)",
           "customerName": "",
           "dueDate": "2026-11-30",
-          "productionRequiredQty": 50038
+          "productionRequiredQty": 50037
         },
         {
           "pCode": "P5108",
@@ -32115,7 +32091,7 @@
           "initial": "안전(해외)",
           "customerName": "",
           "dueDate": "2026-11-30",
-          "productionRequiredQty": 66775
+          "productionRequiredQty": 66774
         },
         {
           "pCode": "P5280",
@@ -32331,7 +32307,7 @@
           "initial": "안전(해외)",
           "customerName": "",
           "dueDate": "2026-11-30",
-          "productionRequiredQty": 25341
+          "productionRequiredQty": 25340
         },
         {
           "pCode": "P5350",
@@ -32391,7 +32367,7 @@
           "initial": "안전(해외)",
           "customerName": "",
           "dueDate": "2026-11-30",
-          "productionRequiredQty": 3758
+          "productionRequiredQty": 3757
         },
         {
           "pCode": "P5351",
@@ -32447,16 +32423,16 @@
       "liddingCode": "BS0086",
       "liddingSpecification": "BS0086-001",
       "liddingName": "알루미늄리드지 (Iris_수지브라운)_무광 코팅",
-      "productionRequiredQty": 262048,
-      "sourceRefreshedAt": "2026-10-27 07:23:31",
+      "productionRequiredQty": 260035,
+      "sourceRefreshedAt": "2026-10-27 14:58:32",
       "linkedPCodeCount": 2,
       "dueDateFrom": "2026-11-16",
       "dueDateTo": "2026-12-12",
       "categoryQuantities": {
-        "해외": 4862,
+        "해외": 2917,
         "PB": 0,
-        "국내": 39864,
-        "안전재고": 217322
+        "국내": 39862,
+        "안전재고": 217256
       },
       "salesOrders": [
         {
@@ -32481,7 +32457,7 @@
           "initial": "DD2092",
           "customerName": "INTEROJO CHINA CO., LTD",
           "dueDate": "2026-11-16",
-          "productionRequiredQty": 2583
+          "productionRequiredQty": 638
         },
         {
           "pCode": "P3093",
@@ -32565,7 +32541,7 @@
           "initial": "안전(해외)",
           "customerName": "",
           "dueDate": "2026-11-30",
-          "productionRequiredQty": 4299
+          "productionRequiredQty": 4259
         },
         {
           "pCode": "P3093",
@@ -32589,7 +32565,7 @@
           "initial": "안전(해외)",
           "customerName": "",
           "dueDate": "2026-11-30",
-          "productionRequiredQty": 3285
+          "productionRequiredQty": 3261
         },
         {
           "pCode": "P3093",
@@ -32697,7 +32673,7 @@
           "initial": "국내",
           "customerName": "",
           "dueDate": "2026-12-12",
-          "productionRequiredQty": 2097
+          "productionRequiredQty": 2096
         },
         {
           "pCode": "P3075",
@@ -32709,7 +32685,7 @@
           "initial": "국내",
           "customerName": "",
           "dueDate": "2026-12-12",
-          "productionRequiredQty": 11030
+          "productionRequiredQty": 11029
         },
         {
           "pCode": "P3075",
@@ -32721,7 +32697,7 @@
           "initial": "안전(국내)",
           "customerName": "",
           "dueDate": "2026-12-12",
-          "productionRequiredQty": 18383
+          "productionRequiredQty": 18382
         },
         {
           "pCode": "P3075",
@@ -32781,7 +32757,7 @@
           "initial": "안전(국내)",
           "customerName": "",
           "dueDate": "2026-12-12",
-          "productionRequiredQty": 3282
+          "productionRequiredQty": 3281
         },
         {
           "pCode": "P3075",
@@ -32934,7 +32910,7 @@
       "liddingSpecification": "BS0089-001",
       "liddingName": "알루미늄리드지 (일본 HOYA_LaFORTE 55%)_유광 코팅",
       "productionRequiredQty": 3130,
-      "sourceRefreshedAt": "2026-10-27 07:23:31",
+      "sourceRefreshedAt": "2026-10-27 14:58:32",
       "linkedPCodeCount": 4,
       "dueDateFrom": "2026-11-16",
       "dueDateTo": "2026-11-16",
@@ -33060,7 +33036,7 @@
       "liddingSpecification": "BS0098-002",
       "liddingName": "알루미늄리드지 (러시아 Optic Center ADRIA ZERO 리드지)",
       "productionRequiredQty": 456,
-      "sourceRefreshedAt": "2026-10-27 07:23:31",
+      "sourceRefreshedAt": "2026-10-27 14:58:32",
       "linkedPCodeCount": 1,
       "dueDateFrom": "2026-11-22",
       "dueDateTo": "2026-11-22",
@@ -33102,7 +33078,7 @@
       "liddingSpecification": "BS0103-001",
       "liddingName": "알루미늄리드지 (이태리 soleko US 58% 1day)_유광 코팅",
       "productionRequiredQty": 55579,
-      "sourceRefreshedAt": "2026-10-27 07:23:31",
+      "sourceRefreshedAt": "2026-10-27 14:58:32",
       "linkedPCodeCount": 1,
       "dueDateFrom": "2026-11-19",
       "dueDateTo": "2026-11-19",
@@ -33383,15 +33359,15 @@
       "liddingCode": "BS0111",
       "liddingSpecification": "BS0111-001",
       "liddingName": "알루미늄리드지 (렌즈미 Realfit 3Color_Brown)_유광 코팅",
-      "productionRequiredQty": 100451,
-      "sourceRefreshedAt": "2026-10-27 07:23:31",
+      "productionRequiredQty": 100450,
+      "sourceRefreshedAt": "2026-10-27 14:58:32",
       "linkedPCodeCount": 1,
       "dueDateFrom": "2026-11-26",
       "dueDateTo": "2026-11-26",
       "categoryQuantities": {
         "해외": 0,
         "PB": 0,
-        "국내": 100451,
+        "국내": 100450,
         "안전재고": 0
       },
       "salesOrders": [
@@ -33453,7 +33429,7 @@
           "initial": "국내",
           "customerName": "",
           "dueDate": "2026-11-26",
-          "productionRequiredQty": 6685
+          "productionRequiredQty": 6684
         },
         {
           "pCode": "P3205",
@@ -33653,13 +33629,13 @@
       "liddingCode": "BS0115",
       "liddingSpecification": "BS0115-001",
       "liddingName": "알루미늄리드지 (무지-백색_PET12/AL30/CPP100_White 리버스인쇄)",
-      "productionRequiredQty": 6364320,
-      "sourceRefreshedAt": "2026-10-27 07:23:31",
+      "productionRequiredQty": 6363313,
+      "sourceRefreshedAt": "2026-10-27 14:58:32",
       "linkedPCodeCount": 8,
       "dueDateFrom": "2026-11-20",
       "dueDateTo": "2026-11-30",
       "categoryQuantities": {
-        "해외": 5751853,
+        "해외": 5750846,
         "PB": 0,
         "국내": 0,
         "안전재고": 612467
@@ -76101,18 +76077,6 @@
           "pCode": "P1103",
           "demandType": "해외",
           "demandCategory": "해외",
-          "demandId": "해외_R202609290002_1_4336",
-          "salesOrderNo": "R202609290002",
-          "sequence": 1,
-          "initial": "해외",
-          "customerName": "",
-          "dueDate": "2026-11-30",
-          "productionRequiredQty": 1007
-        },
-        {
-          "pCode": "P1103",
-          "demandType": "해외",
-          "demandCategory": "해외",
           "demandId": "해외_R202609290002_1_4337",
           "salesOrderNo": "R202609290002",
           "sequence": 1,
@@ -97116,7 +97080,7 @@
       "liddingSpecification": "BS0121-002",
       "liddingName": "알루미늄리드지 (일본 sincere FAP 1D 38% UV)_유광 코팅",
       "productionRequiredQty": 6601,
-      "sourceRefreshedAt": "2026-10-27 07:23:31",
+      "sourceRefreshedAt": "2026-10-27 14:58:32",
       "linkedPCodeCount": 2,
       "dueDateFrom": "2026-11-22",
       "dueDateTo": "2026-11-22",
@@ -97182,7 +97146,7 @@
       "liddingSpecification": "BS0129-001",
       "liddingName": "알루미늄리드지 (중국향 Clalen RINA 1-Day 리드지)_유광 코팅",
       "productionRequiredQty": 9429,
-      "sourceRefreshedAt": "2026-10-27 07:23:31",
+      "sourceRefreshedAt": "2026-10-27 14:58:32",
       "linkedPCodeCount": 1,
       "dueDateFrom": "2026-11-16",
       "dueDateTo": "2026-11-16",
@@ -97296,7 +97260,7 @@
       "liddingSpecification": "BS0133-002",
       "liddingName": "알루미늄리드지 (Iris Toric 헤일로 그레이)_유광 코팅",
       "productionRequiredQty": 12549,
-      "sourceRefreshedAt": "2026-10-27 07:23:31",
+      "sourceRefreshedAt": "2026-10-27 14:58:32",
       "linkedPCodeCount": 3,
       "dueDateFrom": "2026-12-12",
       "dueDateTo": "2026-12-12",
@@ -97481,8 +97445,8 @@
       "liddingCode": "BS0145",
       "liddingSpecification": "BS0145-001",
       "liddingName": "알루미늄리드지 (일본 PIA 1day 38% mimuco)_유광 코팅",
-      "productionRequiredQty": 17365,
-      "sourceRefreshedAt": "2026-10-27 07:23:31",
+      "productionRequiredQty": 17364,
+      "sourceRefreshedAt": "2026-10-27 14:58:32",
       "linkedPCodeCount": 1,
       "dueDateFrom": "2026-11-30",
       "dueDateTo": "2026-11-30",
@@ -97490,7 +97454,7 @@
         "해외": 0,
         "PB": 0,
         "국내": 0,
-        "안전재고": 17365
+        "안전재고": 17364
       },
       "salesOrders": [
         {
@@ -97503,7 +97467,7 @@
           "initial": "안전(해외)",
           "customerName": "",
           "dueDate": "2026-11-30",
-          "productionRequiredQty": 14509
+          "productionRequiredQty": 14508
         },
         {
           "pCode": "P7018",
@@ -97548,7 +97512,7 @@
       "liddingSpecification": "BS0146-002",
       "liddingName": "알루미늄리드지 (독일 4care – Blue light daily metha)_무광 코팅",
       "productionRequiredQty": 2005,
-      "sourceRefreshedAt": "2026-10-27 07:23:31",
+      "sourceRefreshedAt": "2026-10-27 14:58:32",
       "linkedPCodeCount": 1,
       "dueDateFrom": "2026-12-01",
       "dueDateTo": "2026-12-01",
@@ -97590,7 +97554,7 @@
       "liddingSpecification": "BS0149-002",
       "liddingName": "알루미늄리드지 (Clalen O2O2 Color 1Day)_무광 코팅",
       "productionRequiredQty": 337611,
-      "sourceRefreshedAt": "2026-10-27 07:23:31",
+      "sourceRefreshedAt": "2026-10-27 14:58:32",
       "linkedPCodeCount": 5,
       "dueDateFrom": "2026-10-22",
       "dueDateTo": "2026-12-12",
@@ -98472,7 +98436,7 @@
       "liddingSpecification": "BS0150-001",
       "liddingName": "알루미늄리드지 (일본 ANW Dopewink 1D 리드지)_유광 코팅",
       "productionRequiredQty": 9885,
-      "sourceRefreshedAt": "2026-10-27 07:23:31",
+      "sourceRefreshedAt": "2026-10-27 14:58:32",
       "linkedPCodeCount": 1,
       "dueDateFrom": "2027-01-11",
       "dueDateTo": "2027-01-11",
@@ -98550,7 +98514,7 @@
       "liddingSpecification": "BS0154-001",
       "liddingName": "알루미늄리드지 (공용 Alcon Freshlook)_유광 코팅",
       "productionRequiredQty": 18011,
-      "sourceRefreshedAt": "2026-10-27 07:23:31",
+      "sourceRefreshedAt": "2026-10-27 14:58:32",
       "linkedPCodeCount": 3,
       "dueDateFrom": "2026-11-16",
       "dueDateTo": "2026-11-30",
@@ -98808,7 +98772,7 @@
       "liddingSpecification": "BS0155-001",
       "liddingName": "알루미늄리드지 (공용 Alcon Freshlook CC Lens)_유광 코팅",
       "productionRequiredQty": 8663,
-      "sourceRefreshedAt": "2026-10-27 07:23:31",
+      "sourceRefreshedAt": "2026-10-27 14:58:32",
       "linkedPCodeCount": 4,
       "dueDateFrom": "2026-11-16",
       "dueDateTo": "2026-11-30",
@@ -98993,13 +98957,13 @@
       "liddingCode": "BS0159",
       "liddingSpecification": "BS0159-002",
       "liddingName": "알루미늄리드지 (Bioxifilcon A Daily 공용 리드지)_무광 코팅",
-      "productionRequiredQty": 144046,
-      "sourceRefreshedAt": "2026-10-27 07:23:31",
+      "productionRequiredQty": 144071,
+      "sourceRefreshedAt": "2026-10-27 14:58:32",
       "linkedPCodeCount": 1,
       "dueDateFrom": "2026-11-18",
       "dueDateTo": "2026-12-10",
       "categoryQuantities": {
-        "해외": 144046,
+        "해외": 144071,
         "PB": 0,
         "국내": 0,
         "안전재고": 0
@@ -99219,7 +99183,7 @@
           "initial": "AR0028",
           "customerName": "ESSILOR GROUP THE NETHERLAND BV",
           "dueDate": "2026-12-01",
-          "productionRequiredQty": 1147
+          "productionRequiredQty": 1177
         },
         {
           "pCode": "P0247",
@@ -99555,7 +99519,7 @@
           "initial": "AR0028",
           "customerName": "ESSILOR GROUP THE NETHERLAND BV",
           "dueDate": "2026-12-10",
-          "productionRequiredQty": 40
+          "productionRequiredQty": 35
         }
       ]
     },
@@ -99564,7 +99528,7 @@
       "liddingSpecification": "BS0173-001",
       "liddingName": "알루미늄리드지 (일본 sincere ITW 1day UV)_유광 코팅",
       "productionRequiredQty": 19852,
-      "sourceRefreshedAt": "2026-10-27 07:23:31",
+      "sourceRefreshedAt": "2026-10-27 14:58:32",
       "linkedPCodeCount": 2,
       "dueDateFrom": "2026-11-16",
       "dueDateTo": "2026-11-23",
@@ -99690,7 +99654,7 @@
       "liddingSpecification": "BS0176-001",
       "liddingName": "알루미늄리드지 (일본 sincere ITFA 1D 38% UV)_유광 코팅",
       "productionRequiredQty": 2663,
-      "sourceRefreshedAt": "2026-10-27 07:23:31",
+      "sourceRefreshedAt": "2026-10-27 14:58:32",
       "linkedPCodeCount": 2,
       "dueDateFrom": "2026-11-11",
       "dueDateTo": "2026-11-11",
@@ -99755,15 +99719,15 @@
       "liddingCode": "BS0178",
       "liddingSpecification": "BS0178-001",
       "liddingName": "알루미늄리드지 (Clalen O2O2 1Day_Clear)_무광 코팅",
-      "productionRequiredQty": 1361744,
-      "sourceRefreshedAt": "2026-10-27 07:23:31",
+      "productionRequiredQty": 1361727,
+      "sourceRefreshedAt": "2026-10-27 14:58:32",
       "linkedPCodeCount": 1,
       "dueDateFrom": "2026-10-25",
       "dueDateTo": "2026-12-12",
       "categoryQuantities": {
         "해외": 0,
         "PB": 639207,
-        "국내": 536641,
+        "국내": 536624,
         "안전재고": 185896
       },
       "salesOrders": [
@@ -99813,7 +99777,7 @@
           "initial": "국내",
           "customerName": "",
           "dueDate": "2026-10-25",
-          "productionRequiredQty": 28772
+          "productionRequiredQty": 28771
         },
         {
           "pCode": "P5423",
@@ -99933,7 +99897,7 @@
           "initial": "국내",
           "customerName": "",
           "dueDate": "2026-10-25",
-          "productionRequiredQty": 7970
+          "productionRequiredQty": 7940
         },
         {
           "pCode": "P5423",
@@ -100089,7 +100053,7 @@
           "initial": "국내",
           "customerName": "",
           "dueDate": "2026-10-25",
-          "productionRequiredQty": 26719
+          "productionRequiredQty": 26718
         },
         {
           "pCode": "P5423",
@@ -100269,7 +100233,7 @@
           "initial": "국내",
           "customerName": "",
           "dueDate": "2026-10-30",
-          "productionRequiredQty": 1555
+          "productionRequiredQty": 1570
         },
         {
           "pCode": "P5423",
@@ -101442,7 +101406,7 @@
       "liddingSpecification": "BS0187-001",
       "liddingName": "알루미늄리드지 (중국 법인_JEWEL MOON 1D Color)_유광 코팅",
       "productionRequiredQty": 12545,
-      "sourceRefreshedAt": "2026-10-27 07:23:31",
+      "sourceRefreshedAt": "2026-10-27 14:58:32",
       "linkedPCodeCount": 3,
       "dueDateFrom": "2026-11-16",
       "dueDateTo": "2026-11-22",
@@ -101604,7 +101568,7 @@
       "liddingSpecification": "BS0191-003",
       "liddingName": "알루미늄리드지 (하파크리스틴_1Day Color)_유광 코팅",
       "productionRequiredQty": 38647,
-      "sourceRefreshedAt": "2026-10-27 07:23:31",
+      "sourceRefreshedAt": "2026-10-27 14:58:32",
       "linkedPCodeCount": 8,
       "dueDateFrom": "2026-11-11",
       "dueDateTo": "2026-11-30",
@@ -101910,7 +101874,7 @@
       "liddingSpecification": "BS0192-001",
       "liddingName": "알루미늄리드지 (Clalen O2O2 Color 1Day_Toric)_무광 코팅",
       "productionRequiredQty": 119961,
-      "sourceRefreshedAt": "2026-10-27 07:23:31",
+      "sourceRefreshedAt": "2026-10-27 14:58:32",
       "linkedPCodeCount": 2,
       "dueDateFrom": "2026-10-20",
       "dueDateTo": "2026-12-12",
@@ -102479,8 +102443,8 @@
       "liddingCode": "BS0204",
       "liddingSpecification": "BS0204-002",
       "liddingName": "알루미늄리드지 (OSC DYE 원데이 리드지)_유광코팅",
-      "productionRequiredQty": 60867,
-      "sourceRefreshedAt": "2026-10-27 07:23:31",
+      "productionRequiredQty": 60866,
+      "sourceRefreshedAt": "2026-10-27 14:58:32",
       "linkedPCodeCount": 2,
       "dueDateFrom": "2026-11-22",
       "dueDateTo": "2026-11-22",
@@ -102488,7 +102452,7 @@
         "해외": 0,
         "PB": 0,
         "국내": 0,
-        "안전재고": 60867
+        "안전재고": 60866
       },
       "salesOrders": [
         {
@@ -102513,7 +102477,7 @@
           "initial": "안전(해외)",
           "customerName": "",
           "dueDate": "2026-11-22",
-          "productionRequiredQty": 34276
+          "productionRequiredQty": 34275
         },
         {
           "pCode": "P5378",
@@ -102557,8 +102521,8 @@
       "liddingCode": "BS0214",
       "liddingSpecification": "BS0214-001",
       "liddingName": "알루미늄리드지 (Bella 리뉴얼 원데이 리드지(아랍))_유광코팅",
-      "productionRequiredQty": 215732,
-      "sourceRefreshedAt": "2026-10-27 07:23:31",
+      "productionRequiredQty": 215730,
+      "sourceRefreshedAt": "2026-10-27 14:58:32",
       "linkedPCodeCount": 4,
       "dueDateFrom": "2026-11-17",
       "dueDateTo": "2026-11-30",
@@ -102566,7 +102530,7 @@
         "해외": 1093,
         "PB": 0,
         "국내": 0,
-        "안전재고": 214639
+        "안전재고": 214637
       },
       "salesOrders": [
         {
@@ -102603,7 +102567,7 @@
           "initial": "안전(해외)",
           "customerName": "",
           "dueDate": "2026-11-22",
-          "productionRequiredQty": 68034
+          "productionRequiredQty": 68033
         },
         {
           "pCode": "P5387",
@@ -102687,7 +102651,7 @@
           "initial": "안전(해외)",
           "customerName": "",
           "dueDate": "2026-11-22",
-          "productionRequiredQty": 32000
+          "productionRequiredQty": 31999
         },
         {
           "pCode": "P5388",
@@ -102732,7 +102696,7 @@
       "liddingSpecification": "BS0219-001",
       "liddingName": "알루미늄리드지 (한국_하파크리스틴(1M) 핑크 중사각 인쇄 리드지)_유광코팅",
       "productionRequiredQty": 940,
-      "sourceRefreshedAt": "2026-10-27 07:23:31",
+      "sourceRefreshedAt": "2026-10-27 14:58:32",
       "linkedPCodeCount": 2,
       "dueDateFrom": "2026-11-11",
       "dueDateTo": "2026-11-11",
@@ -102822,7 +102786,7 @@
       "liddingSpecification": "BS0223-001",
       "liddingName": "알루미늄리드지 (한국_젬아워(1D) 블랙 리드지)_유광코팅",
       "productionRequiredQty": 12417,
-      "sourceRefreshedAt": "2026-10-27 07:23:31",
+      "sourceRefreshedAt": "2026-10-27 14:58:32",
       "linkedPCodeCount": 3,
       "dueDateFrom": "2026-11-11",
       "dueDateTo": "2026-11-30",
@@ -102912,7 +102876,7 @@
       "liddingSpecification": "BS0226-001",
       "liddingName": "알루미늄리드지 (이탈리아 Marshal SiHy 1Day 리드지)",
       "productionRequiredQty": 114905,
-      "sourceRefreshedAt": "2026-10-27 07:23:31",
+      "sourceRefreshedAt": "2026-10-27 14:58:32",
       "linkedPCodeCount": 1,
       "dueDateFrom": "2026-11-22",
       "dueDateTo": "2026-11-22",
@@ -103086,7 +103050,7 @@
       "liddingSpecification": "BS0227-002",
       "liddingName": "알루미늄리드지(윙크컴퍼니 Winc Clear Air Plus 1Day)_유광 코팅",
       "productionRequiredQty": 2989,
-      "sourceRefreshedAt": "2026-10-27 07:23:31",
+      "sourceRefreshedAt": "2026-10-27 14:58:32",
       "linkedPCodeCount": 1,
       "dueDateFrom": "2026-11-20",
       "dueDateTo": "2026-11-20",
@@ -103152,7 +103116,7 @@
       "liddingSpecification": "BS0231-001",
       "liddingName": "알루미늄리드지(윙크컴퍼니 Winc Clear 1Day)_유광 코팅",
       "productionRequiredQty": 6155,
-      "sourceRefreshedAt": "2026-10-27 07:23:31",
+      "sourceRefreshedAt": "2026-10-27 14:58:32",
       "linkedPCodeCount": 1,
       "dueDateFrom": "2026-11-20",
       "dueDateTo": "2026-11-20",
@@ -103277,8 +103241,8 @@
       "liddingCode": "BS0243",
       "liddingSpecification": "BS0243-001",
       "liddingName": "알루미늄리드지 (영국 FGC SiHy 1Day 리드지)",
-      "productionRequiredQty": 807672,
-      "sourceRefreshedAt": "2026-10-27 07:23:31",
+      "productionRequiredQty": 807668,
+      "sourceRefreshedAt": "2026-10-27 14:58:32",
       "linkedPCodeCount": 1,
       "dueDateFrom": "2026-11-22",
       "dueDateTo": "2026-11-22",
@@ -103286,7 +103250,7 @@
         "해외": 0,
         "PB": 0,
         "국내": 0,
-        "안전재고": 807672
+        "안전재고": 807668
       },
       "salesOrders": [
         {
@@ -103395,7 +103359,7 @@
           "initial": "안전(해외)",
           "customerName": "",
           "dueDate": "2026-11-22",
-          "productionRequiredQty": 12131
+          "productionRequiredQty": 12130
         },
         {
           "pCode": "P0510",
@@ -103419,7 +103383,7 @@
           "initial": "안전(해외)",
           "customerName": "",
           "dueDate": "2026-11-22",
-          "productionRequiredQty": 28298
+          "productionRequiredQty": 28297
         },
         {
           "pCode": "P0510",
@@ -103659,7 +103623,7 @@
           "initial": "안전(해외)",
           "customerName": "",
           "dueDate": "2026-11-22",
-          "productionRequiredQty": 13240
+          "productionRequiredQty": 13239
         },
         {
           "pCode": "P0510",
@@ -103755,7 +103719,7 @@
           "initial": "안전(해외)",
           "customerName": "",
           "dueDate": "2026-11-22",
-          "productionRequiredQty": 20218
+          "productionRequiredQty": 20217
         },
         {
           "pCode": "P0510",
@@ -103800,7 +103764,7 @@
       "liddingSpecification": "BS0261-001",
       "liddingName": "알루미늄리드지 (PIA_1D 55% Resay 리드지)",
       "productionRequiredQty": 16737,
-      "sourceRefreshedAt": "2026-10-27 07:23:31",
+      "sourceRefreshedAt": "2026-10-27 14:58:32",
       "linkedPCodeCount": 3,
       "dueDateFrom": "2026-11-05",
       "dueDateTo": "2026-11-30",
@@ -103854,7 +103818,7 @@
       "liddingSpecification": "BS0263-001",
       "liddingName": "알루미늄리드지 (영국 FGC SiHy 1Day MF 리드지)",
       "productionRequiredQty": 557369,
-      "sourceRefreshedAt": "2026-10-27 07:23:31",
+      "sourceRefreshedAt": "2026-10-27 14:58:32",
       "linkedPCodeCount": 1,
       "dueDateFrom": "2026-11-22",
       "dueDateTo": "2026-11-22",
@@ -104436,7 +104400,7 @@
       "liddingSpecification": "BS0264-001",
       "liddingName": "알루미늄리드지 (영국 FGC Metha1Day Color 리드지)",
       "productionRequiredQty": 2557,
-      "sourceRefreshedAt": "2026-10-27 07:23:31",
+      "sourceRefreshedAt": "2026-10-27 14:58:32",
       "linkedPCodeCount": 2,
       "dueDateFrom": "2026-11-22",
       "dueDateTo": "2026-11-22",
@@ -104562,7 +104526,7 @@
       "liddingSpecification": "BS0278-001",
       "liddingName": "알루미늄리드지 (Iris-10P)_유광 코팅",
       "productionRequiredQty": 192,
-      "sourceRefreshedAt": "2026-10-27 07:23:31",
+      "sourceRefreshedAt": "2026-10-27 14:58:32",
       "linkedPCodeCount": 1,
       "dueDateFrom": "2026-12-12",
       "dueDateTo": "2026-12-12",
@@ -104592,7 +104556,7 @@
       "liddingSpecification": "BS0279-001",
       "liddingName": "알루미늄리드지 (일본 HAPA(PIA) 1D 55% Sugar High Kristin)",
       "productionRequiredQty": 1418,
-      "sourceRefreshedAt": "2026-10-27 07:23:31",
+      "sourceRefreshedAt": "2026-10-27 14:58:32",
       "linkedPCodeCount": 1,
       "dueDateFrom": "2026-11-20",
       "dueDateTo": "2026-11-20",
@@ -104634,7 +104598,7 @@
       "liddingSpecification": "BS0286-001",
       "liddingName": "알루미늄리드지 (하파크리스틴_1Day Color)_14.5 유광 코팅",
       "productionRequiredQty": 69640,
-      "sourceRefreshedAt": "2026-10-27 07:23:31",
+      "sourceRefreshedAt": "2026-10-27 14:58:32",
       "linkedPCodeCount": 2,
       "dueDateFrom": "2026-11-16",
       "dueDateTo": "2026-11-16",
@@ -104856,7 +104820,7 @@
       "liddingSpecification": "BS0300-001",
       "liddingName": "알루미늄리드지 (이탈리아 Esoform SiHy 1Day 리드지)",
       "productionRequiredQty": 102700,
-      "sourceRefreshedAt": "2026-10-27 07:23:31",
+      "sourceRefreshedAt": "2026-10-27 14:58:32",
       "linkedPCodeCount": 1,
       "dueDateFrom": "2026-11-22",
       "dueDateTo": "2026-11-22",
@@ -104946,7 +104910,7 @@
       "liddingSpecification": "BS0334-001",
       "liddingName": "알루미늄리드지 (Clalen O2O2 Color 1Month Micelia)",
       "productionRequiredQty": 1606,
-      "sourceRefreshedAt": "2026-10-27 07:23:31",
+      "sourceRefreshedAt": "2026-10-27 14:58:32",
       "linkedPCodeCount": 2,
       "dueDateFrom": "2026-10-23",
       "dueDateTo": "2026-11-22",
@@ -105047,8 +105011,8 @@
       "liddingCode": "BS0349",
       "liddingSpecification": "BS0349-001",
       "liddingName": "알루미늄리드지 (체코 Alensa SiHy M Topvue Air 리드지_SMHL)",
-      "productionRequiredQty": 520,
-      "sourceRefreshedAt": "2026-10-27 07:23:31",
+      "productionRequiredQty": 551,
+      "sourceRefreshedAt": "2026-10-27 14:58:32",
       "linkedPCodeCount": 1,
       "dueDateFrom": "2026-11-22",
       "dueDateTo": "2026-11-22",
@@ -105056,7 +105020,7 @@
         "해외": 0,
         "PB": 0,
         "국내": 0,
-        "안전재고": 520
+        "안전재고": 551
       },
       "salesOrders": [
         {
@@ -105069,7 +105033,7 @@
           "initial": "안전(해외)",
           "customerName": "",
           "dueDate": "2026-11-22",
-          "productionRequiredQty": 167
+          "productionRequiredQty": 198
         },
         {
           "pCode": "P1113",
@@ -105090,7 +105054,7 @@
       "liddingSpecification": "BS0350-001",
       "liddingName": "알루미늄리드지 (체코 Alensa SiHy M Topvue Premium 리드지_SMHL)",
       "productionRequiredQty": 16,
-      "sourceRefreshedAt": "2026-10-27 07:23:31",
+      "sourceRefreshedAt": "2026-10-27 14:58:32",
       "linkedPCodeCount": 1,
       "dueDateFrom": "2026-11-22",
       "dueDateTo": "2026-11-22",
@@ -105120,7 +105084,7 @@
       "liddingSpecification": "BS0351-001",
       "liddingName": "알루미늄리드지 (체코 Alensa SiHy M White 리드지_SMHL)",
       "productionRequiredQty": 18599,
-      "sourceRefreshedAt": "2026-10-27 07:23:31",
+      "sourceRefreshedAt": "2026-10-27 14:58:32",
       "linkedPCodeCount": 1,
       "dueDateFrom": "2026-11-22",
       "dueDateTo": "2026-11-22",
@@ -105149,29 +105113,53 @@
       "liddingCode": "BS0354",
       "liddingSpecification": "BS0354-001",
       "liddingName": "알루미늄리드지 (PIA_1D 55% CoFANCY 리드지)",
-      "productionRequiredQty": 741029,
-      "sourceRefreshedAt": "2026-10-27 07:23:31",
+      "productionRequiredQty": 734064,
+      "sourceRefreshedAt": "2026-10-27 14:58:32",
       "linkedPCodeCount": 5,
       "dueDateFrom": "2026-11-13",
       "dueDateTo": "2026-11-30",
       "categoryQuantities": {
-        "해외": 734863,
+        "해외": 727905,
         "PB": 0,
         "국내": 0,
-        "안전재고": 6166
+        "안전재고": 6159
       },
       "salesOrders": [
         {
-          "pCode": "P1327",
+          "pCode": "P1328",
           "demandType": "이니셜",
           "demandCategory": "해외",
-          "demandId": "AA1586_202610160261_3_22",
+          "demandId": "AA1586_202610160261_4_10",
           "salesOrderNo": "202610160261",
-          "sequence": 3,
+          "sequence": 4,
           "initial": "AA1586",
           "customerName": "PIA Co.,Ltd.",
           "dueDate": "2026-11-13",
-          "productionRequiredQty": 1017
+          "productionRequiredQty": 1016
+        },
+        {
+          "pCode": "P1328",
+          "demandType": "이니셜",
+          "demandCategory": "해외",
+          "demandId": "AA1586_202610160261_4_15",
+          "salesOrderNo": "202610160261",
+          "sequence": 4,
+          "initial": "AA1586",
+          "customerName": "PIA Co.,Ltd.",
+          "dueDate": "2026-11-13",
+          "productionRequiredQty": 1016
+        },
+        {
+          "pCode": "P1328",
+          "demandType": "이니셜",
+          "demandCategory": "해외",
+          "demandId": "AA1586_202610160261_4_18",
+          "salesOrderNo": "202610160261",
+          "sequence": 4,
+          "initial": "AA1586",
+          "customerName": "PIA Co.,Ltd.",
+          "dueDate": "2026-11-13",
+          "productionRequiredQty": 1016
         },
         {
           "pCode": "P1328",
@@ -105183,7 +105171,7 @@
           "initial": "AA1586",
           "customerName": "PIA Co.,Ltd.",
           "dueDate": "2026-11-13",
-          "productionRequiredQty": 1017
+          "productionRequiredQty": 1016
         },
         {
           "pCode": "P1328",
@@ -105195,7 +105183,7 @@
           "initial": "AA1586",
           "customerName": "PIA Co.,Ltd.",
           "dueDate": "2026-11-13",
-          "productionRequiredQty": 1017
+          "productionRequiredQty": 1016
         },
         {
           "pCode": "P1328",
@@ -105207,7 +105195,7 @@
           "initial": "AA1586",
           "customerName": "PIA Co.,Ltd.",
           "dueDate": "2026-11-13",
-          "productionRequiredQty": 1017
+          "productionRequiredQty": 1016
         },
         {
           "pCode": "P1328",
@@ -105219,7 +105207,7 @@
           "initial": "AA1586",
           "customerName": "PIA Co.,Ltd.",
           "dueDate": "2026-11-13",
-          "productionRequiredQty": 1017
+          "productionRequiredQty": 1016
         },
         {
           "pCode": "P1328",
@@ -105231,7 +105219,7 @@
           "initial": "AA1586",
           "customerName": "PIA Co.,Ltd.",
           "dueDate": "2026-11-13",
-          "productionRequiredQty": 1017
+          "productionRequiredQty": 1016
         },
         {
           "pCode": "P1329",
@@ -105243,7 +105231,7 @@
           "initial": "AA1586",
           "customerName": "PIA Co.,Ltd.",
           "dueDate": "2026-11-13",
-          "productionRequiredQty": 1017
+          "productionRequiredQty": 1016
         },
         {
           "pCode": "P1329",
@@ -105255,7 +105243,7 @@
           "initial": "AA1586",
           "customerName": "PIA Co.,Ltd.",
           "dueDate": "2026-11-13",
-          "productionRequiredQty": 1017
+          "productionRequiredQty": 1016
         },
         {
           "pCode": "P1329",
@@ -105267,7 +105255,7 @@
           "initial": "AA1586",
           "customerName": "PIA Co.,Ltd.",
           "dueDate": "2026-11-13",
-          "productionRequiredQty": 1017
+          "productionRequiredQty": 1016
         },
         {
           "pCode": "P1329",
@@ -105279,7 +105267,7 @@
           "initial": "AA1586",
           "customerName": "PIA Co.,Ltd.",
           "dueDate": "2026-11-13",
-          "productionRequiredQty": 1017
+          "productionRequiredQty": 1016
         },
         {
           "pCode": "P1329",
@@ -105291,7 +105279,7 @@
           "initial": "AA1586",
           "customerName": "PIA Co.,Ltd.",
           "dueDate": "2026-11-13",
-          "productionRequiredQty": 1017
+          "productionRequiredQty": 1016
         },
         {
           "pCode": "P1329",
@@ -105303,7 +105291,7 @@
           "initial": "AA1586",
           "customerName": "PIA Co.,Ltd.",
           "dueDate": "2026-11-13",
-          "productionRequiredQty": 1017
+          "productionRequiredQty": 1016
         },
         {
           "pCode": "P1329",
@@ -105315,7 +105303,7 @@
           "initial": "AA1586",
           "customerName": "PIA Co.,Ltd.",
           "dueDate": "2026-11-13",
-          "productionRequiredQty": 1017
+          "productionRequiredQty": 1016
         },
         {
           "pCode": "P1330",
@@ -105327,7 +105315,7 @@
           "initial": "AA1586",
           "customerName": "PIA Co.,Ltd.",
           "dueDate": "2026-11-13",
-          "productionRequiredQty": 1017
+          "productionRequiredQty": 1016
         },
         {
           "pCode": "P1330",
@@ -105339,7 +105327,7 @@
           "initial": "AA1586",
           "customerName": "PIA Co.,Ltd.",
           "dueDate": "2026-11-13",
-          "productionRequiredQty": 1017
+          "productionRequiredQty": 1016
         },
         {
           "pCode": "P1330",
@@ -105351,7 +105339,7 @@
           "initial": "AA1586",
           "customerName": "PIA Co.,Ltd.",
           "dueDate": "2026-11-13",
-          "productionRequiredQty": 1017
+          "productionRequiredQty": 1016
         },
         {
           "pCode": "P1330",
@@ -105363,7 +105351,7 @@
           "initial": "AA1586",
           "customerName": "PIA Co.,Ltd.",
           "dueDate": "2026-11-13",
-          "productionRequiredQty": 1017
+          "productionRequiredQty": 1016
         },
         {
           "pCode": "P1330",
@@ -105375,7 +105363,7 @@
           "initial": "AA1586",
           "customerName": "PIA Co.,Ltd.",
           "dueDate": "2026-11-13",
-          "productionRequiredQty": 1017
+          "productionRequiredQty": 1016
         },
         {
           "pCode": "P1330",
@@ -105387,7 +105375,7 @@
           "initial": "AA1586",
           "customerName": "PIA Co.,Ltd.",
           "dueDate": "2026-11-13",
-          "productionRequiredQty": 1017
+          "productionRequiredQty": 1016
         },
         {
           "pCode": "P1330",
@@ -105399,7 +105387,7 @@
           "initial": "AA1586",
           "customerName": "PIA Co.,Ltd.",
           "dueDate": "2026-11-13",
-          "productionRequiredQty": 1017
+          "productionRequiredQty": 1016
         },
         {
           "pCode": "P1327",
@@ -105411,7 +105399,7 @@
           "initial": "AA1587",
           "customerName": "PIA Co.,Ltd.",
           "dueDate": "2026-11-13",
-          "productionRequiredQty": 28568
+          "productionRequiredQty": 28739
         },
         {
           "pCode": "P1327",
@@ -105423,7 +105411,7 @@
           "initial": "AA1587",
           "customerName": "PIA Co.,Ltd.",
           "dueDate": "2026-11-13",
-          "productionRequiredQty": 2694
+          "productionRequiredQty": 2691
         },
         {
           "pCode": "P1327",
@@ -105435,7 +105423,7 @@
           "initial": "AA1587",
           "customerName": "PIA Co.,Ltd.",
           "dueDate": "2026-11-13",
-          "productionRequiredQty": 1891
+          "productionRequiredQty": 1889
         },
         {
           "pCode": "P1327",
@@ -105447,7 +105435,7 @@
           "initial": "AA1587",
           "customerName": "PIA Co.,Ltd.",
           "dueDate": "2026-11-13",
-          "productionRequiredQty": 9892
+          "productionRequiredQty": 3250
         },
         {
           "pCode": "P1327",
@@ -105459,7 +105447,7 @@
           "initial": "AA1587",
           "customerName": "PIA Co.,Ltd.",
           "dueDate": "2026-11-13",
-          "productionRequiredQty": 8642
+          "productionRequiredQty": 5108
         },
         {
           "pCode": "P1327",
@@ -105471,7 +105459,7 @@
           "initial": "AA1587",
           "customerName": "PIA Co.,Ltd.",
           "dueDate": "2026-11-13",
-          "productionRequiredQty": 10278
+          "productionRequiredQty": 10267
         },
         {
           "pCode": "P1327",
@@ -105483,7 +105471,7 @@
           "initial": "AA1587",
           "customerName": "PIA Co.,Ltd.",
           "dueDate": "2026-11-13",
-          "productionRequiredQty": 12241
+          "productionRequiredQty": 12227
         },
         {
           "pCode": "P1327",
@@ -105495,7 +105483,7 @@
           "initial": "AA1587",
           "customerName": "PIA Co.,Ltd.",
           "dueDate": "2026-11-13",
-          "productionRequiredQty": 7493
+          "productionRequiredQty": 7484
         },
         {
           "pCode": "P1327",
@@ -105507,7 +105495,7 @@
           "initial": "AA1587",
           "customerName": "PIA Co.,Ltd.",
           "dueDate": "2026-11-13",
-          "productionRequiredQty": 7971
+          "productionRequiredQty": 5006
         },
         {
           "pCode": "P1327",
@@ -105519,7 +105507,7 @@
           "initial": "AA1587",
           "customerName": "PIA Co.,Ltd.",
           "dueDate": "2026-11-13",
-          "productionRequiredQty": 5073
+          "productionRequiredQty": 5067
         },
         {
           "pCode": "P1327",
@@ -105531,7 +105519,7 @@
           "initial": "AA1587",
           "customerName": "PIA Co.,Ltd.",
           "dueDate": "2026-11-13",
-          "productionRequiredQty": 11305
+          "productionRequiredQty": 11293
         },
         {
           "pCode": "P1327",
@@ -105543,7 +105531,7 @@
           "initial": "AA1587",
           "customerName": "PIA Co.,Ltd.",
           "dueDate": "2026-11-13",
-          "productionRequiredQty": 4331
+          "productionRequiredQty": 4326
         },
         {
           "pCode": "P1327",
@@ -105555,7 +105543,7 @@
           "initial": "AA1587",
           "customerName": "PIA Co.,Ltd.",
           "dueDate": "2026-11-13",
-          "productionRequiredQty": 12342
+          "productionRequiredQty": 12328
         },
         {
           "pCode": "P1327",
@@ -105567,7 +105555,7 @@
           "initial": "AA1587",
           "customerName": "PIA Co.,Ltd.",
           "dueDate": "2026-11-13",
-          "productionRequiredQty": 6568
+          "productionRequiredQty": 6560
         },
         {
           "pCode": "P1327",
@@ -105579,19 +105567,7 @@
           "initial": "AA1587",
           "customerName": "PIA Co.,Ltd.",
           "dueDate": "2026-11-13",
-          "productionRequiredQty": 10167
-        },
-        {
-          "pCode": "P1327",
-          "demandType": "이니셜",
-          "demandCategory": "해외",
-          "demandId": "AA1587_202610160262_3_23",
-          "salesOrderNo": "202610160262",
-          "sequence": 3,
-          "initial": "AA1587",
-          "customerName": "PIA Co.,Ltd.",
-          "dueDate": "2026-11-13",
-          "productionRequiredQty": 2623
+          "productionRequiredQty": 7840
         },
         {
           "pCode": "P1327",
@@ -105603,7 +105579,7 @@
           "initial": "AA1587",
           "customerName": "PIA Co.,Ltd.",
           "dueDate": "2026-11-13",
-          "productionRequiredQty": 7554
+          "productionRequiredQty": 7545
         },
         {
           "pCode": "P1327",
@@ -105615,7 +105591,43 @@
           "initial": "AA1587",
           "customerName": "PIA Co.,Ltd.",
           "dueDate": "2026-11-13",
-          "productionRequiredQty": 3477
+          "productionRequiredQty": 3473
+        },
+        {
+          "pCode": "P1327",
+          "demandType": "이니셜",
+          "demandCategory": "해외",
+          "demandId": "AA1587_202610160262_3_5",
+          "salesOrderNo": "202610160262",
+          "sequence": 3,
+          "initial": "AA1587",
+          "customerName": "PIA Co.,Ltd.",
+          "dueDate": "2026-11-13",
+          "productionRequiredQty": 589
+        },
+        {
+          "pCode": "P1327",
+          "demandType": "이니셜",
+          "demandCategory": "해외",
+          "demandId": "AA1587_202610160262_3_6",
+          "salesOrderNo": "202610160262",
+          "sequence": 3,
+          "initial": "AA1587",
+          "customerName": "PIA Co.,Ltd.",
+          "dueDate": "2026-11-13",
+          "productionRequiredQty": 1351
+        },
+        {
+          "pCode": "P1327",
+          "demandType": "이니셜",
+          "demandCategory": "해외",
+          "demandId": "AA1587_202610160262_3_7",
+          "salesOrderNo": "202610160262",
+          "sequence": 3,
+          "initial": "AA1587",
+          "customerName": "PIA Co.,Ltd.",
+          "dueDate": "2026-11-13",
+          "productionRequiredQty": 234
         },
         {
           "pCode": "P1327",
@@ -105627,7 +105639,7 @@
           "initial": "AA1587",
           "customerName": "PIA Co.,Ltd.",
           "dueDate": "2026-11-13",
-          "productionRequiredQty": 7838
+          "productionRequiredQty": 7830
         },
         {
           "pCode": "P1327",
@@ -105639,7 +105651,7 @@
           "initial": "AA1587",
           "customerName": "PIA Co.,Ltd.",
           "dueDate": "2026-11-13",
-          "productionRequiredQty": 1047
+          "productionRequiredQty": 2752
         },
         {
           "pCode": "P1328",
@@ -105651,7 +105663,7 @@
           "initial": "AA1587",
           "customerName": "PIA Co.,Ltd.",
           "dueDate": "2026-11-13",
-          "productionRequiredQty": 68645
+          "productionRequiredQty": 68568
         },
         {
           "pCode": "P1328",
@@ -105663,7 +105675,7 @@
           "initial": "AA1587",
           "customerName": "PIA Co.,Ltd.",
           "dueDate": "2026-11-13",
-          "productionRequiredQty": 4209
+          "productionRequiredQty": 8124
         },
         {
           "pCode": "P1328",
@@ -105675,7 +105687,7 @@
           "initial": "AA1587",
           "customerName": "PIA Co.,Ltd.",
           "dueDate": "2026-11-13",
-          "productionRequiredQty": 8072
+          "productionRequiredQty": 8043
         },
         {
           "pCode": "P1328",
@@ -105687,7 +105699,7 @@
           "initial": "AA1587",
           "customerName": "PIA Co.,Ltd.",
           "dueDate": "2026-11-13",
-          "productionRequiredQty": 4077
+          "productionRequiredQty": 4072
         },
         {
           "pCode": "P1328",
@@ -105699,7 +105711,7 @@
           "initial": "AA1587",
           "customerName": "PIA Co.,Ltd.",
           "dueDate": "2026-11-13",
-          "productionRequiredQty": 3823
+          "productionRequiredQty": 3818
         },
         {
           "pCode": "P1328",
@@ -105711,7 +105723,7 @@
           "initial": "AA1587",
           "customerName": "PIA Co.,Ltd.",
           "dueDate": "2026-11-13",
-          "productionRequiredQty": 3650
+          "productionRequiredQty": 5656
         },
         {
           "pCode": "P1328",
@@ -105723,7 +105735,7 @@
           "initial": "AA1587",
           "customerName": "PIA Co.,Ltd.",
           "dueDate": "2026-11-13",
-          "productionRequiredQty": 6812
+          "productionRequiredQty": 8124
         },
         {
           "pCode": "P1328",
@@ -105735,7 +105747,7 @@
           "initial": "AA1587",
           "customerName": "PIA Co.,Ltd.",
           "dueDate": "2026-11-13",
-          "productionRequiredQty": 5663
+          "productionRequiredQty": 5656
         },
         {
           "pCode": "P1328",
@@ -105747,7 +105759,7 @@
           "initial": "AA1587",
           "customerName": "PIA Co.,Ltd.",
           "dueDate": "2026-11-13",
-          "productionRequiredQty": 5683
+          "productionRequiredQty": 7109
         },
         {
           "pCode": "P1328",
@@ -105759,7 +105771,7 @@
           "initial": "AA1587",
           "customerName": "PIA Co.,Ltd.",
           "dueDate": "2026-11-13",
-          "productionRequiredQty": 3406
+          "productionRequiredQty": 3402
         },
         {
           "pCode": "P1328",
@@ -105771,7 +105783,7 @@
           "initial": "AA1587",
           "customerName": "PIA Co.,Ltd.",
           "dueDate": "2026-11-13",
-          "productionRequiredQty": 7035
+          "productionRequiredQty": 7027
         },
         {
           "pCode": "P1328",
@@ -105783,7 +105795,7 @@
           "initial": "AA1587",
           "customerName": "PIA Co.,Ltd.",
           "dueDate": "2026-11-13",
-          "productionRequiredQty": 8133
+          "productionRequiredQty": 8124
         },
         {
           "pCode": "P1328",
@@ -105795,7 +105807,7 @@
           "initial": "AA1587",
           "customerName": "PIA Co.,Ltd.",
           "dueDate": "2026-11-13",
-          "productionRequiredQty": 6100
+          "productionRequiredQty": 6093
         },
         {
           "pCode": "P1328",
@@ -105807,7 +105819,7 @@
           "initial": "AA1587",
           "customerName": "PIA Co.,Ltd.",
           "dueDate": "2026-11-13",
-          "productionRequiredQty": 4067
+          "productionRequiredQty": 4062
         },
         {
           "pCode": "P1328",
@@ -105819,7 +105831,7 @@
           "initial": "AA1587",
           "customerName": "PIA Co.,Ltd.",
           "dueDate": "2026-11-13",
-          "productionRequiredQty": 4067
+          "productionRequiredQty": 4062
         },
         {
           "pCode": "P1328",
@@ -105831,7 +105843,7 @@
           "initial": "AA1587",
           "customerName": "PIA Co.,Ltd.",
           "dueDate": "2026-11-13",
-          "productionRequiredQty": 4067
+          "productionRequiredQty": 4062
         },
         {
           "pCode": "P1328",
@@ -105843,7 +105855,19 @@
           "initial": "AA1587",
           "customerName": "PIA Co.,Ltd.",
           "dueDate": "2026-11-13",
-          "productionRequiredQty": 4128
+          "productionRequiredQty": 4123
+        },
+        {
+          "pCode": "P1328",
+          "demandType": "이니셜",
+          "demandCategory": "해외",
+          "demandId": "AA1587_202610160262_4_5",
+          "salesOrderNo": "202610160262",
+          "sequence": 4,
+          "initial": "AA1587",
+          "customerName": "PIA Co.,Ltd.",
+          "dueDate": "2026-11-13",
+          "productionRequiredQty": 772
         },
         {
           "pCode": "P1328",
@@ -105855,7 +105879,7 @@
           "initial": "AA1587",
           "customerName": "PIA Co.,Ltd.",
           "dueDate": "2026-11-13",
-          "productionRequiredQty": 2755
+          "productionRequiredQty": 2752
         },
         {
           "pCode": "P1329",
@@ -105867,7 +105891,7 @@
           "initial": "AA1587",
           "customerName": "PIA Co.,Ltd.",
           "dueDate": "2026-11-13",
-          "productionRequiredQty": 89080
+          "productionRequiredQty": 92544
         },
         {
           "pCode": "P1329",
@@ -105879,7 +105903,7 @@
           "initial": "AA1587",
           "customerName": "PIA Co.,Ltd.",
           "dueDate": "2026-11-13",
-          "productionRequiredQty": 1291
+          "productionRequiredQty": 1290
         },
         {
           "pCode": "P1329",
@@ -105891,7 +105915,7 @@
           "initial": "AA1587",
           "customerName": "PIA Co.,Ltd.",
           "dueDate": "2026-11-13",
-          "productionRequiredQty": 12037
+          "productionRequiredQty": 12024
         },
         {
           "pCode": "P1329",
@@ -105903,7 +105927,7 @@
           "initial": "AA1587",
           "customerName": "PIA Co.,Ltd.",
           "dueDate": "2026-11-13",
-          "productionRequiredQty": 7574
+          "productionRequiredQty": 5931
         },
         {
           "pCode": "P1329",
@@ -105915,7 +105939,7 @@
           "initial": "AA1587",
           "customerName": "PIA Co.,Ltd.",
           "dueDate": "2026-11-13",
-          "productionRequiredQty": 6740
+          "productionRequiredQty": 8612
         },
         {
           "pCode": "P1329",
@@ -105927,7 +105951,7 @@
           "initial": "AA1587",
           "customerName": "PIA Co.,Ltd.",
           "dueDate": "2026-11-13",
-          "productionRequiredQty": 13217
+          "productionRequiredQty": 13202
         },
         {
           "pCode": "P1329",
@@ -105939,7 +105963,7 @@
           "initial": "AA1587",
           "customerName": "PIA Co.,Ltd.",
           "dueDate": "2026-11-13",
-          "productionRequiredQty": 11549
+          "productionRequiredQty": 11536
         },
         {
           "pCode": "P1329",
@@ -105951,7 +105975,7 @@
           "initial": "AA1587",
           "customerName": "PIA Co.,Ltd.",
           "dueDate": "2026-11-13",
-          "productionRequiredQty": 8265
+          "productionRequiredQty": 2407
         },
         {
           "pCode": "P1329",
@@ -105963,7 +105987,7 @@
           "initial": "AA1587",
           "customerName": "PIA Co.,Ltd.",
           "dueDate": "2026-11-13",
-          "productionRequiredQty": 10329
+          "productionRequiredQty": 10318
         },
         {
           "pCode": "P1329",
@@ -105975,7 +105999,7 @@
           "initial": "AA1587",
           "customerName": "PIA Co.,Ltd.",
           "dueDate": "2026-11-13",
-          "productionRequiredQty": 9455
+          "productionRequiredQty": 9444
         },
         {
           "pCode": "P1329",
@@ -105987,7 +106011,7 @@
           "initial": "AA1587",
           "customerName": "PIA Co.,Ltd.",
           "dueDate": "2026-11-13",
-          "productionRequiredQty": 9302
+          "productionRequiredQty": 9282
         },
         {
           "pCode": "P1329",
@@ -105999,7 +106023,7 @@
           "initial": "AA1587",
           "customerName": "PIA Co.,Ltd.",
           "dueDate": "2026-11-13",
-          "productionRequiredQty": 5571
+          "productionRequiredQty": 5565
         },
         {
           "pCode": "P1329",
@@ -106011,7 +106035,7 @@
           "initial": "AA1587",
           "customerName": "PIA Co.,Ltd.",
           "dueDate": "2026-11-13",
-          "productionRequiredQty": 8357
+          "productionRequiredQty": 5545
         },
         {
           "pCode": "P1329",
@@ -106023,7 +106047,7 @@
           "initial": "AA1587",
           "customerName": "PIA Co.,Ltd.",
           "dueDate": "2026-11-13",
-          "productionRequiredQty": 13217
+          "productionRequiredQty": 13202
         },
         {
           "pCode": "P1329",
@@ -106035,7 +106059,7 @@
           "initial": "AA1587",
           "customerName": "PIA Co.,Ltd.",
           "dueDate": "2026-11-13",
-          "productionRequiredQty": 6761
+          "productionRequiredQty": 8530
         },
         {
           "pCode": "P1329",
@@ -106047,7 +106071,7 @@
           "initial": "AA1587",
           "customerName": "PIA Co.,Ltd.",
           "dueDate": "2026-11-13",
-          "productionRequiredQty": 7117
+          "productionRequiredQty": 7109
         },
         {
           "pCode": "P1329",
@@ -106059,7 +106083,7 @@
           "initial": "AA1587",
           "customerName": "PIA Co.,Ltd.",
           "dueDate": "2026-11-13",
-          "productionRequiredQty": 7117
+          "productionRequiredQty": 7109
         },
         {
           "pCode": "P1329",
@@ -106071,7 +106095,7 @@
           "initial": "AA1587",
           "customerName": "PIA Co.,Ltd.",
           "dueDate": "2026-11-13",
-          "productionRequiredQty": 7117
+          "productionRequiredQty": 7109
         },
         {
           "pCode": "P1329",
@@ -106083,7 +106107,7 @@
           "initial": "AA1587",
           "customerName": "PIA Co.,Ltd.",
           "dueDate": "2026-11-13",
-          "productionRequiredQty": 9150
+          "productionRequiredQty": 9140
         },
         {
           "pCode": "P1329",
@@ -106095,7 +106119,7 @@
           "initial": "AA1587",
           "customerName": "PIA Co.,Ltd.",
           "dueDate": "2026-11-13",
-          "productionRequiredQty": 9150
+          "productionRequiredQty": 9140
         },
         {
           "pCode": "P1329",
@@ -106107,7 +106131,7 @@
           "initial": "AA1587",
           "customerName": "PIA Co.,Ltd.",
           "dueDate": "2026-11-13",
-          "productionRequiredQty": 7523
+          "productionRequiredQty": 7515
         },
         {
           "pCode": "P1329",
@@ -106119,7 +106143,7 @@
           "initial": "AA1587",
           "customerName": "PIA Co.,Ltd.",
           "dueDate": "2026-11-13",
-          "productionRequiredQty": 11051
+          "productionRequiredQty": 11039
         },
         {
           "pCode": "P1329",
@@ -106131,7 +106155,7 @@
           "initial": "AA1587",
           "customerName": "PIA Co.,Ltd.",
           "dueDate": "2026-11-13",
-          "productionRequiredQty": 8174
+          "productionRequiredQty": 8165
         },
         {
           "pCode": "P1329",
@@ -106143,7 +106167,7 @@
           "initial": "AA1587",
           "customerName": "PIA Co.,Ltd.",
           "dueDate": "2026-11-13",
-          "productionRequiredQty": 9343
+          "productionRequiredQty": 8510
         },
         {
           "pCode": "P1329",
@@ -106155,7 +106179,7 @@
           "initial": "AA1587",
           "customerName": "PIA Co.,Ltd.",
           "dueDate": "2026-11-13",
-          "productionRequiredQty": 12149
+          "productionRequiredQty": 12135
         },
         {
           "pCode": "P1330",
@@ -106167,7 +106191,7 @@
           "initial": "AA1587",
           "customerName": "PIA Co.,Ltd.",
           "dueDate": "2026-11-13",
-          "productionRequiredQty": 4270
+          "productionRequiredQty": 4265
         },
         {
           "pCode": "P1330",
@@ -106179,7 +106203,7 @@
           "initial": "AA1587",
           "customerName": "PIA Co.,Ltd.",
           "dueDate": "2026-11-13",
-          "productionRequiredQty": 6405
+          "productionRequiredQty": 6398
         },
         {
           "pCode": "P1330",
@@ -106191,7 +106215,7 @@
           "initial": "AA1587",
           "customerName": "PIA Co.,Ltd.",
           "dueDate": "2026-11-13",
-          "productionRequiredQty": 7117
+          "productionRequiredQty": 7109
         },
         {
           "pCode": "P1330",
@@ -106203,7 +106227,7 @@
           "initial": "AA1587",
           "customerName": "PIA Co.,Ltd.",
           "dueDate": "2026-11-13",
-          "productionRequiredQty": 3955
+          "productionRequiredQty": 3950
         },
         {
           "pCode": "P1330",
@@ -106215,7 +106239,7 @@
           "initial": "AA1587",
           "customerName": "PIA Co.,Ltd.",
           "dueDate": "2026-11-13",
-          "productionRequiredQty": 6273
+          "productionRequiredQty": 6469
         },
         {
           "pCode": "P1330",
@@ -106227,7 +106251,7 @@
           "initial": "AA1587",
           "customerName": "PIA Co.,Ltd.",
           "dueDate": "2026-11-13",
-          "productionRequiredQty": 2186
+          "productionRequiredQty": 2153
         },
         {
           "pCode": "P1330",
@@ -106239,7 +106263,7 @@
           "initial": "AA1587",
           "customerName": "PIA Co.,Ltd.",
           "dueDate": "2026-11-13",
-          "productionRequiredQty": 4433
+          "productionRequiredQty": 4428
         },
         {
           "pCode": "P1330",
@@ -106251,7 +106275,7 @@
           "initial": "AA1587",
           "customerName": "PIA Co.,Ltd.",
           "dueDate": "2026-11-13",
-          "productionRequiredQty": 5693
+          "productionRequiredQty": 5687
         },
         {
           "pCode": "P1330",
@@ -106263,7 +106287,7 @@
           "initial": "AA1587",
           "customerName": "PIA Co.,Ltd.",
           "dueDate": "2026-11-13",
-          "productionRequiredQty": 925
+          "productionRequiredQty": 873
         },
         {
           "pCode": "P1330",
@@ -106275,7 +106299,7 @@
           "initial": "AA1587",
           "customerName": "PIA Co.,Ltd.",
           "dueDate": "2026-11-13",
-          "productionRequiredQty": 4321
+          "productionRequiredQty": 4316
         },
         {
           "pCode": "P1330",
@@ -106287,7 +106311,7 @@
           "initial": "AA1587",
           "customerName": "PIA Co.,Ltd.",
           "dueDate": "2026-11-13",
-          "productionRequiredQty": 3558
+          "productionRequiredQty": 3554
         },
         {
           "pCode": "P1330",
@@ -106299,7 +106323,7 @@
           "initial": "AA1587",
           "customerName": "PIA Co.,Ltd.",
           "dueDate": "2026-11-13",
-          "productionRequiredQty": 1088
+          "productionRequiredQty": 1229
         },
         {
           "pCode": "P1330",
@@ -106311,7 +106335,7 @@
           "initial": "AA1587",
           "customerName": "PIA Co.,Ltd.",
           "dueDate": "2026-11-13",
-          "productionRequiredQty": 6100
+          "productionRequiredQty": 6093
         },
         {
           "pCode": "P1330",
@@ -106323,7 +106347,7 @@
           "initial": "AA1587",
           "customerName": "PIA Co.,Ltd.",
           "dueDate": "2026-11-13",
-          "productionRequiredQty": 4067
+          "productionRequiredQty": 4062
         },
         {
           "pCode": "P1330",
@@ -106335,7 +106359,7 @@
           "initial": "AA1587",
           "customerName": "PIA Co.,Ltd.",
           "dueDate": "2026-11-13",
-          "productionRequiredQty": 4067
+          "productionRequiredQty": 4062
         },
         {
           "pCode": "P1330",
@@ -106347,7 +106371,7 @@
           "initial": "AA1587",
           "customerName": "PIA Co.,Ltd.",
           "dueDate": "2026-11-13",
-          "productionRequiredQty": 4067
+          "productionRequiredQty": 4062
         },
         {
           "pCode": "P1330",
@@ -106359,7 +106383,7 @@
           "initial": "AA1587",
           "customerName": "PIA Co.,Ltd.",
           "dueDate": "2026-11-13",
-          "productionRequiredQty": 5378
+          "productionRequiredQty": 5372
         },
         {
           "pCode": "P1330",
@@ -106371,7 +106395,7 @@
           "initial": "AA1587",
           "customerName": "PIA Co.,Ltd.",
           "dueDate": "2026-11-13",
-          "productionRequiredQty": 4189
+          "productionRequiredQty": 4184
         },
         {
           "pCode": "P1330",
@@ -106383,7 +106407,7 @@
           "initial": "AA1587",
           "customerName": "PIA Co.,Ltd.",
           "dueDate": "2026-11-13",
-          "productionRequiredQty": 7117
+          "productionRequiredQty": 7109
         },
         {
           "pCode": "P1330",
@@ -106395,7 +106419,7 @@
           "initial": "AA1587",
           "customerName": "PIA Co.,Ltd.",
           "dueDate": "2026-11-13",
-          "productionRequiredQty": 4158
+          "productionRequiredQty": 4153
         },
         {
           "pCode": "P1330",
@@ -106407,7 +106431,7 @@
           "initial": "AA1587",
           "customerName": "PIA Co.,Ltd.",
           "dueDate": "2026-11-13",
-          "productionRequiredQty": 8133
+          "productionRequiredQty": 8124
         },
         {
           "pCode": "P1152",
@@ -106419,7 +106443,7 @@
           "initial": "안전(해외)",
           "customerName": "",
           "dueDate": "2026-11-30",
-          "productionRequiredQty": 4524
+          "productionRequiredQty": 4519
         },
         {
           "pCode": "P1152",
@@ -106431,7 +106455,7 @@
           "initial": "안전(해외)",
           "customerName": "",
           "dueDate": "2026-11-30",
-          "productionRequiredQty": 1642
+          "productionRequiredQty": 1640
         }
       ]
     },
@@ -106440,7 +106464,7 @@
       "liddingSpecification": "BS0357-001",
       "liddingName": "알루미늄리드지 (Clalen O2O2 Color 1Month)",
       "productionRequiredQty": 5248,
-      "sourceRefreshedAt": "2026-10-27 07:23:31",
+      "sourceRefreshedAt": "2026-10-27 14:58:32",
       "linkedPCodeCount": 10,
       "dueDateFrom": "2026-10-30",
       "dueDateTo": "2026-10-30",
@@ -107405,15 +107429,15 @@
       "liddingCode": "BS0358",
       "liddingSpecification": "BS0358-001",
       "liddingName": "알루미늄리드지 (Clalen Iris Color M)",
-      "productionRequiredQty": 96561,
-      "sourceRefreshedAt": "2026-10-27 07:23:31",
-      "linkedPCodeCount": 15,
+      "productionRequiredQty": 95773,
+      "sourceRefreshedAt": "2026-10-27 14:58:32",
+      "linkedPCodeCount": 14,
       "dueDateFrom": "2026-10-23",
       "dueDateTo": "2026-10-30",
       "categoryQuantities": {
         "해외": 0,
         "PB": 0,
-        "국내": 96561,
+        "국내": 95773,
         "안전재고": 0
       },
       "salesOrders": [
@@ -108892,18 +108916,6 @@
           "customerName": "",
           "dueDate": "2026-10-23",
           "productionRequiredQty": 538
-        },
-        {
-          "pCode": "P0445",
-          "demandType": "국내",
-          "demandCategory": "국내",
-          "demandId": "국내_R202609230002_7_13",
-          "salesOrderNo": "R202609230002",
-          "sequence": 7,
-          "initial": "국내",
-          "customerName": "",
-          "dueDate": "2026-10-23",
-          "productionRequiredQty": 665
         },
         {
           "pCode": "P0446",
@@ -110598,18 +110610,6 @@
           "productionRequiredQty": 103
         },
         {
-          "pCode": "P0445",
-          "demandType": "국내",
-          "demandCategory": "국내",
-          "demandId": "국내_R202610010001_26_13",
-          "salesOrderNo": "R202610010001",
-          "sequence": 26,
-          "initial": "국내",
-          "customerName": "",
-          "dueDate": "2026-10-30",
-          "productionRequiredQty": 123
-        },
-        {
           "pCode": "P0446",
           "demandType": "국내",
           "demandCategory": "국내",
@@ -110663,13 +110663,13 @@
       "liddingCode": "BS0364",
       "liddingSpecification": "BS0364-001",
       "liddingName": "알루미늄리드지 (일본 Sincere Amazon 1day 55% 리드지)",
-      "productionRequiredQty": 409287,
-      "sourceRefreshedAt": "2026-10-27 07:23:31",
+      "productionRequiredQty": 374560,
+      "sourceRefreshedAt": "2026-10-27 14:58:32",
       "linkedPCodeCount": 1,
       "dueDateFrom": "2026-11-04",
       "dueDateTo": "2026-11-04",
       "categoryQuantities": {
-        "해외": 409287,
+        "해외": 374560,
         "PB": 0,
         "국내": 0,
         "안전재고": 0
@@ -110745,7 +110745,7 @@
           "initial": "GG0270",
           "customerName": "SINCERE Co.,Ltd",
           "dueDate": "2026-11-04",
-          "productionRequiredQty": 28090
+          "productionRequiredQty": 26702
         },
         {
           "pCode": "P1296",
@@ -110805,7 +110805,7 @@
           "initial": "GG0270",
           "customerName": "SINCERE Co.,Ltd",
           "dueDate": "2026-11-04",
-          "productionRequiredQty": 12552
+          "productionRequiredQty": 8901
         },
         {
           "pCode": "P1296",
@@ -110817,7 +110817,7 @@
           "initial": "GG0270",
           "customerName": "SINCERE Co.,Ltd",
           "dueDate": "2026-11-04",
-          "productionRequiredQty": 9112
+          "productionRequiredQty": 7030
         },
         {
           "pCode": "P1296",
@@ -110829,7 +110829,7 @@
           "initial": "GG0270",
           "customerName": "SINCERE Co.,Ltd",
           "dueDate": "2026-11-04",
-          "productionRequiredQty": 19220
+          "productionRequiredQty": 11526
         },
         {
           "pCode": "P1296",
@@ -110841,7 +110841,7 @@
           "initial": "GG0270",
           "customerName": "SINCERE Co.,Ltd",
           "dueDate": "2026-11-04",
-          "productionRequiredQty": 12069
+          "productionRequiredQty": 10500
         },
         {
           "pCode": "P1296",
@@ -110853,7 +110853,7 @@
           "initial": "GG0270",
           "customerName": "SINCERE Co.,Ltd",
           "dueDate": "2026-11-04",
-          "productionRequiredQty": 35332
+          "productionRequiredQty": 26129
         },
         {
           "pCode": "P1296",
@@ -110865,7 +110865,7 @@
           "initial": "GG0270",
           "customerName": "SINCERE Co.,Ltd",
           "dueDate": "2026-11-04",
-          "productionRequiredQty": 8146
+          "productionRequiredQty": 8147
         },
         {
           "pCode": "P1296",
@@ -110877,7 +110877,7 @@
           "initial": "GG0270",
           "customerName": "SINCERE Co.,Ltd",
           "dueDate": "2026-11-04",
-          "productionRequiredQty": 8146
+          "productionRequiredQty": 8147
         },
         {
           "pCode": "P1296",
@@ -110901,7 +110901,7 @@
           "initial": "GG0270",
           "customerName": "SINCERE Co.,Ltd",
           "dueDate": "2026-11-04",
-          "productionRequiredQty": 7694
+          "productionRequiredQty": 121
         },
         {
           "pCode": "P1296",
@@ -111021,7 +111021,7 @@
           "initial": "GG0270",
           "customerName": "SINCERE Co.,Ltd",
           "dueDate": "2026-11-04",
-          "productionRequiredQty": 26672
+          "productionRequiredQty": 25103
         }
       ]
     }
