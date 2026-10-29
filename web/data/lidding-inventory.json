@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-10-30T07:05:57+09:00",
+  "generatedAt": "2026-10-30T07:37:29+09:00",
   "snapshotDate": "2026-10-30",
   "warehouseOptions": [
     {
@@ -22,7 +22,7 @@
   "itemCount": 243,
   "sourceRowCount": 476,
   "rawLiddingSourceRowCount": 478,
-  "stockTotal": 86042692,
+  "stockTotal": 86039602,
   "inspectionWaitTotal": 905000,
   "inspectionAggregation": "max-per-item",
   "formula": {
@@ -1793,7 +1793,7 @@
       "itemCode": "BS0073",
       "itemName": "알루미늄리드지 (일본 PIA 1day 55%)_유광 코팅",
       "specification": "BS0073-002",
-      "stockQty": 1334942,
+      "stockQty": 1332202,
       "inspectionWaitQty": 905000,
       "warehouses": [
         {
@@ -1813,7 +1813,7 @@
         {
           "warehouseCode": "P030",
           "warehouseName": "C관 공정부자재",
-          "stockQty": 1683733,
+          "stockQty": 1680993,
           "inspectionWaitQty": 905000,
           "hasSourceRow": true
         },
@@ -8899,7 +8899,7 @@
       "itemCode": "BS0354",
       "itemName": "알루미늄리드지 (PIA_1D 55% CoFANCY 리드지)",
       "specification": "BS0354-001",
-      "stockQty": 1168937,
+      "stockQty": 1168587,
       "inspectionWaitQty": 0,
       "warehouses": [
         {
@@ -8919,7 +8919,7 @@
         {
           "warehouseCode": "P030",
           "warehouseName": "C관 공정부자재",
-          "stockQty": 500937,
+          "stockQty": 500587,
           "inspectionWaitQty": 0,
           "hasSourceRow": true
         },
