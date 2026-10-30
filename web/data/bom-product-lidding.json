@@ -1,18 +1,18 @@
 {
-  "generatedAt": "2026-10-30T15:08:27+09:00",
-  "sourceSignature": "0895c5503e5cd3b8d000aca813bb419f4daccb64d159d7b48be0e2f16fa86c35",
-  "productSourceCount": 1763,
-  "bomSourceCount": 29269,
-  "activePProductCount": 1763,
+  "generatedAt": "2026-10-31T07:09:05+09:00",
+  "sourceSignature": "7f786d9bd5d02a08d6c6ea1f91d1f343bc828007018ef22344314c642a3156f2",
+  "productSourceCount": 1767,
+  "bomSourceCount": 29278,
+  "activePProductCount": 1767,
   "productApiFilterApplied": true,
   "bomApiFilterApplied": false,
   "bomApiFilterReason": "BOM API supports exact gd_cd only; P-prefix + level-1 BS lidding filters are applied locally",
   "storageScope": "active P-code + level-1 active BS lidding only",
-  "mappingCount": 1677,
-  "mappedProductCount": 1677,
+  "mappingCount": 1679,
+  "mappedProductCount": 1679,
   "liddingCodeCount": 240,
   "specificationVersionCount": 240,
-  "unmappedProductCount": 86,
+  "unmappedProductCount": 88,
   "rows": [
     {
       "productCode": "P0001",
@@ -6983,6 +6983,28 @@
       "liddingCode": "BS0354",
       "liddingName": "알루미늄리드지 (PIA_1D 55% CoFANCY 리드지)",
       "liddingSpecification": "BS0354-001",
+      "requirementQty": 1,
+      "bomLevel": 1,
+      "statusCode": "S",
+      "useYn": "Y"
+    },
+    {
+      "productCode": "P1331",
+      "productName": "O2O2 M_Spherical(DK70)_SMHL_CentralOftal_White",
+      "liddingCode": "BS0350",
+      "liddingName": "알루미늄리드지 (체코 Alensa SiHy M Topvue Premium 리드지_SMHL)",
+      "liddingSpecification": "BS0350-001",
+      "requirementQty": 1,
+      "bomLevel": 1,
+      "statusCode": "S",
+      "useYn": "Y"
+    },
+    {
+      "productCode": "P1332",
+      "productName": "O2O2 M_Multifocal(DK70)_SMHL_CentralOftal_White",
+      "liddingCode": "BS0350",
+      "liddingName": "알루미늄리드지 (체코 Alensa SiHy M Topvue Premium 리드지_SMHL)",
+      "liddingSpecification": "BS0350-001",
       "requirementQty": 1,
       "bomLevel": 1,
       "statusCode": "S",
@@ -18462,5 +18484,5 @@
       "useYn": "Y"
     }
   ],
-  "changed": false
+  "changed": true
 }
