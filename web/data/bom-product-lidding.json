@@ -1,18 +1,18 @@
 {
-  "generatedAt": "2026-11-02T07:42:00+09:00",
-  "sourceSignature": "7f786d9bd5d02a08d6c6ea1f91d1f343bc828007018ef22344314c642a3156f2",
+  "generatedAt": "2026-11-02T14:59:03+09:00",
+  "sourceSignature": "7a6b3dab1c46e18fd2ac09bd1825fdfb9293381441d71161befdb37dafa9bc4e",
   "productSourceCount": 1767,
-  "bomSourceCount": 29277,
+  "bomSourceCount": 29305,
   "activePProductCount": 1767,
   "productApiFilterApplied": true,
   "bomApiFilterApplied": false,
   "bomApiFilterReason": "BOM API supports exact gd_cd only; P-prefix + level-1 BS lidding filters are applied locally",
   "storageScope": "active P-code + level-1 active BS lidding only",
-  "mappingCount": 1679,
-  "mappedProductCount": 1679,
+  "mappingCount": 1683,
+  "mappedProductCount": 1683,
   "liddingCodeCount": 240,
   "specificationVersionCount": 240,
-  "unmappedProductCount": 88,
+  "unmappedProductCount": 84,
   "rows": [
     {
       "productCode": "P0001",
@@ -7005,6 +7005,50 @@
       "liddingCode": "BS0350",
       "liddingName": "알루미늄리드지 (체코 Alensa SiHy M Topvue Premium 리드지_SMHL)",
       "liddingSpecification": "BS0350-001",
+      "requirementQty": 1,
+      "bomLevel": 1,
+      "statusCode": "S",
+      "useYn": "Y"
+    },
+    {
+      "productCode": "P1333",
+      "productName": "BELLA D_GARDENIA 55%",
+      "liddingCode": "BS0214",
+      "liddingName": "알루미늄리드지 (Bella 리뉴얼 원데이 리드지(아랍))_유광코팅",
+      "liddingSpecification": "BS0214-001",
+      "requirementQty": 1,
+      "bomLevel": 1,
+      "statusCode": "S",
+      "useYn": "Y"
+    },
+    {
+      "productCode": "P1334",
+      "productName": "BELLA D_JULNAR 55%",
+      "liddingCode": "BS0214",
+      "liddingName": "알루미늄리드지 (Bella 리뉴얼 원데이 리드지(아랍))_유광코팅",
+      "liddingSpecification": "BS0214-001",
+      "requirementQty": 1,
+      "bomLevel": 1,
+      "statusCode": "S",
+      "useYn": "Y"
+    },
+    {
+      "productCode": "P1335",
+      "productName": "BELLA D_LILI 55%",
+      "liddingCode": "BS0214",
+      "liddingName": "알루미늄리드지 (Bella 리뉴얼 원데이 리드지(아랍))_유광코팅",
+      "liddingSpecification": "BS0214-001",
+      "requirementQty": 1,
+      "bomLevel": 1,
+      "statusCode": "S",
+      "useYn": "Y"
+    },
+    {
+      "productCode": "P1336",
+      "productName": "DYE D_MISK",
+      "liddingCode": "BS0204",
+      "liddingName": "알루미늄리드지 (OSC DYE 원데이 리드지)_유광코팅",
+      "liddingSpecification": "BS0204-002",
       "requirementQty": 1,
       "bomLevel": 1,
       "statusCode": "S",
@@ -18484,5 +18528,5 @@
       "useYn": "Y"
     }
   ],
-  "changed": false
+  "changed": true
 }
