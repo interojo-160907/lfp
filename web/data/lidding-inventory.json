@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-11-03T07:00:01+09:00",
+  "generatedAt": "2026-11-03T07:25:00+09:00",
   "snapshotDate": "2026-11-03",
   "warehouseOptions": [
     {
@@ -22,7 +22,7 @@
   "itemCount": 243,
   "sourceRowCount": 476,
   "rawLiddingSourceRowCount": 478,
-  "stockTotal": 83778123,
+  "stockTotal": 83774714,
   "inspectionWaitTotal": 0,
   "inspectionAggregation": "max-per-item",
   "formula": {
@@ -1185,7 +1185,7 @@
       "itemCode": "BS0054",
       "itemName": "알루미늄리드지 (국내/중국 원데이_아이리스)_무광 코팅",
       "specification": "BS0054-003",
-      "stockQty": 3377390,
+      "stockQty": 3373981,
       "inspectionWaitQty": 0,
       "warehouses": [
         {
@@ -1212,7 +1212,7 @@
         {
           "warehouseCode": "S100",
           "warehouseName": "S관 공정부자재",
-          "stockQty": 230735,
+          "stockQty": 227326,
           "inspectionWaitQty": 0,
           "hasSourceRow": true
         }
