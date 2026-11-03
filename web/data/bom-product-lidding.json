@@ -1,9 +1,9 @@
 {
-  "generatedAt": "2026-11-03T14:54:16+09:00",
+  "generatedAt": "2026-11-04T06:54:57+09:00",
   "sourceSignature": "92a097638470393f2744c557d173fa0952a6ff5caacf3bde02f7cc2e4859402a",
-  "productSourceCount": 1770,
+  "productSourceCount": 1772,
   "bomSourceCount": 29349,
-  "activePProductCount": 1770,
+  "activePProductCount": 1772,
   "productApiFilterApplied": true,
   "bomApiFilterApplied": false,
   "bomApiFilterReason": "BOM API supports exact gd_cd only; P-prefix + level-1 BS lidding filters are applied locally",
@@ -12,7 +12,7 @@
   "mappedProductCount": 1683,
   "liddingCodeCount": 240,
   "specificationVersionCount": 240,
-  "unmappedProductCount": 87,
+  "unmappedProductCount": 89,
   "rows": [
     {
       "productCode": "P0001",
@@ -18528,5 +18528,5 @@
       "useYn": "Y"
     }
   ],
-  "changed": true
+  "changed": false
 }
