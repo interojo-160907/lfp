@@ -1,8 +1,8 @@
 {
-  "generatedAt": "2026-11-03T07:24:56+09:00",
-  "sourceSignature": "7a6b3dab1c46e18fd2ac09bd1825fdfb9293381441d71161befdb37dafa9bc4e",
+  "generatedAt": "2026-11-03T14:54:16+09:00",
+  "sourceSignature": "92a097638470393f2744c557d173fa0952a6ff5caacf3bde02f7cc2e4859402a",
   "productSourceCount": 1770,
-  "bomSourceCount": 29328,
+  "bomSourceCount": 29349,
   "activePProductCount": 1770,
   "productApiFilterApplied": true,
   "bomApiFilterApplied": false,
@@ -6991,9 +6991,9 @@
     {
       "productCode": "P1331",
       "productName": "O2O2 M_Spherical(DK70)_SMHL_CentralOftal_White",
-      "liddingCode": "BS0350",
-      "liddingName": "알루미늄리드지 (체코 Alensa SiHy M Topvue Premium 리드지_SMHL)",
-      "liddingSpecification": "BS0350-001",
+      "liddingCode": "BS0115",
+      "liddingName": "알루미늄리드지 (무지-백색_PET12/AL30/CPP100_White 리버스인쇄)",
+      "liddingSpecification": "BS0115-001",
       "requirementQty": 1,
       "bomLevel": 1,
       "statusCode": "S",
@@ -7002,9 +7002,9 @@
     {
       "productCode": "P1332",
       "productName": "O2O2 M_Multifocal(DK70)_SMHL_CentralOftal_White",
-      "liddingCode": "BS0350",
-      "liddingName": "알루미늄리드지 (체코 Alensa SiHy M Topvue Premium 리드지_SMHL)",
-      "liddingSpecification": "BS0350-001",
+      "liddingCode": "BS0115",
+      "liddingName": "알루미늄리드지 (무지-백색_PET12/AL30/CPP100_White 리버스인쇄)",
+      "liddingSpecification": "BS0115-001",
       "requirementQty": 1,
       "bomLevel": 1,
       "statusCode": "S",
@@ -18528,5 +18528,5 @@
       "useYn": "Y"
     }
   ],
-  "changed": false
+  "changed": true
 }
