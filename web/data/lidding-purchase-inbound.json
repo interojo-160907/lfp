@@ -1,8 +1,8 @@
 {
-  "collectedAt": "2026-11-04T18:06:01+09:00",
-  "queryDate": "2026-11-04 18:06",
-  "dateFrom": "2026-09-04",
-  "dateTo": "2026-11-04",
+  "collectedAt": "2026-11-05T07:25:28+09:00",
+  "queryDate": "2026-11-05 07:26",
+  "dateFrom": "2026-09-05",
+  "dateTo": "2026-11-05",
   "historyWindow": "recent two months",
   "excludedRows": [],
   "pendingApprovalTotal": 11885000,
@@ -298,7 +298,7 @@
       "purchaseWaitQty": 3500000,
       "purchaseOrderQty": 4000000,
       "provisionalReceiptQty": 1320500,
-      "receivedQty": 0,
+      "receivedQty": 1320500,
       "inboundWaitQty": 2679500,
       "pendingApprovalQty": 3500000,
       "pendingRequests": [
@@ -353,7 +353,7 @@
           "deliveryDate": "2026-11-11",
           "purchaseOrderQty": 2000000,
           "provisionalReceiptQty": 1320500,
-          "receivedQty": 0,
+          "receivedQty": 1320500,
           "inboundWaitQty": 679500,
           "orderStatus": "납품진행",
           "supplierName": "피앤피 주식회사"
