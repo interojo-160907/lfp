@@ -1,9 +1,9 @@
 {
-  "generatedAt": "2026-11-04T07:25:57+09:00",
-  "sourceSignature": "92a097638470393f2744c557d173fa0952a6ff5caacf3bde02f7cc2e4859402a",
-  "productSourceCount": 1772,
-  "bomSourceCount": 29349,
-  "activePProductCount": 1772,
+  "generatedAt": "2026-11-04T15:04:14+09:00",
+  "sourceSignature": "feab3c415e83db6dfcd794dc74a75f4727bb581a7d02ce989a740d60510bb0ef",
+  "productSourceCount": 1770,
+  "bomSourceCount": 29378,
+  "activePProductCount": 1770,
   "productApiFilterApplied": true,
   "bomApiFilterApplied": false,
   "bomApiFilterReason": "BOM API supports exact gd_cd only; P-prefix + level-1 BS lidding filters are applied locally",
@@ -12,7 +12,7 @@
   "mappedProductCount": 1683,
   "liddingCodeCount": 240,
   "specificationVersionCount": 240,
-  "unmappedProductCount": 89,
+  "unmappedProductCount": 87,
   "rows": [
     {
       "productCode": "P0001",
@@ -6989,28 +6989,6 @@
       "useYn": "Y"
     },
     {
-      "productCode": "P1331",
-      "productName": "O2O2 M_Spherical(DK70)_SMHL_CentralOftal_White",
-      "liddingCode": "BS0115",
-      "liddingName": "알루미늄리드지 (무지-백색_PET12/AL30/CPP100_White 리버스인쇄)",
-      "liddingSpecification": "BS0115-001",
-      "requirementQty": 1,
-      "bomLevel": 1,
-      "statusCode": "S",
-      "useYn": "Y"
-    },
-    {
-      "productCode": "P1332",
-      "productName": "O2O2 M_Multifocal(DK70)_SMHL_CentralOftal_White",
-      "liddingCode": "BS0115",
-      "liddingName": "알루미늄리드지 (무지-백색_PET12/AL30/CPP100_White 리버스인쇄)",
-      "liddingSpecification": "BS0115-001",
-      "requirementQty": 1,
-      "bomLevel": 1,
-      "statusCode": "S",
-      "useYn": "Y"
-    },
-    {
       "productCode": "P1333",
       "productName": "BELLA D_GARDENIA 55%",
       "liddingCode": "BS0214",
@@ -7049,6 +7027,28 @@
       "liddingCode": "BS0204",
       "liddingName": "알루미늄리드지 (OSC DYE 원데이 리드지)_유광코팅",
       "liddingSpecification": "BS0204-002",
+      "requirementQty": 1,
+      "bomLevel": 1,
+      "statusCode": "S",
+      "useYn": "Y"
+    },
+    {
+      "productCode": "P1340",
+      "productName": "PIA_M_Black Macchiato_14.2",
+      "liddingCode": "BS0318",
+      "liddingName": "알루미늄리드지 (PIA_1M 38% feliamo 리드지)",
+      "liddingSpecification": "BS0318-001",
+      "requirementQty": 1,
+      "bomLevel": 1,
+      "statusCode": "S",
+      "useYn": "Y"
+    },
+    {
+      "productCode": "P1341",
+      "productName": "PIA_M_Brown Macchiato_14.2",
+      "liddingCode": "BS0318",
+      "liddingName": "알루미늄리드지 (PIA_1M 38% feliamo 리드지)",
+      "liddingSpecification": "BS0318-001",
       "requirementQty": 1,
       "bomLevel": 1,
       "statusCode": "S",
@@ -18528,5 +18528,5 @@
       "useYn": "Y"
     }
   ],
-  "changed": false
+  "changed": true
 }
