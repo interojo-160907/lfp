@@ -1,24 +1,24 @@
 {
-  "collectedAt": "2026-11-05T15:09:27+09:00",
-  "queryDate": "2026-11-05 15:10",
-  "dateFrom": "2026-09-05",
-  "dateTo": "2026-11-05",
+  "collectedAt": "2026-11-06T07:10:32+09:00",
+  "queryDate": "2026-11-06 07:12",
+  "dateFrom": "2026-09-06",
+  "dateTo": "2026-11-06",
   "historyWindow": "recent two months",
   "excludedRows": [],
-  "pendingApprovalTotal": 11885000,
+  "pendingApprovalTotal": 0,
   "apiFilters": {
     "requests": "itm_cd=BS, not_ordered=1",
     "orders": "itm_cd=BS, open_only=1"
   },
-  "requestSourceRowCount": 22,
-  "purchaseOrderSourceRowCount": 30,
-  "matchedLiddingRequestRows": 16,
-  "matchedLiddingPurchaseOrderRows": 16,
+  "requestSourceRowCount": 8,
+  "purchaseOrderSourceRowCount": 43,
+  "matchedLiddingRequestRows": 1,
+  "matchedLiddingPurchaseOrderRows": 31,
   "openLiddingItemCount": 20,
-  "inboundWaitItemCount": 11,
-  "purchaseWaitItemCount": 12,
-  "inboundWaitTotal": 16335300,
-  "purchaseWaitTotal": 11985000,
+  "inboundWaitItemCount": 20,
+  "purchaseWaitItemCount": 1,
+  "inboundWaitTotal": 28220300,
+  "purchaseWaitTotal": 100000,
   "excludedMissingRequestNoRows": 0,
   "excludedMissingRequestNoQty": 0,
   "includedMissingRequestNoRows": 5,
@@ -114,79 +114,60 @@
       ]
     },
     {
-      "requestQty": 1200000,
+      "requestQty": 0,
       "requestPurchaseOrderQty": 0,
-      "purchaseWaitQty": 1200000,
-      "purchaseOrderQty": 0,
+      "purchaseWaitQty": 0,
+      "purchaseOrderQty": 1200000,
       "provisionalReceiptQty": 0,
       "receivedQty": 0,
-      "inboundWaitQty": 0,
-      "pendingApprovalQty": 1200000,
-      "pendingRequests": [
-        {
-          "requestNo": "PR-2611030002",
-          "requestSeq": 6,
-          "quantity": 1200000,
-          "status": "기안"
-        }
-      ],
+      "inboundWaitQty": 1200000,
+      "pendingApprovalQty": 0,
+      "pendingRequests": [],
       "itemCode": "BS0036",
       "itemName": "알루미늄리드지 (PIA 1Day)_유광 코팅",
       "specification": "BS0036-001",
-      "openRequestCount": 1,
-      "openPurchaseOrderCount": 0,
-      "nextRequestedDeliveryDate": "2026-11-17",
-      "nextOrderDeliveryDate": null,
+      "openRequestCount": 0,
+      "openPurchaseOrderCount": 1,
+      "nextRequestedDeliveryDate": null,
+      "nextOrderDeliveryDate": "2026-11-17",
       "nextDeliveryDate": "2026-11-17",
-      "requests": [
+      "requests": [],
+      "purchaseOrders": [
         {
+          "purchaseOrderNo": "PO-2611050005",
+          "purchaseOrderSeq": 6,
+          "purchaseOrderDate": "2026-11-05",
           "requestNo": "PR-2611030002",
           "requestSeq": 6,
-          "requestDate": "2026-11-03",
-          "requestedDeliveryDate": "2026-11-17",
-          "requestQty": 1200000,
-          "purchaseOrderQty": 0,
-          "purchaseWaitQty": 1200000
+          "deliveryDate": "2026-11-17",
+          "purchaseOrderQty": 1200000,
+          "provisionalReceiptQty": 0,
+          "receivedQty": 0,
+          "inboundWaitQty": 1200000,
+          "orderStatus": "발주",
+          "supplierName": "피앤피 주식회사"
         }
-      ],
-      "purchaseOrders": []
+      ]
     },
     {
-      "requestQty": 500000,
+      "requestQty": 0,
       "requestPurchaseOrderQty": 0,
-      "purchaseWaitQty": 500000,
-      "purchaseOrderQty": 1000000,
+      "purchaseWaitQty": 0,
+      "purchaseOrderQty": 1500000,
       "provisionalReceiptQty": 0,
       "receivedQty": 0,
-      "inboundWaitQty": 1000000,
-      "pendingApprovalQty": 500000,
-      "pendingRequests": [
-        {
-          "requestNo": "PR-2611030002",
-          "requestSeq": 4,
-          "quantity": 500000,
-          "status": "기안"
-        }
-      ],
+      "inboundWaitQty": 1500000,
+      "pendingApprovalQty": 0,
+      "pendingRequests": [],
       "itemCode": "BS0053",
       "itemName": "알루미늄리드지 (국내/중국 1-Day Soft)_무광 코팅",
       "specification": "BS0053-002",
-      "openRequestCount": 1,
-      "openPurchaseOrderCount": 1,
-      "nextRequestedDeliveryDate": "2026-11-16",
+      "openRequestCount": 0,
+      "openPurchaseOrderCount": 2,
+      "nextRequestedDeliveryDate": null,
       "nextOrderDeliveryDate": "2026-11-13",
       "nextDeliveryDate": "2026-11-13",
-      "requests": [
-        {
-          "requestNo": "PR-2611030002",
-          "requestSeq": 4,
-          "requestDate": "2026-11-03",
-          "requestedDeliveryDate": "2026-11-16",
-          "requestQty": 500000,
-          "purchaseOrderQty": 0,
-          "purchaseWaitQty": 500000
-        }
-      ],
+      "requests": [],
       "purchaseOrders": [
         {
           "purchaseOrderNo": "PO-2611020004",
@@ -199,6 +180,20 @@
           "provisionalReceiptQty": 0,
           "receivedQty": 0,
           "inboundWaitQty": 1000000,
+          "orderStatus": "발주",
+          "supplierName": "피앤피 주식회사"
+        },
+        {
+          "purchaseOrderNo": "PO-2611050005",
+          "purchaseOrderSeq": 4,
+          "purchaseOrderDate": "2026-11-05",
+          "requestNo": "PR-2611030002",
+          "requestSeq": 4,
+          "deliveryDate": "2026-11-16",
+          "purchaseOrderQty": 500000,
+          "provisionalReceiptQty": 0,
+          "receivedQty": 0,
+          "inboundWaitQty": 500000,
           "orderStatus": "발주",
           "supplierName": "피앤피 주식회사"
         }
@@ -255,94 +250,60 @@
       ]
     },
     {
-      "requestQty": 200000,
+      "requestQty": 0,
       "requestPurchaseOrderQty": 0,
-      "purchaseWaitQty": 200000,
-      "purchaseOrderQty": 0,
+      "purchaseWaitQty": 0,
+      "purchaseOrderQty": 200000,
       "provisionalReceiptQty": 0,
       "receivedQty": 0,
-      "inboundWaitQty": 0,
-      "pendingApprovalQty": 200000,
-      "pendingRequests": [
-        {
-          "requestNo": "PR-2611030002",
-          "requestSeq": 7,
-          "quantity": 200000,
-          "status": "기안"
-        }
-      ],
+      "inboundWaitQty": 200000,
+      "pendingApprovalQty": 0,
+      "pendingRequests": [],
       "itemCode": "BS0062",
       "itemName": "알루미늄리드지 (일본 sincere Natural 1day Moisture)_유광 코팅",
       "specification": "BS0062-002",
-      "openRequestCount": 1,
-      "openPurchaseOrderCount": 0,
-      "nextRequestedDeliveryDate": "2026-11-17",
-      "nextOrderDeliveryDate": null,
+      "openRequestCount": 0,
+      "openPurchaseOrderCount": 1,
+      "nextRequestedDeliveryDate": null,
+      "nextOrderDeliveryDate": "2026-11-17",
       "nextDeliveryDate": "2026-11-17",
-      "requests": [
+      "requests": [],
+      "purchaseOrders": [
         {
+          "purchaseOrderNo": "PO-2611050005",
+          "purchaseOrderSeq": 7,
+          "purchaseOrderDate": "2026-11-05",
           "requestNo": "PR-2611030002",
           "requestSeq": 7,
-          "requestDate": "2026-11-03",
-          "requestedDeliveryDate": "2026-11-17",
-          "requestQty": 200000,
-          "purchaseOrderQty": 0,
-          "purchaseWaitQty": 200000
+          "deliveryDate": "2026-11-17",
+          "purchaseOrderQty": 200000,
+          "provisionalReceiptQty": 0,
+          "receivedQty": 0,
+          "inboundWaitQty": 200000,
+          "orderStatus": "발주",
+          "supplierName": "피앤피 주식회사"
         }
-      ],
-      "purchaseOrders": []
+      ]
     },
     {
-      "requestQty": 3500000,
+      "requestQty": 0,
       "requestPurchaseOrderQty": 0,
-      "purchaseWaitQty": 3500000,
-      "purchaseOrderQty": 4000000,
+      "purchaseWaitQty": 0,
+      "purchaseOrderQty": 7500000,
       "provisionalReceiptQty": 1320500,
       "receivedQty": 1320500,
-      "inboundWaitQty": 2679500,
-      "pendingApprovalQty": 3500000,
-      "pendingRequests": [
-        {
-          "requestNo": "PR-2611040001",
-          "requestSeq": 4,
-          "quantity": 1500000,
-          "status": "기안"
-        },
-        {
-          "requestNo": "PR-2611030002",
-          "requestSeq": 1,
-          "quantity": 2000000,
-          "status": "기안"
-        }
-      ],
+      "inboundWaitQty": 6179500,
+      "pendingApprovalQty": 0,
+      "pendingRequests": [],
       "itemCode": "BS0073",
       "itemName": "알루미늄리드지 (일본 PIA 1day 55%)_유광 코팅",
       "specification": "BS0073-002",
-      "openRequestCount": 2,
-      "openPurchaseOrderCount": 2,
-      "nextRequestedDeliveryDate": "2026-11-11",
+      "openRequestCount": 0,
+      "openPurchaseOrderCount": 4,
+      "nextRequestedDeliveryDate": null,
       "nextOrderDeliveryDate": "2026-11-11",
       "nextDeliveryDate": "2026-11-11",
-      "requests": [
-        {
-          "requestNo": "PR-2611030002",
-          "requestSeq": 1,
-          "requestDate": "2026-11-03",
-          "requestedDeliveryDate": "2026-11-11",
-          "requestQty": 2000000,
-          "purchaseOrderQty": 0,
-          "purchaseWaitQty": 2000000
-        },
-        {
-          "requestNo": "PR-2611040001",
-          "requestSeq": 4,
-          "requestDate": "2026-11-04",
-          "requestedDeliveryDate": "2026-11-18",
-          "requestQty": 1500000,
-          "purchaseOrderQty": 0,
-          "purchaseWaitQty": 1500000
-        }
-      ],
+      "requests": [],
       "purchaseOrders": [
         {
           "purchaseOrderNo": "PO-2610200001",
@@ -359,6 +320,20 @@
           "supplierName": "피앤피 주식회사"
         },
         {
+          "purchaseOrderNo": "PO-2611050005",
+          "purchaseOrderSeq": 1,
+          "purchaseOrderDate": "2026-11-05",
+          "requestNo": "PR-2611030002",
+          "requestSeq": 1,
+          "deliveryDate": "2026-11-11",
+          "purchaseOrderQty": 2000000,
+          "provisionalReceiptQty": 0,
+          "receivedQty": 0,
+          "inboundWaitQty": 2000000,
+          "orderStatus": "발주",
+          "supplierName": "피앤피 주식회사"
+        },
+        {
           "purchaseOrderNo": "PO-2610230003",
           "purchaseOrderSeq": 2,
           "purchaseOrderDate": "2026-10-23",
@@ -369,6 +344,20 @@
           "provisionalReceiptQty": 0,
           "receivedQty": 0,
           "inboundWaitQty": 2000000,
+          "orderStatus": "발주",
+          "supplierName": "피앤피 주식회사"
+        },
+        {
+          "purchaseOrderNo": "PO-2611050006",
+          "purchaseOrderSeq": 4,
+          "purchaseOrderDate": "2026-11-05",
+          "requestNo": "PR-2611040001",
+          "requestSeq": 4,
+          "deliveryDate": "2026-11-18",
+          "purchaseOrderQty": 1500000,
+          "provisionalReceiptQty": 0,
+          "receivedQty": 0,
+          "inboundWaitQty": 1500000,
           "orderStatus": "발주",
           "supplierName": "피앤피 주식회사"
         }
@@ -461,42 +450,40 @@
       ]
     },
     {
-      "requestQty": 285000,
+      "requestQty": 0,
       "requestPurchaseOrderQty": 0,
-      "purchaseWaitQty": 285000,
-      "purchaseOrderQty": 0,
+      "purchaseWaitQty": 0,
+      "purchaseOrderQty": 285000,
       "provisionalReceiptQty": 0,
       "receivedQty": 0,
-      "inboundWaitQty": 0,
-      "pendingApprovalQty": 285000,
-      "pendingRequests": [
-        {
-          "requestNo": "PR-2611030002",
-          "requestSeq": 8,
-          "quantity": 285000,
-          "status": "기안"
-        }
-      ],
+      "inboundWaitQty": 285000,
+      "pendingApprovalQty": 0,
+      "pendingRequests": [],
       "itemCode": "BS0149",
       "itemName": "알루미늄리드지 (Clalen O2O2 Color 1Day)_무광 코팅",
       "specification": "BS0149-002",
-      "openRequestCount": 1,
-      "openPurchaseOrderCount": 0,
-      "nextRequestedDeliveryDate": "2026-11-20",
-      "nextOrderDeliveryDate": null,
+      "openRequestCount": 0,
+      "openPurchaseOrderCount": 1,
+      "nextRequestedDeliveryDate": null,
+      "nextOrderDeliveryDate": "2026-11-20",
       "nextDeliveryDate": "2026-11-20",
-      "requests": [
+      "requests": [],
+      "purchaseOrders": [
         {
+          "purchaseOrderNo": "PO-2611050005",
+          "purchaseOrderSeq": 8,
+          "purchaseOrderDate": "2026-11-05",
           "requestNo": "PR-2611030002",
           "requestSeq": 8,
-          "requestDate": "2026-11-03",
-          "requestedDeliveryDate": "2026-11-20",
-          "requestQty": 285000,
-          "purchaseOrderQty": 0,
-          "purchaseWaitQty": 285000
+          "deliveryDate": "2026-11-20",
+          "purchaseOrderQty": 285000,
+          "provisionalReceiptQty": 0,
+          "receivedQty": 0,
+          "inboundWaitQty": 285000,
+          "orderStatus": "발주",
+          "supplierName": "피앤피 주식회사"
         }
-      ],
-      "purchaseOrders": []
+      ]
     },
     {
       "requestQty": 0,
@@ -535,42 +522,40 @@
       ]
     },
     {
-      "requestQty": 300000,
+      "requestQty": 0,
       "requestPurchaseOrderQty": 0,
-      "purchaseWaitQty": 300000,
-      "purchaseOrderQty": 0,
+      "purchaseWaitQty": 0,
+      "purchaseOrderQty": 300000,
       "provisionalReceiptQty": 0,
       "receivedQty": 0,
-      "inboundWaitQty": 0,
-      "pendingApprovalQty": 300000,
-      "pendingRequests": [
-        {
-          "requestNo": "PR-2611030002",
-          "requestSeq": 9,
-          "quantity": 300000,
-          "status": "기안"
-        }
-      ],
+      "inboundWaitQty": 300000,
+      "pendingApprovalQty": 0,
+      "pendingRequests": [],
       "itemCode": "BS0261",
       "itemName": "알루미늄리드지 (PIA_1D 55% Resay 리드지)",
       "specification": "BS0261-001",
-      "openRequestCount": 1,
-      "openPurchaseOrderCount": 0,
-      "nextRequestedDeliveryDate": "2026-11-17",
-      "nextOrderDeliveryDate": null,
+      "openRequestCount": 0,
+      "openPurchaseOrderCount": 1,
+      "nextRequestedDeliveryDate": null,
+      "nextOrderDeliveryDate": "2026-11-17",
       "nextDeliveryDate": "2026-11-17",
-      "requests": [
+      "requests": [],
+      "purchaseOrders": [
         {
+          "purchaseOrderNo": "PO-2611050005",
+          "purchaseOrderSeq": 9,
+          "purchaseOrderDate": "2026-11-05",
           "requestNo": "PR-2611030002",
           "requestSeq": 9,
-          "requestDate": "2026-11-03",
-          "requestedDeliveryDate": "2026-11-17",
-          "requestQty": 300000,
-          "purchaseOrderQty": 0,
-          "purchaseWaitQty": 300000
+          "deliveryDate": "2026-11-17",
+          "purchaseOrderQty": 300000,
+          "provisionalReceiptQty": 0,
+          "receivedQty": 0,
+          "inboundWaitQty": 300000,
+          "orderStatus": "발주",
+          "supplierName": "피앤피 주식회사"
         }
-      ],
-      "purchaseOrders": []
+      ]
     },
     {
       "requestQty": 0,
@@ -609,95 +594,90 @@
       ]
     },
     {
-      "requestQty": 150000,
+      "requestQty": 0,
       "requestPurchaseOrderQty": 0,
-      "purchaseWaitQty": 150000,
-      "purchaseOrderQty": 0,
+      "purchaseWaitQty": 0,
+      "purchaseOrderQty": 150000,
       "provisionalReceiptQty": 0,
       "receivedQty": 0,
-      "inboundWaitQty": 0,
-      "pendingApprovalQty": 150000,
-      "pendingRequests": [
-        {
-          "requestNo": "PR-2611030002",
-          "requestSeq": 11,
-          "quantity": 150000,
-          "status": "기안"
-        }
-      ],
+      "inboundWaitQty": 150000,
+      "pendingApprovalQty": 0,
+      "pendingRequests": [],
       "itemCode": "BS0317",
       "itemName": "알루미늄리드지 (PIA_1M 38% MOLAK 리드지)",
       "specification": "BS0317-001",
-      "openRequestCount": 1,
-      "openPurchaseOrderCount": 0,
-      "nextRequestedDeliveryDate": "2026-11-18",
-      "nextOrderDeliveryDate": null,
+      "openRequestCount": 0,
+      "openPurchaseOrderCount": 1,
+      "nextRequestedDeliveryDate": null,
+      "nextOrderDeliveryDate": "2026-11-18",
       "nextDeliveryDate": "2026-11-18",
-      "requests": [
+      "requests": [],
+      "purchaseOrders": [
         {
+          "purchaseOrderNo": "PO-2611050005",
+          "purchaseOrderSeq": 11,
+          "purchaseOrderDate": "2026-11-05",
           "requestNo": "PR-2611030002",
           "requestSeq": 11,
-          "requestDate": "2026-11-03",
-          "requestedDeliveryDate": "2026-11-18",
-          "requestQty": 150000,
-          "purchaseOrderQty": 0,
-          "purchaseWaitQty": 150000
+          "deliveryDate": "2026-11-18",
+          "purchaseOrderQty": 150000,
+          "provisionalReceiptQty": 0,
+          "receivedQty": 0,
+          "inboundWaitQty": 150000,
+          "orderStatus": "발주",
+          "supplierName": "피앤피 주식회사"
         }
-      ],
-      "purchaseOrders": []
+      ]
     },
     {
-      "requestQty": 350000,
+      "requestQty": 0,
       "requestPurchaseOrderQty": 0,
-      "purchaseWaitQty": 350000,
-      "purchaseOrderQty": 0,
+      "purchaseWaitQty": 0,
+      "purchaseOrderQty": 350000,
       "provisionalReceiptQty": 0,
       "receivedQty": 0,
-      "inboundWaitQty": 0,
-      "pendingApprovalQty": 350000,
-      "pendingRequests": [
-        {
-          "requestNo": "PR-2611040001",
-          "requestSeq": 2,
-          "quantity": 200000,
-          "status": "기안"
-        },
-        {
-          "requestNo": "PR-2611030002",
-          "requestSeq": 3,
-          "quantity": 150000,
-          "status": "기안"
-        }
-      ],
+      "inboundWaitQty": 350000,
+      "pendingApprovalQty": 0,
+      "pendingRequests": [],
       "itemCode": "BS0318",
       "itemName": "알루미늄리드지 (PIA_1M 38% feliamo 리드지)",
       "specification": "BS0318-001",
-      "openRequestCount": 2,
-      "openPurchaseOrderCount": 0,
-      "nextRequestedDeliveryDate": "2026-11-13",
-      "nextOrderDeliveryDate": null,
+      "openRequestCount": 0,
+      "openPurchaseOrderCount": 2,
+      "nextRequestedDeliveryDate": null,
+      "nextOrderDeliveryDate": "2026-11-13",
       "nextDeliveryDate": "2026-11-13",
-      "requests": [
+      "requests": [],
+      "purchaseOrders": [
         {
+          "purchaseOrderNo": "PO-2611050005",
+          "purchaseOrderSeq": 3,
+          "purchaseOrderDate": "2026-11-05",
           "requestNo": "PR-2611030002",
           "requestSeq": 3,
-          "requestDate": "2026-11-03",
-          "requestedDeliveryDate": "2026-11-13",
-          "requestQty": 150000,
-          "purchaseOrderQty": 0,
-          "purchaseWaitQty": 150000
+          "deliveryDate": "2026-11-13",
+          "purchaseOrderQty": 150000,
+          "provisionalReceiptQty": 0,
+          "receivedQty": 0,
+          "inboundWaitQty": 150000,
+          "orderStatus": "발주",
+          "supplierName": "피앤피 주식회사"
         },
         {
+          "purchaseOrderNo": "PO-2611050006",
+          "purchaseOrderSeq": 2,
+          "purchaseOrderDate": "2026-11-05",
           "requestNo": "PR-2611040001",
           "requestSeq": 2,
-          "requestDate": "2026-11-04",
-          "requestedDeliveryDate": "2026-11-16",
-          "requestQty": 200000,
-          "purchaseOrderQty": 0,
-          "purchaseWaitQty": 200000
+          "deliveryDate": "2026-11-16",
+          "purchaseOrderQty": 200000,
+          "provisionalReceiptQty": 0,
+          "receivedQty": 0,
+          "inboundWaitQty": 200000,
+          "orderStatus": "발주",
+          "supplierName": "피앤피 주식회사"
         }
-      ],
-      "purchaseOrders": []
+      ]
     },
     {
       "requestQty": 0,
@@ -750,120 +730,108 @@
       ]
     },
     {
-      "requestQty": 200000,
+      "requestQty": 0,
       "requestPurchaseOrderQty": 0,
-      "purchaseWaitQty": 200000,
-      "purchaseOrderQty": 0,
+      "purchaseWaitQty": 0,
+      "purchaseOrderQty": 200000,
       "provisionalReceiptQty": 0,
       "receivedQty": 0,
-      "inboundWaitQty": 0,
-      "pendingApprovalQty": 200000,
-      "pendingRequests": [
-        {
-          "requestNo": "PR-2611030002",
-          "requestSeq": 10,
-          "quantity": 200000,
-          "status": "기안"
-        }
-      ],
+      "inboundWaitQty": 200000,
+      "pendingApprovalQty": 0,
+      "pendingRequests": [],
       "itemCode": "BS0337",
       "itemName": "알루미늄리드지 (PIA_1M 38% TOPARDS 리드지)",
       "specification": "BS0337-001",
-      "openRequestCount": 1,
-      "openPurchaseOrderCount": 0,
-      "nextRequestedDeliveryDate": "2026-11-17",
-      "nextOrderDeliveryDate": null,
+      "openRequestCount": 0,
+      "openPurchaseOrderCount": 1,
+      "nextRequestedDeliveryDate": null,
+      "nextOrderDeliveryDate": "2026-11-17",
       "nextDeliveryDate": "2026-11-17",
-      "requests": [
+      "requests": [],
+      "purchaseOrders": [
         {
+          "purchaseOrderNo": "PO-2611050005",
+          "purchaseOrderSeq": 10,
+          "purchaseOrderDate": "2026-11-05",
           "requestNo": "PR-2611030002",
           "requestSeq": 10,
-          "requestDate": "2026-11-03",
-          "requestedDeliveryDate": "2026-11-17",
-          "requestQty": 200000,
-          "purchaseOrderQty": 0,
-          "purchaseWaitQty": 200000
+          "deliveryDate": "2026-11-17",
+          "purchaseOrderQty": 200000,
+          "provisionalReceiptQty": 0,
+          "receivedQty": 0,
+          "inboundWaitQty": 200000,
+          "orderStatus": "발주",
+          "supplierName": "피앤피 주식회사"
         }
-      ],
-      "purchaseOrders": []
+      ]
     },
     {
-      "requestQty": 3000000,
+      "requestQty": 0,
       "requestPurchaseOrderQty": 0,
-      "purchaseWaitQty": 3000000,
-      "purchaseOrderQty": 0,
+      "purchaseWaitQty": 0,
+      "purchaseOrderQty": 3000000,
       "provisionalReceiptQty": 0,
       "receivedQty": 0,
-      "inboundWaitQty": 0,
-      "pendingApprovalQty": 3000000,
-      "pendingRequests": [
-        {
-          "requestNo": "PR-2611030002",
-          "requestSeq": 2,
-          "quantity": 1000000,
-          "status": "기안"
-        },
-        {
-          "requestNo": "PR-2611030002",
-          "requestSeq": 5,
-          "quantity": 2000000,
-          "status": "기안"
-        }
-      ],
+      "inboundWaitQty": 3000000,
+      "pendingApprovalQty": 0,
+      "pendingRequests": [],
       "itemCode": "BS0353",
       "itemName": "알루미늄리드지 (PIA_1D 55% Chapun 리드지)",
       "specification": "BS0353-001",
-      "openRequestCount": 2,
-      "openPurchaseOrderCount": 0,
-      "nextRequestedDeliveryDate": "2026-11-11",
-      "nextOrderDeliveryDate": null,
+      "openRequestCount": 0,
+      "openPurchaseOrderCount": 2,
+      "nextRequestedDeliveryDate": null,
+      "nextOrderDeliveryDate": "2026-11-11",
       "nextDeliveryDate": "2026-11-11",
-      "requests": [
+      "requests": [],
+      "purchaseOrders": [
         {
+          "purchaseOrderNo": "PO-2611050005",
+          "purchaseOrderSeq": 2,
+          "purchaseOrderDate": "2026-11-05",
           "requestNo": "PR-2611030002",
           "requestSeq": 2,
-          "requestDate": "2026-11-03",
-          "requestedDeliveryDate": "2026-11-11",
-          "requestQty": 1000000,
-          "purchaseOrderQty": 0,
-          "purchaseWaitQty": 1000000
+          "deliveryDate": "2026-11-11",
+          "purchaseOrderQty": 1000000,
+          "provisionalReceiptQty": 0,
+          "receivedQty": 0,
+          "inboundWaitQty": 1000000,
+          "orderStatus": "발주",
+          "supplierName": "피앤피 주식회사"
         },
         {
+          "purchaseOrderNo": "PO-2611050005",
+          "purchaseOrderSeq": 5,
+          "purchaseOrderDate": "2026-11-05",
           "requestNo": "PR-2611030002",
           "requestSeq": 5,
-          "requestDate": "2026-11-03",
-          "requestedDeliveryDate": "2026-11-16",
-          "requestQty": 2000000,
-          "purchaseOrderQty": 0,
-          "purchaseWaitQty": 2000000
+          "deliveryDate": "2026-11-16",
+          "purchaseOrderQty": 2000000,
+          "provisionalReceiptQty": 0,
+          "receivedQty": 0,
+          "inboundWaitQty": 2000000,
+          "orderStatus": "발주",
+          "supplierName": "피앤피 주식회사"
         }
-      ],
-      "purchaseOrders": []
+      ]
     },
     {
-      "requestQty": 1600000,
+      "requestQty": 100000,
       "requestPurchaseOrderQty": 0,
-      "purchaseWaitQty": 1600000,
-      "purchaseOrderQty": 0,
+      "purchaseWaitQty": 100000,
+      "purchaseOrderQty": 1500000,
       "provisionalReceiptQty": 0,
       "receivedQty": 0,
-      "inboundWaitQty": 0,
-      "pendingApprovalQty": 1500000,
-      "pendingRequests": [
-        {
-          "requestNo": "PR-2611040001",
-          "requestSeq": 3,
-          "quantity": 1500000,
-          "status": "기안"
-        }
-      ],
+      "inboundWaitQty": 1500000,
+      "pendingApprovalQty": 0,
+      "pendingRequests": [],
       "itemCode": "BS0354",
       "itemName": "알루미늄리드지 (PIA_1D 55% CoFANCY 리드지)",
       "specification": "BS0354-001",
-      "openRequestCount": 2,
-      "openPurchaseOrderCount": 0,
+      "openRequestCount": 1,
+      "openPurchaseOrderCount": 1,
       "nextRequestedDeliveryDate": "2026-10-29",
-      "nextOrderDeliveryDate": null,
+      "nextOrderDeliveryDate": "2026-11-18",
       "nextDeliveryDate": "2026-10-29",
       "requests": [
         {
@@ -874,55 +842,44 @@
           "requestQty": 100000,
           "purchaseOrderQty": 0,
           "purchaseWaitQty": 100000
-        },
+        }
+      ],
+      "purchaseOrders": [
         {
+          "purchaseOrderNo": "PO-2611050006",
+          "purchaseOrderSeq": 3,
+          "purchaseOrderDate": "2026-11-05",
           "requestNo": "PR-2611040001",
           "requestSeq": 3,
-          "requestDate": "2026-11-04",
-          "requestedDeliveryDate": "2026-11-18",
-          "requestQty": 1500000,
-          "purchaseOrderQty": 0,
-          "purchaseWaitQty": 1500000
+          "deliveryDate": "2026-11-18",
+          "purchaseOrderQty": 1500000,
+          "provisionalReceiptQty": 0,
+          "receivedQty": 0,
+          "inboundWaitQty": 1500000,
+          "orderStatus": "발주",
+          "supplierName": "피앤피 주식회사"
         }
-      ],
-      "purchaseOrders": []
+      ]
     },
     {
-      "requestQty": 700000,
+      "requestQty": 0,
       "requestPurchaseOrderQty": 0,
-      "purchaseWaitQty": 700000,
-      "purchaseOrderQty": 1204000,
+      "purchaseWaitQty": 0,
+      "purchaseOrderQty": 1904000,
       "provisionalReceiptQty": 1199000,
       "receivedQty": 1199000,
-      "inboundWaitQty": 5000,
-      "pendingApprovalQty": 700000,
-      "pendingRequests": [
-        {
-          "requestNo": "PR-2611040001",
-          "requestSeq": 1,
-          "quantity": 700000,
-          "status": "기안"
-        }
-      ],
+      "inboundWaitQty": 705000,
+      "pendingApprovalQty": 0,
+      "pendingRequests": [],
       "itemCode": "BS0356",
       "itemName": "알루미늄리드지 (PIA_1D 55% 리본 렌즈 리드지)",
       "specification": "BS0356-001",
-      "openRequestCount": 1,
-      "openPurchaseOrderCount": 2,
-      "nextRequestedDeliveryDate": "2026-11-16",
+      "openRequestCount": 0,
+      "openPurchaseOrderCount": 3,
+      "nextRequestedDeliveryDate": null,
       "nextOrderDeliveryDate": "2026-10-12",
       "nextDeliveryDate": "2026-10-12",
-      "requests": [
-        {
-          "requestNo": "PR-2611040001",
-          "requestSeq": 1,
-          "requestDate": "2026-11-04",
-          "requestedDeliveryDate": "2026-11-16",
-          "requestQty": 700000,
-          "purchaseOrderQty": 0,
-          "purchaseWaitQty": 700000
-        }
-      ],
+      "requests": [],
       "purchaseOrders": [
         {
           "purchaseOrderNo": "PO-2610120028",
@@ -949,6 +906,20 @@
           "provisionalReceiptQty": 0,
           "receivedQty": 0,
           "inboundWaitQty": 4000,
+          "orderStatus": "발주",
+          "supplierName": "피앤피 주식회사"
+        },
+        {
+          "purchaseOrderNo": "PO-2611050006",
+          "purchaseOrderSeq": 1,
+          "purchaseOrderDate": "2026-11-05",
+          "requestNo": "PR-2611040001",
+          "requestSeq": 1,
+          "deliveryDate": "2026-11-16",
+          "purchaseOrderQty": 700000,
+          "provisionalReceiptQty": 0,
+          "receivedQty": 0,
+          "inboundWaitQty": 700000,
           "orderStatus": "발주",
           "supplierName": "피앤피 주식회사"
         }
