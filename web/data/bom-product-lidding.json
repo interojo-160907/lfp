@@ -1,18 +1,18 @@
 {
-  "generatedAt": "2026-11-06T07:30:24+09:00",
-  "sourceSignature": "feab3c415e83db6dfcd794dc74a75f4727bb581a7d02ce989a740d60510bb0ef",
+  "generatedAt": "2026-11-06T15:00:27+09:00",
+  "sourceSignature": "9e4e48d1421d736ab75a6af53323efd5618f80cc999735f463312c5d14ae55de",
   "productSourceCount": 1773,
-  "bomSourceCount": 29406,
+  "bomSourceCount": 29479,
   "activePProductCount": 1773,
   "productApiFilterApplied": true,
   "bomApiFilterApplied": false,
   "bomApiFilterReason": "BOM API supports exact gd_cd only; P-prefix + level-1 BS lidding filters are applied locally",
   "storageScope": "active P-code + level-1 active BS lidding only",
-  "mappingCount": 1683,
-  "mappedProductCount": 1683,
-  "liddingCodeCount": 240,
-  "specificationVersionCount": 240,
-  "unmappedProductCount": 90,
+  "mappingCount": 1693,
+  "mappedProductCount": 1693,
+  "liddingCodeCount": 243,
+  "specificationVersionCount": 243,
+  "unmappedProductCount": 80,
   "rows": [
     {
       "productCode": "P0001",
@@ -2462,6 +2462,72 @@
       "liddingCode": "BS0286",
       "liddingName": "알루미늄리드지 (하파크리스틴_1Day Color)_14.5 유광 코팅",
       "liddingSpecification": "BS0286-001",
+      "requirementQty": 1,
+      "bomLevel": 1,
+      "statusCode": "S",
+      "useYn": "Y"
+    },
+    {
+      "productCode": "P0453",
+      "productName": "Hapakristin M_Quiet Kristin Glow Choco",
+      "liddingCode": "BS0286",
+      "liddingName": "알루미늄리드지 (하파크리스틴_1Day Color)_14.5 유광 코팅",
+      "liddingSpecification": "BS0286-001",
+      "requirementQty": 1,
+      "bomLevel": 1,
+      "statusCode": "S",
+      "useYn": "Y"
+    },
+    {
+      "productCode": "P0454",
+      "productName": "Hapakristin M_Quiet Kristin Glow Rosy",
+      "liddingCode": "BS0286",
+      "liddingName": "알루미늄리드지 (하파크리스틴_1Day Color)_14.5 유광 코팅",
+      "liddingSpecification": "BS0286-001",
+      "requirementQty": 1,
+      "bomLevel": 1,
+      "statusCode": "S",
+      "useYn": "Y"
+    },
+    {
+      "productCode": "P0455",
+      "productName": "Hapakristin M_Quiet Kristin Glow Black",
+      "liddingCode": "BS0286",
+      "liddingName": "알루미늄리드지 (하파크리스틴_1Day Color)_14.5 유광 코팅",
+      "liddingSpecification": "BS0286-001",
+      "requirementQty": 1,
+      "bomLevel": 1,
+      "statusCode": "S",
+      "useYn": "Y"
+    },
+    {
+      "productCode": "P0456",
+      "productName": "Hapakristin M_Quiet Kristin Glow Brown",
+      "liddingCode": "BS0286",
+      "liddingName": "알루미늄리드지 (하파크리스틴_1Day Color)_14.5 유광 코팅",
+      "liddingSpecification": "BS0286-001",
+      "requirementQty": 1,
+      "bomLevel": 1,
+      "statusCode": "S",
+      "useYn": "Y"
+    },
+    {
+      "productCode": "P0457",
+      "productName": "Clalen O2O2 D Multifocal_Pale Choco",
+      "liddingCode": "BS0365",
+      "liddingName": "알루미늄리드지 (Clalen O2O2 Color 1Day Multifocal)",
+      "liddingSpecification": "BS0365-001",
+      "requirementQty": 1,
+      "bomLevel": 1,
+      "statusCode": "S",
+      "useYn": "Y"
+    },
+    {
+      "productCode": "P0458",
+      "productName": "Clalen O2O2 D EverView_Pale Choco",
+      "liddingCode": "BS0366",
+      "liddingName": "알루미늄리드지 (Clalen O2O2 Color 1Day EverView)",
+      "liddingSpecification": "BS0366-001",
       "requirementQty": 1,
       "bomLevel": 1,
       "statusCode": "S",
@@ -7033,6 +7099,39 @@
       "useYn": "Y"
     },
     {
+      "productCode": "P1337",
+      "productName": "BELLA M_CAMELIA_14.5_(중)",
+      "liddingCode": "BS0005",
+      "liddingName": "알루미늄리드지 (Monthly_무지)",
+      "liddingSpecification": "BS0005-002",
+      "requirementQty": 1,
+      "bomLevel": 1,
+      "statusCode": "S",
+      "useYn": "Y"
+    },
+    {
+      "productCode": "P1338",
+      "productName": "BELLA M_ROSALIA_14.5_(중)",
+      "liddingCode": "BS0005",
+      "liddingName": "알루미늄리드지 (Monthly_무지)",
+      "liddingSpecification": "BS0005-002",
+      "requirementQty": 1,
+      "bomLevel": 1,
+      "statusCode": "S",
+      "useYn": "Y"
+    },
+    {
+      "productCode": "P1339",
+      "productName": "DYE M_YASAR_14.5_중사각",
+      "liddingCode": "BS0005",
+      "liddingName": "알루미늄리드지 (Monthly_무지)",
+      "liddingSpecification": "BS0005-002",
+      "requirementQty": 1,
+      "bomLevel": 1,
+      "statusCode": "S",
+      "useYn": "Y"
+    },
+    {
       "productCode": "P1340",
       "productName": "PIA_M_Black Macchiato_14.2",
       "liddingCode": "BS0318",
@@ -7049,6 +7148,17 @@
       "liddingCode": "BS0318",
       "liddingName": "알루미늄리드지 (PIA_1M 38% feliamo 리드지)",
       "liddingSpecification": "BS0318-001",
+      "requirementQty": 1,
+      "bomLevel": 1,
+      "statusCode": "S",
+      "useYn": "Y"
+    },
+    {
+      "productCode": "P1342",
+      "productName": "Biox 58 1Day_Central Oftalmica",
+      "liddingCode": "BS0367",
+      "liddingName": "알루미늄리드지 (브라질 Central Oftal Whitebox Biox58 Spherical)",
+      "liddingSpecification": "BS0367-001",
       "requirementQty": 1,
       "bomLevel": 1,
       "statusCode": "S",
@@ -18528,5 +18638,5 @@
       "useYn": "Y"
     }
   ],
-  "changed": false
+  "changed": true
 }
