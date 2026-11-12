@@ -1,18 +1,18 @@
 {
-  "generatedAt": "2026-11-12T07:34:20+09:00",
-  "sourceSignature": "842943f9e06099bc2d39e2b60987bfe13da15ac688cdb2d6ddb17fa64575aa63",
+  "generatedAt": "2026-11-12T14:56:44+09:00",
+  "sourceSignature": "dc39e841023938fd4422b023642e37c5d5d59b43807a33062439bbd1c9e81780",
   "productSourceCount": 1786,
-  "bomSourceCount": 29660,
+  "bomSourceCount": 29898,
   "activePProductCount": 1786,
   "productApiFilterApplied": true,
   "bomApiFilterApplied": false,
   "bomApiFilterReason": "BOM API supports exact gd_cd only; P-prefix + level-1 BS lidding filters are applied locally",
   "storageScope": "active P-code + level-1 active BS lidding only",
-  "mappingCount": 1703,
-  "mappedProductCount": 1703,
+  "mappingCount": 1706,
+  "mappedProductCount": 1706,
   "liddingCodeCount": 243,
   "specificationVersionCount": 243,
-  "unmappedProductCount": 83,
+  "unmappedProductCount": 80,
   "rows": [
     {
       "productCode": "P0001",
@@ -7269,6 +7269,39 @@
       "liddingCode": "BS0367",
       "liddingName": "알루미늄리드지 (브라질 Central Oftal Whitebox Biox58 Spherical)",
       "liddingSpecification": "BS0367-001",
+      "requirementQty": 1,
+      "bomLevel": 1,
+      "statusCode": "S",
+      "useYn": "Y"
+    },
+    {
+      "productCode": "P1343",
+      "productName": "PIA D_Rennyu_55% UV 14.5",
+      "liddingCode": "BS0073",
+      "liddingName": "알루미늄리드지 (일본 PIA 1day 55%)_유광 코팅",
+      "liddingSpecification": "BS0073-002",
+      "requirementQty": 1,
+      "bomLevel": 1,
+      "statusCode": "S",
+      "useYn": "Y"
+    },
+    {
+      "productCode": "P1344",
+      "productName": "PIA D_Anmitsu_55% UV 14.5",
+      "liddingCode": "BS0073",
+      "liddingName": "알루미늄리드지 (일본 PIA 1day 55%)_유광 코팅",
+      "liddingSpecification": "BS0073-002",
+      "requirementQty": 1,
+      "bomLevel": 1,
+      "statusCode": "S",
+      "useYn": "Y"
+    },
+    {
+      "productCode": "P1345",
+      "productName": "PIA D_Iruka_55% UV 14.5",
+      "liddingCode": "BS0073",
+      "liddingName": "알루미늄리드지 (일본 PIA 1day 55%)_유광 코팅",
+      "liddingSpecification": "BS0073-002",
       "requirementQty": 1,
       "bomLevel": 1,
       "statusCode": "S",
@@ -18748,5 +18781,5 @@
       "useYn": "Y"
     }
   ],
-  "changed": false
+  "changed": true
 }
