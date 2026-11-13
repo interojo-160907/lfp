@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-11-14T07:13:09+09:00",
+  "generatedAt": "2026-11-14T07:29:07+09:00",
   "snapshotDate": "2026-11-14",
   "warehouseOptions": [
     {
@@ -22,7 +22,7 @@
   "itemCount": 243,
   "sourceRowCount": 478,
   "rawLiddingSourceRowCount": 481,
-  "stockTotal": 86775221,
+  "stockTotal": 86770136,
   "inspectionWaitTotal": 2641000,
   "inspectionAggregation": "max-per-item",
   "formula": {
@@ -1793,7 +1793,7 @@
       "itemCode": "BS0073",
       "itemName": "알루미늄리드지 (일본 PIA 1day 55%)_유광 코팅",
       "specification": "BS0073-002",
-      "stockQty": 1294676,
+      "stockQty": 1291591,
       "inspectionWaitQty": 0,
       "warehouses": [
         {
@@ -1813,7 +1813,7 @@
         {
           "warehouseCode": "P030",
           "warehouseName": "C관 공정부자재",
-          "stockQty": 1261767,
+          "stockQty": 1258682,
           "inspectionWaitQty": 0,
           "hasSourceRow": true
         },
@@ -5479,7 +5479,7 @@
       "itemCode": "BS0205",
       "itemName": "알루미늄리드지 (PIA_1D 55% mimuco Toric리드지)_유광코팅",
       "specification": "BS0205-001",
-      "stockQty": 119173,
+      "stockQty": 117173,
       "inspectionWaitQty": 0,
       "warehouses": [
         {
@@ -5499,7 +5499,7 @@
         {
           "warehouseCode": "P030",
           "warehouseName": "C관 공정부자재",
-          "stockQty": 72173,
+          "stockQty": 70173,
           "inspectionWaitQty": 0,
           "hasSourceRow": true
         },
