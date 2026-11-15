@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-11-16T06:58:31+09:00",
+  "generatedAt": "2026-11-16T07:27:32+09:00",
   "snapshotDate": "2026-11-16",
   "warehouseOptions": [
     {
@@ -22,7 +22,7 @@
   "itemCount": 244,
   "sourceRowCount": 479,
   "rawLiddingSourceRowCount": 482,
-  "stockTotal": 86632772,
+  "stockTotal": 86631442,
   "inspectionWaitTotal": 576000,
   "inspectionAggregation": "max-per-item",
   "formula": {
@@ -3161,7 +3161,7 @@
       "itemCode": "BS0115",
       "itemName": "알루미늄리드지 (무지-백색_PET12/AL30/CPP100_White 리버스인쇄)",
       "specification": "BS0115-001",
-      "stockQty": 5463757,
+      "stockQty": 5462427,
       "inspectionWaitQty": 0,
       "warehouses": [
         {
@@ -3188,7 +3188,7 @@
         {
           "warehouseCode": "S100",
           "warehouseName": "S관 공정부자재",
-          "stockQty": 256757,
+          "stockQty": 255427,
           "inspectionWaitQty": 0,
           "hasSourceRow": true
         }
