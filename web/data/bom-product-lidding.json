@@ -1,18 +1,18 @@
 {
-  "generatedAt": "2026-11-16T14:47:26+09:00",
-  "sourceSignature": "dc39e841023938fd4422b023642e37c5d5d59b43807a33062439bbd1c9e81780",
-  "productSourceCount": 1786,
-  "bomSourceCount": 29936,
-  "activePProductCount": 1786,
+  "generatedAt": "2026-11-17T06:48:30+09:00",
+  "sourceSignature": "8beafcac008a1cf362929e876913040c0913e9b4a980e4475ae20ff12ebf167e",
+  "productSourceCount": 1790,
+  "bomSourceCount": 29945,
+  "activePProductCount": 1790,
   "productApiFilterApplied": true,
   "bomApiFilterApplied": false,
   "bomApiFilterReason": "BOM API supports exact gd_cd only; P-prefix + level-1 BS lidding filters are applied locally",
   "storageScope": "active P-code + level-1 active BS lidding only",
-  "mappingCount": 1706,
-  "mappedProductCount": 1706,
+  "mappingCount": 1707,
+  "mappedProductCount": 1707,
   "liddingCodeCount": 243,
   "specificationVersionCount": 243,
-  "unmappedProductCount": 80,
+  "unmappedProductCount": 83,
   "rows": [
     {
       "productCode": "P0001",
@@ -7159,6 +7159,17 @@
       "liddingCode": "BS0354",
       "liddingName": "알루미늄리드지 (PIA_1D 55% CoFANCY 리드지)",
       "liddingSpecification": "BS0354-001",
+      "requirementQty": 1,
+      "bomLevel": 1,
+      "statusCode": "S",
+      "useYn": "Y"
+    },
+    {
+      "productCode": "P1331",
+      "productName": "O2O2 M_Spherical(DK70)_SMHL_CentralOftal_White",
+      "liddingCode": "BS0115",
+      "liddingName": "알루미늄리드지 (무지-백색_PET12/AL30/CPP100_White 리버스인쇄)",
+      "liddingSpecification": "BS0115-001",
       "requirementQty": 1,
       "bomLevel": 1,
       "statusCode": "S",
@@ -18781,5 +18792,5 @@
       "useYn": "Y"
     }
   ],
-  "changed": false
+  "changed": true
 }
