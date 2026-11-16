@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-11-17T06:48:36+09:00",
+  "generatedAt": "2026-11-17T07:15:37+09:00",
   "snapshotDate": "2026-11-17",
   "warehouseOptions": [
     {
@@ -22,7 +22,7 @@
   "itemCount": 244,
   "sourceRowCount": 479,
   "rawLiddingSourceRowCount": 482,
-  "stockTotal": 85584931,
+  "stockTotal": 85578856,
   "inspectionWaitTotal": 1385623,
   "inspectionAggregation": "max-per-item",
   "formula": {
@@ -1793,7 +1793,7 @@
       "itemCode": "BS0073",
       "itemName": "알루미늄리드지 (일본 PIA 1day 55%)_유광 코팅",
       "specification": "BS0073-002",
-      "stockQty": 455761,
+      "stockQty": 449686,
       "inspectionWaitQty": 0,
       "warehouses": [
         {
@@ -1813,7 +1813,7 @@
         {
           "warehouseCode": "P030",
           "warehouseName": "C관 공정부자재",
-          "stockQty": 422852,
+          "stockQty": 416777,
           "inspectionWaitQty": 0,
           "hasSourceRow": true
         },
