@@ -1,8 +1,8 @@
 {
-  "generatedAt": "2026-11-17T09:10:55+09:00",
-  "sourceSignature": "8beafcac008a1cf362929e876913040c0913e9b4a980e4475ae20ff12ebf167e",
+  "generatedAt": "2026-11-17T14:48:19+09:00",
+  "sourceSignature": "94be0f1020c0af747dbc17db002a7caac542fe0a3336ace7bd40daeae2cba6df",
   "productSourceCount": 1790,
-  "bomSourceCount": 29945,
+  "bomSourceCount": 29968,
   "activePProductCount": 1790,
   "productApiFilterApplied": true,
   "bomApiFilterApplied": false,
@@ -778,7 +778,7 @@
       "productName": "1-Day_58(수출용_파랑)",
       "liddingCode": "BS0006",
       "liddingName": "알루미늄리드지 (1-Day Soft)구형_유광 코팅",
-      "liddingSpecification": "BS0006-002",
+      "liddingSpecification": "BS0006-001",
       "requirementQty": 1,
       "bomLevel": 1,
       "statusCode": "S",
@@ -789,7 +789,7 @@
       "productName": "1-Day_58(Marshal)",
       "liddingCode": "BS0006",
       "liddingName": "알루미늄리드지 (1-Day Soft)구형_유광 코팅",
-      "liddingSpecification": "BS0006-002",
+      "liddingSpecification": "BS0006-001",
       "requirementQty": 1,
       "bomLevel": 1,
       "statusCode": "S",
@@ -822,7 +822,7 @@
       "productName": "Visiomax_1-day58",
       "liddingCode": "BS0006",
       "liddingName": "알루미늄리드지 (1-Day Soft)구형_유광 코팅",
-      "liddingSpecification": "BS0006-002",
+      "liddingSpecification": "BS0006-001",
       "requirementQty": 1,
       "bomLevel": 1,
       "statusCode": "S",
@@ -9413,7 +9413,7 @@
       "productName": "1-DAY_58(LEXXOO_파랑)",
       "liddingCode": "BS0006",
       "liddingName": "알루미늄리드지 (1-Day Soft)구형_유광 코팅",
-      "liddingSpecification": "BS0006-002",
+      "liddingSpecification": "BS0006-001",
       "requirementQty": 1,
       "bomLevel": 1,
       "statusCode": "S",
@@ -10315,7 +10315,7 @@
       "productName": "1-Day_58(El Fady)",
       "liddingCode": "BS0006",
       "liddingName": "알루미늄리드지 (1-Day Soft)구형_유광 코팅",
-      "liddingSpecification": "BS0006-002",
+      "liddingSpecification": "BS0006-001",
       "requirementQty": 1,
       "bomLevel": 1,
       "statusCode": "S",
@@ -18792,5 +18792,5 @@
       "useYn": "Y"
     }
   ],
-  "changed": false
+  "changed": true
 }
