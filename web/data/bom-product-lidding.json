@@ -1,18 +1,18 @@
 {
-  "generatedAt": "2026-11-18T08:54:14+09:00",
-  "sourceSignature": "7a569c0e9e2aaa7d3de2ca53db5d406997d17cb59ebc3067769494a6fc866f35",
+  "generatedAt": "2026-11-18T14:44:17+09:00",
+  "sourceSignature": "21a18099345efd1726687e5b2335f653ff72ed99b52daaae68395f24005ffcc3",
   "productSourceCount": 1790,
-  "bomSourceCount": 29967,
+  "bomSourceCount": 29979,
   "activePProductCount": 1790,
   "productApiFilterApplied": true,
   "bomApiFilterApplied": false,
   "bomApiFilterReason": "BOM API supports exact gd_cd only; P-prefix + level-1 BS lidding filters are applied locally",
   "storageScope": "active P-code + level-1 active BS lidding only",
-  "mappingCount": 1706,
-  "mappedProductCount": 1706,
+  "mappingCount": 1709,
+  "mappedProductCount": 1709,
   "liddingCodeCount": 243,
   "specificationVersionCount": 243,
-  "unmappedProductCount": 84,
+  "unmappedProductCount": 81,
   "rows": [
     {
       "productCode": "P0001",
@@ -7302,6 +7302,39 @@
       "liddingCode": "BS0073",
       "liddingName": "알루미늄리드지 (일본 PIA 1day 55%)_유광 코팅",
       "liddingSpecification": "BS0073-002",
+      "requirementQty": 1,
+      "bomLevel": 1,
+      "statusCode": "S",
+      "useYn": "Y"
+    },
+    {
+      "productCode": "P1346",
+      "productName": "BELLA D_Saudi_GARDENIA 55%",
+      "liddingCode": "BS0273",
+      "liddingName": "알루미늄리드지 (Bella 리뉴얼 원데이 리드지(사우디))",
+      "liddingSpecification": "BS0273-001",
+      "requirementQty": 1,
+      "bomLevel": 1,
+      "statusCode": "S",
+      "useYn": "Y"
+    },
+    {
+      "productCode": "P1347",
+      "productName": "BELLA D_Saudi_JULNAR 55%",
+      "liddingCode": "BS0273",
+      "liddingName": "알루미늄리드지 (Bella 리뉴얼 원데이 리드지(사우디))",
+      "liddingSpecification": "BS0273-001",
+      "requirementQty": 1,
+      "bomLevel": 1,
+      "statusCode": "S",
+      "useYn": "Y"
+    },
+    {
+      "productCode": "P1348",
+      "productName": "BELLA D_Saudi_LILI 55%",
+      "liddingCode": "BS0273",
+      "liddingName": "알루미늄리드지 (Bella 리뉴얼 원데이 리드지(사우디))",
+      "liddingSpecification": "BS0273-001",
       "requirementQty": 1,
       "bomLevel": 1,
       "statusCode": "S",
@@ -18781,5 +18814,5 @@
       "useYn": "Y"
     }
   ],
-  "changed": false
+  "changed": true
 }
