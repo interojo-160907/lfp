@@ -1,18 +1,18 @@
 {
-  "generatedAt": "2026-11-19T07:17:12+09:00",
-  "sourceSignature": "21a18099345efd1726687e5b2335f653ff72ed99b52daaae68395f24005ffcc3",
+  "generatedAt": "2026-11-19T14:47:59+09:00",
+  "sourceSignature": "58b31ed04848e8db806fe286cff38d1f5500906d8d1b247fb8a7470a330c99b9",
   "productSourceCount": 1790,
-  "bomSourceCount": 30005,
+  "bomSourceCount": 30051,
   "activePProductCount": 1790,
   "productApiFilterApplied": true,
   "bomApiFilterApplied": false,
   "bomApiFilterReason": "BOM API supports exact gd_cd only; P-prefix + level-1 BS lidding filters are applied locally",
   "storageScope": "active P-code + level-1 active BS lidding only",
-  "mappingCount": 1709,
-  "mappedProductCount": 1709,
-  "liddingCodeCount": 243,
-  "specificationVersionCount": 243,
-  "unmappedProductCount": 81,
+  "mappingCount": 1710,
+  "mappedProductCount": 1710,
+  "liddingCodeCount": 244,
+  "specificationVersionCount": 244,
+  "unmappedProductCount": 80,
   "rows": [
     {
       "productCode": "P0001",
@@ -7159,6 +7159,17 @@
       "liddingCode": "BS0354",
       "liddingName": "알루미늄리드지 (PIA_1D 55% CoFANCY 리드지)",
       "liddingSpecification": "BS0354-001",
+      "requirementQty": 1,
+      "bomLevel": 1,
+      "statusCode": "S",
+      "useYn": "Y"
+    },
+    {
+      "productCode": "P1331",
+      "productName": "O2O2 M_Spherical(DK70)_SMHL_CentralOftal_White",
+      "liddingCode": "BS0369",
+      "liddingName": "알루미늄리드지 (브라질 1dayBLISTER SIHY 45 A MONTHLY)",
+      "liddingSpecification": "BS0369-001",
       "requirementQty": 1,
       "bomLevel": 1,
       "statusCode": "S",
@@ -18814,5 +18825,5 @@
       "useYn": "Y"
     }
   ],
-  "changed": false
+  "changed": true
 }
