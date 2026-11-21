@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-11-22T06:45:05+09:00",
+  "generatedAt": "2026-11-22T07:20:05+09:00",
   "snapshotDate": "2026-11-22",
   "warehouseOptions": [
     {
@@ -22,7 +22,7 @@
   "itemCount": 246,
   "sourceRowCount": 483,
   "rawLiddingSourceRowCount": 486,
-  "stockTotal": 91870258,
+  "stockTotal": 91868503,
   "inspectionWaitTotal": 0,
   "inspectionAggregation": "max-per-item",
   "formula": {
@@ -83,7 +83,7 @@
       "itemCode": "BS0005",
       "itemName": "알루미늄리드지 (Monthly_무지)",
       "specification": "BS0005-002",
-      "stockQty": 10734290,
+      "stockQty": 10734206,
       "inspectionWaitQty": 0,
       "warehouses": [
         {
@@ -96,7 +96,7 @@
         {
           "warehouseCode": "P010",
           "warehouseName": "A관 공정부자재",
-          "stockQty": 248259,
+          "stockQty": 248175,
           "inspectionWaitQty": 0,
           "hasSourceRow": true
         },
@@ -1185,7 +1185,7 @@
       "itemCode": "BS0054",
       "itemName": "알루미늄리드지 (국내/중국 원데이_아이리스)_무광 코팅",
       "specification": "BS0054-003",
-      "stockQty": 3038716,
+      "stockQty": 3037045,
       "inspectionWaitQty": 0,
       "warehouses": [
         {
@@ -1212,7 +1212,7 @@
         {
           "warehouseCode": "S100",
           "warehouseName": "S관 공정부자재",
-          "stockQty": 256895,
+          "stockQty": 255224,
           "inspectionWaitQty": 0,
           "hasSourceRow": true
         }
