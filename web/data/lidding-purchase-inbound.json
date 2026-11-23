@@ -1,8 +1,8 @@
 {
-  "collectedAt": "2026-11-23T14:50:59+09:00",
-  "queryDate": "2026-11-23 14:50",
-  "dateFrom": "2026-09-23",
-  "dateTo": "2026-11-23",
+  "collectedAt": "2026-11-24T06:51:54+09:00",
+  "queryDate": "2026-11-24 06:51",
+  "dateFrom": "2026-09-24",
+  "dateTo": "2026-11-24",
   "historyWindow": "recent two months",
   "excludedRows": [
     {
@@ -19,8 +19,8 @@
     "requests": "itm_cd=BS, not_ordered=1",
     "orders": "itm_cd=BS, open_only=1"
   },
-  "requestSourceRowCount": 4,
-  "purchaseOrderSourceRowCount": 52,
+  "requestSourceRowCount": 3,
+  "purchaseOrderSourceRowCount": 51,
   "matchedLiddingRequestRows": 1,
   "matchedLiddingPurchaseOrderRows": 27,
   "openLiddingItemCount": 21,
