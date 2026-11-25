@@ -1,7 +1,7 @@
 {
-  "snapshotAt": "2026-11-25T14:50:08+09:00",
-  "scope": "all",
-  "reason": "aps_changed",
+  "snapshotAt": "2026-11-26T06:51:04+09:00",
+  "scope": "support",
+  "reason": "regular_16h",
   "channels": {
     "aps": {
       "generatedAt": "2026-11-25T14:50:08+09:00",
@@ -140597,8 +140597,8 @@
       ]
     },
     "inventory": {
-      "generatedAt": "2026-11-25T14:49:59+09:00",
-      "snapshotDate": "2026-11-25",
+      "generatedAt": "2026-11-26T06:51:03+09:00",
+      "snapshotDate": "2026-11-26",
       "warehouseOptions": [
         {
           "code": "300",
@@ -140620,8 +140620,8 @@
       "itemCount": 246,
       "sourceRowCount": 483,
       "rawLiddingSourceRowCount": 486,
-      "stockTotal": 89774730,
-      "inspectionWaitTotal": 528000,
+      "stockTotal": 88889985,
+      "inspectionWaitTotal": 1212000,
       "inspectionAggregation": "max-per-item",
       "formula": {
         "grain": "item_code + specification",
@@ -140633,7 +140633,7 @@
         "stockTotalReconciled": true,
         "negativeStockSourceRowCount": 1,
         "duplicateWarehouseItemSourceRowCount": 3,
-        "inspectionRepeatedWarehouseRowCount": 2,
+        "inspectionRepeatedWarehouseRowCount": 4,
         "inspectionConflictItemCount": 0
       },
       "status": {
@@ -140681,20 +140681,20 @@
           "itemCode": "BS0005",
           "itemName": "알루미늄리드지 (Monthly_무지)",
           "specification": "BS0005-002",
-          "stockQty": 10623027,
+          "stockQty": 10586139,
           "inspectionWaitQty": 0,
           "warehouses": [
             {
               "warehouseCode": "300",
               "warehouseName": "L관창고(자재)",
-              "stockQty": 10301796,
+              "stockQty": 10117176,
               "inspectionWaitQty": 0,
               "hasSourceRow": true
             },
             {
               "warehouseCode": "P010",
               "warehouseName": "A관 공정부자재",
-              "stockQty": 321616,
+              "stockQty": 469348,
               "inspectionWaitQty": 0,
               "hasSourceRow": true
             },
@@ -140719,7 +140719,7 @@
           "itemCode": "BS0006",
           "itemName": "알루미늄리드지 (1-Day Soft)구형_유광 코팅",
           "specification": "BS0006-001",
-          "stockQty": 41977,
+          "stockQty": 34082,
           "inspectionWaitQty": 0,
           "warehouses": [
             {
@@ -140739,7 +140739,7 @@
             {
               "warehouseCode": "P030",
               "warehouseName": "C관 공정부자재",
-              "stockQty": 41977,
+              "stockQty": 34082,
               "inspectionWaitQty": 0,
               "hasSourceRow": true
             },
@@ -140757,7 +140757,7 @@
           "itemCode": "BS0007",
           "itemName": "알루미늄리드지 (원데이-데일리)_유광 코팅",
           "specification": "BS0007-001",
-          "stockQty": 871271,
+          "stockQty": 867351,
           "inspectionWaitQty": 0,
           "warehouses": [
             {
@@ -140777,7 +140777,7 @@
             {
               "warehouseCode": "P030",
               "warehouseName": "C관 공정부자재",
-              "stockQty": 124508,
+              "stockQty": 120588,
               "inspectionWaitQty": 0,
               "hasSourceRow": true
             },
@@ -140833,7 +140833,7 @@
           "itemCode": "BS0011",
           "itemName": "알루미늄리드지 (원데이-스플레쉬)_유광 코팅",
           "specification": "BS0011-001",
-          "stockQty": 319756,
+          "stockQty": 317576,
           "inspectionWaitQty": 0,
           "warehouses": [
             {
@@ -140853,7 +140853,7 @@
             {
               "warehouseCode": "P030",
               "warehouseName": "C관 공정부자재",
-              "stockQty": 23756,
+              "stockQty": 21576,
               "inspectionWaitQty": 0,
               "hasSourceRow": true
             },
@@ -141175,7 +141175,7 @@
           "itemCode": "BS0036",
           "itemName": "알루미늄리드지 (PIA 1Day)_유광 코팅",
           "specification": "BS0036-001",
-          "stockQty": 2141285,
+          "stockQty": 2057645,
           "inspectionWaitQty": 0,
           "warehouses": [
             {
@@ -141195,7 +141195,7 @@
             {
               "warehouseCode": "P030",
               "warehouseName": "C관 공정부자재",
-              "stockQty": 1241285,
+              "stockQty": 1157645,
               "inspectionWaitQty": 0,
               "hasSourceRow": true
             },
@@ -141555,7 +141555,7 @@
           "itemCode": "BS0048",
           "itemName": "알루미늄리드지 (Metha Daily)_유광 코팅",
           "specification": "BS0048-001",
-          "stockQty": 309062,
+          "stockQty": 307177,
           "inspectionWaitQty": 0,
           "warehouses": [
             {
@@ -141575,7 +141575,7 @@
             {
               "warehouseCode": "P030",
               "warehouseName": "C관 공정부자재",
-              "stockQty": 69062,
+              "stockQty": 67177,
               "inspectionWaitQty": 0,
               "hasSourceRow": true
             },
@@ -141631,7 +141631,7 @@
           "itemCode": "BS0050",
           "itemName": "알루미늄리드지 (Iris_수지그레이)_무광 코팅",
           "specification": "BS0050-002",
-          "stockQty": 835103,
+          "stockQty": 834402,
           "inspectionWaitQty": 0,
           "warehouses": [
             {
@@ -141658,7 +141658,7 @@
             {
               "warehouseCode": "S100",
               "warehouseName": "S관 공정부자재",
-              "stockQty": 105538,
+              "stockQty": 104837,
               "inspectionWaitQty": 0,
               "hasSourceRow": true
             }
@@ -141783,7 +141783,7 @@
           "itemCode": "BS0054",
           "itemName": "알루미늄리드지 (국내/중국 원데이_아이리스)_무광 코팅",
           "specification": "BS0054-003",
-          "stockQty": 2764810,
+          "stockQty": 2723009,
           "inspectionWaitQty": 0,
           "warehouses": [
             {
@@ -141810,7 +141810,7 @@
             {
               "warehouseCode": "S100",
               "warehouseName": "S관 공정부자재",
-              "stockQty": 298854,
+              "stockQty": 257053,
               "inspectionWaitQty": 0,
               "hasSourceRow": true
             }
@@ -141935,7 +141935,7 @@
           "itemCode": "BS0059",
           "itemName": "알루미늄리드지 (Bella_1Day_컬러 리드지)_유광 코팅",
           "specification": "BS0059-001",
-          "stockQty": 407115,
+          "stockQty": 405490,
           "inspectionWaitQty": 0,
           "warehouses": [
             {
@@ -141955,7 +141955,7 @@
             {
               "warehouseCode": "P030",
               "warehouseName": "C관 공정부자재",
-              "stockQty": 154672,
+              "stockQty": 153047,
               "inspectionWaitQty": 0,
               "hasSourceRow": true
             },
@@ -142049,7 +142049,7 @@
           "itemCode": "BS0062",
           "itemName": "알루미늄리드지 (일본 sincere Natural 1day Moisture)_유광 코팅",
           "specification": "BS0062-002",
-          "stockQty": 395681,
+          "stockQty": 378811,
           "inspectionWaitQty": 0,
           "warehouses": [
             {
@@ -142076,7 +142076,7 @@
             {
               "warehouseCode": "S100",
               "warehouseName": "S관 공정부자재",
-              "stockQty": 90681,
+              "stockQty": 73811,
               "inspectionWaitQty": 0,
               "hasSourceRow": true
             }
@@ -142391,13 +142391,13 @@
           "itemCode": "BS0073",
           "itemName": "알루미늄리드지 (일본 PIA 1day 55%)_유광 코팅",
           "specification": "BS0073-002",
-          "stockQty": 4278116,
+          "stockQty": 4096831,
           "inspectionWaitQty": 0,
           "warehouses": [
             {
               "warehouseCode": "300",
               "warehouseName": "L관창고(자재)",
-              "stockQty": 3265000,
+              "stockQty": 2340000,
               "inspectionWaitQty": 0,
               "hasSourceRow": true
             },
@@ -142411,7 +142411,7 @@
             {
               "warehouseCode": "P030",
               "warehouseName": "C관 공정부자재",
-              "stockQty": 977407,
+              "stockQty": 1721122,
               "inspectionWaitQty": 0,
               "hasSourceRow": true
             },
@@ -143113,7 +143113,7 @@
           "itemCode": "BS0095",
           "itemName": "알루미늄리드지 (러시아 Optic Center 1-Day GO 리드지)",
           "specification": "BS0095-003",
-          "stockQty": 1638890,
+          "stockQty": 1628505,
           "inspectionWaitQty": 0,
           "warehouses": [
             {
@@ -143133,7 +143133,7 @@
             {
               "warehouseCode": "P030",
               "warehouseName": "C관 공정부자재",
-              "stockQty": 426440,
+              "stockQty": 416055,
               "inspectionWaitQty": 0,
               "hasSourceRow": true
             },
@@ -143759,7 +143759,7 @@
           "itemCode": "BS0115",
           "itemName": "알루미늄리드지 (무지-백색_PET12/AL30/CPP100_White 리버스인쇄)",
           "specification": "BS0115-001",
-          "stockQty": 6844497,
+          "stockQty": 6788913,
           "inspectionWaitQty": 0,
           "warehouses": [
             {
@@ -143786,7 +143786,7 @@
             {
               "warehouseCode": "S100",
               "warehouseName": "S관 공정부자재",
-              "stockQty": 632497,
+              "stockQty": 576913,
               "inspectionWaitQty": 0,
               "hasSourceRow": true
             }
@@ -144367,7 +144367,7 @@
           "itemCode": "BS0134",
           "itemName": "알루미늄리드지 (체코 Alensa 블루라이트 원데이 리드지)_유광 코팅",
           "specification": "BS0134-001",
-          "stockQty": 414244,
+          "stockQty": 391309,
           "inspectionWaitQty": 0,
           "warehouses": [
             {
@@ -144387,7 +144387,7 @@
             {
               "warehouseCode": "P030",
               "warehouseName": "C관 공정부자재",
-              "stockQty": 59244,
+              "stockQty": 36309,
               "inspectionWaitQty": 0,
               "hasSourceRow": true
             },
@@ -145166,13 +145166,13 @@
           "itemName": "알루미늄리드지 (러시아 Bi-focal_8.40_1-day 리드지)_무광 코팅",
           "specification": "BS0170-001",
           "stockQty": 93818,
-          "inspectionWaitQty": 0,
+          "inspectionWaitQty": 331000,
           "warehouses": [
             {
               "warehouseCode": "300",
               "warehouseName": "L관창고(자재)",
               "stockQty": 0,
-              "inspectionWaitQty": 0,
+              "inspectionWaitQty": 331000,
               "hasSourceRow": true
             },
             {
@@ -145186,7 +145186,7 @@
               "warehouseCode": "P030",
               "warehouseName": "C관 공정부자재",
               "stockQty": 93818,
-              "inspectionWaitQty": 0,
+              "inspectionWaitQty": 331000,
               "hasSourceRow": true
             },
             {
@@ -145317,7 +145317,7 @@
           "itemCode": "BS0176",
           "itemName": "알루미늄리드지 (일본 sincere ITFA 1D 38% UV)_유광 코팅",
           "specification": "BS0176-001",
-          "stockQty": 142510,
+          "stockQty": 111165,
           "inspectionWaitQty": 0,
           "warehouses": [
             {
@@ -145337,7 +145337,7 @@
             {
               "warehouseCode": "P030",
               "warehouseName": "C관 공정부자재",
-              "stockQty": 94510,
+              "stockQty": 63165,
               "inspectionWaitQty": 0,
               "hasSourceRow": true
             },
@@ -145355,7 +145355,7 @@
           "itemCode": "BS0178",
           "itemName": "알루미늄리드지 (Clalen O2O2 1Day_Clear)_무광 코팅",
           "specification": "BS0178-001",
-          "stockQty": 3529643,
+          "stockQty": 3506558,
           "inspectionWaitQty": 0,
           "warehouses": [
             {
@@ -145382,7 +145382,7 @@
             {
               "warehouseCode": "S100",
               "warehouseName": "S관 공정부자재",
-              "stockQty": 135643,
+              "stockQty": 112558,
               "inspectionWaitQty": 0,
               "hasSourceRow": true
             }
@@ -145963,7 +145963,7 @@
           "itemCode": "BS0201",
           "itemName": "알루미늄리드지 (하파크리스틴_1Day Color Toric)_유광 코팅",
           "specification": "BS0201-002",
-          "stockQty": 267269,
+          "stockQty": 265494,
           "inspectionWaitQty": 0,
           "warehouses": [
             {
@@ -145983,7 +145983,7 @@
             {
               "warehouseCode": "P030",
               "warehouseName": "C관 공정부자재",
-              "stockQty": 75269,
+              "stockQty": 73494,
               "inspectionWaitQty": 0,
               "hasSourceRow": true
             },
@@ -146040,13 +146040,13 @@
           "itemName": "알루미늄리드지 (OSC DYE 원데이 리드지)_유광코팅",
           "specification": "BS0204-002",
           "stockQty": 158061,
-          "inspectionWaitQty": 0,
+          "inspectionWaitQty": 353000,
           "warehouses": [
             {
               "warehouseCode": "300",
               "warehouseName": "L관창고(자재)",
               "stockQty": 0,
-              "inspectionWaitQty": 0,
+              "inspectionWaitQty": 353000,
               "hasSourceRow": true
             },
             {
@@ -146067,7 +146067,7 @@
               "warehouseCode": "S100",
               "warehouseName": "S관 공정부자재",
               "stockQty": 158061,
-              "inspectionWaitQty": 0,
+              "inspectionWaitQty": 353000,
               "hasSourceRow": true
             }
           ],
@@ -146381,7 +146381,7 @@
           "itemCode": "BS0214",
           "itemName": "알루미늄리드지 (Bella 리뉴얼 원데이 리드지(아랍))_유광코팅",
           "specification": "BS0214-001",
-          "stockQty": 142635,
+          "stockQty": 130923,
           "inspectionWaitQty": 528000,
           "warehouses": [
             {
@@ -146401,14 +146401,14 @@
             {
               "warehouseCode": "P030",
               "warehouseName": "C관 공정부자재",
-              "stockQty": 91766,
+              "stockQty": 86781,
               "inspectionWaitQty": 528000,
               "hasSourceRow": true
             },
             {
               "warehouseCode": "S100",
               "warehouseName": "S관 공정부자재",
-              "stockQty": 50869,
+              "stockQty": 44142,
               "inspectionWaitQty": 528000,
               "hasSourceRow": true
             }
@@ -148813,7 +148813,7 @@
           "itemCode": "BS0316",
           "itemName": "알루미늄리드지 (PIA_1M 38% LILMOON 리드지)",
           "specification": "BS0316-001",
-          "stockQty": 121045,
+          "stockQty": 118230,
           "inspectionWaitQty": 0,
           "warehouses": [
             {
@@ -148833,7 +148833,7 @@
             {
               "warehouseCode": "P030",
               "warehouseName": "C관 공정부자재",
-              "stockQty": 73045,
+              "stockQty": 70230,
               "inspectionWaitQty": 0,
               "hasSourceRow": true
             },
@@ -148851,7 +148851,7 @@
           "itemCode": "BS0317",
           "itemName": "알루미늄리드지 (PIA_1M 38% MOLAK 리드지)",
           "specification": "BS0317-001",
-          "stockQty": 173163,
+          "stockQty": 169943,
           "inspectionWaitQty": 0,
           "warehouses": [
             {
@@ -148871,7 +148871,7 @@
             {
               "warehouseCode": "P030",
               "warehouseName": "C관 공정부자재",
-              "stockQty": 125163,
+              "stockQty": 121943,
               "inspectionWaitQty": 0,
               "hasSourceRow": true
             },
@@ -148889,7 +148889,7 @@
           "itemCode": "BS0318",
           "itemName": "알루미늄리드지 (PIA_1M 38% feliamo 리드지)",
           "specification": "BS0318-001",
-          "stockQty": 283603,
+          "stockQty": 277213,
           "inspectionWaitQty": 0,
           "warehouses": [
             {
@@ -148909,7 +148909,7 @@
             {
               "warehouseCode": "P030",
               "warehouseName": "C관 공정부자재",
-              "stockQty": 139603,
+              "stockQty": 133213,
               "inspectionWaitQty": 0,
               "hasSourceRow": true
             },
@@ -149041,20 +149041,20 @@
           "itemCode": "BS0333",
           "itemName": "알루미늄리드지 (Monthly_무지) (80mm)",
           "specification": "BS0333-001",
-          "stockQty": 1996361,
+          "stockQty": 1939081,
           "inspectionWaitQty": 0,
           "warehouses": [
             {
               "warehouseCode": "300",
               "warehouseName": "L관창고(자재)",
-              "stockQty": 1914000,
+              "stockQty": 1784000,
               "inspectionWaitQty": 0,
               "hasSourceRow": true
             },
             {
               "warehouseCode": "P010",
               "warehouseName": "A관 공정부자재",
-              "stockQty": 82361,
+              "stockQty": 155081,
               "inspectionWaitQty": 0,
               "hasSourceRow": true
             },
@@ -149459,7 +149459,7 @@
           "itemCode": "BS0353",
           "itemName": "알루미늄리드지 (PIA_1D 55% Chapun 리드지)",
           "specification": "BS0353-001",
-          "stockQty": 1932637,
+          "stockQty": 1791282,
           "inspectionWaitQty": 0,
           "warehouses": [
             {
@@ -149479,7 +149479,7 @@
             {
               "warehouseCode": "P030",
               "warehouseName": "C관 공정부자재",
-              "stockQty": 626637,
+              "stockQty": 485282,
               "inspectionWaitQty": 0,
               "hasSourceRow": true
             },
@@ -149497,7 +149497,7 @@
           "itemCode": "BS0354",
           "itemName": "알루미늄리드지 (PIA_1D 55% CoFANCY 리드지)",
           "specification": "BS0354-001",
-          "stockQty": 1104722,
+          "stockQty": 992907,
           "inspectionWaitQty": 0,
           "warehouses": [
             {
@@ -149517,7 +149517,7 @@
             {
               "warehouseCode": "P030",
               "warehouseName": "C관 공정부자재",
-              "stockQty": 508722,
+              "stockQty": 396907,
               "inspectionWaitQty": 0,
               "hasSourceRow": true
             },
@@ -149611,7 +149611,7 @@
           "itemCode": "BS0357",
           "itemName": "알루미늄리드지 (Clalen O2O2 Color 1Month)",
           "specification": "BS0357-001",
-          "stockQty": 203484,
+          "stockQty": 201587,
           "inspectionWaitQty": 0,
           "warehouses": [
             {
@@ -149638,7 +149638,7 @@
             {
               "warehouseCode": "S100",
               "warehouseName": "S관 공정부자재",
-              "stockQty": 155484,
+              "stockQty": 153587,
               "inspectionWaitQty": 0,
               "hasSourceRow": true
             }
@@ -149725,7 +149725,7 @@
           "itemCode": "BS0360",
           "itemName": "알루미늄리드지 (Optic Center Adria O2O2 Sph 리드지_SMHL)",
           "specification": "BS0360-001",
-          "stockQty": 149928,
+          "stockQty": 145645,
           "inspectionWaitQty": 0,
           "warehouses": [
             {
@@ -149752,7 +149752,7 @@
             {
               "warehouseCode": "S100",
               "warehouseName": "S관 공정부자재",
-              "stockQty": 53928,
+              "stockQty": 49645,
               "inspectionWaitQty": 0,
               "hasSourceRow": true
             }
@@ -149763,7 +149763,7 @@
           "itemCode": "BS0361",
           "itemName": "알루미늄리드지 (Optic Center Adria O2O2 White 리드지_SMHL)",
           "specification": "BS0361-001",
-          "stockQty": 129471,
+          "stockQty": 120789,
           "inspectionWaitQty": 0,
           "warehouses": [
             {
@@ -149790,7 +149790,7 @@
             {
               "warehouseCode": "S100",
               "warehouseName": "S관 공정부자재",
-              "stockQty": 34471,
+              "stockQty": 25789,
               "inspectionWaitQty": 0,
               "hasSourceRow": true
             }
@@ -149801,7 +149801,7 @@
           "itemCode": "BS0362",
           "itemName": "알루미늄리드지 (Optic Center Adria City 리드지_SMHL)",
           "specification": "BS0362-001",
-          "stockQty": 227150,
+          "stockQty": 215653,
           "inspectionWaitQty": 0,
           "warehouses": [
             {
@@ -149828,7 +149828,7 @@
             {
               "warehouseCode": "S100",
               "warehouseName": "S관 공정부자재",
-              "stockQty": 83150,
+              "stockQty": 71653,
               "inspectionWaitQty": 0,
               "hasSourceRow": true
             }
@@ -150028,10 +150028,10 @@
       ]
     },
     "purchase": {
-      "collectedAt": "2026-11-25T14:50:05+09:00",
-      "queryDate": "2026-11-25 14:50",
-      "dateFrom": "2026-09-25",
-      "dateTo": "2026-11-25",
+      "collectedAt": "2026-11-26T06:51:04+09:00",
+      "queryDate": "2026-11-26 06:51",
+      "dateFrom": "2026-09-26",
+      "dateTo": "2026-11-26",
       "historyWindow": "recent two months",
       "excludedRows": [
         {
@@ -150049,18 +150049,18 @@
         "orders": "itm_cd=BS, open_only=1"
       },
       "requestSourceRowCount": 3,
-      "purchaseOrderSourceRowCount": 50,
+      "purchaseOrderSourceRowCount": 46,
       "matchedLiddingRequestRows": 1,
-      "matchedLiddingPurchaseOrderRows": 28,
-      "openLiddingItemCount": 21,
-      "inboundWaitItemCount": 20,
+      "matchedLiddingPurchaseOrderRows": 24,
+      "openLiddingItemCount": 19,
+      "inboundWaitItemCount": 18,
       "purchaseWaitItemCount": 1,
-      "inboundWaitTotal": 18294717,
+      "inboundWaitTotal": 17610717,
       "purchaseWaitTotal": 100000,
       "excludedMissingRequestNoRows": 0,
       "excludedMissingRequestNoQty": 0,
-      "includedMissingRequestNoRows": 5,
-      "includedMissingRequestNoQty": 6337320,
+      "includedMissingRequestNoRows": 3,
+      "includedMissingRequestNoQty": 6253320,
       "formula": {
         "inboundWait": "sum(rem_qty) where stat_bc_nm in (발주, 납품진행), regardless of req_no or rmks",
         "purchaseWait": "sum(not_inqty) where stat_bc_nm in (의뢰, 완료)",
@@ -150471,106 +150471,6 @@
           "requestQty": 0,
           "requestPurchaseOrderQty": 0,
           "purchaseWaitQty": 0,
-          "purchaseOrderQty": 331000,
-          "provisionalReceiptQty": 0,
-          "receivedQty": 0,
-          "inboundWaitQty": 331000,
-          "pendingApprovalQty": 0,
-          "pendingRequests": [],
-          "itemCode": "BS0170",
-          "itemName": "알루미늄리드지 (러시아 Bi-focal_8.40_1-day 리드지)_무광 코팅",
-          "specification": "BS0170-001",
-          "openRequestCount": 0,
-          "openPurchaseOrderCount": 2,
-          "nextRequestedDeliveryDate": null,
-          "nextOrderDeliveryDate": "2026-11-23",
-          "nextDeliveryDate": "2026-11-23",
-          "requests": [],
-          "purchaseOrders": [
-            {
-              "purchaseOrderNo": "PO-2611110019",
-              "purchaseOrderSeq": 1,
-              "purchaseOrderDate": "2026-11-11",
-              "requestNo": "PR-2611130004",
-              "requestSeq": 1,
-              "deliveryDate": "2026-11-23",
-              "purchaseOrderQty": 300000,
-              "provisionalReceiptQty": 0,
-              "receivedQty": 0,
-              "inboundWaitQty": 300000,
-              "orderStatus": "발주",
-              "supplierName": "피앤피 주식회사"
-            },
-            {
-              "purchaseOrderNo": "PO-2611250003",
-              "purchaseOrderSeq": 1,
-              "purchaseOrderDate": "2026-11-25",
-              "requestNo": "",
-              "requestSeq": null,
-              "deliveryDate": "2026-11-25",
-              "purchaseOrderQty": 31000,
-              "provisionalReceiptQty": 0,
-              "receivedQty": 0,
-              "inboundWaitQty": 31000,
-              "orderStatus": "발주",
-              "supplierName": "피앤피 주식회사"
-            }
-          ]
-        },
-        {
-          "requestQty": 0,
-          "requestPurchaseOrderQty": 0,
-          "purchaseWaitQty": 0,
-          "purchaseOrderQty": 353000,
-          "provisionalReceiptQty": 0,
-          "receivedQty": 0,
-          "inboundWaitQty": 353000,
-          "pendingApprovalQty": 0,
-          "pendingRequests": [],
-          "itemCode": "BS0204",
-          "itemName": "알루미늄리드지 (OSC DYE 원데이 리드지)_유광코팅",
-          "specification": "BS0204-002",
-          "openRequestCount": 0,
-          "openPurchaseOrderCount": 2,
-          "nextRequestedDeliveryDate": null,
-          "nextOrderDeliveryDate": "2026-11-23",
-          "nextDeliveryDate": "2026-11-23",
-          "requests": [],
-          "purchaseOrders": [
-            {
-              "purchaseOrderNo": "PO-2611090007",
-              "purchaseOrderSeq": 3,
-              "purchaseOrderDate": "2026-11-09",
-              "requestNo": "PR-2611060005",
-              "requestSeq": 3,
-              "deliveryDate": "2026-11-23",
-              "purchaseOrderQty": 300000,
-              "provisionalReceiptQty": 0,
-              "receivedQty": 0,
-              "inboundWaitQty": 300000,
-              "orderStatus": "발주",
-              "supplierName": "피앤피 주식회사"
-            },
-            {
-              "purchaseOrderNo": "PO-2611250003",
-              "purchaseOrderSeq": 3,
-              "purchaseOrderDate": "2026-11-25",
-              "requestNo": "",
-              "requestSeq": null,
-              "deliveryDate": "2026-11-25",
-              "purchaseOrderQty": 53000,
-              "provisionalReceiptQty": 0,
-              "receivedQty": 0,
-              "inboundWaitQty": 53000,
-              "orderStatus": "발주",
-              "supplierName": "피앤피 주식회사"
-            }
-          ]
-        },
-        {
-          "requestQty": 0,
-          "requestPurchaseOrderQty": 0,
-          "purchaseWaitQty": 0,
           "purchaseOrderQty": 528000,
           "provisionalReceiptQty": 28000,
           "receivedQty": 0,
@@ -150931,10 +150831,10 @@
       ]
     },
     "bom": {
-      "generatedAt": "2026-11-25T14:49:53+09:00",
+      "generatedAt": "2026-11-26T06:50:58+09:00",
       "sourceSignature": "2e4b2b96c849d250999a80214eb3a661f30ab068f5f04ce5236ae491a30a9917",
       "productSourceCount": 1794,
-      "bomSourceCount": 30119,
+      "bomSourceCount": 30118,
       "activePProductCount": 1794,
       "productApiFilterApplied": true,
       "bomApiFilterApplied": false,
