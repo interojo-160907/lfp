@@ -1,18 +1,18 @@
 {
-  "generatedAt": "2026-11-26T07:22:57+09:00",
-  "sourceSignature": "2e4b2b96c849d250999a80214eb3a661f30ab068f5f04ce5236ae491a30a9917",
+  "generatedAt": "2026-11-26T14:46:54+09:00",
+  "sourceSignature": "8f28fca5ac465f4d0d3b0e2e1d9e90913d48bbdeaff7c7655d3256f1fa9839a6",
   "productSourceCount": 1794,
-  "bomSourceCount": 30118,
+  "bomSourceCount": 30146,
   "activePProductCount": 1794,
   "productApiFilterApplied": true,
   "bomApiFilterApplied": false,
   "bomApiFilterReason": "BOM API supports exact gd_cd only; P-prefix + level-1 BS lidding filters are applied locally",
   "storageScope": "active P-code + level-1 active BS lidding only",
-  "mappingCount": 1710,
-  "mappedProductCount": 1710,
+  "mappingCount": 1714,
+  "mappedProductCount": 1714,
   "liddingCodeCount": 244,
   "specificationVersionCount": 244,
-  "unmappedProductCount": 84,
+  "unmappedProductCount": 80,
   "rows": [
     {
       "productCode": "P0001",
@@ -7346,6 +7346,50 @@
       "liddingCode": "BS0273",
       "liddingName": "알루미늄리드지 (Bella 리뉴얼 원데이 리드지(사우디))",
       "liddingSpecification": "BS0273-001",
+      "requirementQty": 1,
+      "bomLevel": 1,
+      "statusCode": "S",
+      "useYn": "Y"
+    },
+    {
+      "productCode": "P1349",
+      "productName": "PIA D_BABY TIGER_55% UV 15.0",
+      "liddingCode": "BS0261",
+      "liddingName": "알루미늄리드지 (PIA_1D 55% Resay 리드지)",
+      "liddingSpecification": "BS0261-001",
+      "requirementQty": 1,
+      "bomLevel": 1,
+      "statusCode": "S",
+      "useYn": "Y"
+    },
+    {
+      "productCode": "P1350",
+      "productName": "PIA D_LIAR DEVIL_55% UV 15.0",
+      "liddingCode": "BS0261",
+      "liddingName": "알루미늄리드지 (PIA_1D 55% Resay 리드지)",
+      "liddingSpecification": "BS0261-001",
+      "requirementQty": 1,
+      "bomLevel": 1,
+      "statusCode": "S",
+      "useYn": "Y"
+    },
+    {
+      "productCode": "P1351",
+      "productName": "PIA D_WILD CHERRY_55% UV 14.5",
+      "liddingCode": "BS0261",
+      "liddingName": "알루미늄리드지 (PIA_1D 55% Resay 리드지)",
+      "liddingSpecification": "BS0261-001",
+      "requirementQty": 1,
+      "bomLevel": 1,
+      "statusCode": "S",
+      "useYn": "Y"
+    },
+    {
+      "productCode": "P1352",
+      "productName": "PIA D_ICY KISS_55% UV 14.5",
+      "liddingCode": "BS0261",
+      "liddingName": "알루미늄리드지 (PIA_1D 55% Resay 리드지)",
+      "liddingSpecification": "BS0261-001",
       "requirementQty": 1,
       "bomLevel": 1,
       "statusCode": "S",
@@ -18825,5 +18869,5 @@
       "useYn": "Y"
     }
   ],
-  "changed": false
+  "changed": true
 }
