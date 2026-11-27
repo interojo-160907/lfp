@@ -1,18 +1,18 @@
 {
-  "generatedAt": "2026-11-27T09:57:24+09:00",
-  "sourceSignature": "220fbfecd8c8e1fdf9e22a4fe84f59794c8838b69cb5daa520ba36b4437f8485",
-  "productSourceCount": 1794,
-  "bomSourceCount": 30148,
-  "activePProductCount": 1794,
+  "generatedAt": "2026-11-27T14:48:05+09:00",
+  "sourceSignature": "53bfaae1ed9cd11cdabd828d0bd6a8520ccb3d795b1d4522ce8bd69fb5133c07",
+  "productSourceCount": 1803,
+  "bomSourceCount": 30174,
+  "activePProductCount": 1803,
   "productApiFilterApplied": true,
   "bomApiFilterApplied": false,
   "bomApiFilterReason": "BOM API supports exact gd_cd only; P-prefix + level-1 BS lidding filters are applied locally",
   "storageScope": "active P-code + level-1 active BS lidding only",
-  "mappingCount": 1714,
-  "mappedProductCount": 1714,
-  "liddingCodeCount": 245,
-  "specificationVersionCount": 245,
-  "unmappedProductCount": 80,
+  "mappingCount": 1719,
+  "mappedProductCount": 1719,
+  "liddingCodeCount": 250,
+  "specificationVersionCount": 250,
+  "unmappedProductCount": 84,
   "rows": [
     {
       "productCode": "P0001",
@@ -7390,6 +7390,61 @@
       "liddingCode": "BS0261",
       "liddingName": "알루미늄리드지 (PIA_1D 55% Resay 리드지)",
       "liddingSpecification": "BS0261-001",
+      "requirementQty": 1,
+      "bomLevel": 1,
+      "statusCode": "S",
+      "useYn": "Y"
+    },
+    {
+      "productCode": "P1353",
+      "productName": "중국 Clalen D__Seongsu_55% (Pink Brown)_tw",
+      "liddingCode": "BS0373",
+      "liddingName": "알루미늄리드지 (국문 Clalen D_Pink brown_55% (축고정)_tw)",
+      "liddingSpecification": "BS0373-001",
+      "requirementQty": 1,
+      "bomLevel": 1,
+      "statusCode": "S",
+      "useYn": "Y"
+    },
+    {
+      "productCode": "P1354",
+      "productName": "중국 Clalen D_Hanriver_55% (Green)_tw",
+      "liddingCode": "BS0374",
+      "liddingName": "알루미늄리드지 (국문 Clalen D_Green_55% (축고정)_tw)",
+      "liddingSpecification": "BS0374-001",
+      "requirementQty": 1,
+      "bomLevel": 1,
+      "statusCode": "S",
+      "useYn": "Y"
+    },
+    {
+      "productCode": "P1355",
+      "productName": "중국 Clalen D_Bukchon_55% (Beige Brown)_tw",
+      "liddingCode": "BS0375",
+      "liddingName": "알루미늄리드지 (국문 Clalen D_Beige brown_55% (축고정)_tw)",
+      "liddingSpecification": "BS0375-001",
+      "requirementQty": 1,
+      "bomLevel": 1,
+      "statusCode": "S",
+      "useYn": "Y"
+    },
+    {
+      "productCode": "P1356",
+      "productName": "중국 Clalen D_Hongdae_55% (Purple)_tw",
+      "liddingCode": "BS0376",
+      "liddingName": "알루미늄리드지 (국문 Clalen D_Purple_55% (축고정)_tw)",
+      "liddingSpecification": "BS0376-001",
+      "requirementQty": 1,
+      "bomLevel": 1,
+      "statusCode": "S",
+      "useYn": "Y"
+    },
+    {
+      "productCode": "P1357",
+      "productName": "중국 Clalen D_Itaewon_55% (Ash Brown)_tw",
+      "liddingCode": "BS0377",
+      "liddingName": "알루미늄리드지 (국문 Clalen D_Ash brown_55% (축고정)_tw)",
+      "liddingSpecification": "BS0377-001",
       "requirementQty": 1,
       "bomLevel": 1,
       "statusCode": "S",
@@ -18869,5 +18924,5 @@
       "useYn": "Y"
     }
   ],
-  "changed": false
+  "changed": true
 }
